@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public enum ECaracteristica
+    public enum EEspecieElfo
     {
         No_Especificado,
-        Enano,
-        Mediano,
-        Alto
+        Solar,
+        Oscuro,
+        Lunar,
+        Estelar
     }
 }

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public enum ECaracteristica
+    public enum EEspecieOrco
     {
         No_Especificado,
-        Enano,
-        Mediano,
-        Alto
+        MedioOrco,
+        Orogs,
+        Ondontis,
+        OrcosGrises
     }
 }

@@ -12,17 +12,14 @@
         private EColorPelo colorPelo { get; set; }
         private EColorHumano colorHumano { get; set; }
 
-        public Humano()
-        {
-            
-        }
-        public Humano(string nombre, ECaracteristica caracteristica, EColorPelo colorPelo)
-            : base(nombre, caracteristica)
+        public Humano() { }
+        public Humano(string nombre, EEdad edad, EColorPelo colorPelo)
+            : base(nombre, edad)
         {
             this.colorPelo = colorPelo;
         }
         public Humano(string nombre, EEdad edad, ECaracteristica caracteristica, EColorPelo colorPelo, EColorHumano colorHumano)
-            : base(nombre, caracteristica, edad )
+            : base(nombre, edad, caracteristica)
         {
             this.colorPelo = colorPelo;
             this.colorHumano = colorHumano;

@@ -10,8 +10,8 @@
     {
 
         protected string Nombre { get; set; }
-        protected ECaracteristica Caracteristica { get; set; }
         protected EEdad Edad { get; set; }
+        protected ECaracteristica Caracteristica { get; set; }
         public Personaje()
         {
             this.Nombre = "Sin nombre";
@@ -26,14 +26,14 @@
             this.Nombre = nombre;
         }
 
-        public Personaje(string nombre, ECaracteristica caracteristica) : this(nombre)
-        {
-            this.Caracteristica = caracteristica;
-        }
-
-        public Personaje(string nombre, ECaracteristica caracteristica, EEdad edad) : this(nombre, caracteristica)
+        public Personaje(string nombre, EEdad edad) : this(nombre)
         {
             this.Edad = edad;
+        }
+
+        public Personaje(string nombre, EEdad edad, ECaracteristica caracteristica) : this(nombre, edad)
+        {
+            this.Caracteristica = caracteristica;
         }
 
         public override bool Equals(object obj)
