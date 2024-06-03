@@ -72,7 +72,7 @@ namespace WindowsForm
 
             foreach (Usuario usuario in usuarios)
             {
-                if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContra.Text)
+                if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
                 {
                     Menu frmMain = new Menu(logPath);
                     frmMain.Show();
@@ -91,10 +91,10 @@ namespace WindowsForm
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
-                txtContra.UseSystemPasswordChar = false;
+                txtContrasenia.UseSystemPasswordChar = false;
             else 
             {
-                txtContra.UseSystemPasswordChar = true;
+                txtContrasenia.UseSystemPasswordChar = true;
 
             }
         }

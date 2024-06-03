@@ -31,7 +31,7 @@
             label1 = new Label();
             label2 = new Label();
             txtCorreo = new TextBox();
-            txtContra = new TextBox();
+            txtContrasenia = new TextBox();
             button1 = new Button();
             checkBox1 = new CheckBox();
             SuspendLayout();
@@ -61,13 +61,13 @@
             txtCorreo.Size = new Size(133, 23);
             txtCorreo.TabIndex = 2;
             // 
-            // txtContra
+            // txtContrasenia
             // 
-            txtContra.Location = new Point(141, 71);
-            txtContra.Name = "txtContra";
-            txtContra.Size = new Size(133, 23);
-            txtContra.TabIndex = 3;
-            txtContra.UseSystemPasswordChar = true;
+            txtContrasenia.Location = new Point(141, 71);
+            txtContrasenia.Name = "txtContrasenia";
+            txtContrasenia.Size = new Size(133, 23);
+            txtContrasenia.TabIndex = 3;
+            txtContrasenia.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -98,13 +98,13 @@
             ClientSize = new Size(331, 154);
             Controls.Add(checkBox1);
             Controls.Add(button1);
-            Controls.Add(txtContra);
+            Controls.Add(txtContrasenia);
             Controls.Add(txtCorreo);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "LOGIN";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -114,7 +114,7 @@
         private Label label1;
         private Label label2;
         private TextBox txtCorreo;
-        private TextBox txtContra;
+        private TextBox txtContrasenia;
         private Button button1;
         private CheckBox checkBox1;
     }

@@ -48,9 +48,9 @@
             nombreToolStripMenuItem = new ToolStripMenuItem();
             ascendenteToolStripMenuItem = new ToolStripMenuItem();
             descendenteToolStripMenuItem = new ToolStripMenuItem();
-            cbLobo = new CheckBox();
-            cbOso = new CheckBox();
-            cbTigre = new CheckBox();
+            cbHumano = new CheckBox();
+            cbOrco = new CheckBox();
+            cbElfo = new CheckBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -207,45 +207,45 @@
             descendenteToolStripMenuItem.Text = "Descendente";
             descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click;
             // 
-            // cbLobo
+            // cbHumano
             // 
-            cbLobo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cbLobo.AutoSize = true;
-            cbLobo.Checked = true;
-            cbLobo.CheckState = CheckState.Checked;
-            cbLobo.Location = new Point(625, 64);
-            cbLobo.Name = "cbLobo";
-            cbLobo.Size = new Size(122, 19);
-            cbLobo.TabIndex = 5;
-            cbLobo.Text = "Mostrar Humanos";
-            cbLobo.UseVisualStyleBackColor = true;
+            cbHumano.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbHumano.AutoSize = true;
+            cbHumano.Checked = true;
+            cbHumano.CheckState = CheckState.Checked;
+            cbHumano.Location = new Point(625, 64);
+            cbHumano.Name = "cbHumano";
+            cbHumano.Size = new Size(122, 19);
+            cbHumano.TabIndex = 5;
+            cbHumano.Text = "Mostrar Humanos";
+            cbHumano.UseVisualStyleBackColor = true;
             // 
-            // cbOso
+            // cbOrco
             // 
-            cbOso.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cbOso.AutoSize = true;
-            cbOso.Checked = true;
-            cbOso.CheckState = CheckState.Checked;
-            cbOso.Location = new Point(625, 89);
-            cbOso.Name = "cbOso";
-            cbOso.Size = new Size(101, 19);
-            cbOso.TabIndex = 6;
-            cbOso.Text = "Mostrar Orcos";
-            cbOso.UseVisualStyleBackColor = true;
+            cbOrco.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbOrco.AutoSize = true;
+            cbOrco.Checked = true;
+            cbOrco.CheckState = CheckState.Checked;
+            cbOrco.Location = new Point(625, 89);
+            cbOrco.Name = "cbOrco";
+            cbOrco.Size = new Size(101, 19);
+            cbOrco.TabIndex = 6;
+            cbOrco.Text = "Mostrar Orcos";
+            cbOrco.UseVisualStyleBackColor = true;
             // 
-            // cbTigre
+            // cbElfo
             // 
-            cbTigre.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cbTigre.AutoSize = true;
-            cbTigre.Checked = true;
-            cbTigre.CheckState = CheckState.Checked;
-            cbTigre.Location = new Point(626, 114);
-            cbTigre.Name = "cbTigre";
-            cbTigre.Size = new Size(98, 19);
-            cbTigre.TabIndex = 7;
-            cbTigre.Text = "Mostrar Elfos ";
-            cbTigre.UseVisualStyleBackColor = true;
-            cbTigre.CheckedChanged += cbTigre_CheckedChanged;
+            cbElfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbElfo.AutoSize = true;
+            cbElfo.Checked = true;
+            cbElfo.CheckState = CheckState.Checked;
+            cbElfo.Location = new Point(626, 114);
+            cbElfo.Name = "cbElfo";
+            cbElfo.Size = new Size(98, 19);
+            cbElfo.TabIndex = 7;
+            cbElfo.Text = "Mostrar Elfos ";
+            cbElfo.UseVisualStyleBackColor = true;
+            cbElfo.CheckedChanged += cbTigre_CheckedChanged;
             // 
             // Menu
             // 
@@ -253,9 +253,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(745, 324);
-            Controls.Add(cbTigre);
-            Controls.Add(cbOso);
-            Controls.Add(cbLobo);
+            Controls.Add(cbElfo);
+            Controls.Add(cbOrco);
+            Controls.Add(cbHumano);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -264,7 +264,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Menu";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "MENU";
             Load += Menu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -282,9 +282,9 @@
         private ToolStripMenuItem archivoToolStripMenuItem;
         private ToolStripMenuItem guardarToolStripMenuItem;
         private ToolStripMenuItem abrirToolStripMenuItem;
-        private CheckBox cbLobo;
-        private CheckBox cbOso;
-        private CheckBox cbTigre;
+        private CheckBox cbHumano;
+        private CheckBox cbOrco;
+        private CheckBox cbElfo;
         private ToolStripMenuItem configuracionToolStripMenuItem;
         private ToolStripMenuItem verLogsToolStripMenuItem;
         private ToolStripMenuItem elegirGuardadoToolStripMenuItem;
