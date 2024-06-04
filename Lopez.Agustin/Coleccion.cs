@@ -74,11 +74,11 @@ namespace ClassLibrary
             }
         }
 
-        public List<Personaje> FiltrarPorTipos(bool incluirHumano, bool incluirOrcos, bool incluirElfo)
+        public List<Personaje> FiltrarPorTipos(bool incluirHumano, bool incluirOrco, bool incluirElfo)
         {
             List<Personaje> resultado = new List<Personaje>();
 
-            foreach (var personaje in Personaje)
+            foreach (var personaje in personajes)
             {
                 // Comprobar si el carnivoro es del tipo solicitado y debe incluirse en el resultado
                 if ((personaje is Humano && incluirHumano) || (personaje is Orco && incluirOrco) || (personaje is Elfo && incluirElfo))

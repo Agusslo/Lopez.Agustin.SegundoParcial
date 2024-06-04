@@ -245,7 +245,7 @@
             cbElfo.TabIndex = 7;
             cbElfo.Text = "Mostrar Elfos ";
             cbElfo.UseVisualStyleBackColor = true;
-            cbElfo.CheckedChanged += cbTigre_CheckedChanged;
+            cbElfo.CheckedChanged += cbElfo_CheckedChanged;
             // 
             // Menu
             // 

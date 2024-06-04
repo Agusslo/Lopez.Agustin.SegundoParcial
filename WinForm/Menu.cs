@@ -1,17 +1,4 @@
 ﻿using ClassLibrary;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace WindowsForm
 {
@@ -39,7 +26,7 @@ namespace WindowsForm
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmEleccion agregar = new FrmEleccion();//todavia no lo cree, uso misma logica
+            FrmEleccion agregar = new FrmEleccion();
             if (agregar.ShowDialog() == DialogResult.OK)
             {
                 Personaje nuevoPersonaje = agregar.SelectedPersonaje;
@@ -118,7 +105,7 @@ namespace WindowsForm
 
         private void verLogsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmLog logsForm = new FrmLog(this.logPath); //todavia no lo cree, uso misma logica
+            FrmLog logsForm = new FrmLog(this.logPath); 
             logsForm.ShowDialog();
         }
 
@@ -164,7 +151,7 @@ namespace WindowsForm
                 Form modificarForm;
                 if (personajeseleccionado is Elfo elfoSeleccionado)
                 {
-                    modificarForm = new AgregarElfo(elfoSeleccionado);
+                    modificarForm = new AgregarElfo(elfoSeleccionado); //TENGO ERRRORES EN TODOS ESTOS ASI QUE VOY A CREAR EL RESTO DE LOS FORM PRIMERO PROFESORES
                 }
                 else if (personajeseleccionado is Orco orcoSeleccionado)
                 {
@@ -210,7 +197,7 @@ namespace WindowsForm
 
         }
 
-        private void cbTigre_CheckedChanged(object sender, EventArgs e)
+        private void cbElfo_CheckedChanged(object sender, EventArgs e)
         {
 
         }

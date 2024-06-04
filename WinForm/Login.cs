@@ -1,25 +1,16 @@
-using System.Text.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows.Forms;
-using System.Runtime.Serialization.Json;
-using System.Runtime.InteropServices;
 using ClassLibrary;
-using System.Reflection.Metadata;
-using System.Web;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Text.Json;
 
 
 namespace WindowsForm
 {
-    public partial class Main : Form
+    public partial class Login : Form
     {
         List<Usuario> usuarios;
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "parcial");
         string logPath;
 
-        public Main()
+        public Login()
         {
 
             // Creacion de carpeta
@@ -92,7 +83,7 @@ namespace WindowsForm
         {
             if (checkBox1.Checked)
                 txtContrasenia.UseSystemPasswordChar = false;
-            else 
+            else
             {
                 txtContrasenia.UseSystemPasswordChar = true;
 

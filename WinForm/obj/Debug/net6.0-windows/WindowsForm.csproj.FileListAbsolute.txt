@@ -1,0 +1,12 @@
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.csproj.AssemblyReference.cache
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.AgregarOrco.resources
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.AgregarPersonaje.resources
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.Login.resources
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.Menu.resources
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.csproj.GenerateResource.cache
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.AssemblyInfoInputs.cache
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.AssemblyInfo.cs
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.csproj.CoreCompileInputs.cache
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.sourcelink.json
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WindowsForm.FrmEleccion.resources

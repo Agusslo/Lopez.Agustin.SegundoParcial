@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "93vHnf7KkgVbHQWl50ZQsIgr4Pf4VQbh+XJl49r3dipX99kKW426m2rUwolC01aX5fB5rmqsi+pEgCFBnxeiAw==",
+  "dgSpecHash": "bmX7B9z/fFn0C8NKBHfmizgX/vRTAU1DXSUSJmj9RarPVdjPvCeuKA5Lwzx2tvsnvJyWUbmwEQvrye2R6DHbmA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\WinForm.csproj",
+  "projectFilePath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\WindowsForm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
     "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
