@@ -1,4 +1,4 @@
-﻿namespace WindowsForm
+﻿namespace WinForm
 {
     partial class AgregarPersonaje
     {
@@ -28,36 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cbCaracteristica = new ComboBox();
-            button2 = new Button();
             groupBox1 = new GroupBox();
             label1 = new Label();
             txtNombre = new TextBox();
             label2 = new Label();
             cbEdad = new ComboBox();
             label3 = new Label();
+            cbCaracteristica = new ComboBox();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // cbCaracteristica
-            // 
-            cbCaracteristica.Items.AddRange(new object[] { "Corto", "Mediano", "Largo" });
-            cbCaracteristica.Location = new Point(200, 168);
-            cbCaracteristica.Name = "cbCaracteristica";
-            cbCaracteristica.Size = new Size(150, 23);
-            cbCaracteristica.TabIndex = 3;
-            cbCaracteristica.Text = "No especificado";
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(218, 376);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 62);
-            button2.TabIndex = 8;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // groupBox1
             // 
@@ -67,10 +47,10 @@
             groupBox1.Controls.Add(cbEdad);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(cbCaracteristica);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(31, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(378, 224);
-            groupBox1.TabIndex = 10;
+            groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
@@ -121,18 +101,34 @@
             label3.TabIndex = 2;
             label3.Text = "Caracteristicas: ";
             // 
-            // AgregarPersonaje
+            // cbCaracteristica
+            // 
+            cbCaracteristica.Items.AddRange(new object[] { "Corto", "Mediano", "Largo" });
+            cbCaracteristica.Location = new Point(200, 168);
+            cbCaracteristica.Name = "cbCaracteristica";
+            cbCaracteristica.Size = new Size(150, 23);
+            cbCaracteristica.TabIndex = 3;
+            cbCaracteristica.Text = "No especificado";
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(237, 376);
+            button2.Name = "button2";
+            button2.Size = new Size(150, 62);
+            button2.TabIndex = 11;
+            button2.Text = "Cancelar";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(399, 450);
+            ClientSize = new Size(441, 450);
             Controls.Add(groupBox1);
             Controls.Add(button2);
-            Name = "AgregarPersonaje";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Agregar Personaje";
-            Load += AgregarPersonaje_Load;
+            Name = "Form1";
+            Text = "Form1";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -140,7 +136,6 @@
 
         #endregion
 
-        private Button button2;
         private GroupBox groupBox1;
         private Label label1;
         protected TextBox txtNombre;
@@ -148,5 +143,6 @@
         protected ComboBox cbEdad;
         private Label label3;
         protected ComboBox cbCaracteristica;
+        private Button button2;
     }
 }

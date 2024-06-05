@@ -1,6 +1,6 @@
 ﻿using Entidades;
 
-namespace WindowsForm
+namespace WinForm
 {
     public partial class AgregarPersonaje : Form
     {

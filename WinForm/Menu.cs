@@ -1,6 +1,6 @@
 ﻿using ClassLibrary;
 
-namespace WindowsForm
+namespace WinForm
 {
     public partial class Menu : Form
     {
@@ -105,7 +105,7 @@ namespace WindowsForm
 
         private void verLogsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmLog logsForm = new FrmLog(this.logPath); 
+            FrmLog logsForm = new FrmLog(this.logPath);
             logsForm.ShowDialog();
         }
 
@@ -148,7 +148,7 @@ namespace WindowsForm
             if (listBox1.SelectedIndex != -1)
             {
                 Personaje personajeseleccionado = listBox1.SelectedItem as Personaje;
-                Form modificarForm;
+                System.Windows.Forms.Form modificarForm;
                 if (personajeseleccionado is Elfo elfoSeleccionado)
                 {
                     modificarForm = new AgregarElfo(elfoSeleccionado); //TENGO ERRRORES EN TODOS ESTOS ASI QUE VOY A CREAR EL RESTO DE LOS FORM PRIMERO PROFESORES

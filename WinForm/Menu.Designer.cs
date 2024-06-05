@@ -1,4 +1,4 @@
-﻿namespace WindowsForm
+﻿namespace WinForm
 {
     partial class Menu
     {
@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
-            btnAgregar = new Button();
-            btnModificar = new Button();
+            cbElfo = new CheckBox();
+            cbOrco = new CheckBox();
+            cbHumano = new CheckBox();
             btnEliminar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
+            listBox1 = new ListBox();
             menuStrip1 = new MenuStrip();
             archivoToolStripMenuItem = new ToolStripMenuItem();
             guardarToolStripMenuItem = new ToolStripMenuItem();
@@ -48,49 +51,83 @@
             nombreToolStripMenuItem = new ToolStripMenuItem();
             ascendenteToolStripMenuItem = new ToolStripMenuItem();
             descendenteToolStripMenuItem = new ToolStripMenuItem();
-            cbHumano = new CheckBox();
-            cbOrco = new CheckBox();
-            cbElfo = new CheckBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
+            // 
+            // cbElfo
+            // 
+            cbElfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbElfo.AutoSize = true;
+            cbElfo.Checked = true;
+            cbElfo.CheckState = CheckState.Checked;
+            cbElfo.Location = new Point(636, 117);
+            cbElfo.Name = "cbElfo";
+            cbElfo.Size = new Size(98, 19);
+            cbElfo.TabIndex = 15;
+            cbElfo.Text = "Mostrar Elfos ";
+            cbElfo.UseVisualStyleBackColor = true;
+            // 
+            // cbOrco
+            // 
+            cbOrco.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbOrco.AutoSize = true;
+            cbOrco.Checked = true;
+            cbOrco.CheckState = CheckState.Checked;
+            cbOrco.Location = new Point(635, 92);
+            cbOrco.Name = "cbOrco";
+            cbOrco.Size = new Size(101, 19);
+            cbOrco.TabIndex = 14;
+            cbOrco.Text = "Mostrar Orcos";
+            cbOrco.UseVisualStyleBackColor = true;
+            // 
+            // cbHumano
+            // 
+            cbHumano.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbHumano.AutoSize = true;
+            cbHumano.Checked = true;
+            cbHumano.CheckState = CheckState.Checked;
+            cbHumano.Location = new Point(635, 67);
+            cbHumano.Name = "cbHumano";
+            cbHumano.Size = new Size(122, 19);
+            cbHumano.TabIndex = 13;
+            cbHumano.Text = "Mostrar Humanos";
+            cbHumano.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(490, 285);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(110, 40);
+            btnEliminar.TabIndex = 11;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(271, 285);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(110, 40);
+            btnModificar.TabIndex = 10;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(31, 285);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(110, 40);
+            btnAgregar.TabIndex = 9;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 27);
+            listBox1.Location = new Point(12, 40);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(607, 229);
-            listBox1.TabIndex = 0;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(31, 272);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(110, 40);
-            btnAgregar.TabIndex = 1;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Location = new Point(271, 272);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(110, 40);
-            btnModificar.TabIndex = 2;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            btnModificar.Click += btnModificar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(490, 272);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(110, 40);
-            btnEliminar.TabIndex = 3;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            listBox1.TabIndex = 8;
             // 
             // menuStrip1
             // 
@@ -98,8 +135,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, configuracionToolStripMenuItem, ordenarPorToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(745, 24);
-            menuStrip1.TabIndex = 4;
+            menuStrip1.Size = new Size(769, 24);
+            menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
@@ -112,16 +149,14 @@
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(116, 22);
+            guardarToolStripMenuItem.Size = new Size(180, 22);
             guardarToolStripMenuItem.Text = "Guardar";
-            guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // abrirToolStripMenuItem
             // 
             abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            abrirToolStripMenuItem.Size = new Size(116, 22);
+            abrirToolStripMenuItem.Size = new Size(180, 22);
             abrirToolStripMenuItem.Text = "Abrir";
-            abrirToolStripMenuItem.Click += abrirToolStripMenuItem_Click;
             // 
             // configuracionToolStripMenuItem
             // 
@@ -135,7 +170,6 @@
             verLogsToolStripMenuItem.Name = "verLogsToolStripMenuItem";
             verLogsToolStripMenuItem.Size = new Size(157, 22);
             verLogsToolStripMenuItem.Text = "Ver logs";
-            verLogsToolStripMenuItem.Click += verLogsToolStripMenuItem_Click;
             // 
             // elegirGuardadoToolStripMenuItem
             // 
@@ -149,14 +183,12 @@
             xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
             xMLToolStripMenuItem.Size = new Size(102, 22);
             xMLToolStripMenuItem.Text = "XML";
-            xMLToolStripMenuItem.Click += xMLToolStripMenuItem_Click;
             // 
             // jSONToolStripMenuItem
             // 
             jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
             jSONToolStripMenuItem.Size = new Size(102, 22);
             jSONToolStripMenuItem.Text = "JSON";
-            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
             // 
             // ordenarPorToolStripMenuItem
             // 
@@ -177,14 +209,12 @@
             masJovenPrimeroToolStripMenuItem.Name = "masJovenPrimeroToolStripMenuItem";
             masJovenPrimeroToolStripMenuItem.Size = new Size(186, 22);
             masJovenPrimeroToolStripMenuItem.Text = "Mas joven primero";
-            masJovenPrimeroToolStripMenuItem.Click += masJovenPrimeroToolStripMenuItem_Click;
             // 
             // masAncianoPrimeroToolStripMenuItem
             // 
             masAncianoPrimeroToolStripMenuItem.Name = "masAncianoPrimeroToolStripMenuItem";
             masAncianoPrimeroToolStripMenuItem.Size = new Size(186, 22);
             masAncianoPrimeroToolStripMenuItem.Text = "Mas anciano primero";
-            masAncianoPrimeroToolStripMenuItem.Click += masAncianoPrimeroToolStripMenuItem_Click;
             // 
             // nombreToolStripMenuItem
             // 
@@ -198,61 +228,18 @@
             ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
             ascendenteToolStripMenuItem.Size = new Size(142, 22);
             ascendenteToolStripMenuItem.Text = "Ascendente";
-            ascendenteToolStripMenuItem.Click += ascendenteToolStripMenuItem_Click;
             // 
             // descendenteToolStripMenuItem
             // 
             descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
             descendenteToolStripMenuItem.Size = new Size(142, 22);
             descendenteToolStripMenuItem.Text = "Descendente";
-            descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click;
-            // 
-            // cbHumano
-            // 
-            cbHumano.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cbHumano.AutoSize = true;
-            cbHumano.Checked = true;
-            cbHumano.CheckState = CheckState.Checked;
-            cbHumano.Location = new Point(625, 64);
-            cbHumano.Name = "cbHumano";
-            cbHumano.Size = new Size(122, 19);
-            cbHumano.TabIndex = 5;
-            cbHumano.Text = "Mostrar Humanos";
-            cbHumano.UseVisualStyleBackColor = true;
-            // 
-            // cbOrco
-            // 
-            cbOrco.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cbOrco.AutoSize = true;
-            cbOrco.Checked = true;
-            cbOrco.CheckState = CheckState.Checked;
-            cbOrco.Location = new Point(625, 89);
-            cbOrco.Name = "cbOrco";
-            cbOrco.Size = new Size(101, 19);
-            cbOrco.TabIndex = 6;
-            cbOrco.Text = "Mostrar Orcos";
-            cbOrco.UseVisualStyleBackColor = true;
-            // 
-            // cbElfo
-            // 
-            cbElfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cbElfo.AutoSize = true;
-            cbElfo.Checked = true;
-            cbElfo.CheckState = CheckState.Checked;
-            cbElfo.Location = new Point(626, 114);
-            cbElfo.Name = "cbElfo";
-            cbElfo.Size = new Size(98, 19);
-            cbElfo.TabIndex = 7;
-            cbElfo.Text = "Mostrar Elfos ";
-            cbElfo.UseVisualStyleBackColor = true;
-            cbElfo.CheckedChanged += cbElfo_CheckedChanged;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(745, 324);
+            ClientSize = new Size(769, 363);
             Controls.Add(cbElfo);
             Controls.Add(cbOrco);
             Controls.Add(cbHumano);
@@ -261,11 +248,8 @@
             Controls.Add(btnAgregar);
             Controls.Add(listBox1);
             Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
             Name = "Menu";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "MENU";
-            Load += Menu_Load;
+            Text = "Form1";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -274,17 +258,17 @@
 
         #endregion
 
-        private ListBox listBox1;
-        private Button btnAgregar;
-        private Button btnModificar;
+        private CheckBox cbElfo;
+        private CheckBox cbOrco;
+        private CheckBox cbHumano;
         private Button btnEliminar;
+        private Button btnModificar;
+        private Button btnAgregar;
+        private ListBox listBox1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem archivoToolStripMenuItem;
         private ToolStripMenuItem guardarToolStripMenuItem;
         private ToolStripMenuItem abrirToolStripMenuItem;
-        private CheckBox cbHumano;
-        private CheckBox cbOrco;
-        private CheckBox cbElfo;
         private ToolStripMenuItem configuracionToolStripMenuItem;
         private ToolStripMenuItem verLogsToolStripMenuItem;
         private ToolStripMenuItem elegirGuardadoToolStripMenuItem;

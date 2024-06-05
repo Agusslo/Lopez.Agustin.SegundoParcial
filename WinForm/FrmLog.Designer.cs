@@ -1,4 +1,4 @@
-﻿namespace WindowsForm
+﻿namespace WinForm
 {
     partial class FrmLog
     {
@@ -28,44 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            RTextBox = new RichTextBox();
             btnAceptar = new Button();
+            RTextBox = new RichTextBox();
             SuspendLayout();
+            // 
+            // btnAceptar
+            // 
+            btnAceptar.Location = new Point(330, 410);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(124, 28);
+            btnAceptar.TabIndex = 4;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = true;
             // 
             // RTextBox
             // 
             RTextBox.Enabled = false;
-            RTextBox.Location = new Point(12, 12);
+            RTextBox.Location = new Point(25, 12);
             RTextBox.Name = "RTextBox";
             RTextBox.Size = new Size(449, 392);
-            RTextBox.TabIndex = 1;
+            RTextBox.TabIndex = 3;
             RTextBox.Text = "";
             // 
-            // btnAceptar
-            // 
-            btnAceptar.Location = new Point(317, 410);
-            btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(124, 28);
-            btnAceptar.TabIndex = 2;
-            btnAceptar.Text = "Aceptar";
-            btnAceptar.UseVisualStyleBackColor = true;
-            btnAceptar.Click += btnAceptar_Click;
-            // 
-            // FrmLog
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(473, 450);
+            ClientSize = new Size(499, 450);
             Controls.Add(btnAceptar);
             Controls.Add(RTextBox);
-            Name = "FrmLog";
-            Text = "LOG";
+            Name = "Form1";
+            Text = "Form1";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private RichTextBox RTextBox;
         private Button btnAceptar;
+        private RichTextBox RTextBox;
     }
 }

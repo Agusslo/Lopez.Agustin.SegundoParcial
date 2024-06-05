@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|solutionrelative:winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\frmeleccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\frmeleccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|solutionrelative:winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\frmlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|solutionrelative:winform\\frmlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\frmlog.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|solutionrelative:winform\\frmlog.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\frmlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D46E0E8A-8FA3-4DB8-AB63-C12B4899481F}|WinForm\\WindowsForm.csproj|solutionrelative:winform\\frmlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\frmeleccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\frmeleccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -67,64 +55,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
-              "RelativeDocumentMoniker": "WinForm\\Menu.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
-              "RelativeToolTip": "WinForm\\Menu.cs",
-              "ViewState": "AQIAAKQAAAAAAAAAAAAqwAAAAAAAAAAA",
+              "Title": "FrmEleccion.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmEleccion.cs",
+              "RelativeDocumentMoniker": "WinForm\\FrmEleccion.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmEleccion.cs",
+              "RelativeToolTip": "WinForm\\FrmEleccion.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAIwD8AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:39:07.379Z",
+              "WhenOpened": "2024-06-05T21:16:12.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Menu.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
-              "RelativeDocumentMoniker": "WinForm\\Menu.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WinForm\\Menu.cs [Dise\u00F1o]",
+              "Title": "FrmEleccion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmEleccion.cs",
+              "RelativeDocumentMoniker": "WinForm\\FrmEleccion.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmEleccion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinForm\\FrmEleccion.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:39:02.744Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmLog.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.cs",
-              "RelativeDocumentMoniker": "WinForm\\FrmLog.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.cs",
-              "RelativeToolTip": "WinForm\\FrmLog.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:38:51.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmLog.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.Designer.cs",
-              "RelativeDocumentMoniker": "WinForm\\FrmLog.Designer.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.Designer.cs",
-              "RelativeToolTip": "WinForm\\FrmLog.Designer.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwD0AAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:38:25.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmLog.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.cs",
-              "RelativeDocumentMoniker": "WinForm\\FrmLog.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WinForm\\FrmLog.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:38:06.642Z",
+              "WhenOpened": "2024-06-05T21:16:08.944Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

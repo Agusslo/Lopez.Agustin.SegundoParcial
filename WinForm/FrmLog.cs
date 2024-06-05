@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsForm
+namespace WinForm
 {
-    public partial class FrmLog : Form
+    public partial class FrmLog : System.Windows.Forms.Form
     {
         string logPath;
         public FrmLog(string logPath)
