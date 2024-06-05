@@ -249,7 +249,7 @@
             Controls.Add(listBox1);
             Controls.Add(menuStrip1);
             Name = "Menu";
-            Text = "Form1";
+            Text = "Menu";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

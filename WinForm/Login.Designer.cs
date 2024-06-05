@@ -100,7 +100,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Login";
-            Text = "Form1";
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }

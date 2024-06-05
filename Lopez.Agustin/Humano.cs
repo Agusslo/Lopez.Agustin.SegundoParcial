@@ -40,7 +40,7 @@
             return $"Humano - Nombre: {Nombre} | Caracteristica: {Caracteristica} |  Edad: {Edad} | Pelo: {colorPelo} | Piel: {colorHumano}";
         }
 
-        public EColorPelo GetolorPelo() { return colorPelo; }
+        public EColorPelo GetColorPelo() { return colorPelo; }
 
         public EColorHumano GetColorHumano() {  return colorHumano; }
     }
