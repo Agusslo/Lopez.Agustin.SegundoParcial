@@ -13,14 +13,19 @@ namespace WinForm
             cbCaracteristica.DataSource = Enum.GetValues(typeof(ECaracteristica));
         }
 
-        private void AgregarPersonaje_Load(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AgregarPersonaje_Load_1(object sender, EventArgs e)
         {
 
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
         {
-            this.Close();
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }

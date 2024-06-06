@@ -1,4 +1,8 @@
-﻿using ClassLibrary;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
+using ClassLibrary;
 
 namespace WinForm
 {
@@ -9,9 +13,16 @@ namespace WinForm
         string logPath;
         Coleccion personajes;
         bool GuardarEnJSON = true;
+
         public Menu(string logPath)
         {
             InitializeComponent();
+
+            // Verificar si la carpeta existe y crearla si no
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
 
             personajes = new Coleccion();
             this.IsMdiContainer = true;
@@ -37,13 +48,11 @@ namespace WinForm
                     ActualizarLista();
                 }
                 catch (ArgumentException ex) // Atrapa excepcion lanzada desde operator + de Coleccion
-
                 {
                     MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
-
 
         private void btnModificar_Click_1(object sender, EventArgs e)
         {
@@ -53,7 +62,7 @@ namespace WinForm
                 System.Windows.Forms.Form modificarForm;
                 if (personajeseleccionado is Elfo elfoSeleccionado)
                 {
-                    modificarForm = new AgregarElfo(elfoSeleccionado); //TENGO ERRRORES EN TODOS ESTOS ASI QUE VOY A CREAR EL RESTO DE LOS FORM PRIMERO PROFESORES
+                    modificarForm = new AgregarElfo(elfoSeleccionado);
                 }
                 else if (personajeseleccionado is Orco orcoSeleccionado)
                 {
@@ -62,30 +71,29 @@ namespace WinForm
                 else if (personajeseleccionado is Humano humanoSeleccionado)
                 {
                     modificarForm = new AgregarHumano(humanoSeleccionado);
-
                 }
                 else
                 {
-                    throw new Exception("Tipo de carnívoro no soportado."); // Si no, tira error con modificarForm
+                    throw new Exception("Tipo de personaje no soportado.");
                 }
 
                 if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
                 {
-                    personajes -= personajeseleccionado; // Se elimina el carnivoro seleccionado
+                    personajes -= personajeseleccionado;
                     if (modificarForm is AgregarElfo)
                     {
-                        personajes += (modificarForm as AgregarElfo).ObtenerElfo(); // Agregar elfo
+                        personajes += (modificarForm as AgregarElfo).ObtenerElfo();
                     }
                     else if (modificarForm is AgregarOrco)
                     {
-                        personajes += (modificarForm as AgregarOrco).ObtenerOrco(); // Agregar orco
+                        personajes += (modificarForm as AgregarOrco).ObtenerOrco();
                     }
                     else if (modificarForm is AgregarHumano)
                     {
-                        personajes += (modificarForm as AgregarHumano).ObtenerHumano(); // o agregar humano
+                        personajes += (modificarForm as AgregarHumano).ObtenerHumano();
                     }
 
-                    ActualizarLista(); // Actualizar
+                    ActualizarLista();
                 }
             }
             else
@@ -93,7 +101,6 @@ namespace WinForm
                 MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
 
         private void Filtrar(object sender, EventArgs e)
         {
@@ -112,8 +119,6 @@ namespace WinForm
                 }
             }
         }
-
-
 
         private void Menu_Load(object sender, EventArgs e)
         {
@@ -221,6 +226,12 @@ namespace WinForm
         {
             personajes.OrdenarPorNombre(false);
             ActualizarLista();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinForm
 {
@@ -30,19 +31,24 @@ namespace WinForm
             }
         }
 
-        private void rbtnHumano_CheckedChanged(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rbtnHumano_CheckedChanged_1(object sender, EventArgs e)
         {
             if (rbtnHumano.Checked)
                 ResetearOtrosRadioButton(rbtnHumano);
         }
 
-        private void rbtnOrco_CheckedChanged(object sender, EventArgs e)
+        private void rbtnOrco_CheckedChanged_1(object sender, EventArgs e)
         {
             if (rbtnOrco.Checked)
                 ResetearOtrosRadioButton(rbtnOrco);
         }
 
-        private void rbtnElfo_CheckedChanged(object sender, EventArgs e)
+        private void rbtnElfo_CheckedChanged_1(object sender, EventArgs e)
         {
             if (rbtnElfo.Checked)
             {
@@ -50,7 +56,7 @@ namespace WinForm
             }
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
+        private void btnSiguiente_Click_1(object sender, EventArgs e)
         {
             if (rbtnElfo.Checked)
             {
@@ -81,9 +87,14 @@ namespace WinForm
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }

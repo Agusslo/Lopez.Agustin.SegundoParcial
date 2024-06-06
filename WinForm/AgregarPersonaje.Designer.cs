@@ -119,16 +119,19 @@
             button2.TabIndex = 11;
             button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
-            // Form1
+            // AgregarPersonaje
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(441, 450);
             Controls.Add(groupBox1);
             Controls.Add(button2);
-            Name = "Form1";
+            Name = "AgregarPersonaje";
             Text = "Form1";
+            Load += AgregarPersonaje_Load_1;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

@@ -40,9 +40,15 @@ namespace WinForm
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }

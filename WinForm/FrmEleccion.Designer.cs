@@ -44,6 +44,7 @@
             btnSiguiente.TabIndex = 11;
             btnSiguiente.Text = "Siguiente";
             btnSiguiente.UseVisualStyleBackColor = true;
+            btnSiguiente.Click += btnSiguiente_Click_1;
             // 
             // btnCancelar
             // 
@@ -53,6 +54,7 @@
             btnCancelar.TabIndex = 10;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // rbtnElfo
             // 
@@ -64,6 +66,7 @@
             rbtnElfo.TabStop = true;
             rbtnElfo.Text = "Elfo";
             rbtnElfo.UseVisualStyleBackColor = true;
+            rbtnElfo.CheckedChanged += rbtnElfo_CheckedChanged_1;
             // 
             // rbtnOrco
             // 
@@ -75,6 +78,7 @@
             rbtnOrco.TabStop = true;
             rbtnOrco.Text = "Orco";
             rbtnOrco.UseVisualStyleBackColor = true;
+            rbtnOrco.CheckedChanged += rbtnOrco_CheckedChanged_1;
             // 
             // rbtnHumano
             // 
@@ -86,6 +90,7 @@
             rbtnHumano.TabStop = true;
             rbtnHumano.Text = "Humano";
             rbtnHumano.UseVisualStyleBackColor = true;
+            rbtnHumano.CheckedChanged += rbtnHumano_CheckedChanged_1;
             // 
             // label1
             // 
@@ -96,10 +101,11 @@
             label1.TabIndex = 6;
             label1.Text = "Elegir Especie";
             // 
-            // Form1
+            // FrmEleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(366, 155);
             Controls.Add(btnSiguiente);
             Controls.Add(btnCancelar);
@@ -107,7 +113,7 @@
             Controls.Add(rbtnOrco);
             Controls.Add(rbtnHumano);
             Controls.Add(label1);
-            Name = "Form1";
+            Name = "FrmEleccion";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

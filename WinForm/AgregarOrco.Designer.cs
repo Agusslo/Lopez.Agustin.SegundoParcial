@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            txtNombre = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            cbEdad = new ComboBox();
-            label3 = new Label();
             cbCaracteristica = new ComboBox();
+            label3 = new Label();
+            cbEdad = new ComboBox();
+            label2 = new Label();
+            label1 = new Label();
+            txtNombre = new TextBox();
             label4 = new Label();
             label5 = new Label();
             cbEspecie = new ComboBox();
             checkBox1 = new CheckBox();
+            btnAgregar = new Button();
+            btnCancelar = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,41 +59,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // txtNombre
+            // cbCaracteristica
             // 
-            txtNombre.Location = new Point(199, 35);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(144, 23);
-            txtNombre.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(23, 37);
-            label1.Name = "label1";
-            label1.Size = new Size(84, 16);
-            label1.TabIndex = 1;
-            label1.Text = "Nombre:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(23, 101);
-            label2.Name = "label2";
-            label2.Size = new Size(62, 16);
-            label2.TabIndex = 2;
-            label2.Text = "Edad:";
-            // 
-            // cbEdad
-            // 
-            cbEdad.FormattingEnabled = true;
-            cbEdad.Location = new Point(199, 94);
-            cbEdad.Name = "cbEdad";
-            cbEdad.Size = new Size(144, 23);
-            cbEdad.TabIndex = 3;
-            cbEdad.Text = "No_Especificado";
+            cbCaracteristica.FormattingEnabled = true;
+            cbCaracteristica.Location = new Point(199, 168);
+            cbCaracteristica.Name = "cbCaracteristica";
+            cbCaracteristica.Size = new Size(144, 23);
+            cbCaracteristica.TabIndex = 5;
+            cbCaracteristica.Text = "No_Especificado";
             // 
             // label3
             // 
@@ -103,20 +78,47 @@
             label3.TabIndex = 4;
             label3.Text = "Caracteristica:";
             // 
-            // cbCaracteristica
+            // cbEdad
             // 
-            cbCaracteristica.FormattingEnabled = true;
-            cbCaracteristica.Location = new Point(199, 168);
-            cbCaracteristica.Name = "cbCaracteristica";
-            cbCaracteristica.Size = new Size(144, 23);
-            cbCaracteristica.TabIndex = 5;
-            cbCaracteristica.Text = "No_Especificado";
+            cbEdad.FormattingEnabled = true;
+            cbEdad.Location = new Point(199, 94);
+            cbEdad.Name = "cbEdad";
+            cbEdad.Size = new Size(144, 23);
+            cbEdad.TabIndex = 3;
+            cbEdad.Text = "No_Especificado";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label2.Location = new Point(23, 101);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 16);
+            label2.TabIndex = 2;
+            label2.Text = "Edad:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label1.Location = new Point(23, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 16);
+            label1.TabIndex = 1;
+            label1.Text = "Nombre:";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(199, 35);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(144, 23);
+            txtNombre.TabIndex = 0;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(18, 273);
+            label4.Location = new Point(18, 248);
             label4.Name = "label4";
             label4.Size = new Size(95, 16);
             label4.TabIndex = 3;
@@ -126,7 +128,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(18, 356);
+            label5.Location = new Point(18, 297);
             label5.Name = "label5";
             label5.Size = new Size(95, 16);
             label5.TabIndex = 4;
@@ -135,7 +137,7 @@
             // cbEspecie
             // 
             cbEspecie.FormattingEnabled = true;
-            cbEspecie.Location = new Point(211, 266);
+            cbEspecie.Location = new Point(211, 241);
             cbEspecie.Name = "cbEspecie";
             cbEspecie.Size = new Size(144, 23);
             cbEspecie.TabIndex = 6;
@@ -144,24 +146,50 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(211, 353);
+            checkBox1.Location = new Point(211, 294);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(38, 19);
             checkBox1.TabIndex = 7;
             checkBox1.Text = "Si.";
             checkBox1.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // btnAgregar
+            // 
+            btnAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAgregar.Location = new Point(274, 333);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(127, 64);
+            btnAgregar.TabIndex = 8;
+            btnAgregar.Text = "AGREGAR";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancelar.Location = new Point(78, 333);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(127, 64);
+            btnCancelar.TabIndex = 9;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // AgregarOrco
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(422, 418);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnAgregar);
             Controls.Add(checkBox1);
             Controls.Add(cbEspecie);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(groupBox1);
-            Name = "Form1";
+            Name = "AgregarOrco";
             Text = "Form1";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -182,5 +210,7 @@
         private Label label5;
         private ComboBox cbEspecie;
         private CheckBox checkBox1;
+        private Button btnAgregar;
+        private Button btnCancelar;
     }
 }

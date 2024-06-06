@@ -39,6 +39,8 @@
             txtNombre = new TextBox();
             checkBox1 = new CheckBox();
             label5 = new Label();
+            btnCancelar = new Button();
+            btnAceptar = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -151,11 +153,37 @@
             label5.TabIndex = 10;
             label5.Text = "Inmortal:";
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancelar.Location = new Point(91, 374);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(127, 64);
+            btnCancelar.TabIndex = 13;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnAceptar
+            // 
+            btnAceptar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAceptar.Location = new Point(287, 374);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(127, 64);
+            btnAceptar.TabIndex = 12;
+            btnAceptar.Text = "AGREGAR";
+            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAgregar_Click;
+            // 
             // AgregarElfo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(470, 450);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnAceptar);
             Controls.Add(checkBox1);
             Controls.Add(label5);
             Controls.Add(cbEspecie);
@@ -182,5 +210,7 @@
         private TextBox txtNombre;
         private CheckBox checkBox1;
         private Label label5;
+        private Button btnCancelar;
+        private Button btnAceptar;
     }
 }

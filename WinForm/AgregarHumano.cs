@@ -55,5 +55,15 @@ namespace WinForm
             this.humano = new Humano(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, (EColorPelo)cbColorPelo.SelectedItem, (EColorHumano)cbColorPiel.SelectedItem);
             this.DialogResult = DialogResult.OK;
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
+        }
     }
 }

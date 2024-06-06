@@ -40,6 +40,7 @@
             btnAceptar.TabIndex = 4;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click_1;
             // 
             // RTextBox
             // 
@@ -50,14 +51,15 @@
             RTextBox.TabIndex = 3;
             RTextBox.Text = "";
             // 
-            // Form1
+            // FrmLog
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(499, 450);
             Controls.Add(btnAceptar);
             Controls.Add(RTextBox);
-            Name = "Form1";
+            Name = "FrmLog";
             Text = "Form1";
             ResumeLayout(false);
         }

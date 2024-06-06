@@ -39,13 +39,15 @@
             txtNombre = new TextBox();
             cbColorPiel = new ComboBox();
             label5 = new Label();
+            btnCancelar = new Button();
+            btnAgregar = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // cbColorPelo
             // 
             cbColorPelo.FormattingEnabled = true;
-            cbColorPelo.Location = new Point(219, 287);
+            cbColorPelo.Location = new Point(219, 267);
             cbColorPelo.Name = "cbColorPelo";
             cbColorPelo.Size = new Size(144, 23);
             cbColorPelo.TabIndex = 12;
@@ -55,7 +57,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(26, 294);
+            label4.Location = new Point(26, 274);
             label4.Name = "label4";
             label4.Size = new Size(161, 16);
             label4.TabIndex = 11;
@@ -134,7 +136,7 @@
             // cbColorPiel
             // 
             cbColorPiel.FormattingEnabled = true;
-            cbColorPiel.Location = new Point(219, 353);
+            cbColorPiel.Location = new Point(219, 333);
             cbColorPiel.Name = "cbColorPiel";
             cbColorPiel.Size = new Size(144, 23);
             cbColorPiel.TabIndex = 14;
@@ -144,17 +146,43 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(26, 360);
+            label5.Location = new Point(26, 340);
             label5.Name = "label5";
             label5.Size = new Size(161, 16);
             label5.TabIndex = 13;
             label5.Text = "Color de Piel:";
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancelar.Location = new Point(97, 374);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(127, 64);
+            btnCancelar.TabIndex = 16;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAgregar.Location = new Point(293, 374);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(127, 64);
+            btnAgregar.TabIndex = 15;
+            btnAgregar.Text = "AGREGAR";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // AgregarHumano
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(467, 450);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnAgregar);
             Controls.Add(cbColorPiel);
             Controls.Add(label5);
             Controls.Add(cbColorPelo);
@@ -181,5 +209,7 @@
         private TextBox txtNombre;
         private ComboBox cbColorPiel;
         private Label label5;
+        private Button btnCancelar;
+        private Button btnAgregar;
     }
 }

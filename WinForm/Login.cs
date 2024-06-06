@@ -1,39 +1,28 @@
-﻿using System.Text.Json;
-using System;
-using Entidades;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Json;
-using System.Runtime.InteropServices;
 using ClassLibrary;
-using System.Reflection.Metadata;
-using System.Web;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-
 
 namespace WinForm
 {
     public partial class Login : Form
     {
         List<Usuario> usuarios;
-        string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "parcial");
+        string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string logPath;
 
         public Login()
         {
-
-            // Creacion de carpeta
-
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
+
             InitializeComponent();
             CargarUsuarios();
-            logPath = Path.Combine(folderPath, "logs.log");//lo crea
-
+            logPath = Path.Combine(folderPath, "logs.log");
         }
 
         private void CargarUsuarios()
@@ -41,12 +30,11 @@ namespace WinForm
             try
             {
                 string jsonUsuarios = File.ReadAllText("MOCK_DATA.json");
-                // PropertyNameCaseInsensitive ignora mayusculas y minusculas
                 usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("El archivo usuarios.json no existe.");
+                MessageBox.Show("El archivo MOCK_DATA.json no existe.");
             }
             catch (Exception ex)
             {
@@ -75,16 +63,16 @@ namespace WinForm
             {
                 if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
                 {
-                    Menu frmLogin = new Menu(logPath);
-                    frmLogin.Show();
+                    Menu frmMenu = new Menu(logPath);
+                    frmMenu.Show();
                     this.Hide();
                     CargarLogs(usuario.Correo);
+                    break;
                 }
                 else
                 {
                     MessageBox.Show("Correo electronico o contraseña incorrectos.");
                 }
-                break;
             }
         }
 
@@ -93,10 +81,13 @@ namespace WinForm
             if (checkBox1.Checked)
                 txtContrasenia.UseSystemPasswordChar = false;
             else
-            {
                 txtContrasenia.UseSystemPasswordChar = true;
+        }
 
-            }
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }

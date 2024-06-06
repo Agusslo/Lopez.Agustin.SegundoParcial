@@ -212,7 +212,7 @@
             // 
             edadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masJovenPrimeroToolStripMenuItem, masAncianoPrimeroToolStripMenuItem });
             edadToolStripMenuItem.Name = "edadToolStripMenuItem";
-            edadToolStripMenuItem.Size = new Size(180, 22);
+            edadToolStripMenuItem.Size = new Size(118, 22);
             edadToolStripMenuItem.Text = "Edad";
             // 
             // masJovenPrimeroToolStripMenuItem
@@ -233,20 +233,20 @@
             // 
             nombreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ascendenteToolStripMenuItem, descendenteToolStripMenuItem });
             nombreToolStripMenuItem.Name = "nombreToolStripMenuItem";
-            nombreToolStripMenuItem.Size = new Size(180, 22);
+            nombreToolStripMenuItem.Size = new Size(118, 22);
             nombreToolStripMenuItem.Text = "Nombre";
             // 
             // ascendenteToolStripMenuItem
             // 
             ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
-            ascendenteToolStripMenuItem.Size = new Size(180, 22);
+            ascendenteToolStripMenuItem.Size = new Size(142, 22);
             ascendenteToolStripMenuItem.Text = "Ascendente";
             ascendenteToolStripMenuItem.Click += ascendenteToolStripMenuItem_Click_1;
             // 
             // descendenteToolStripMenuItem
             // 
             descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
-            descendenteToolStripMenuItem.Size = new Size(180, 22);
+            descendenteToolStripMenuItem.Size = new Size(142, 22);
             descendenteToolStripMenuItem.Text = "Descendente";
             descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click_1;
             // 
@@ -254,6 +254,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(769, 363);
             Controls.Add(cbElfo);
             Controls.Add(cbOrco);

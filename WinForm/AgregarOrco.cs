@@ -49,18 +49,27 @@ namespace WinForm
             return new Orco(orco.ObtenerNombre(), orco.ObtenerCaracteristica(), orco.ObtenerEdad(), orco.GetEspecieOrco(), orco.GetCanibal());
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.orco = new Orco(txtNombre.Text, (ECaracteristica)cbCaracteristica.SelectedItem, (EEdad)cbEdad.SelectedItem, (EEspecieOrco)cbEspecie.SelectedItem, this.canibal);
-            this.DialogResult = DialogResult.OK;
-
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
                 canibal = true;
             else canibal = false;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            this.orco = new Orco(txtNombre.Text, (ECaracteristica)cbCaracteristica.SelectedItem, (EEdad)cbEdad.SelectedItem, (EEspecieOrco)cbEspecie.SelectedItem, this.canibal);
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }

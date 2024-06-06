@@ -39,7 +39,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(304, 105);
+            checkBox1.Location = new Point(298, 80);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(42, 19);
             checkBox1.TabIndex = 11;
@@ -49,7 +49,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(109, 151);
+            button1.Location = new Point(103, 126);
             button1.Name = "button1";
             button1.Size = new Size(116, 23);
             button1.TabIndex = 10;
@@ -59,7 +59,7 @@
             // 
             // txtContrasenia
             // 
-            txtContrasenia.Location = new Point(165, 103);
+            txtContrasenia.Location = new Point(159, 78);
             txtContrasenia.Name = "txtContrasenia";
             txtContrasenia.Size = new Size(133, 23);
             txtContrasenia.TabIndex = 9;
@@ -67,7 +67,7 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(165, 66);
+            txtCorreo.Location = new Point(159, 41);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(133, 23);
             txtCorreo.TabIndex = 8;
@@ -75,7 +75,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(51, 111);
+            label2.Location = new Point(45, 86);
             label2.Name = "label2";
             label2.Size = new Size(70, 15);
             label2.TabIndex = 7;
@@ -84,7 +84,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(51, 69);
+            label1.Location = new Point(45, 44);
             label1.Name = "label1";
             label1.Size = new Size(108, 15);
             label1.TabIndex = 6;
@@ -94,6 +94,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(351, 194);
             Controls.Add(checkBox1);
             Controls.Add(button1);

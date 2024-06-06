@@ -49,7 +49,7 @@ namespace WinForm
             return new Elfo(elfo.ObtenerNombre(), elfo.ObtenerCaracteristica(), elfo.ObtenerEdad(), elfo.GetEspecieElfo(), elfo.GetInmortalidad());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.elfo = new Elfo(txtNombre.Text, (ECaracteristica)cbCaracteristica.SelectedItem, (EEdad)cbEdad.SelectedItem, (EEspecieElfo)cbEspecie.SelectedItem, this.inmortal);
             this.DialogResult = DialogResult.OK;
@@ -61,6 +61,16 @@ namespace WinForm
             if (checkBox1.Checked)
                 inmortal = true;
             else inmortal = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }
