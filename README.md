@@ -7,4 +7,5 @@ Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano
 
 
 
-![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/7c47f142-444e-43fd-8757-3c109dec45bf)
+![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/9a358e8b-2022-4c63-ad1b-484486bdf094)
+
