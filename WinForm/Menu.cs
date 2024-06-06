@@ -31,13 +31,13 @@ namespace WinForm
             this.IsMdiContainer = true;
             this.path = Path.Combine(folderPath, "configuracion");
             this.logPath = logPath;
-            this.perfilUsuario = perfilUsuario;// para el futuro
-            lblCorreousuario.Text = "Correo: " + correoUsuario; ; //MUESTRO EN EL LABEL EL CORREO DE QUIEN INICIO
-            lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss"); //AGREGADO DEL HORARIO
+            this.perfilUsuario = perfilUsuario; // para el futuro
+            lblCorreousuario.Text = "Correo: " + correoUsuario; // Muestra el correo en el label
+            lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss"); // Muestra la hora de inicio de sesión
 
-            //TIEMPO REAL
+            // Configurar el temporizador
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 1000;
+            timer.Interval = 1000; // 1 segundo
             timer.Tick += Timer_Tick;
             timer.Start();
         }
@@ -48,8 +48,6 @@ namespace WinForm
             // Actualizar la hora en el Label
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
-
-
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -70,54 +68,6 @@ namespace WinForm
             }
         }
 
-        private void btnModificar_Click_1(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex != -1)
-            {
-                Personaje personajeseleccionado = listBox1.SelectedItem as Personaje;
-                System.Windows.Forms.Form modificarForm;
-                if (personajeseleccionado is Elfo elfoSeleccionado)
-                {
-                    modificarForm = new AgregarElfo(elfoSeleccionado);
-                }
-                else if (personajeseleccionado is Orco orcoSeleccionado)
-                {
-                    modificarForm = new AgregarOrco(orcoSeleccionado);
-                }
-                else if (personajeseleccionado is Humano humanoSeleccionado)
-                {
-                    modificarForm = new AgregarHumano(humanoSeleccionado);
-                }
-                else
-                {
-                    throw new Exception("Tipo de personaje no soportado.");
-                }
-
-                if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
-                {
-                    personajes -= personajeseleccionado;
-                    if (modificarForm is AgregarElfo)
-                    {
-                        personajes += (modificarForm as AgregarElfo).ObtenerElfo();
-                    }
-                    else if (modificarForm is AgregarOrco)
-                    {
-                        personajes += (modificarForm as AgregarOrco).ObtenerOrco();
-                    }
-                    else if (modificarForm is AgregarHumano)
-                    {
-                        personajes += (modificarForm as AgregarHumano).ObtenerHumano();
-                    }
-
-                    ActualizarLista();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void Filtrar(object sender, EventArgs e)
         {
             ActualizarLista();
@@ -126,22 +76,15 @@ namespace WinForm
         private void ActualizarLista()
         {
             listBox1.Items.Clear();
-            var filteredpersonajes = personajes.FiltrarPorTipos(cbHumano.Checked, cbOrco.Checked, cbElfo.Checked);
-            foreach (var personaje in filteredpersonajes)
+            var filteredPersonajes = personajes.FiltrarPorTipos(cbHumano.Checked, cbOrco.Checked, cbElfo.Checked);
+            foreach (var personaje in filteredPersonajes)
             {
                 listBox1.Items.Add(personaje);
             }
         }
 
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            /*if (perfilUsuario.ToLower() != "administrador")
-            {
-                MessageBox.Show("Solo un administrador puede eliminar personajes.", "Permiso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }*/
-
             if (listBox1.SelectedIndex != -1)
             {
                 Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
@@ -158,40 +101,36 @@ namespace WinForm
             }
         }
 
-
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            // Código para manejar el evento Load del formulario
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // Código para manejar el evento SelectedIndexChanged del ListBox
         }
 
         private void guardarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            string content;
             if (GuardarEnJSON)
             {
                 personajes.SerializarAJson(personajes.GetColeccion(), path);
             }
             else
             {
-                personajes.SerializarAXml(this.path);
+                personajes.SerializarAXml(path);
             }
         }
 
-
-
         private void xMLToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            this.GuardarEnJSON = false;
+            GuardarEnJSON = false;
         }
 
         private void jSONToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            this.GuardarEnJSON = true;
+            GuardarEnJSON = true;
         }
 
         private void masJovenPrimeroToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -208,22 +147,17 @@ namespace WinForm
 
         private void cbHumano_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cbOrco_CheckedChanged(object sender, EventArgs e)
-        {
-
+            // Código para manejar el evento CheckedChanged del CheckBox
         }
 
         private void cbElfo_CheckedChanged_1(object sender, EventArgs e)
         {
-
+            // Código para manejar el evento CheckedChanged del CheckBox
         }
 
         private void verLogsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmLog logsForm = new FrmLog(this.logPath);
+            FrmLog logsForm = new FrmLog(logPath);
             logsForm.ShowDialog();
         }
 
@@ -232,11 +166,11 @@ namespace WinForm
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (GuardarEnJSON)
             {
-                openFileDialog.Filter = "Json files(.json)|.json";
+                openFileDialog.Filter = "Json files (*.json)|*.json";
             }
             else
             {
-                openFileDialog.Filter = "XML files(.xml)|.xml";
+                openFileDialog.Filter = "XML files (*.xml)|*.xml";
             }
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -269,11 +203,11 @@ namespace WinForm
             ActualizarLista();
         }
 
-
         private void lblHora_Click(object sender, EventArgs e)
         {
-
+            // Código para manejar el evento Click del Label
         }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             // Preguntar al usuario si está seguro de que desea salir
@@ -286,6 +220,59 @@ namespace WinForm
             }
 
             base.OnFormClosing(e);
+        }
+
+        private void cbElfo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
+                Form modificarForm;
+                if (personajeSeleccionado is Elfo elfoSeleccionado)
+                {
+                    modificarForm = new AgregarElfo(elfoSeleccionado);
+                }
+                else if (personajeSeleccionado is Orco orcoSeleccionado)
+                {
+                    modificarForm = new AgregarOrco(orcoSeleccionado);
+                }
+                else if (personajeSeleccionado is Humano humanoSeleccionado)
+                {
+                    modificarForm = new AgregarHumano(humanoSeleccionado);
+                }
+                else
+                {
+                    throw new Exception("Tipo de personaje no soportado.");
+                }
+
+                if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
+                {
+                    personajes -= personajeSeleccionado;
+                    if (modificarForm is AgregarElfo)
+                    {
+                        personajes += (modificarForm as AgregarElfo).ObtenerElfo();
+                    }
+                    else if (modificarForm is AgregarOrco)
+                    {
+                        personajes += (modificarForm as AgregarOrco).ObtenerOrco();
+                    }
+                    else if (modificarForm is AgregarHumano)
+                    {
+                        personajes += (modificarForm as AgregarHumano).ObtenerHumano();
+                    }
+
+                    ActualizarLista();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

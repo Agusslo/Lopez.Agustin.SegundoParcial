@@ -1,4 +1,8 @@
-﻿namespace WinForm
+﻿using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Forms;
+using System.Xml.Linq;
+
+namespace WinForm
 {
     partial class FrmEleccion
     {
@@ -28,85 +32,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnSiguiente = new Button();
-            btnCancelar = new Button();
-            rbtnElfo = new RadioButton();
-            rbtnOrco = new RadioButton();
-            rbtnHumano = new RadioButton();
             label1 = new Label();
+            rbtnHumano = new RadioButton();
+            rbtnOrco = new RadioButton();
+            rbtnElfo = new RadioButton();
+            btnCancelar = new Button();
+            btnSiguiente = new Button();
             SuspendLayout();
-            // 
-            // btnSiguiente
-            // 
-            btnSiguiente.Location = new Point(239, 104);
-            btnSiguiente.Name = "btnSiguiente";
-            btnSiguiente.Size = new Size(98, 30);
-            btnSiguiente.TabIndex = 11;
-            btnSiguiente.Text = "Siguiente";
-            btnSiguiente.UseVisualStyleBackColor = true;
-            btnSiguiente.Click += btnSiguiente_Click_1;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(135, 104);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(98, 30);
-            btnCancelar.TabIndex = 10;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click_1;
-            // 
-            // rbtnElfo
-            // 
-            rbtnElfo.AutoSize = true;
-            rbtnElfo.Location = new Point(225, 61);
-            rbtnElfo.Name = "rbtnElfo";
-            rbtnElfo.Size = new Size(45, 19);
-            rbtnElfo.TabIndex = 9;
-            rbtnElfo.TabStop = true;
-            rbtnElfo.Text = "Elfo";
-            rbtnElfo.UseVisualStyleBackColor = true;
-            rbtnElfo.CheckedChanged += rbtnElfo_CheckedChanged_1;
-            // 
-            // rbtnOrco
-            // 
-            rbtnOrco.AutoSize = true;
-            rbtnOrco.Location = new Point(149, 61);
-            rbtnOrco.Name = "rbtnOrco";
-            rbtnOrco.Size = new Size(51, 19);
-            rbtnOrco.TabIndex = 8;
-            rbtnOrco.TabStop = true;
-            rbtnOrco.Text = "Orco";
-            rbtnOrco.UseVisualStyleBackColor = true;
-            rbtnOrco.CheckedChanged += rbtnOrco_CheckedChanged_1;
-            // 
-            // rbtnHumano
-            // 
-            rbtnHumano.AutoSize = true;
-            rbtnHumano.Location = new Point(63, 61);
-            rbtnHumano.Name = "rbtnHumano";
-            rbtnHumano.Size = new Size(72, 19);
-            rbtnHumano.TabIndex = 7;
-            rbtnHumano.TabStop = true;
-            rbtnHumano.Text = "Humano";
-            rbtnHumano.UseVisualStyleBackColor = true;
-            rbtnHumano.CheckedChanged += rbtnHumano_CheckedChanged_1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(18, 12);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(78, 15);
-            label1.TabIndex = 6;
+            label1.TabIndex = 0;
             label1.Text = "Elegir Especie";
+            // 
+            // rbtnHumano
+            // 
+            rbtnHumano.AutoSize = true;
+            rbtnHumano.Location = new Point(57, 58);
+            rbtnHumano.Name = "rbtnHumano";
+            rbtnHumano.Size = new Size(72, 19);
+            rbtnHumano.TabIndex = 1;
+            rbtnHumano.TabStop = true;
+            rbtnHumano.Text = "Humano";
+            rbtnHumano.UseVisualStyleBackColor = true;
+            rbtnHumano.CheckedChanged += rbtnHumano_CheckedChanged;
+            // 
+            // rbtnOrco
+            // 
+            rbtnOrco.AutoSize = true;
+            rbtnOrco.Location = new Point(143, 58);
+            rbtnOrco.Name = "rbtnOrco";
+            rbtnOrco.Size = new Size(51, 19);
+            rbtnOrco.TabIndex = 2;
+            rbtnOrco.TabStop = true;
+            rbtnOrco.Text = "Orco";
+            rbtnOrco.UseVisualStyleBackColor = true;
+            rbtnOrco.CheckedChanged += rbtnOrco_CheckedChanged;
+            // 
+            // rbtnElfo
+            // 
+            rbtnElfo.AutoSize = true;
+            rbtnElfo.Location = new Point(219, 58);
+            rbtnElfo.Name = "rbtnElfo";
+            rbtnElfo.Size = new Size(45, 19);
+            rbtnElfo.TabIndex = 3;
+            rbtnElfo.TabStop = true;
+            rbtnElfo.Text = "Elfo";
+            rbtnElfo.UseVisualStyleBackColor = true;
+            rbtnElfo.CheckedChanged += rbtnElfo_CheckedChanged;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(129, 101);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(98, 30);
+            btnCancelar.TabIndex = 4;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnSiguiente
+            // 
+            btnSiguiente.Location = new Point(233, 101);
+            btnSiguiente.Name = "btnSiguiente";
+            btnSiguiente.Size = new Size(98, 30);
+            btnSiguiente.TabIndex = 5;
+            btnSiguiente.Text = "Siguiente";
+            btnSiguiente.UseVisualStyleBackColor = true;
+            btnSiguiente.Click += btnSiguiente_Click;
             // 
             // FrmEleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(366, 155);
+            BackColor = SystemColors.GradientInactiveCaption;
+            ClientSize = new Size(341, 143);
             Controls.Add(btnSiguiente);
             Controls.Add(btnCancelar);
             Controls.Add(rbtnElfo);
@@ -114,18 +118,19 @@
             Controls.Add(rbtnHumano);
             Controls.Add(label1);
             Name = "FrmEleccion";
-            Text = "FRM ELECCION";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Frm Eleccion";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnSiguiente;
-        private Button btnCancelar;
-        private RadioButton rbtnElfo;
-        private RadioButton rbtnOrco;
-        private RadioButton rbtnHumano;
         private Label label1;
+        private RadioButton rbtnHumano;
+        private RadioButton rbtnOrco;
+        private RadioButton rbtnElfo;
+        private Button btnCancelar;
+        private Button btnSiguiente;
     }
 }

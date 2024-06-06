@@ -63,13 +63,13 @@
             cbElfo.AutoSize = true;
             cbElfo.Checked = true;
             cbElfo.CheckState = CheckState.Checked;
-            cbElfo.Location = new Point(636, 90);
+            cbElfo.Location = new Point(639, 90);
             cbElfo.Name = "cbElfo";
-            cbElfo.Size = new Size(98, 19);
+            cbElfo.Size = new Size(95, 19);
             cbElfo.TabIndex = 15;
-            cbElfo.Text = "Mostrar Elfos ";
+            cbElfo.Text = "Mostrar Elfos";
             cbElfo.UseVisualStyleBackColor = true;
-            cbElfo.CheckedChanged += cbElfo_CheckedChanged_1;
+            cbElfo.CheckedChanged += cbElfo_CheckedChanged;
             // 
             // cbOrco
             // 
@@ -83,7 +83,6 @@
             cbOrco.TabIndex = 14;
             cbOrco.Text = "Mostrar Orcos";
             cbOrco.UseVisualStyleBackColor = true;
-            cbOrco.CheckedChanged += cbOrco_CheckedChanged;
             // 
             // cbHumano
             // 
@@ -97,7 +96,6 @@
             cbHumano.TabIndex = 13;
             cbHumano.Text = "Mostrar Humanos";
             cbHumano.UseVisualStyleBackColor = true;
-            cbHumano.CheckedChanged += cbHumano_CheckedChanged;
             // 
             // btnEliminar
             // 
@@ -107,7 +105,6 @@
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -117,7 +114,7 @@
             btnModificar.TabIndex = 10;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
-            btnModificar.Click += btnModificar_Click_1;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
@@ -127,7 +124,6 @@
             btnAgregar.TabIndex = 9;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click_1;
             // 
             // listBox1
             // 
@@ -160,14 +156,12 @@
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             guardarToolStripMenuItem.Size = new Size(116, 22);
             guardarToolStripMenuItem.Text = "Guardar";
-            guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click_1;
             // 
             // abrirToolStripMenuItem
             // 
             abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             abrirToolStripMenuItem.Size = new Size(116, 22);
             abrirToolStripMenuItem.Text = "Abrir";
-            abrirToolStripMenuItem.Click += abrirToolStripMenuItem_Click_1;
             // 
             // configuracionToolStripMenuItem
             // 
@@ -181,7 +175,6 @@
             verLogsToolStripMenuItem.Name = "verLogsToolStripMenuItem";
             verLogsToolStripMenuItem.Size = new Size(157, 22);
             verLogsToolStripMenuItem.Text = "Ver logs";
-            verLogsToolStripMenuItem.Click += verLogsToolStripMenuItem_Click;
             // 
             // elegirGuardadoToolStripMenuItem
             // 
@@ -195,14 +188,12 @@
             xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
             xMLToolStripMenuItem.Size = new Size(102, 22);
             xMLToolStripMenuItem.Text = "XML";
-            xMLToolStripMenuItem.Click += xMLToolStripMenuItem_Click_1;
             // 
             // jSONToolStripMenuItem
             // 
             jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
             jSONToolStripMenuItem.Size = new Size(102, 22);
             jSONToolStripMenuItem.Text = "JSON";
-            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click_1;
             // 
             // ordenarPorToolStripMenuItem
             // 
@@ -223,14 +214,12 @@
             masJovenPrimeroToolStripMenuItem.Name = "masJovenPrimeroToolStripMenuItem";
             masJovenPrimeroToolStripMenuItem.Size = new Size(186, 22);
             masJovenPrimeroToolStripMenuItem.Text = "Mas joven primero";
-            masJovenPrimeroToolStripMenuItem.Click += masJovenPrimeroToolStripMenuItem_Click_1;
             // 
             // masAncianoPrimeroToolStripMenuItem
             // 
             masAncianoPrimeroToolStripMenuItem.Name = "masAncianoPrimeroToolStripMenuItem";
             masAncianoPrimeroToolStripMenuItem.Size = new Size(186, 22);
             masAncianoPrimeroToolStripMenuItem.Text = "Mas anciano primero";
-            masAncianoPrimeroToolStripMenuItem.Click += masAncianoPrimeroToolStripMenuItem_Click_1;
             // 
             // nombreToolStripMenuItem
             // 
@@ -244,14 +233,12 @@
             ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
             ascendenteToolStripMenuItem.Size = new Size(142, 22);
             ascendenteToolStripMenuItem.Text = "Ascendente";
-            ascendenteToolStripMenuItem.Click += ascendenteToolStripMenuItem_Click_1;
             // 
             // descendenteToolStripMenuItem
             // 
             descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
             descendenteToolStripMenuItem.Size = new Size(142, 22);
             descendenteToolStripMenuItem.Text = "Descendente";
-            descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click_1;
             // 
             // lblCorreousuario
             // 
@@ -266,7 +253,6 @@
             lblHora.Name = "lblHora";
             lblHora.Size = new Size(211, 15);
             lblHora.TabIndex = 17;
-            lblHora.Click += lblHora_Click;
             // 
             // lblHoraInicioSesion
             // 
