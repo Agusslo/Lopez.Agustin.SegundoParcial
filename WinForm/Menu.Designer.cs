@@ -53,6 +53,7 @@
             descendenteToolStripMenuItem = new ToolStripMenuItem();
             lblCorreousuario = new Label();
             lblHora = new Label();
+            lblHoraInicioSesion = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -261,10 +262,18 @@
             // 
             // lblHora
             // 
-            lblHora.Location = new Point(619, 136);
+            lblHora.Location = new Point(209, 24);
             lblHora.Name = "lblHora";
-            lblHora.Size = new Size(150, 40);
+            lblHora.Size = new Size(211, 15);
             lblHora.TabIndex = 17;
+            lblHora.Click += lblHora_Click;
+            // 
+            // lblHoraInicioSesion
+            // 
+            lblHoraInicioSesion.Location = new Point(619, 127);
+            lblHoraInicioSesion.Name = "lblHoraInicioSesion";
+            lblHoraInicioSesion.Size = new Size(150, 15);
+            lblHoraInicioSesion.TabIndex = 18;
             // 
             // Menu
             // 
@@ -272,6 +281,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(769, 363);
+            Controls.Add(lblHoraInicioSesion);
             Controls.Add(lblHora);
             Controls.Add(lblCorreousuario);
             Controls.Add(cbElfo);
@@ -317,5 +327,6 @@
         private ToolStripMenuItem descendenteToolStripMenuItem;
         private Label lblCorreousuario;
         private Label lblHora;
+        private Label lblHoraInicioSesion;
     }
 }

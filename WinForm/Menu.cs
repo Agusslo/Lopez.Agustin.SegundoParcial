@@ -33,19 +33,20 @@ namespace WinForm
             this.logPath = logPath;
             this.perfilUsuario = perfilUsuario;// para el futuro
             lblCorreousuario.Text = "Correo: " + correoUsuario; ; //MUESTRO EN EL LABEL EL CORREO DE QUIEN INICIO
+            lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss"); //AGREGADO DEL HORARIO
 
             //TIEMPO REAL
-            timer = new System.Windows.Forms.Timer(); 
-            timer.Interval = 1000; 
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
             timer.Tick += Timer_Tick;
-            timer.Start(); 
+            timer.Start();
         }
 
         // Método que se ejecutará cada vez que el temporizador cambie de intervalo
         private void Timer_Tick(object sender, EventArgs e)
         {
             // Actualizar la hora en el Label
-            lblHora.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss");
+            lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
 
@@ -184,7 +185,7 @@ namespace WinForm
             }
         }
 
-        
+
 
         private void xMLToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -283,6 +284,11 @@ namespace WinForm
             }
 
             base.OnFormClosing(e);
+        }
+
+        private void lblHora_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
