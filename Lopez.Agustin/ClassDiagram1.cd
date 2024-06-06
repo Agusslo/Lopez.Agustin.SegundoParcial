@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ClassLibrary.Elfo">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAAgAAABAAEgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Elfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Humano">
+    <Position X="8.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAEgBAAAAAAAAAAAAEAAAAAAAAAAQA=</HashCode>
+      <FileName>Humano.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Orco">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAEgAAAAAAAAAACABAAAAAIAAAAAAA=</HashCode>
+      <FileName>Orco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Personaje">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAgAAAgAAAAAAAQoAAAIAAAAAAAjA=</HashCode>
+      <FileName>Personaje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Coleccion">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAEAABAAAAAAQAEBAAAAAAAAAAoAAQAAEAAEAiA=</HashCode>
+      <FileName>Coleccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Entidades.ECaracteristica">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAIQAAAAAAAAAAAAA=</HashCode>
+      <FileName>ECaracteristica.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Entidades.EColorHumano">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAgAAAAAAAAAAAQAAAAACAAAAA=</HashCode>
+      <FileName>EColorHumano.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Entidades.EColorPelo">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAgAAAIAAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>EColorPelo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Entidades.EEdad">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>EEdad.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Entidades.EEspecieElfo">
+    <Position X="12.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAgAAAAAAAAAAAAAQAAAAAACAAAAAAI=</HashCode>
+      <FileName>EEspecieElfo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Entidades.EEspecieOrco">
+    <Position X="14" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAIBAAACAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>EEspecieOrco.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

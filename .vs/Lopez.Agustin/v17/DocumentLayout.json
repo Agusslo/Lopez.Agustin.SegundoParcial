@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
+      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,6 +47,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClassDiagram1.cd",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassDiagram1.cd",
+              "RelativeDocumentMoniker": "Lopez.Agustin\\ClassDiagram1.cd",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassDiagram1.cd",
+              "RelativeToolTip": "Lopez.Agustin\\ClassDiagram1.cd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000968|",
+              "WhenOpened": "2024-06-06T11:50:21.141Z",
+              "EditorCaption": ""
             }
           ]
         }
