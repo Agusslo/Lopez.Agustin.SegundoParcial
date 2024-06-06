@@ -52,6 +52,7 @@
             ascendenteToolStripMenuItem = new ToolStripMenuItem();
             descendenteToolStripMenuItem = new ToolStripMenuItem();
             lblCorreousuario = new Label();
+            lblHora = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             cbElfo.AutoSize = true;
             cbElfo.Checked = true;
             cbElfo.CheckState = CheckState.Checked;
-            cbElfo.Location = new Point(636, 117);
+            cbElfo.Location = new Point(636, 90);
             cbElfo.Name = "cbElfo";
             cbElfo.Size = new Size(98, 19);
             cbElfo.TabIndex = 15;
@@ -75,7 +76,7 @@
             cbOrco.AutoSize = true;
             cbOrco.Checked = true;
             cbOrco.CheckState = CheckState.Checked;
-            cbOrco.Location = new Point(635, 92);
+            cbOrco.Location = new Point(635, 65);
             cbOrco.Name = "cbOrco";
             cbOrco.Size = new Size(101, 19);
             cbOrco.TabIndex = 14;
@@ -89,7 +90,7 @@
             cbHumano.AutoSize = true;
             cbHumano.Checked = true;
             cbHumano.CheckState = CheckState.Checked;
-            cbHumano.Location = new Point(635, 67);
+            cbHumano.Location = new Point(635, 40);
             cbHumano.Name = "cbHumano";
             cbHumano.Size = new Size(122, 19);
             cbHumano.TabIndex = 13;
@@ -258,12 +259,20 @@
             lblCorreousuario.Size = new Size(150, 40);
             lblCorreousuario.TabIndex = 16;
             // 
+            // lblHora
+            // 
+            lblHora.Location = new Point(619, 136);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(150, 40);
+            lblHora.TabIndex = 17;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(769, 363);
+            Controls.Add(lblHora);
             Controls.Add(lblCorreousuario);
             Controls.Add(cbElfo);
             Controls.Add(cbOrco);
@@ -307,5 +316,6 @@
         private ToolStripMenuItem ascendenteToolStripMenuItem;
         private ToolStripMenuItem descendenteToolStripMenuItem;
         private Label lblCorreousuario;
+        private Label lblHora;
     }
 }

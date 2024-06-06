@@ -15,6 +15,7 @@ namespace WinForm
         bool GuardarEnJSON = true;
         string perfilUsuario;
         string correoUsuario;
+        System.Windows.Forms.Timer timer;
 
         public Menu(string logPath, string perfilUsuario, string correoUsuario)
         {
@@ -32,12 +33,22 @@ namespace WinForm
             this.logPath = logPath;
             this.perfilUsuario = perfilUsuario;// para el futuro
             lblCorreousuario.Text = "Correo: " + correoUsuario; ; //MUESTRO EN EL LABEL EL CORREO DE QUIEN INICIO
+
+            //TIEMPO REAL
+            timer = new System.Windows.Forms.Timer(); 
+            timer.Interval = 1000; 
+            timer.Tick += Timer_Tick;
+            timer.Start(); 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        // Método que se ejecutará cada vez que el temporizador cambie de intervalo
+        private void Timer_Tick(object sender, EventArgs e)
         {
-
+            // Actualizar la hora en el Label
+            lblHora.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss");
         }
+
+
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
@@ -151,6 +162,11 @@ namespace WinForm
 
 
         private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
