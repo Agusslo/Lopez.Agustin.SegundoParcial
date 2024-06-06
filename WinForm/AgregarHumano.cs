@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinForm
 {
-    public partial class AgregarHumano : Form
+    public partial class AgregarHumano : AgregarPersonaje
 
     {
         public Humano humano;
@@ -56,10 +56,6 @@ namespace WinForm
             this.DialogResult = DialogResult.OK;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
         protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
         {
             base.OnFormClosing(e);

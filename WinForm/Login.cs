@@ -59,6 +59,7 @@ namespace WinForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool usuarioEncontrado = false;
             foreach (Usuario usuario in usuarios)
             {
                 if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
@@ -67,14 +68,17 @@ namespace WinForm
                     frmMenu.Show();
                     this.Hide();
                     CargarLogs(usuario.Correo);
+                    usuarioEncontrado = true;
                     break;
                 }
-                else
-                {
-                    MessageBox.Show("Correo electronico o contraseña incorrectos.");
-                }
+            }
+
+            if (!usuarioEncontrado)//para que no tire varios mensajes de error(tiraba 5 mensajes)
+            {
+                MessageBox.Show("Correo electrónico o contraseña incorrectos.");
             }
         }
+
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {

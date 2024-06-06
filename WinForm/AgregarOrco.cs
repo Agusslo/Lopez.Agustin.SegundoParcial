@@ -14,7 +14,7 @@ using WinForm;
 
 namespace WinForm
 {
-    public partial class AgregarOrco : Form
+    public partial class AgregarOrco : AgregarPersonaje
     {
         public Orco orco;
         public bool canibal;

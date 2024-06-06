@@ -14,7 +14,7 @@ using WinForm;
 
 namespace WinForm
 {
-    public partial class AgregarElfo : Form
+    public partial class AgregarElfo : AgregarPersonaje
     {
         public Elfo elfo;
         public bool inmortal;

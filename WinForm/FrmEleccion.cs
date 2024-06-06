@@ -89,6 +89,7 @@ namespace WinForm
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
         protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea

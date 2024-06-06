@@ -22,10 +22,16 @@ namespace WinForm
         {
 
         }
-        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
             Application.Exit();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

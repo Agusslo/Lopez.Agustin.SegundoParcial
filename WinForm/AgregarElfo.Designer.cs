@@ -30,18 +30,9 @@
         {
             cbEspecie = new ComboBox();
             label4 = new Label();
-            groupBox1 = new GroupBox();
-            cbCaracteristica = new ComboBox();
-            label3 = new Label();
-            cbEdad = new ComboBox();
-            label2 = new Label();
-            label1 = new Label();
-            txtNombre = new TextBox();
             checkBox1 = new CheckBox();
             label5 = new Label();
-            btnCancelar = new Button();
             btnAceptar = new Button();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // cbEspecie
@@ -63,76 +54,6 @@
             label4.TabIndex = 8;
             label4.Text = "Especie:";
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(cbCaracteristica);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(cbEdad);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(txtNombre);
-            groupBox1.Location = new Point(22, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(371, 215);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            // 
-            // cbCaracteristica
-            // 
-            cbCaracteristica.FormattingEnabled = true;
-            cbCaracteristica.Location = new Point(199, 168);
-            cbCaracteristica.Name = "cbCaracteristica";
-            cbCaracteristica.Size = new Size(144, 23);
-            cbCaracteristica.TabIndex = 5;
-            cbCaracteristica.Text = "No_Especificado";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(6, 170);
-            label3.Name = "label3";
-            label3.Size = new Size(172, 16);
-            label3.TabIndex = 4;
-            label3.Text = "Caracteristica:";
-            // 
-            // cbEdad
-            // 
-            cbEdad.FormattingEnabled = true;
-            cbEdad.Location = new Point(199, 94);
-            cbEdad.Name = "cbEdad";
-            cbEdad.Size = new Size(144, 23);
-            cbEdad.TabIndex = 3;
-            cbEdad.Text = "No_Especificado";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(23, 101);
-            label2.Name = "label2";
-            label2.Size = new Size(62, 16);
-            label2.TabIndex = 2;
-            label2.Text = "Edad:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(23, 37);
-            label1.Name = "label1";
-            label1.Size = new Size(84, 16);
-            label1.TabIndex = 1;
-            label1.Text = "Nombre:";
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(199, 35);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(144, 23);
-            txtNombre.TabIndex = 0;
-            // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
@@ -153,22 +74,10 @@
             label5.TabIndex = 10;
             label5.Text = "Inmortal:";
             // 
-            // btnCancelar
-            // 
-            btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(91, 374);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(127, 64);
-            btnCancelar.TabIndex = 13;
-            btnCancelar.Text = "CANCELAR";
-            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
             // btnAceptar
             // 
             btnAceptar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAceptar.Location = new Point(287, 374);
+            btnAceptar.Location = new Point(88, 374);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(127, 64);
             btnAceptar.TabIndex = 12;
@@ -182,17 +91,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(470, 450);
-            Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(checkBox1);
             Controls.Add(label5);
             Controls.Add(cbEspecie);
             Controls.Add(label4);
-            Controls.Add(groupBox1);
             Name = "AgregarElfo";
             Text = "Form2";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,16 +106,8 @@
 
         private ComboBox cbEspecie;
         private Label label4;
-        private GroupBox groupBox1;
-        private ComboBox cbCaracteristica;
-        private Label label3;
-        private ComboBox cbEdad;
-        private Label label2;
-        private Label label1;
-        private TextBox txtNombre;
         private CheckBox checkBox1;
         private Label label5;
-        private Button btnCancelar;
         private Button btnAceptar;
     }
 }

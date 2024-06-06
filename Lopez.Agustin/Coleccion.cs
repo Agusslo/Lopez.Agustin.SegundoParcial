@@ -27,7 +27,7 @@ namespace ClassLibrary
             }
             else
             {
-                throw new ArgumentException("El animal ya existe en la colección.");
+                throw new ArgumentException("El personaje ya existe en la colección.");
             }
             return co;
         }
