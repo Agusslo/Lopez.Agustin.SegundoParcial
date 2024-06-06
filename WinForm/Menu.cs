@@ -51,7 +51,7 @@ namespace WinForm
 
 
 
-        private void btnAgregar_Click_1(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmEleccion agregar = new FrmEleccion();
             if (agregar.ShowDialog() == DialogResult.OK)
@@ -63,7 +63,7 @@ namespace WinForm
                     personajes += nuevoPersonaje;
                     ActualizarLista();
                 }
-                catch (ArgumentException ex) // Atrapa excepcion lanzada desde operator + de Coleccion
+                catch (ArgumentException ex)
                 {
                     MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -125,14 +125,11 @@ namespace WinForm
 
         private void ActualizarLista()
         {
-            if (listBox1 != null)
+            listBox1.Items.Clear();
+            var filteredpersonajes = personajes.FiltrarPorTipos(cbHumano.Checked, cbOrco.Checked, cbElfo.Checked);
+            foreach (var personaje in filteredpersonajes)
             {
-                listBox1.Items.Clear();
-                var filteredpersonajes = personajes.FiltrarPorTipos(cbHumano.Checked, cbOrco.Checked, cbElfo.Checked);
-                foreach (var personaje in filteredpersonajes)
-                {
-                    listBox1.Items.Add(personaje);
-                }
+                listBox1.Items.Add(personaje);
             }
         }
 
@@ -272,6 +269,11 @@ namespace WinForm
             ActualizarLista();
         }
 
+
+        private void lblHora_Click(object sender, EventArgs e)
+        {
+
+        }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             // Preguntar al usuario si está seguro de que desea salir
@@ -284,11 +286,6 @@ namespace WinForm
             }
 
             base.OnFormClosing(e);
-        }
-
-        private void lblHora_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
