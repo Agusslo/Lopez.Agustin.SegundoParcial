@@ -24,7 +24,7 @@ namespace WinForm
 
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click_1(object sender, EventArgs e)
         {
             FrmEleccion agregar = new FrmEleccion();
             if (agregar.ShowDialog() == DialogResult.OK)
@@ -37,113 +37,15 @@ namespace WinForm
                     ActualizarLista();
                 }
                 catch (ArgumentException ex) // Atrapa excepcion lanzada desde operator + de Coleccion
+
                 {
                     MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
 
-        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string content;
-            if (GuardarEnJSON)
-            {
-                personajes.SerializarAJson(personajes.GetColeccion(), path);
-            }
-            else
-            {
-                personajes.SerializarAXml(this.path);
-            }
-        }
 
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (GuardarEnJSON)
-            {
-                openFileDialog.Filter = "Json files(.json)|.json";
-            }
-            else
-            {
-                openFileDialog.Filter = "XML files(.xml)|.xml";
-            }
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog.FileName;
-                string archivo = File.ReadAllText(filePath);
-
-                Coleccion result;
-                if (GuardarEnJSON)
-                {
-                    result = Coleccion.DeserializarDeJson(archivo);
-                }
-                else
-                {
-                    result = Coleccion.DeserializarDeXml(archivo);
-                }
-                personajes = result;
-                ActualizarLista();
-            }
-        }
-        private void Filtrar(object sender, EventArgs e)
-        {
-            ActualizarLista();
-        }
-
-        private void ActualizarLista()
-        {
-            if (listBox1 != null)
-            {
-                listBox1.Items.Clear();
-                var filteredpersonajes = personajes.FiltrarPorTipos(cbHumano.Checked, cbOrco.Checked, cbElfo.Checked);
-                foreach (var personaje in filteredpersonajes)
-                {
-                    listBox1.Items.Add(personaje);
-                }
-            }
-        }
-
-        private void verLogsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmLog logsForm = new FrmLog(this.logPath);
-            logsForm.ShowDialog();
-        }
-
-        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.GuardarEnJSON = false;
-        }
-
-        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.GuardarEnJSON = true;
-        }
-
-        private void masJovenPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorEdad(ascendente: true);
-            ActualizarLista();
-        }
-
-        private void masAncianoPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorEdad(ascendente: false);
-            ActualizarLista();
-        }
-
-        private void ascendenteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorNombre(true);
-            ActualizarLista();
-        }
-
-        private void descendenteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorNombre(false);
-            ActualizarLista();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificar_Click_1(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
@@ -192,14 +94,133 @@ namespace WinForm
             }
         }
 
+
+        private void Filtrar(object sender, EventArgs e)
+        {
+            ActualizarLista();
+        }
+
+        private void ActualizarLista()
+        {
+            if (listBox1 != null)
+            {
+                listBox1.Items.Clear();
+                var filteredpersonajes = personajes.FiltrarPorTipos(cbHumano.Checked, cbOrco.Checked, cbElfo.Checked);
+                foreach (var personaje in filteredpersonajes)
+                {
+                    listBox1.Items.Add(personaje);
+                }
+            }
+        }
+
+
+
         private void Menu_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void cbElfo_CheckedChanged(object sender, EventArgs e)
+        private void guardarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            string content;
+            if (GuardarEnJSON)
+            {
+                personajes.SerializarAJson(personajes.GetColeccion(), path);
+            }
+            else
+            {
+                personajes.SerializarAXml(this.path);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void xMLToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.GuardarEnJSON = false;
+        }
+
+        private void jSONToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.GuardarEnJSON = true;
+        }
+
+        private void masJovenPrimeroToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorEdad(ascendente: true);
+            ActualizarLista();
+        }
+
+        private void masAncianoPrimeroToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorEdad(ascendente: false);
+            ActualizarLista();
+        }
+
+        private void cbHumano_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbOrco_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbElfo_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verLogsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLog logsForm = new FrmLog(this.logPath);
+            logsForm.ShowDialog();
+        }
+
+        private void abrirToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (GuardarEnJSON)
+            {
+                openFileDialog.Filter = "Json files(.json)|.json";
+            }
+            else
+            {
+                openFileDialog.Filter = "XML files(.xml)|.xml";
+            }
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                string archivo = File.ReadAllText(filePath);
+
+                Coleccion result;
+                if (GuardarEnJSON)
+                {
+                    result = Coleccion.DeserializarDeJson(archivo);
+                }
+                else
+                {
+                    result = Coleccion.DeserializarDeXml(archivo);
+                }
+                personajes = result;
+                ActualizarLista();
+            }
+        }
+
+        private void ascendenteToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorNombre(true);
+            ActualizarLista();
+        }
+
+        private void descendenteToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorNombre(false);
+            ActualizarLista();
         }
     }
 }

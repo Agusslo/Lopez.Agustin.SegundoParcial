@@ -45,6 +45,7 @@
             checkBox1.TabIndex = 11;
             checkBox1.Text = "Ver";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged_1;
             // 
             // button1
             // 
@@ -54,6 +55,7 @@
             button1.TabIndex = 10;
             button1.Text = "Iniciar sesión";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // txtContrasenia
             // 

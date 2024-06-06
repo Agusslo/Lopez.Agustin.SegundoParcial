@@ -69,9 +69,8 @@ namespace WinForm
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
             foreach (Usuario usuario in usuarios)
             {
                 if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
@@ -87,10 +86,9 @@ namespace WinForm
                 }
                 break;
             }
-
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
                 txtContrasenia.UseSystemPasswordChar = false;

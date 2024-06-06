@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\personaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\personaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\humano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\humano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\agregarhumano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\agregarhumano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,68 +54,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Personaje.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Personaje.cs",
-              "RelativeDocumentMoniker": "Lopez.Agustin\\Personaje.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Personaje.cs",
-              "RelativeToolTip": "Lopez.Agustin\\Personaje.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAmwFIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T22:35:57.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Humano.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Humano.cs",
-              "RelativeDocumentMoniker": "Lopez.Agustin\\Humano.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Humano.cs",
-              "RelativeToolTip": "Lopez.Agustin\\Humano.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T22:35:35.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Login.cs",
-              "RelativeDocumentMoniker": "WinForm\\Login.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Login.cs",
-              "RelativeToolTip": "WinForm\\Login.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAA2wEgAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T22:01:44.426Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
               "RelativeDocumentMoniker": "WinForm\\Menu.cs",
               "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
               "RelativeToolTip": "WinForm\\Menu.cs",
-              "ViewState": "AQIAAIUAAAAAAAAAAAAIwJsAAAA+AAAA",
+              "ViewState": "AQIAAHoAAAAAAAAAAAASwIkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-05T22:18:24.28Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AgregarHumano.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\AgregarHumano.cs",
-              "RelativeDocumentMoniker": "WinForm\\AgregarHumano.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\AgregarHumano.cs",
-              "RelativeToolTip": "WinForm\\AgregarHumano.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAfAAAA",
+              "DocumentIndex": 1,
+              "Title": "Menu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
+              "RelativeDocumentMoniker": "WinForm\\Menu.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinForm\\Menu.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T22:02:01.157Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T23:40:54.808Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
