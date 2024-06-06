@@ -49,24 +49,9 @@ namespace WinForm
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            FrmEleccion agregar = new FrmEleccion();
-            if (agregar.ShowDialog() == DialogResult.OK)
-            {
-                Personaje nuevoPersonaje = agregar.SelectedPersonaje;
-
-                try
-                {
-                    personajes += nuevoPersonaje;
-                    ActualizarLista();
-                }
-                catch (ArgumentException ex)
-                {
-                    MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////
 
         private void Filtrar(object sender, EventArgs e)
         {
@@ -83,131 +68,6 @@ namespace WinForm
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex != -1)
-            {
-                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                if (personajeSeleccionado != null)
-                {
-                    personajes -= personajeSeleccionado;
-                    ActualizarLista();
-                    MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un personaje para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-            // Código para manejar el evento Load del formulario
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Código para manejar el evento SelectedIndexChanged del ListBox
-        }
-
-        private void guardarToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            if (GuardarEnJSON)
-            {
-                personajes.SerializarAJson(personajes.GetColeccion(), path);
-            }
-            else
-            {
-                personajes.SerializarAXml(path);
-            }
-        }
-
-        private void xMLToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            GuardarEnJSON = false;
-        }
-
-        private void jSONToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            GuardarEnJSON = true;
-        }
-
-        private void masJovenPrimeroToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorEdad(ascendente: true);
-            ActualizarLista();
-        }
-
-        private void masAncianoPrimeroToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorEdad(ascendente: false);
-            ActualizarLista();
-        }
-
-        private void cbHumano_CheckedChanged(object sender, EventArgs e)
-        {
-            // Código para manejar el evento CheckedChanged del CheckBox
-        }
-
-        private void cbElfo_CheckedChanged_1(object sender, EventArgs e)
-        {
-            // Código para manejar el evento CheckedChanged del CheckBox
-        }
-
-        private void verLogsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmLog logsForm = new FrmLog(logPath);
-            logsForm.ShowDialog();
-        }
-
-        private void abrirToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (GuardarEnJSON)
-            {
-                openFileDialog.Filter = "Json files (*.json)|*.json";
-            }
-            else
-            {
-                openFileDialog.Filter = "XML files (*.xml)|*.xml";
-            }
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog.FileName;
-                string archivo = File.ReadAllText(filePath);
-
-                Coleccion result;
-                if (GuardarEnJSON)
-                {
-                    result = Coleccion.DeserializarDeJson(archivo);
-                }
-                else
-                {
-                    result = Coleccion.DeserializarDeXml(archivo);
-                }
-                personajes = result;
-                ActualizarLista();
-            }
-        }
-
-        private void ascendenteToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorNombre(true);
-            ActualizarLista();
-        }
-
-        private void descendenteToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorNombre(false);
-            ActualizarLista();
-        }
-
-        private void lblHora_Click(object sender, EventArgs e)
-        {
-            // Código para manejar el evento Click del Label
-        }
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             // Preguntar al usuario si está seguro de que desea salir
@@ -222,10 +82,7 @@ namespace WinForm
             base.OnFormClosing(e);
         }
 
-        private void cbElfo_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -273,6 +130,144 @@ namespace WinForm
             {
                 MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            FrmEleccion agregar = new FrmEleccion();
+            if (agregar.ShowDialog() == DialogResult.OK)
+            {
+                Personaje nuevoPersonaje = agregar.SelectedPersonaje;
+
+                try
+                {
+                    personajes += nuevoPersonaje;
+                    ActualizarLista();
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
+                if (personajeSeleccionado != null)
+                {
+                    personajes -= personajeSeleccionado;
+                    ActualizarLista();
+                    MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un personaje para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void cbOrco_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbElfo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbHumano_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Menu_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (GuardarEnJSON)
+            {
+                personajes.SerializarAJson(personajes.GetColeccion(), path);
+            }
+            else
+            {
+                personajes.SerializarAXml(path);
+            }
+        }
+
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (GuardarEnJSON)
+            {
+                openFileDialog.Filter = "Json files (*.json)|*.json";
+            }
+            else
+            {
+                openFileDialog.Filter = "XML files (*.xml)|*.xml";
+            }
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                string archivo = File.ReadAllText(filePath);
+                Coleccion result;
+                if (GuardarEnJSON)
+                {
+                    result = Coleccion.DeserializarDeJson(archivo);
+                }
+                else
+                {
+                    result = Coleccion.DeserializarDeXml(archivo);
+                }
+                personajes = result;
+                ActualizarLista();
+            }
+        }
+
+        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GuardarEnJSON = false;
+        }
+
+        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GuardarEnJSON = true;
+        }
+
+        private void verLogsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmLog logsForm = new FrmLog(logPath);
+            logsForm.ShowDialog();
+        }
+
+        private void masJovenPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorEdad(ascendente: true);
+            ActualizarLista();
+        }
+
+        private void masAncianoPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorEdad(ascendente: false);
+            ActualizarLista();
+        }
+
+        private void ascendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorNombre(true);
+            ActualizarLista();
+        }
+
+        private void descendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorNombre(false);
+            ActualizarLista();
         }
     }
 }

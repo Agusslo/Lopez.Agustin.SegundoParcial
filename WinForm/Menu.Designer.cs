@@ -83,6 +83,7 @@
             cbOrco.TabIndex = 14;
             cbOrco.Text = "Mostrar Orcos";
             cbOrco.UseVisualStyleBackColor = true;
+            cbOrco.CheckedChanged += cbOrco_CheckedChanged;
             // 
             // cbHumano
             // 
@@ -96,6 +97,7 @@
             cbHumano.TabIndex = 13;
             cbHumano.Text = "Mostrar Humanos";
             cbHumano.UseVisualStyleBackColor = true;
+            cbHumano.CheckedChanged += cbHumano_CheckedChanged_1;
             // 
             // btnEliminar
             // 
@@ -105,6 +107,7 @@
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click_1;
             // 
             // btnModificar
             // 
@@ -124,6 +127,7 @@
             btnAgregar.TabIndex = 9;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click_1;
             // 
             // listBox1
             // 
@@ -156,12 +160,14 @@
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             guardarToolStripMenuItem.Size = new Size(116, 22);
             guardarToolStripMenuItem.Text = "Guardar";
+            guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // abrirToolStripMenuItem
             // 
             abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             abrirToolStripMenuItem.Size = new Size(116, 22);
             abrirToolStripMenuItem.Text = "Abrir";
+            abrirToolStripMenuItem.Click += abrirToolStripMenuItem_Click;
             // 
             // configuracionToolStripMenuItem
             // 
@@ -175,6 +181,7 @@
             verLogsToolStripMenuItem.Name = "verLogsToolStripMenuItem";
             verLogsToolStripMenuItem.Size = new Size(157, 22);
             verLogsToolStripMenuItem.Text = "Ver logs";
+            verLogsToolStripMenuItem.Click += verLogsToolStripMenuItem_Click_1;
             // 
             // elegirGuardadoToolStripMenuItem
             // 
@@ -188,12 +195,14 @@
             xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
             xMLToolStripMenuItem.Size = new Size(102, 22);
             xMLToolStripMenuItem.Text = "XML";
+            xMLToolStripMenuItem.Click += xMLToolStripMenuItem_Click;
             // 
             // jSONToolStripMenuItem
             // 
             jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
             jSONToolStripMenuItem.Size = new Size(102, 22);
             jSONToolStripMenuItem.Text = "JSON";
+            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
             // 
             // ordenarPorToolStripMenuItem
             // 
@@ -206,7 +215,7 @@
             // 
             edadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masJovenPrimeroToolStripMenuItem, masAncianoPrimeroToolStripMenuItem });
             edadToolStripMenuItem.Name = "edadToolStripMenuItem";
-            edadToolStripMenuItem.Size = new Size(118, 22);
+            edadToolStripMenuItem.Size = new Size(180, 22);
             edadToolStripMenuItem.Text = "Edad";
             // 
             // masJovenPrimeroToolStripMenuItem
@@ -214,31 +223,35 @@
             masJovenPrimeroToolStripMenuItem.Name = "masJovenPrimeroToolStripMenuItem";
             masJovenPrimeroToolStripMenuItem.Size = new Size(186, 22);
             masJovenPrimeroToolStripMenuItem.Text = "Mas joven primero";
+            masJovenPrimeroToolStripMenuItem.Click += masJovenPrimeroToolStripMenuItem_Click;
             // 
             // masAncianoPrimeroToolStripMenuItem
             // 
             masAncianoPrimeroToolStripMenuItem.Name = "masAncianoPrimeroToolStripMenuItem";
             masAncianoPrimeroToolStripMenuItem.Size = new Size(186, 22);
             masAncianoPrimeroToolStripMenuItem.Text = "Mas anciano primero";
+            masAncianoPrimeroToolStripMenuItem.Click += masAncianoPrimeroToolStripMenuItem_Click;
             // 
             // nombreToolStripMenuItem
             // 
             nombreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ascendenteToolStripMenuItem, descendenteToolStripMenuItem });
             nombreToolStripMenuItem.Name = "nombreToolStripMenuItem";
-            nombreToolStripMenuItem.Size = new Size(118, 22);
+            nombreToolStripMenuItem.Size = new Size(180, 22);
             nombreToolStripMenuItem.Text = "Nombre";
             // 
             // ascendenteToolStripMenuItem
             // 
             ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
-            ascendenteToolStripMenuItem.Size = new Size(142, 22);
+            ascendenteToolStripMenuItem.Size = new Size(180, 22);
             ascendenteToolStripMenuItem.Text = "Ascendente";
+            ascendenteToolStripMenuItem.Click += ascendenteToolStripMenuItem_Click;
             // 
             // descendenteToolStripMenuItem
             // 
             descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
-            descendenteToolStripMenuItem.Size = new Size(142, 22);
+            descendenteToolStripMenuItem.Size = new Size(180, 22);
             descendenteToolStripMenuItem.Text = "Descendente";
+            descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click;
             // 
             // lblCorreousuario
             // 
@@ -280,6 +293,7 @@
             Controls.Add(menuStrip1);
             Name = "Menu";
             Text = "Menu";
+            Load += Menu_Load_1;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
