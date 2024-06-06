@@ -131,7 +131,7 @@
             Controls.Add(groupBox1);
             Controls.Add(button2);
             Name = "AgregarPersonaje";
-            Text = "Form1";
+            Text = "Agregar Personaje";
             Load += AgregarPersonaje_Load_1;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

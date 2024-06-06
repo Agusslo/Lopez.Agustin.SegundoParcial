@@ -97,7 +97,7 @@
             Controls.Add(cbEspecie);
             Controls.Add(label4);
             Name = "AgregarElfo";
-            Text = "Form2";
+            Text = "Agregar Elfo";
             ResumeLayout(false);
             PerformLayout();
         }

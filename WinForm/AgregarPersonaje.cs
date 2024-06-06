@@ -23,15 +23,23 @@ namespace WinForm
 
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-            Application.Exit();
-        }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            // Preguntar al usuario si está seguro de que desea salir
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Si el usuario elige No, cancelar el cierre de la aplicación
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+
+            base.OnFormClosing(e);
         }
     }
 }

@@ -60,7 +60,7 @@
             Controls.Add(btnAceptar);
             Controls.Add(RTextBox);
             Name = "FrmLog";
-            Text = "Form1";
+            Text = "FRM LOG";
             ResumeLayout(false);
         }
 

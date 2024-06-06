@@ -127,11 +127,11 @@ namespace WinForm
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (perfilUsuario.ToLower() != "administrador")
+            /*if (perfilUsuario.ToLower() != "administrador")
             {
                 MessageBox.Show("Solo un administrador puede eliminar personajes.", "Permiso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }
+            }*/
 
             if (listBox1.SelectedIndex != -1)
             {
@@ -255,10 +255,18 @@ namespace WinForm
             ActualizarLista();
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            // Preguntar al usuario si está seguro de que desea salir
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Si el usuario elige No, cancelar el cierre de la aplicación
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+
             base.OnFormClosing(e);
-            Application.Exit();
         }
     }
 }

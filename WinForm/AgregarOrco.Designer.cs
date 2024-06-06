@@ -97,6 +97,7 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Name = "AgregarOrco";
+            Text = "Agregar Orco";
             Controls.SetChildIndex(label4, 0);
             Controls.SetChildIndex(label5, 0);
             Controls.SetChildIndex(cbEspecie, 0);

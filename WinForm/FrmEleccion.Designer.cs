@@ -114,7 +114,7 @@
             Controls.Add(rbtnHumano);
             Controls.Add(label1);
             Name = "FrmEleccion";
-            Text = "Form1";
+            Text = "FRM ELECCION";
             ResumeLayout(false);
             PerformLayout();
         }

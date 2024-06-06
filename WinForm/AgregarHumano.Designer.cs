@@ -129,6 +129,7 @@
             Controls.Add(cbColorPelo);
             Controls.Add(label4);
             Name = "AgregarHumano";
+            Text = "Agregar Humano";
             ResumeLayout(false);
             PerformLayout();
         }
