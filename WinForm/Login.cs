@@ -31,6 +31,10 @@ namespace WinForm
             {
                 string jsonUsuarios = File.ReadAllText("MOCK_DATA.json");
                 usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                if (usuarios == null || usuarios.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron usuarios en el archivo MOCK_DATA.json.");
+                }
             }
             catch (FileNotFoundException)
             {
@@ -62,7 +66,7 @@ namespace WinForm
             bool usuarioEncontrado = false;
             foreach (Usuario usuario in usuarios)
             {
-                if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
+                if (usuario.Correo.Equals(txtCorreo.Text, StringComparison.OrdinalIgnoreCase) && usuario.Clave == txtContrasenia.Text)//para que funcionen todos los usuarios
                 {
                     Menu frmMenu = new Menu(logPath);
                     frmMenu.Show();
@@ -73,12 +77,11 @@ namespace WinForm
                 }
             }
 
-            if (!usuarioEncontrado)//para que no tire varios mensajes de error(tiraba 5 mensajes)
+            if (!usuarioEncontrado)
             {
                 MessageBox.Show("Correo electrónico o contraseña incorrectos.");
             }
         }
-
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -88,7 +91,7 @@ namespace WinForm
                 txtContrasenia.UseSystemPasswordChar = true;
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)//que no se buguee en el administrador de tarea
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
             Application.Exit();

@@ -120,6 +120,12 @@ namespace WinForm
             }
         }
 
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Menu_Load(object sender, EventArgs e)
         {
 
@@ -138,10 +144,7 @@ namespace WinForm
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void xMLToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
