@@ -12,6 +12,8 @@ namespace WinForm
         List<Usuario> usuarios;
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string logPath;
+        string perfilUsuario;
+        string nombreUsuario = string.Empty;
 
         public Login()
         {
@@ -31,10 +33,6 @@ namespace WinForm
             {
                 string jsonUsuarios = File.ReadAllText("MOCK_DATA.json");
                 usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                if (usuarios == null || usuarios.Count == 0)
-                {
-                    MessageBox.Show("No se encontraron usuarios en el archivo MOCK_DATA.json.");
-                }
             }
             catch (FileNotFoundException)
             {
@@ -64,11 +62,16 @@ namespace WinForm
         private void button1_Click(object sender, EventArgs e)
         {
             bool usuarioEncontrado = false;
+            string correoUsuario = string.Empty; // Variable para almacenar el correo del usuario
+
             foreach (Usuario usuario in usuarios)
             {
-                if (usuario.Correo.Equals(txtCorreo.Text, StringComparison.OrdinalIgnoreCase) && usuario.Clave == txtContrasenia.Text)//para que funcionen todos los usuarios
+                if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
                 {
-                    Menu frmMenu = new Menu(logPath);
+                    correoUsuario = usuario.Correo; // Guardamos el correo electrónico del usuario
+                    perfilUsuario = usuario.Perfil; // Guardamos el perfil del usuario
+
+                    Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);
                     frmMenu.Show();
                     this.Hide();
                     CargarLogs(usuario.Correo);
@@ -76,7 +79,6 @@ namespace WinForm
                     break;
                 }
             }
-
             if (!usuarioEncontrado)
             {
                 MessageBox.Show("Correo electrónico o contraseña incorrectos.");

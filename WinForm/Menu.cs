@@ -13,8 +13,10 @@ namespace WinForm
         string logPath;
         Coleccion personajes;
         bool GuardarEnJSON = true;
+        string perfilUsuario;
+        string correoUsuario;
 
-        public Menu(string logPath)
+        public Menu(string logPath, string perfilUsuario, string correoUsuario)
         {
             InitializeComponent();
 
@@ -28,6 +30,8 @@ namespace WinForm
             this.IsMdiContainer = true;
             this.path = Path.Combine(folderPath, "configuracion");
             this.logPath = logPath;
+            this.perfilUsuario = perfilUsuario;// para el futuro
+            lblCorreousuario.Text = "Correo: " + correoUsuario; ; //MUESTRO EN EL LABEL EL CORREO DE QUIEN INICIO
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,8 +127,28 @@ namespace WinForm
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (perfilUsuario.ToLower() != "administrador")
+            {
+                MessageBox.Show("Solo un administrador puede eliminar personajes.", "Permiso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (listBox1.SelectedIndex != -1)
+            {
+                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
+                if (personajeSeleccionado != null)
+                {
+                    personajes -= personajeSeleccionado;
+                    ActualizarLista();
+                    MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un personaje para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
 
         private void Menu_Load(object sender, EventArgs e)
         {

@@ -51,6 +51,7 @@
             nombreToolStripMenuItem = new ToolStripMenuItem();
             ascendenteToolStripMenuItem = new ToolStripMenuItem();
             descendenteToolStripMenuItem = new ToolStripMenuItem();
+            lblCorreousuario = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -250,12 +251,20 @@
             descendenteToolStripMenuItem.Text = "Descendente";
             descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click_1;
             // 
+            // lblCorreousuario
+            // 
+            lblCorreousuario.Location = new Point(619, 212);
+            lblCorreousuario.Name = "lblCorreousuario";
+            lblCorreousuario.Size = new Size(150, 40);
+            lblCorreousuario.TabIndex = 16;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(769, 363);
+            Controls.Add(lblCorreousuario);
             Controls.Add(cbElfo);
             Controls.Add(cbOrco);
             Controls.Add(cbHumano);
@@ -297,5 +306,6 @@
         private ToolStripMenuItem nombreToolStripMenuItem;
         private ToolStripMenuItem ascendenteToolStripMenuItem;
         private ToolStripMenuItem descendenteToolStripMenuItem;
+        private Label lblCorreousuario;
     }
 }
