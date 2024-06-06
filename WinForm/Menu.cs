@@ -49,6 +49,7 @@ namespace WinForm
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
+
         //////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////
@@ -191,15 +192,29 @@ namespace WinForm
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GuardarEnJSON)
+            try
             {
-                personajes.SerializarAJson(personajes.GetColeccion(), path);
+                if (GuardarEnJSON)
+                {
+                    personajes.SerializarAJson(personajes.GetColeccion(), path);
+                }
+                else
+                {
+                    personajes.SerializarAXml(path);
+                }
+                // Mostrar un mensaje indicando que el archivo se ha guardado correctamente
+                MessageBox.Show("Archivo guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            catch (OperationCanceledException)
             {
-                personajes.SerializarAXml(path);
+                // El usuario ha cancelado la operación de guardado, no hay necesidad de mostrar un mensaje de advertencia
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -217,18 +232,26 @@ namespace WinForm
                 string filePath = openFileDialog.FileName;
                 string archivo = File.ReadAllText(filePath);
                 Coleccion result;
-                if (GuardarEnJSON)
+                try
                 {
-                    result = Coleccion.DeserializarDeJson(archivo);
+                    if (GuardarEnJSON)
+                    {
+                        result = Coleccion.DeserializarDeJson(archivo);
+                    }
+                    else
+                    {
+                        result = Coleccion.DeserializarDeXml(archivo);
+                    }
+                    personajes = result;
+                    ActualizarLista();
                 }
-                else
+                catch (Exception ex)
                 {
-                    result = Coleccion.DeserializarDeXml(archivo);
+                    MessageBox.Show("Error al abrir el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                personajes = result;
-                ActualizarLista();
             }
         }
+
 
         private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -269,5 +292,13 @@ namespace WinForm
             personajes.OrdenarPorNombre(false);
             ActualizarLista();
         }
+
+
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

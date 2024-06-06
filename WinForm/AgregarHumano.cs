@@ -1,22 +1,14 @@
 ﻿using ClassLibrary;
 using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinForm
 {
     public partial class AgregarHumano : AgregarPersonaje
-
     {
         public Humano humano;
+
         public AgregarHumano()
         {
             InitializeComponent();
@@ -24,7 +16,6 @@ namespace WinForm
             cbColorPelo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbColorPiel.DataSource = Enum.GetValues(typeof(EColorHumano));
             cbColorPelo.DataSource = Enum.GetValues(typeof(EColorPelo));
-
         }
 
         public AgregarHumano(Humano humano) : this()
@@ -44,9 +35,9 @@ namespace WinForm
                 cbColorPiel.SelectedItem = humano.GetColorHumano();
             }
         }
+
         public Humano ObtenerHumano()
         {
-
             return new Humano(humano.ObtenerNombre(), humano.ObtenerEdad(), humano.ObtenerCaracteristica(), humano.GetColorPelo(), humano.GetColorHumano());
         }
 
@@ -54,20 +45,6 @@ namespace WinForm
         {
             this.humano = new Humano(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, (EColorPelo)cbColorPelo.SelectedItem, (EColorHumano)cbColorPiel.SelectedItem);
             this.DialogResult = DialogResult.OK;
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            // Preguntar al usuario si está seguro de que desea salir
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            // Si el usuario elige No, cancelar el cierre de la aplicación
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-
-            base.OnFormClosing(e);
         }
     }
 }
