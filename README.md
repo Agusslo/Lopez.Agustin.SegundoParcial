@@ -19,7 +19,7 @@ Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano
 
 
 MI DIAGRAMA
-![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/1c863de6-be75-41af-9db1-1d5cabc786bd)
+![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/67a37583-d015-409d-80ed-0545addb3cac)
 
 
 
