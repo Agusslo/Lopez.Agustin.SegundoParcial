@@ -26,10 +26,10 @@
         public override string ToString()
         {
             if (canibal)
-                return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | canibal: Sí.";
+                return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | canibal: No.";
             else
             {
-                return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | canibal: No.";
+                return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | canibal: Si.";
             }
         }
         public override bool Equals(object obj)

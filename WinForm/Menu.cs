@@ -33,6 +33,8 @@ namespace WinForm
             this.logPath = logPath;
             this.perfilUsuario = perfilUsuario; // para el futuro
             lblCorreousuario.Text = "Correo: " + correoUsuario; // Muestra el correo en el label
+            this.correoUsuario = correoUsuario ?? "Correo no especificado";
+            lblCorreousuario.Text = "Correo: " + this.correoUsuario;
             lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss"); // Muestra la hora de inicio de sesión
 
             // Configurar el temporizador
@@ -172,17 +174,17 @@ namespace WinForm
 
         private void cbOrco_CheckedChanged(object sender, EventArgs e)
         {
-
+            ActualizarLista();
         }
 
         private void cbElfo_CheckedChanged(object sender, EventArgs e)
         {
-
+            ActualizarLista();
         }
 
         private void cbHumano_CheckedChanged_1(object sender, EventArgs e)
         {
-
+            ActualizarLista();
         }
 
         private void Menu_Load_1(object sender, EventArgs e)

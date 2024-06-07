@@ -34,6 +34,7 @@
             txtCorreo = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            btnRapido = new Button();
             SuspendLayout();
             // 
             // checkBox1
@@ -49,9 +50,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(103, 126);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(25, 139);
             button1.Name = "button1";
-            button1.Size = new Size(116, 23);
+            button1.Size = new Size(128, 32);
             button1.TabIndex = 10;
             button1.Text = "Iniciar sesión";
             button1.UseVisualStyleBackColor = true;
@@ -90,12 +92,24 @@
             label1.TabIndex = 6;
             label1.Text = "Correo electronico:";
             // 
+            // btnRapido
+            // 
+            btnRapido.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRapido.Location = new Point(186, 139);
+            btnRapido.Name = "btnRapido";
+            btnRapido.Size = new Size(128, 32);
+            btnRapido.TabIndex = 12;
+            btnRapido.Text = "Inicio Rapido";
+            btnRapido.UseVisualStyleBackColor = true;
+            btnRapido.Click += btnRapido_Click_1;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(351, 194);
+            Controls.Add(btnRapido);
             Controls.Add(checkBox1);
             Controls.Add(button1);
             Controls.Add(txtContrasenia);
@@ -116,5 +130,6 @@
         private TextBox txtCorreo;
         private Label label2;
         private Label label1;
+        private Button btnRapido;
     }
 }

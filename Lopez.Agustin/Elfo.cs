@@ -28,10 +28,10 @@
         public override string ToString()
         {
             if (inmortalidad)
-                return $"Elfo - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | inmortal: Sí.";
+                return $"Elfo - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | inmortal: No.";
             else
             {
-                return $"Elfo - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | inmortal: No.";
+                return $"Elfo - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | inmortal: Si.";
             }
         }
         public override bool Equals(object obj)

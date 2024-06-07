@@ -93,18 +93,29 @@ namespace WinForm
                 txtContrasenia.UseSystemPasswordChar = true;
         }
 
+        private void btnRapido_Click_1(object sender, EventArgs e)
+        {
+            string correoRapido = "aguss@rapido.com";
+            string perfilRapido = "aguss";
+
+            Menu frmMenu = new Menu(logPath, perfilRapido, correoRapido);
+            frmMenu.Show();
+            this.Hide();
+            CargarLogs(correoRapido);
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             // Preguntar al usuario si está seguro de que desea salir
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
             // Si el usuario elige No, cancelar el cierre de la aplicación
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
             }
-
             base.OnFormClosing(e);
         }
+
+        
     }
 }

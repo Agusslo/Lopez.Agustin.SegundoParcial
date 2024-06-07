@@ -63,7 +63,7 @@
             cbElfo.AutoSize = true;
             cbElfo.Checked = true;
             cbElfo.CheckState = CheckState.Checked;
-            cbElfo.Location = new Point(639, 90);
+            cbElfo.Location = new Point(773, 90);
             cbElfo.Name = "cbElfo";
             cbElfo.Size = new Size(95, 19);
             cbElfo.TabIndex = 15;
@@ -77,7 +77,7 @@
             cbOrco.AutoSize = true;
             cbOrco.Checked = true;
             cbOrco.CheckState = CheckState.Checked;
-            cbOrco.Location = new Point(635, 65);
+            cbOrco.Location = new Point(769, 65);
             cbOrco.Name = "cbOrco";
             cbOrco.Size = new Size(101, 19);
             cbOrco.TabIndex = 14;
@@ -91,7 +91,7 @@
             cbHumano.AutoSize = true;
             cbHumano.Checked = true;
             cbHumano.CheckState = CheckState.Checked;
-            cbHumano.Location = new Point(635, 40);
+            cbHumano.Location = new Point(769, 40);
             cbHumano.Name = "cbHumano";
             cbHumano.Size = new Size(122, 19);
             cbHumano.TabIndex = 13;
@@ -135,7 +135,7 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(12, 40);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(607, 229);
+            listBox1.Size = new Size(695, 229);
             listBox1.TabIndex = 8;
             // 
             // menuStrip1
@@ -144,7 +144,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, configuracionToolStripMenuItem, ordenarPorToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(769, 24);
+            menuStrip1.Size = new Size(903, 24);
             menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -215,7 +215,7 @@
             // 
             edadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masJovenPrimeroToolStripMenuItem, masAncianoPrimeroToolStripMenuItem });
             edadToolStripMenuItem.Name = "edadToolStripMenuItem";
-            edadToolStripMenuItem.Size = new Size(180, 22);
+            edadToolStripMenuItem.Size = new Size(118, 22);
             edadToolStripMenuItem.Text = "Edad";
             // 
             // masJovenPrimeroToolStripMenuItem
@@ -236,26 +236,26 @@
             // 
             nombreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ascendenteToolStripMenuItem, descendenteToolStripMenuItem });
             nombreToolStripMenuItem.Name = "nombreToolStripMenuItem";
-            nombreToolStripMenuItem.Size = new Size(180, 22);
+            nombreToolStripMenuItem.Size = new Size(118, 22);
             nombreToolStripMenuItem.Text = "Nombre";
             // 
             // ascendenteToolStripMenuItem
             // 
             ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
-            ascendenteToolStripMenuItem.Size = new Size(180, 22);
+            ascendenteToolStripMenuItem.Size = new Size(142, 22);
             ascendenteToolStripMenuItem.Text = "Ascendente";
             ascendenteToolStripMenuItem.Click += ascendenteToolStripMenuItem_Click;
             // 
             // descendenteToolStripMenuItem
             // 
             descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
-            descendenteToolStripMenuItem.Size = new Size(180, 22);
+            descendenteToolStripMenuItem.Size = new Size(142, 22);
             descendenteToolStripMenuItem.Text = "Descendente";
             descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click;
             // 
             // lblCorreousuario
             // 
-            lblCorreousuario.Location = new Point(619, 212);
+            lblCorreousuario.Location = new Point(741, 203);
             lblCorreousuario.Name = "lblCorreousuario";
             lblCorreousuario.Size = new Size(150, 40);
             lblCorreousuario.TabIndex = 16;
@@ -269,9 +269,9 @@
             // 
             // lblHoraInicioSesion
             // 
-            lblHoraInicioSesion.Location = new Point(619, 127);
+            lblHoraInicioSesion.Location = new Point(747, 124);
             lblHoraInicioSesion.Name = "lblHoraInicioSesion";
-            lblHoraInicioSesion.Size = new Size(150, 15);
+            lblHoraInicioSesion.Size = new Size(144, 15);
             lblHoraInicioSesion.TabIndex = 18;
             // 
             // Menu
@@ -279,7 +279,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(769, 363);
+            ClientSize = new Size(903, 395);
             Controls.Add(lblHoraInicioSesion);
             Controls.Add(lblHora);
             Controls.Add(lblCorreousuario);
