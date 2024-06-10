@@ -30,10 +30,10 @@ namespace WinForm
             personajes = new Coleccion();
             this.IsMdiContainer = true;
             this.path = Path.Combine(folderPath, "configuracion");
-            this.logPath = logPath;
-            this.perfilUsuario = perfilUsuario; // para el futuro
-            lblCorreousuario.Text = "Correo: " + correoUsuario; // Muestra el correo en el label
-            this.correoUsuario = correoUsuario ?? "Correo no especificado";
+            this.logPath = logPath ?? throw new ArgumentNullException(nameof(logPath)); // Seteo Null para evitar warning
+            this.perfilUsuario = perfilUsuario ?? "Perfil no especificado"; // Seteo Null para evitar warning
+            this.correoUsuario = correoUsuario ?? "Correo no especificado"; // Seteo Null para evitar warning
+
             lblCorreousuario.Text = "Correo: " + this.correoUsuario;
             lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss"); // Muestra la hora de inicio de sesión
 
@@ -45,18 +45,20 @@ namespace WinForm
         }
 
         // Método que se ejecutará cada vez que el temporizador cambie de intervalo
-        private void Timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object? sender, EventArgs e) // el ? para arreglar el warning
         {
             // Actualizar la hora en el Label
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
-
         //////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void Filtrar(object sender, EventArgs e)
+
+
+        // EL SIGNO DE PREGUNTA(?) ES PARA QUE PUEDA PASARLE INFO NULL Y NO TIRE WARNING
+        private void Filtrar(object? sender, EventArgs e)
         {
             ActualizarLista();
         }
@@ -71,12 +73,12 @@ namespace WinForm
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object? sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
-                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                Form modificarForm;
+                Personaje? personajeSeleccionado = listBox1.SelectedItem as Personaje;
+                Form? modificarForm = null;
                 if (personajeSeleccionado is Elfo elfoSeleccionado)
                 {
                     modificarForm = new AgregarElfo(elfoSeleccionado);
@@ -93,23 +95,21 @@ namespace WinForm
                 {
                     throw new Exception("Tipo de personaje no soportado.");
                 }
-
                 if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
                 {
-                    personajes -= personajeSeleccionado;
+                    personajes -= personajeSeleccionado!;
                     if (modificarForm is AgregarElfo)
                     {
-                        personajes += (modificarForm as AgregarElfo).ObtenerElfo();
+                        personajes += (modificarForm as AgregarElfo)!.ObtenerElfo();
                     }
                     else if (modificarForm is AgregarOrco)
                     {
-                        personajes += (modificarForm as AgregarOrco).ObtenerOrco();
+                        personajes += (modificarForm as AgregarOrco)!.ObtenerOrco();
                     }
                     else if (modificarForm is AgregarHumano)
                     {
-                        personajes += (modificarForm as AgregarHumano).ObtenerHumano();
+                        personajes += (modificarForm as AgregarHumano)!.ObtenerHumano();
                     }
-
                     ActualizarLista();
                 }
             }
@@ -119,16 +119,16 @@ namespace WinForm
             }
         }
 
-        private void btnAgregar_Click_1(object sender, EventArgs e)
+        private void btnAgregar_Click_1(object? sender, EventArgs e)
         {
             FrmEleccion agregar = new FrmEleccion();
             if (agregar.ShowDialog() == DialogResult.OK)
             {
-                Personaje nuevoPersonaje = agregar.SelectedPersonaje;
+                Personaje? nuevoPersonaje = agregar.SelectedPersonaje;
 
                 try
                 {
-                    personajes += nuevoPersonaje;
+                    personajes += nuevoPersonaje!;
                     ActualizarLista();
                 }
                 catch (ArgumentException ex)
@@ -138,16 +138,18 @@ namespace WinForm
             }
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click_1(object? sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
-                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                if (personajeSeleccionado != null)
+                if (listBox1.SelectedItem is Personaje personajeSeleccionado) //para solucionar warning "referencia nulo para el parámetro "c1" en "bool Personaje.operator !=(Personaje c1, Personaje c2)"
                 {
-                    personajes -= personajeSeleccionado;
-                    ActualizarLista();
-                    MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (personajeSeleccionado != null)
+                    {
+                        personajes -= personajeSeleccionado;
+                        ActualizarLista();
+                        MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             else
@@ -156,27 +158,28 @@ namespace WinForm
             }
         }
 
-        private void cbOrco_CheckedChanged(object sender, EventArgs e)
+
+        private void cbOrco_CheckedChanged(object? sender, EventArgs e)
         {
             ActualizarLista();
         }
 
-        private void cbElfo_CheckedChanged(object sender, EventArgs e)
+        private void cbElfo_CheckedChanged(object? sender, EventArgs e)
         {
             ActualizarLista();
         }
 
-        private void cbHumano_CheckedChanged_1(object sender, EventArgs e)
+        private void cbHumano_CheckedChanged_1(object? sender, EventArgs e)
         {
             ActualizarLista();
         }
 
-        private void Menu_Load_1(object sender, EventArgs e)
+        private void Menu_Load_1(object? sender, EventArgs e)
         {
 
         }
 
-        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void guardarToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             try
             {
@@ -189,7 +192,7 @@ namespace WinForm
                     personajes.SerializarAXml(path);
                 }
                 // Mostrar un mensaje indicando que el archivo se ha guardado correctamente
-                MessageBox.Show("Archivo guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Archivo guardado correctamente en su carpeta Documentos -> ParcialAgus.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (OperationCanceledException)
             {
@@ -202,7 +205,7 @@ namespace WinForm
         }
 
 
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void abrirToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (GuardarEnJSON)
@@ -217,7 +220,7 @@ namespace WinForm
             {
                 string filePath = openFileDialog.FileName;
                 string archivo = File.ReadAllText(filePath);
-                Coleccion result;
+                Coleccion? result;
                 try
                 {
                     if (GuardarEnJSON)
@@ -228,7 +231,7 @@ namespace WinForm
                     {
                         result = Coleccion.DeserializarDeXml(archivo);
                     }
-                    personajes = result;
+                    personajes = result ?? throw new InvalidOperationException("Failed to deserialize personajes.");
                     ActualizarLista();
                 }
                 catch (Exception ex)
@@ -239,41 +242,41 @@ namespace WinForm
         }
 
 
-        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
+        private void xMLToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             GuardarEnJSON = false;
         }
 
-        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
+        private void jSONToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             GuardarEnJSON = true;
         }
 
-        private void verLogsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void verLogsToolStripMenuItem_Click_1(object? sender, EventArgs e)
         {
             FrmLog logsForm = new FrmLog(logPath);
             logsForm.ShowDialog();
         }
 
-        private void masJovenPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
+        private void masJovenPrimeroToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             personajes.OrdenarPorEdad(ascendente: true);
             ActualizarLista();
         }
 
-        private void masAncianoPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
+        private void masAncianoPrimeroToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             personajes.OrdenarPorEdad(ascendente: false);
             ActualizarLista();
         }
 
-        private void ascendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ascendenteToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             personajes.OrdenarPorNombre(true);
             ActualizarLista();
         }
 
-        private void descendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void descendenteToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             personajes.OrdenarPorNombre(false);
             ActualizarLista();

@@ -9,10 +9,10 @@ namespace WinForm
 {
     public partial class Login : Form
     {
-        List<Usuario> usuarios;
+        List<Usuario> usuarios = new List<Usuario>(); // Inicializamos la lista
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string logPath;
-        string perfilUsuario;
+        string perfilUsuario = string.Empty;
         string nombreUsuario = string.Empty;
 
         public Login()
@@ -32,7 +32,7 @@ namespace WinForm
             try
             {
                 string jsonUsuarios = File.ReadAllText("MOCK_DATA.json");
-                usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<Usuario>(); //para arreglar el warning
             }
             catch (FileNotFoundException)
             {
