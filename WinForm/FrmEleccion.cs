@@ -86,5 +86,18 @@ namespace WinForm
         {
             this.Close();
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)//para que solo se cierre este form
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+            base.OnFormClosing(e);
+        }
     }
 }

@@ -106,16 +106,27 @@ namespace WinForm
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            // Preguntar al usuario si está seguro de que desea salir
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            // Si el usuario elige No, cancelar el cierre de la aplicación
-            if (result == DialogResult.No)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;
+                // Preguntar al usuario si está seguro de que desea salir
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
-            base.OnFormClosing(e);
+            else
+            {
+                base.OnFormClosing(e);
+            }
         }
 
-        
+
+
+
     }
 }

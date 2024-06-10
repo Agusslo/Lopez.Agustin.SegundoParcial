@@ -71,22 +71,6 @@ namespace WinForm
             }
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            // Preguntar al usuario si está seguro de que desea salir
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            // Si el usuario elige No, cancelar el cierre de la aplicación
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-
-            base.OnFormClosing(e);
-        }
-
-
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
@@ -295,11 +279,25 @@ namespace WinForm
             ActualizarLista();
         }
 
-
-
-        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Preguntar al usuario si está seguro de que desea salir
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+            else
+            {
+                base.OnFormClosing(e);
+            }
         }
 
     }
