@@ -300,5 +300,9 @@ namespace WinForm
             }
         }
 
+        private void lblHoraInicioSesion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,9 +124,5 @@ namespace WinForm
                 base.OnFormClosing(e);
             }
         }
-
-
-
-
     }
 }
