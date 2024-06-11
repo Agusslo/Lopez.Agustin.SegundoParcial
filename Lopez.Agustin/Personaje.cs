@@ -3,27 +3,28 @@
     using Entidades;
     using System;
     using System.Collections.Generic;
+    using System.Text; //necesario para StringBuilder
     using System.Xml.Serialization;
-
 
     public class Personaje
     {
-
         protected string Nombre { get; set; }
         protected EEdad Edad { get; set; }
         protected ECaracteristica Caracteristica { get; set; }
+
         public Personaje()
         {
             this.Nombre = "Sin nombre";
             this.Caracteristica = ECaracteristica.No_Especificado;
             this.Edad = EEdad.No_Especificado;
         }
-        public Personaje(string nombre): this()
+
+        public Personaje(string nombre) : this()
         {
             if (nombre == "")
                 this.Nombre = "Sin nombre";
             else
-            this.Nombre = nombre;
+                this.Nombre = nombre;
         }
 
         public Personaje(string nombre, EEdad edad) : this(nombre)
@@ -40,11 +41,10 @@
         {
             if (obj is Personaje personaje)
             {
-                return Nombre == personaje.Nombre && Caracteristica == personaje.Caracteristica && Edad == personaje.Edad;
+                return this == personaje;
             }
             return false;
         }
-
 
         public override int GetHashCode()
         {
@@ -53,7 +53,7 @@
 
         public static bool operator ==(Personaje c1, Personaje c2)
         {
-            if (ReferenceEquals(c1, c2)) // Por si por algun error, los dos personajes estan en el mismo lugar de memoria
+            if (ReferenceEquals(c1, c2)) //por si por algun error, los dos personajes estan en el mismo lugar de memoria
             {
                 return true;
             }
@@ -61,12 +61,21 @@
             {
                 return false;
             }
-            return c1.Equals(c2);
+            return c1.Nombre == c2.Nombre && c1.Caracteristica == c2.Caracteristica && c1.Edad == c2.Edad;
         }
 
         public static bool operator !=(Personaje c1, Personaje c2)
         {
             return !(c1 == c2);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"Nombre: {this.Nombre}");
+            sb.Append($"Edad: {this.Edad}");
+            sb.Append($"Caracteristica: {this.Caracteristica}");
+            return sb.ToString();
         }
 
         public string ObtenerNombre()
@@ -78,6 +87,7 @@
         {
             return Edad;
         }
+
         public ECaracteristica ObtenerCaracteristica()
         {
             return Caracteristica;
