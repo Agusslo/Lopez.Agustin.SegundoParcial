@@ -44,7 +44,7 @@
             btnAceptar.TabIndex = 16;
             btnAceptar.Text = "AGREGAR";
             btnAceptar.UseVisualStyleBackColor = true;
-            btnAceptar.Click += this.btnAgregar_Click;
+            btnAceptar.Click += btnAgregar_Click;
             // 
             // label5
             // 
@@ -89,7 +89,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ScrollBar;
+            BackColor = Color.FromArgb(255, 229, 180);
             ClientSize = new Size(426, 444);
             Controls.Add(checkBox1);
             Controls.Add(btnAceptar);

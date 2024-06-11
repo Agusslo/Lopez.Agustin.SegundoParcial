@@ -88,6 +88,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 229, 180);
             ClientSize = new Size(455, 463);
             Controls.Add(cbColorPiel);
             Controls.Add(cbColorPelo);

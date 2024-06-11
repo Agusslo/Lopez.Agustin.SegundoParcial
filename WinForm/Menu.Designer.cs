@@ -140,6 +140,7 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.FromArgb(255, 229, 180);
             menuStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, configuracionToolStripMenuItem, ordenarPorToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
@@ -255,6 +256,7 @@
             // 
             // lblCorreousuario
             // 
+            lblCorreousuario.BackColor = Color.FromArgb(255, 229, 180);
             lblCorreousuario.Location = new Point(741, 203);
             lblCorreousuario.Name = "lblCorreousuario";
             lblCorreousuario.Size = new Size(150, 40);
@@ -262,6 +264,7 @@
             // 
             // lblHora
             // 
+            lblHora.BackColor = Color.FromArgb(255, 229, 180);
             lblHora.Location = new Point(209, 24);
             lblHora.Name = "lblHora";
             lblHora.Size = new Size(211, 15);
@@ -269,6 +272,7 @@
             // 
             // lblHoraInicioSesion
             // 
+            lblHoraInicioSesion.BackColor = Color.FromArgb(255, 229, 180);
             lblHoraInicioSesion.Location = new Point(747, 124);
             lblHoraInicioSesion.Name = "lblHoraInicioSesion";
             lblHoraInicioSesion.Size = new Size(144, 15);
@@ -278,7 +282,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ScrollBar;
+            BackColor = Color.FromArgb(255, 229, 180);
             ClientSize = new Size(903, 395);
             Controls.Add(lblHoraInicioSesion);
             Controls.Add(lblHora);

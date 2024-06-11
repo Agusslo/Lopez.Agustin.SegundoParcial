@@ -89,6 +89,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 229, 180);
             ClientSize = new Size(443, 458);
             Controls.Add(checkBox1);
             Controls.Add(btnAgregar);

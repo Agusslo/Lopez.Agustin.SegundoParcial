@@ -13,6 +13,7 @@ namespace WinForm
             InitializeComponent();
             cbEspecie.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEspecie.DataSource = Enum.GetValues(typeof(EEspecieElfo));
+            elfo = new Elfo(); //inicializo el campo elfo
         }
 
         public AgregarElfo(Elfo elfo) : this()

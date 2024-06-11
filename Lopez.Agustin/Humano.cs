@@ -40,6 +40,19 @@
             return $"Humano - Nombre: {Nombre} | Caracteristica: {Caracteristica} |  Edad: {Edad} | Pelo: {colorPelo} | Piel: {colorHumano}";
         }
 
+        public override int GetHashCode()
+        {
+            unchecked  //indica al compilador que las operaciones aritméticas de desbordamiento no deben generar excepciones
+            {
+                int hash = 17;
+                hash = hash * 23 + base.GetHashCode();
+                hash = hash * 23 + colorPelo.GetHashCode();
+                hash = hash * 23 + colorHumano.GetHashCode();
+                return hash;
+            }
+        }
+
+
         public EColorPelo GetColorPelo() { return colorPelo; }
 
         public EColorHumano GetColorHumano() {  return colorHumano; }

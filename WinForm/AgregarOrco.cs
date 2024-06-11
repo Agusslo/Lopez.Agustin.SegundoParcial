@@ -24,6 +24,7 @@ namespace WinForm
             InitializeComponent();
             cbEspecie.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEspecie.DataSource = Enum.GetValues(typeof(EEspecieOrco));
+            orco = new Orco(); //inicializo el campo orco
 
         }
 

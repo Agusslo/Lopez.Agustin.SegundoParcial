@@ -15,11 +15,12 @@ namespace WinForm
 {
     public partial class FrmEleccion : Form
     {
-        public Personaje SelectedPersonaje { get; private set; }
+        public Personaje? SelectedPersonaje { get; private set; }
 
         public FrmEleccion()
         {
             InitializeComponent();
+            SelectedPersonaje = null; // Inicializar SelectedPersonaje como nulo
         }
 
         private void ResetearOtrosRadioButton(RadioButton radioButton)
@@ -62,7 +63,7 @@ namespace WinForm
                     this.DialogResult = DialogResult.OK;
                 }
             }
-            if (rbtnOrco.Checked)
+            else if (rbtnOrco.Checked)
             {
                 AgregarOrco agregarOrco = new AgregarOrco();
                 if (agregarOrco.ShowDialog() == DialogResult.OK)
@@ -71,7 +72,7 @@ namespace WinForm
                     this.DialogResult = DialogResult.OK;
                 }
             }
-            if (rbtnHumano.Checked)
+            else if (rbtnHumano.Checked)
             {
                 AgregarHumano agregarHumano = new AgregarHumano();
                 if (agregarHumano.ShowDialog() == DialogResult.OK)

@@ -55,7 +55,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ScrollBar;
+            BackColor = Color.FromArgb(255, 229, 180);
             ClientSize = new Size(499, 450);
             Controls.Add(btnAceptar);
             Controls.Add(RTextBox);

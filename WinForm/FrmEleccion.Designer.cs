@@ -109,7 +109,7 @@ namespace WinForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientInactiveCaption;
+            BackColor = Color.FromArgb(255, 229, 180);
             ClientSize = new Size(341, 143);
             Controls.Add(btnSiguiente);
             Controls.Add(btnCancelar);

@@ -103,7 +103,7 @@ namespace ClassLibrary
 
         public static Coleccion DeserializarDeJson(string jsonString)
         {
-            return JsonSerializer.Deserialize<Coleccion>(jsonString); //arreglar
+            return JsonSerializer.Deserialize<Coleccion>(jsonString);
         }
 
         public void SerializarAXml(string path)

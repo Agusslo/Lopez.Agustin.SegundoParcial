@@ -16,7 +16,9 @@ namespace WinForm
             cbColorPelo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbColorPiel.DataSource = Enum.GetValues(typeof(EColorHumano));
             cbColorPelo.DataSource = Enum.GetValues(typeof(EColorPelo));
+            humano = new Humano(); //inicializo el campo humano
         }
+
 
         public AgregarHumano(Humano humano) : this()
         {

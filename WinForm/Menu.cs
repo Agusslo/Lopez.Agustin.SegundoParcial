@@ -142,14 +142,11 @@ namespace WinForm
         {
             if (listBox1.SelectedIndex != -1)
             {
-                if (listBox1.SelectedItem is Personaje personajeSeleccionado) //para solucionar warning "referencia nulo para el parámetro "c1" en "bool Personaje.operator !=(Personaje c1, Personaje c2)"
+                if (listBox1.SelectedItem is Personaje personajeSeleccionado)
                 {
-                    if (personajeSeleccionado != null)
-                    {
-                        personajes -= personajeSeleccionado;
-                        ActualizarLista();
-                        MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    personajes -= personajeSeleccionado;
+                    ActualizarLista();
+                    MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -157,6 +154,7 @@ namespace WinForm
                 MessageBox.Show("Por favor, seleccione un personaje para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
 
         private void cbOrco_CheckedChanged(object? sender, EventArgs e)

@@ -36,7 +36,7 @@
             this.Caracteristica = caracteristica;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is Personaje personaje)
             {
@@ -44,6 +44,7 @@
             }
             return false;
         }
+
 
         public override int GetHashCode()
         {
@@ -56,12 +57,10 @@
             {
                 return true;
             }
-
             if (c1 is null || c2 is null)
             {
                 return false;
             }
-
             return c1.Equals(c2);
         }
 

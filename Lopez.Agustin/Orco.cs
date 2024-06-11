@@ -42,6 +42,19 @@
             }
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            unchecked  //indica al compilador que las operaciones aritméticas de desbordamiento no deben generar excepciones
+            {
+                int hash = 17;
+                hash = hash * 23 + base.GetHashCode();
+                hash = hash * 23 + especie.GetHashCode();
+                hash = hash * 23 + canibal.GetHashCode();
+                return hash;
+            }
+        }
+
         public EEspecieOrco GetEspecieOrco() { return especie;  }
 
         public bool GetCanibal() {  return canibal; }
