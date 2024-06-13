@@ -1,4 +1,5 @@
-MENU PERSONAJES
+MENU PERSONAJES ![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/a4069aee-7cad-4c32-b2f6-aa53061d54de)
+
 
 
 hola profes buenas tardes vuelvo a empezar de 0, mi idea igualmente siguiendo la rama de lo que habia planteado, ahora es PERSONAJE y de eso nacen HUMANO, ORCO y ELFO.
