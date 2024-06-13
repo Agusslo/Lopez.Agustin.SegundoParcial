@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using ClassLibrary;
 
 namespace WinForm
@@ -12,6 +13,7 @@ namespace WinForm
         string path;
         string logPath;
         Coleccion personajes;
+        private Coleccion coleccion;
         bool GuardarEnJSON = true;
         string perfilUsuario;
         string correoUsuario;
@@ -89,19 +91,20 @@ namespace WinForm
             listBox1.HorizontalExtent = totalWidth;
         }
 
-        private void btnModificar_Click(object? sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
-                Personaje? personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                Form? modificarForm = null;
+                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
+                Form modificarForm = null;
+
                 if (personajeSeleccionado is Elfo elfoSeleccionado)
                 {
                     modificarForm = new AgregarElfo(elfoSeleccionado);
                 }
                 else if (personajeSeleccionado is Orco orcoSeleccionado)
                 {
-                    modificarForm = new AgregarOrco(orcoSeleccionado);
+                    modificarForm = new AgregarOrco(orcoSeleccionado); // Utilizar el constructor que acepta un Orco
                 }
                 else if (personajeSeleccionado is Humano humanoSeleccionado)
                 {
@@ -111,33 +114,10 @@ namespace WinForm
                 {
                     throw new Exception("Tipo de personaje no soportado.");
                 }
+
                 if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Copia de seguridad de la colección original
-                    Coleccion copiaPersonajes = personajes;
-                    try //EXCEPCION PARA QUE NO PUEDO MODIFICAR EL NOMBRE IGUAL QUE OTRO PERSONAJE (solo 1 con el mismo nombre)
-                    {
-                        personajes -= personajeSeleccionado!; // Se elimina el personaje seleccionado
-                        if (modificarForm is AgregarElfo)
-                        {
-                            personajes += (modificarForm as AgregarElfo)!.ObtenerElfo();
-                        }
-                        else if (modificarForm is AgregarOrco)
-                        {
-                            personajes += (modificarForm as AgregarOrco)!.ObtenerOrco();
-                        }
-                        else if (modificarForm is AgregarHumano)
-                        {
-                            personajes += (modificarForm as AgregarHumano)!.ObtenerHumano();
-                        }
-                        ActualizarLista();
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        // Si ocurre una excepción, restaurar la colección original
-                        personajes = copiaPersonajes;
-                        MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    // Resto del código para modificar el personaje...
                 }
             }
             else
@@ -145,6 +125,8 @@ namespace WinForm
                 MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
 
 
         private void btnAgregar_Click_1(object? sender, EventArgs e)
@@ -205,31 +187,41 @@ namespace WinForm
 
         }
 
-        private void guardarToolStripMenuItem_Click(object? sender, EventArgs e)
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (GuardarEnJSON)
+                string defaultFileName = "Configuracion.xml";
+                string initialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
+                if (!Directory.Exists(initialDirectory))
                 {
-                    personajes.SerializarAJson(personajes.GetColeccion(), path);
+                    Directory.CreateDirectory(initialDirectory);
                 }
-                else
-                {
-                    personajes.SerializarAXml(path);
-                }
-                // Mostrar un mensaje indicando que el archivo se ha guardado correctamente
-                MessageBox.Show("Archivo guardado correctamente en su carpeta Documentos -> ParcialAgus.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (OperationCanceledException)
-            {
-                // El usuario ha cancelado la operación de guardado, no hay necesidad de mostrar un mensaje de advertencia
+                string filePath = Path.Combine(initialDirectory, defaultFileName);
+                GuardarListBoxEnXml(filePath, listBox1);
+                MessageBox.Show("Archivo XML guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void GuardarListBoxEnXml(string filePath, ListBox listBox)
+        {
+            // Obtener los elementos del ListBox
+            string[] listBoxItems = new string[listBox.Items.Count];
+            for (int i = 0; i < listBox.Items.Count; i++)
+            {
+                listBoxItems[i] = listBox.Items[i].ToString();
+            }
+            // Serializar el arreglo de strings a XML
+            XmlSerializer serializer = new XmlSerializer(typeof(string[]));
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                serializer.Serialize(writer, listBoxItems);
+            }
+        }
 
         private void abrirToolStripMenuItem_Click(object? sender, EventArgs e)
         {
@@ -255,9 +247,9 @@ namespace WinForm
                     }
                     else
                     {
-                        result = Coleccion.DeserializarDeXml(archivo);
+                        //result = Coleccion.DeserializarDeXml(archivo);
                     }
-                    personajes = result ?? throw new InvalidOperationException("Failed to deserialize personajes.");
+                    //personajes = result ?? throw new InvalidOperationException("Failed to deserialize personajes.");
                     ActualizarLista();
                 }
                 catch (Exception ex)

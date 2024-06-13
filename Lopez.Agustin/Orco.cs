@@ -34,10 +34,10 @@
         {
             string canibalstring;
             if (canibal)
-                canibalstring = "Sí";
+                canibalstring = "Si";
             else
                 canibalstring = "No";
-            return $"Oso - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | Canibal: {canibalstring} | {EstaResucitado()} ";
+            return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | Canibal: {canibalstring} | {EstaResucitado()} ";
         }
         public override string ToString()
         {

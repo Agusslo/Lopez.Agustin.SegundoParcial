@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
-using System.Xml;
-using System.Xml.Xsl;
 
 namespace ClassLibrary
 {
@@ -21,7 +18,7 @@ namespace ClassLibrary
 
         public static Coleccion operator +(Coleccion co, Personaje personaje)
         {
-            if (!co.personajes.Any(c => c.Equals(personaje))) // Verifica cualquier(Any) elemento en la coleccion, crea un lambda comparandolo con el carnivoro eliminado, si existe, lo elimina
+            if (!co.personajes.Any(c => c.Equals(personaje)))
             {
                 co.personajes.Add(personaje);
             }
@@ -34,20 +31,11 @@ namespace ClassLibrary
 
         public static Coleccion operator -(Coleccion co, Personaje personaje)
         {
-            if (co.personajes.Any(c => c.Equals(personaje))) // Verifica cualquier(Any) elemento en la coleccion, crea un lambda comparandolo con el carnivoro eliminado, si existe, lo elimina
+            if (co.personajes.Any(c => c.Equals(personaje)))
             {
                 co.personajes.Remove(personaje);
             }
             return co;
-        }
-        public static bool operator ==(Coleccion co, Personaje personaje)
-        {
-            return co.personajes.Equals(personaje);
-        }
-
-        public static bool operator !=(Coleccion co, Personaje personaje)
-        {
-            return !(co == personaje);
         }
 
         public void OrdenarPorNombre(bool ascendente = true)
@@ -80,7 +68,6 @@ namespace ClassLibrary
 
             foreach (var personaje in personajes)
             {
-                // Comprobar si el carnivoro es del tipo solicitado y debe incluirse en el resultado
                 if ((personaje is Humano && incluirHumano) || (personaje is Orco && incluirOrco) || (personaje is Elfo && incluirElfo))
                 {
                     resultado.Add(personaje);
@@ -89,6 +76,7 @@ namespace ClassLibrary
 
             return resultado;
         }
+
         public void SerializarAJson(List<Personaje> personajes, string path)
         {
             JsonSerializerOptions opciones = new JsonSerializerOptions();
@@ -106,24 +94,27 @@ namespace ClassLibrary
             return JsonSerializer.Deserialize<Coleccion>(jsonString);
         }
 
-        public void SerializarAXml(string path)
+        public void SerializarAXml(string filePath, List<Personaje> personajes, string[] listBoxItems)
         {
-            using (XmlTextWriter w = new XmlTextWriter(path + ".xml", null))
+            var datos = new
             {
-                XmlSerializer ser = new XmlSerializer(typeof(List<Personaje>));
-                ser.Serialize(w, personajes);
+                Personajes = personajes,
+                ListBoxItems = listBoxItems
+            };
+            XmlSerializer serializer = new XmlSerializer(datos.GetType());
+            using (StreamWriter write = new StreamWriter(filePath))
+            {
+                serializer.Serialize(write, datos);
             }
         }
 
-        public static Coleccion DeserializarDeXml(string xmlString)
+        public static Coleccion DeserializarDeXml(string filePath)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Coleccion));
-            using (StringReader textReader = new StringReader(xmlString))
+            using (StreamReader reader = new StreamReader(filePath))
             {
-                return (Coleccion)serializer.Deserialize(textReader);
+                return (Coleccion)serializer.Deserialize(reader);
             }
         }
-        public List<Personaje> GetColeccion() { return personajes; }
-
     }
 }

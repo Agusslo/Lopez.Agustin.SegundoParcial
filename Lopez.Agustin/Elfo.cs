@@ -33,7 +33,7 @@
 
         public override string DevolverInfo()
         {
-            string inmortalString = inmortal ? "Sí" : "No";
+            string inmortalString = inmortal ? "Si" : "No";
             return $"Elfo - Nombre: {Nombre} | Característica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | Inmortal: {inmortalString} | {EstaResucitado()}";
         }
 

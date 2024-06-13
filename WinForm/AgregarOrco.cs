@@ -36,12 +36,12 @@ namespace WinForm
 
         private void CargarDatosOrco()
         {
-                txtNombre.Text = orco.ObtenerNombre();
-                cbEdad.SelectedItem = orco.ObtenerEdad();
-                cbCaracteristica.SelectedItem = orco.ObtenerCaracteristica();
-                cbEspecie.SelectedItem = orco.GetEspecieOrco();
-                canibal = orco.GetCanibal();
-                cbResucitado.Checked = orco.ObtenerResucitado();
+            txtNombre.Text = orco.ObtenerNombre();
+            cbEdad.SelectedItem = orco.ObtenerEdad();
+            cbCaracteristica.SelectedItem = orco.ObtenerCaracteristica();
+            cbEspecie.SelectedItem = orco.GetEspecieOrco();
+            canibal = orco.GetCanibal();
+            cbResucitado.Checked = orco.ObtenerResucitado();
         }
         public Orco ObtenerOrco()
         {
