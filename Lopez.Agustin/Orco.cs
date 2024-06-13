@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Numerics;
     using Entidades;
 
     public class Orco : Personaje
@@ -10,8 +11,8 @@
         private bool canibal { get; set; }
 
         public Orco() { }
-        public Orco(string nombre, ECaracteristica caracteristica,  EEdad edad, EEspecieOrco especie, bool canibal)
-            : base(nombre, edad, caracteristica)
+        public Orco(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieOrco especie, bool canibal, bool resucitado)
+            : base(nombre, edad, caracteristica, resucitado)
         {
             this.especie = especie;
             this.canibal = canibal;
@@ -23,40 +24,41 @@
             this.especie = especie;
             this.canibal = canibal;
         }
+        public override string EstaResucitado()
+        {
+            if (!base.Resucitado)
+                return "El orco no esta Resucitado";
+            return "El orco esta Resucitado";
+        }
+        public override string DevolverInfo()
+        {
+            string canibalstring;
+            if (canibal)
+                canibalstring = "Sí";
+            else
+                canibalstring = "No";
+            return $"Oso - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | Canibal: {canibalstring} | {EstaResucitado()} ";
+        }
         public override string ToString()
         {
-            if (canibal)
-                return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | canibal: No.";
-            else
-            {
-                return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | canibal: Si.";
-            }
+            return DevolverInfo();
         }
         public override bool Equals(object obj)
         {
-            if (!base.Equals(obj)) return false;
-
-            if (obj is Orco orco)
+            if (obj.GetType() == this.GetType() && obj != null)
             {
-                return this.canibal == orco.canibal && this.especie == orco.especie;
+                return ((Orco)obj) == this;
             }
             return false;
         }
-
-        public override int GetHashCode()
+        public static bool operator ==(Orco o1, Orco o2)
         {
-            unchecked  //indica al compilador que las operaciones aritméticas de desbordamiento no deben generar excepciones
-            {
-                int hash = 17;
-                hash = hash * 23 + base.GetHashCode();
-                hash = hash * 23 + especie.GetHashCode();
-                hash = hash * 23 + canibal.GetHashCode();
-                return hash;
-            }
+            return o1.Nombre == o2.Nombre && o1.Edad == o2.Edad && o1.Caracteristica == o2.Caracteristica && o1.especie == o2.especie && o1.especie == o2.especie && o1.canibal == o2.canibal;
         }
+        public static bool operator !=(Orco o1, Orco o2) { return !(o1 == o2); }
+        public EEspecieOrco GetEspecieOrco() { return especie; }
 
-        public EEspecieOrco GetEspecieOrco() { return especie;  }
-
-        public bool GetCanibal() {  return canibal; }
+        public bool GetCanibal() { return canibal; }
     }
 }
+

@@ -1,11 +1,7 @@
 ﻿namespace ClassLibrary
 {
-    using ClassLibrary;
-    using System;
-    using System.Collections.Generic;
     using Entidades;
-    using System.Drawing;
-    using System.Reflection.PortableExecutable;
+    using System;
 
     public class Humano : Personaje
     {
@@ -13,13 +9,16 @@
         private EColorHumano colorHumano { get; set; }
 
         public Humano() { }
-        public Humano(string nombre, EEdad edad, EColorPelo colorPelo)
-            : base(nombre, edad)
+
+        public Humano(string nombre, EEdad edad, ECaracteristica caracteristica, EColorPelo colorPelo, EColorHumano colorHumano, bool resucitado)
+            : base(nombre, edad, caracteristica, resucitado)
         {
             this.colorPelo = colorPelo;
+            this.colorHumano = colorHumano;
         }
-        public Humano(string nombre, EEdad edad, ECaracteristica caracteristica, EColorPelo colorPelo, EColorHumano colorHumano)
-            : base(nombre, edad, caracteristica)
+
+        public Humano(string nombre, EEdad edad, EColorPelo colorPelo, EColorHumano colorHumano)
+            : base(nombre, edad)
         {
             this.colorPelo = colorPelo;
             this.colorHumano = colorHumano;
@@ -27,34 +26,44 @@
 
         public override bool Equals(object obj)
         {
-            if (!base.Equals(obj)) return false;
-
             if (obj is Humano humano)
             {
-                return this.colorPelo == humano.colorPelo && this.colorHumano == humano.colorHumano;
+                return base.Equals(humano) && this.colorPelo == humano.colorPelo && this.colorHumano == humano.colorHumano;
             }
             return false;
-        }
-        public override string ToString()
-        {
-            return $"Humano - Nombre: {Nombre} | Caracteristica: {Caracteristica} |  Edad: {Edad} | Pelo: {colorPelo} | Piel: {colorHumano}";
         }
 
         public override int GetHashCode()
         {
-            unchecked  //indica al compilador que las operaciones aritméticas de desbordamiento no deben generar excepciones
-            {
-                int hash = 17;
-                hash = hash * 23 + base.GetHashCode();
-                hash = hash * 23 + colorPelo.GetHashCode();
-                hash = hash * 23 + colorHumano.GetHashCode();
-                return hash;
-            }
+            return HashCode.Combine(base.GetHashCode(), colorPelo, colorHumano);
         }
 
+        public static bool operator ==(Humano h1, Humano h2)
+        {
+            if (ReferenceEquals(h1, null))
+            {
+                return ReferenceEquals(h2, null);
+            }
+            return h1.Equals(h2);
+        }
+
+        public static bool operator !=(Humano h1, Humano h2)
+        {
+            return !(h1 == h2);
+        }
+
+        public override string EstaResucitado()
+        {
+            return base.Resucitado ? "El humano está resucitado" : "El humano no está resucitado";
+        }
+
+        public override string DevolverInfo()
+        {
+            return $"Humano - Nombre: {Nombre} | Característica: {Caracteristica} | Edad: {Edad} | Color de Pelo: {colorPelo} | Color de Piel: {colorHumano} | {EstaResucitado()}";
+        }
 
         public EColorPelo GetColorPelo() { return colorPelo; }
 
-        public EColorHumano GetColorHumano() {  return colorHumano; }
+        public EColorHumano GetColorHumano() { return colorHumano; }
     }
 }

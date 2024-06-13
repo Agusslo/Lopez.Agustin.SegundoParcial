@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            cbResucitado = new CheckBox();
             label1 = new Label();
+            label4 = new Label();
             txtNombre = new TextBox();
             label2 = new Label();
             cbEdad = new ComboBox();
@@ -41,7 +43,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cbResucitado);
             groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txtNombre);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(cbEdad);
@@ -49,11 +53,21 @@
             groupBox1.Controls.Add(cbCaracteristica);
             groupBox1.Location = new Point(31, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(378, 224);
+            groupBox1.Size = new Size(376, 250);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // cbResucitado
+            // 
+            cbResucitado.AutoSize = true;
+            cbResucitado.Location = new Point(225, 209);
+            cbResucitado.Name = "cbResucitado";
+            cbResucitado.Size = new Size(37, 19);
+            cbResucitado.TabIndex = 14;
+            cbResucitado.Text = "si.";
+            cbResucitado.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -64,6 +78,16 @@
             label1.Size = new Size(95, 16);
             label1.TabIndex = 0;
             label1.Text = "Nombre: ";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Lucida Console", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(19, 212);
+            label4.Name = "label4";
+            label4.Size = new Size(128, 16);
+            label4.TabIndex = 13;
+            label4.Text = "Resucitado:";
             // 
             // txtNombre
             // 
@@ -148,5 +172,7 @@
         private Label label3;
         protected ComboBox cbCaracteristica;
         private Button button2;
+        private Label label4;
+        protected CheckBox cbResucitado;
     }
 }

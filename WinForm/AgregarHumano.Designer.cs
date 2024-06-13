@@ -50,7 +50,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(61, 315);
+            label5.Location = new Point(50, 328);
             label5.Name = "label5";
             label5.Size = new Size(117, 16);
             label5.TabIndex = 15;
@@ -60,7 +60,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(61, 266);
+            label4.Location = new Point(50, 279);
             label4.Name = "label4";
             label4.Size = new Size(117, 16);
             label4.TabIndex = 14;
@@ -69,7 +69,7 @@
             // cbColorPelo
             // 
             cbColorPelo.FormattingEnabled = true;
-            cbColorPelo.Location = new Point(231, 264);
+            cbColorPelo.Location = new Point(220, 277);
             cbColorPelo.Name = "cbColorPelo";
             cbColorPelo.Size = new Size(144, 23);
             cbColorPelo.TabIndex = 16;
@@ -78,7 +78,7 @@
             // cbColorPiel
             // 
             cbColorPiel.FormattingEnabled = true;
-            cbColorPiel.Location = new Point(231, 308);
+            cbColorPiel.Location = new Point(220, 321);
             cbColorPiel.Name = "cbColorPiel";
             cbColorPiel.Size = new Size(144, 23);
             cbColorPiel.TabIndex = 17;

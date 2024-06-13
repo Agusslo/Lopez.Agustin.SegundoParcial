@@ -63,7 +63,7 @@
             cbElfo.AutoSize = true;
             cbElfo.Checked = true;
             cbElfo.CheckState = CheckState.Checked;
-            cbElfo.Location = new Point(773, 90);
+            cbElfo.Location = new Point(647, 368);
             cbElfo.Name = "cbElfo";
             cbElfo.Size = new Size(95, 19);
             cbElfo.TabIndex = 15;
@@ -77,7 +77,7 @@
             cbOrco.AutoSize = true;
             cbOrco.Checked = true;
             cbOrco.CheckState = CheckState.Checked;
-            cbOrco.Location = new Point(769, 65);
+            cbOrco.Location = new Point(437, 368);
             cbOrco.Name = "cbOrco";
             cbOrco.Size = new Size(101, 19);
             cbOrco.TabIndex = 14;
@@ -91,7 +91,7 @@
             cbHumano.AutoSize = true;
             cbHumano.Checked = true;
             cbHumano.CheckState = CheckState.Checked;
-            cbHumano.Location = new Point(769, 40);
+            cbHumano.Location = new Point(188, 368);
             cbHumano.Name = "cbHumano";
             cbHumano.Size = new Size(122, 19);
             cbHumano.TabIndex = 13;
@@ -101,7 +101,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(490, 285);
+            btnEliminar.Location = new Point(647, 296);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(110, 40);
             btnEliminar.TabIndex = 11;
@@ -111,7 +111,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(271, 285);
+            btnModificar.Location = new Point(428, 296);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(110, 40);
             btnModificar.TabIndex = 10;
@@ -121,7 +121,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(31, 285);
+            btnAgregar.Location = new Point(188, 296);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(110, 40);
             btnAgregar.TabIndex = 9;
@@ -135,7 +135,7 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(12, 40);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(695, 229);
+            listBox1.Size = new Size(914, 229);
             listBox1.TabIndex = 8;
             // 
             // menuStrip1
@@ -145,7 +145,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, configuracionToolStripMenuItem, ordenarPorToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(903, 24);
+            menuStrip1.Size = new Size(1149, 24);
             menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -257,7 +257,7 @@
             // lblCorreousuario
             // 
             lblCorreousuario.BackColor = Color.FromArgb(255, 229, 180);
-            lblCorreousuario.Location = new Point(741, 203);
+            lblCorreousuario.Location = new Point(987, 144);
             lblCorreousuario.Name = "lblCorreousuario";
             lblCorreousuario.Size = new Size(150, 40);
             lblCorreousuario.TabIndex = 16;
@@ -265,7 +265,7 @@
             // lblHora
             // 
             lblHora.BackColor = Color.FromArgb(255, 229, 180);
-            lblHora.Location = new Point(209, 24);
+            lblHora.Location = new Point(398, 24);
             lblHora.Name = "lblHora";
             lblHora.Size = new Size(211, 15);
             lblHora.TabIndex = 17;
@@ -273,7 +273,7 @@
             // lblHoraInicioSesion
             // 
             lblHoraInicioSesion.BackColor = Color.FromArgb(255, 229, 180);
-            lblHoraInicioSesion.Location = new Point(747, 124);
+            lblHoraInicioSesion.Location = new Point(993, 65);
             lblHoraInicioSesion.Name = "lblHoraInicioSesion";
             lblHoraInicioSesion.Size = new Size(144, 15);
             lblHoraInicioSesion.TabIndex = 18;
@@ -283,7 +283,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 229, 180);
-            ClientSize = new Size(903, 395);
+            ClientSize = new Size(1149, 419);
             Controls.Add(lblHoraInicioSesion);
             Controls.Add(lblHora);
             Controls.Add(lblCorreousuario);

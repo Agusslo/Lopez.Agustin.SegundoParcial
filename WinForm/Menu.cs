@@ -15,37 +15,42 @@ namespace WinForm
         bool GuardarEnJSON = true;
         string perfilUsuario;
         string correoUsuario;
+
         System.Windows.Forms.Timer timer;
 
         public Menu(string logPath, string perfilUsuario, string correoUsuario)
         {
             InitializeComponent();
 
-            // Verificar si la carpeta existe y crearla si no
+            this.logPath = logPath;
+            this.perfilUsuario = perfilUsuario;
+            this.correoUsuario = correoUsuario;
+
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
+            this.path = Path.Combine(folderPath, "configuracion");
 
             personajes = new Coleccion();
-            this.IsMdiContainer = true;
-            this.path = Path.Combine(folderPath, "configuracion");
-            this.logPath = logPath ?? throw new ArgumentNullException(nameof(logPath)); // Seteo Null para evitar warning
-            this.perfilUsuario = perfilUsuario ?? "Perfil no especificado"; // Seteo Null para evitar warning
-            this.correoUsuario = correoUsuario ?? "Correo no especificado"; // Seteo Null para evitar warning
-
-            lblCorreousuario.Text = "Correo: " + this.correoUsuario;
-            lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss"); // Muestra la hora de inicio de sesión
-
-            // Configurar el temporizador
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // 1 segundo
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            // Configurar el ListBox1 con la ScrollBar horizontal
+            listBox1.HorizontalScrollbar = true; // Habilitar la barra de desplazamiento horizontal
+            listBox1.Size = new System.Drawing.Size(914, 229); // Tamaño original del ListBox1
+            listBox1.Location = new System.Drawing.Point(12, 40); // Posición original del ListBox1
+            ActualizarLista();
+
+            // Mostrar información del usuario
+            lblCorreousuario.Text = "Correo: " + this.correoUsuario;
+            lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
         // Método que se ejecutará cada vez que el temporizador cambie de intervalo
-        private void Timer_Tick(object? sender, EventArgs e) // el ? para arreglar el warning
+        private void Timer_Tick(object? sender, EventArgs e) // El ? para arreglar el warning
         {
             // Actualizar la hora en el Label
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
@@ -71,6 +76,17 @@ namespace WinForm
             {
                 listBox1.Items.Add(personaje);
             }
+            // Establecer el ancho total del contenido del ListBox1 para la barra de desplazamiento horizontal
+            int totalWidth = 0;
+            foreach (var item in listBox1.Items)
+            {
+                int itemWidth = TextRenderer.MeasureText(item.ToString(), listBox1.Font).Width;
+                if (itemWidth > totalWidth)
+                {
+                    totalWidth = itemWidth;
+                }
+            }
+            listBox1.HorizontalExtent = totalWidth;
         }
 
         private void btnModificar_Click(object? sender, EventArgs e)
@@ -97,20 +113,31 @@ namespace WinForm
                 }
                 if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
                 {
-                    personajes -= personajeSeleccionado!;
-                    if (modificarForm is AgregarElfo)
+                    // Copia de seguridad de la colección original
+                    Coleccion copiaPersonajes = personajes;
+                    try //EXCEPCION PARA QUE NO PUEDO MODIFICAR EL NOMBRE IGUAL QUE OTRO PERSONAJE (solo 1 con el mismo nombre)
                     {
-                        personajes += (modificarForm as AgregarElfo)!.ObtenerElfo();
+                        personajes -= personajeSeleccionado!; // Se elimina el personaje seleccionado
+                        if (modificarForm is AgregarElfo)
+                        {
+                            personajes += (modificarForm as AgregarElfo)!.ObtenerElfo();
+                        }
+                        else if (modificarForm is AgregarOrco)
+                        {
+                            personajes += (modificarForm as AgregarOrco)!.ObtenerOrco();
+                        }
+                        else if (modificarForm is AgregarHumano)
+                        {
+                            personajes += (modificarForm as AgregarHumano)!.ObtenerHumano();
+                        }
+                        ActualizarLista();
                     }
-                    else if (modificarForm is AgregarOrco)
+                    catch (ArgumentException ex)
                     {
-                        personajes += (modificarForm as AgregarOrco)!.ObtenerOrco();
+                        // Si ocurre una excepción, restaurar la colección original
+                        personajes = copiaPersonajes;
+                        MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (modificarForm is AgregarHumano)
-                    {
-                        personajes += (modificarForm as AgregarHumano)!.ObtenerHumano();
-                    }
-                    ActualizarLista();
                 }
             }
             else
@@ -118,6 +145,7 @@ namespace WinForm
                 MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         private void btnAgregar_Click_1(object? sender, EventArgs e)
         {

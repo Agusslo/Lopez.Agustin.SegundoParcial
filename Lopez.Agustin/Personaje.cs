@@ -3,14 +3,16 @@
     using Entidades;
     using System;
     using System.Collections.Generic;
+    using System.Numerics;
     using System.Text; //necesario para StringBuilder
     using System.Xml.Serialization;
 
-    public class Personaje
+    public abstract class Personaje
     {
         protected string Nombre { get; set; }
         protected EEdad Edad { get; set; }
         protected ECaracteristica Caracteristica { get; set; }
+        protected bool Resucitado { get; set; }
 
         public Personaje()
         {
@@ -37,31 +39,39 @@
             this.Caracteristica = caracteristica;
         }
 
-        public override bool Equals(object? obj)
+        public Personaje(string nombre, EEdad edad, ECaracteristica caracteristica, bool resucitado) : this(nombre, edad, caracteristica)
         {
-            if (obj is Personaje personaje)
+            this.Resucitado = resucitado;
+        }
+
+
+        public abstract string DevolverInfo();
+
+        public virtual string EstaResucitado()
+        {
+            if (!Resucitado)
+                return "El personaje no esta resucitado";
+            return "El personaje esta resucitado";
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Personaje)
             {
-                return this == personaje;
+                return ((Personaje)obj) == this;
             }
             return false;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Nombre, Caracteristica, Edad);
+            return HashCode.Combine(Nombre, Edad, Caracteristica);
         }
 
         public static bool operator ==(Personaje c1, Personaje c2)
         {
-            if (ReferenceEquals(c1, c2)) //por si por algun error, los dos personajes estan en el mismo lugar de memoria
-            {
-                return true;
-            }
-            if (c1 is null || c2 is null)
-            {
-                return false;
-            }
-            return c1.Nombre == c2.Nombre && c1.Caracteristica == c2.Caracteristica && c1.Edad == c2.Edad;
+            return c1.Nombre == c2.Nombre && c1.Edad == c2.Edad && c1.Caracteristica == c2.Caracteristica;
         }
 
         public static bool operator !=(Personaje c1, Personaje c2)
@@ -71,11 +81,7 @@
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append($"Nombre: {this.Nombre}");
-            sb.Append($"Edad: {this.Edad}");
-            sb.Append($"Caracteristica: {this.Caracteristica}");
-            return sb.ToString();
+            return this.DevolverInfo();
         }
 
         public string ObtenerNombre()
@@ -92,5 +98,10 @@
         {
             return Caracteristica;
         }
+
+        public bool ObtenerResucitado() 
+        {
+            return Resucitado;
+        } 
     }
 }

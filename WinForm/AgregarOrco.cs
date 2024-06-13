@@ -36,18 +36,16 @@ namespace WinForm
 
         private void CargarDatosOrco()
         {
-            if (orco != null)
-            {
                 txtNombre.Text = orco.ObtenerNombre();
                 cbEdad.SelectedItem = orco.ObtenerEdad();
                 cbCaracteristica.SelectedItem = orco.ObtenerCaracteristica();
                 cbEspecie.SelectedItem = orco.GetEspecieOrco();
                 canibal = orco.GetCanibal();
-            }
+                cbResucitado.Checked = orco.ObtenerResucitado();
         }
         public Orco ObtenerOrco()
         {
-            return new Orco(orco.ObtenerNombre(), orco.ObtenerCaracteristica(), orco.ObtenerEdad(), orco.GetEspecieOrco(), orco.GetCanibal());
+            return new Orco(orco.ObtenerNombre(), orco.ObtenerEdad(), orco.ObtenerCaracteristica(), orco.GetEspecieOrco(), orco.GetCanibal(), orco.ObtenerResucitado());
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -59,7 +57,7 @@ namespace WinForm
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            this.orco = new Orco(txtNombre.Text, (ECaracteristica)cbCaracteristica.SelectedItem, (EEdad)cbEdad.SelectedItem, (EEspecieOrco)cbEspecie.SelectedItem, this.canibal);
+            this.orco = new Orco(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, (EEspecieOrco)cbEspecie.SelectedItem, this.canibal, cbResucitado.Checked);
             this.DialogResult = DialogResult.OK;
         }
 

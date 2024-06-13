@@ -7,10 +7,10 @@
     <Compile Update="AgregarHumano.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AgregarPersonaje.cs">
+    <Compile Update="AgregarOrco.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AgregarOrco.cs">
+    <Compile Update="AgregarPersonaje.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmEleccion.cs">

@@ -59,7 +59,7 @@
             // cbEspecie
             // 
             cbEspecie.FormattingEnabled = true;
-            cbEspecie.Location = new Point(231, 262);
+            cbEspecie.Location = new Point(231, 278);
             cbEspecie.Name = "cbEspecie";
             cbEspecie.Size = new Size(144, 23);
             cbEspecie.TabIndex = 18;
@@ -69,7 +69,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(62, 269);
+            label4.Location = new Point(62, 285);
             label4.Name = "label4";
             label4.Size = new Size(95, 16);
             label4.TabIndex = 17;

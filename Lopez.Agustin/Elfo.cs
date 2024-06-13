@@ -6,54 +6,72 @@
     public class Elfo : Personaje
     {
         private EEspecieElfo especie { get; set; }
-        private bool inmortalidad { get; set; }
+        private bool inmortal { get; set; }
 
         public Elfo() { }
-        public Elfo(string nombre, ECaracteristica caracteristica, EEdad edad, EEspecieElfo especie, bool inmortalidad)
-            : base(nombre, edad, caracteristica)
+
+        public Elfo(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieElfo especie, bool inmortal, bool resucitado)
+            : base(nombre, edad, caracteristica, resucitado)
         {
             this.especie = especie;
-            this.inmortalidad = inmortalidad;
+            this.inmortal = inmortal;
         }
 
-        public Elfo(string nombre, EEdad edad, EEspecieElfo especie, bool inmortalidad)
+        public Elfo(string nombre, EEdad edad, EEspecieElfo especie, bool inmortal)
             : base(nombre, edad)
         {
             this.especie = especie;
-            this.inmortalidad = inmortalidad;
+            this.inmortal = inmortal;
+        }
+
+        public override string EstaResucitado()
+        {
+            if (!base.Resucitado)
+                return "El elfo no está resucitado";
+            return "El elfo está resucitado";
+        }
+
+        public override string DevolverInfo()
+        {
+            string inmortalString = inmortal ? "Sí" : "No";
+            return $"Elfo - Nombre: {Nombre} | Característica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | Inmortal: {inmortalString} | {EstaResucitado()}";
         }
 
         public override string ToString()
         {
-            string esInmortal = inmortalidad ? "No" : "Si";
-            return $"Elfo - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {especie} | Inmortal: {esInmortal}";
+            return DevolverInfo();
         }
 
         public override bool Equals(object obj)
         {
-            if (!base.Equals(obj)) return false;
-
             if (obj is Elfo elfo)
             {
-                return this.inmortalidad == elfo.inmortalidad && this.especie == elfo.especie;
+                return base.Equals(elfo) && this.especie == elfo.especie && this.inmortal == elfo.inmortal;
             }
             return false;
         }
 
         public override int GetHashCode()
         {
-            unchecked //indica al compilador que las operaciones aritméticas de desbordamiento no deben generar excepciones
+            return HashCode.Combine(base.GetHashCode(), especie, inmortal);
+        }
+
+        public static bool operator ==(Elfo e1, Elfo e2)
+        {
+            if (ReferenceEquals(e1, null))
             {
-                int hash = 17;
-                hash = hash * 23 + base.GetHashCode();
-                hash = hash * 23 + especie.GetHashCode();
-                hash = hash * 23 + inmortalidad.GetHashCode();
-                return hash;
+                return ReferenceEquals(e2, null);
             }
+            return e1.Equals(e2);
+        }
+
+        public static bool operator !=(Elfo e1, Elfo e2)
+        {
+            return !(e1 == e2);
         }
 
         public EEspecieElfo GetEspecieElfo() { return especie; }
 
-        public bool GetInmortalidad() { return inmortalidad; }
+        public bool GetInmortal() { return inmortal; }
     }
 }

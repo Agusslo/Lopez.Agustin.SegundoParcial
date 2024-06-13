@@ -21,7 +21,7 @@ namespace ClassLibrary
 
         public static Coleccion operator +(Coleccion co, Personaje personaje)
         {
-            if (!co.personajes.Any(c => c == personaje)) // Verifica cualquier(Any) elemento en la coleccion, crea un lambda comparandolo con el carnivoro eliminado, si existe, lo elimina
+            if (!co.personajes.Any(c => c.Equals(personaje))) // Verifica cualquier(Any) elemento en la coleccion, crea un lambda comparandolo con el carnivoro eliminado, si existe, lo elimina
             {
                 co.personajes.Add(personaje);
             }
@@ -34,7 +34,7 @@ namespace ClassLibrary
 
         public static Coleccion operator -(Coleccion co, Personaje personaje)
         {
-            if (co.personajes.Any(c => c == personaje)) // Verifica cualquier(Any) elemento en la coleccion, crea un lambda comparandolo con el carnivoro eliminado, si existe, lo elimina
+            if (co.personajes.Any(c => c.Equals(personaje))) // Verifica cualquier(Any) elemento en la coleccion, crea un lambda comparandolo con el carnivoro eliminado, si existe, lo elimina
             {
                 co.personajes.Remove(personaje);
             }
@@ -124,6 +124,6 @@ namespace ClassLibrary
             }
         }
         public List<Personaje> GetColeccion() { return personajes; }
-            
+
     }
 }

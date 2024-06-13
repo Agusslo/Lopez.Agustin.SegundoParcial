@@ -9,7 +9,7 @@ namespace WinForm
 {
     public partial class Login : Form
     {
-        List<Usuario> usuarios = new List<Usuario>(); // Inicializamos la lista
+        List<Usuario> usuarios = new List<Usuario>();
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string logPath;
         string perfilUsuario = string.Empty;
@@ -32,11 +32,15 @@ namespace WinForm
             try
             {
                 string jsonUsuarios = File.ReadAllText("MOCK_DATA.json");
-                usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<Usuario>(); //para arreglar el warning
+                usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<Usuario>();
             }
             catch (FileNotFoundException)
             {
                 MessageBox.Show("El archivo MOCK_DATA.json no existe.");
+            }
+            catch (JsonException ex)
+            {
+                MessageBox.Show($"Error al deserializar los usuarios: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -62,14 +66,14 @@ namespace WinForm
         private void button1_Click(object sender, EventArgs e)
         {
             bool usuarioEncontrado = false;
-            string correoUsuario = string.Empty; // Variable para almacenar el correo del usuario
+            string correoUsuario = string.Empty;
 
             foreach (Usuario usuario in usuarios)
             {
                 if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
                 {
-                    correoUsuario = usuario.Correo; // Guardamos el correo electrónico del usuario
-                    perfilUsuario = usuario.Perfil; // Guardamos el perfil del usuario
+                    correoUsuario = usuario.Correo;
+                    perfilUsuario = usuario.Perfil;
 
                     Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);
                     frmMenu.Show();
@@ -79,6 +83,7 @@ namespace WinForm
                     break;
                 }
             }
+
             if (!usuarioEncontrado)
             {
                 MessageBox.Show("Correo electrónico o contraseña incorrectos.");
@@ -108,7 +113,6 @@ namespace WinForm
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                // Preguntar al usuario si está seguro de que desea salir
                 DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
