@@ -8,7 +8,9 @@ hola profes buenas tardes vuelvo a empezar de 0, mi idea igualmente siguiendo la
 ¿Que hace mi EXAMEN?
 Este programa es una aplicación de Windows Forms diseñada para gestionar el acceso de usuarios mediante un inicio de sesión con correo electrónico y contraseña. Su propósito principal es autenticar a los usuarios y, en caso de éxito permitirles acceder a una ventana principal donde se pueden realizar diversas operaciones como crear tu propio personaje de roleplay!.
 
-Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano, orco) agregando sus respectivas caracteristicas y diferencias
+Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano, orco) agregando sus respectivas caracteristicas y diferencias.
+
+Se crea una carpeta llamada "ParcialAgus" donde se encuentra el log, xml y json
 
 
 
