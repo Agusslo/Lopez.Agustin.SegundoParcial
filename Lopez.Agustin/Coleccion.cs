@@ -94,7 +94,7 @@ namespace ClassLibrary
             return JsonSerializer.Deserialize<Coleccion>(jsonString);
         }
 
-        public void SerializarAXml(string filePath, List<Personaje> personajes, string[] listBoxItems)
+        /*public void SerializarAXml(string filePath, List<Personaje> personajes, string[] listBoxItems)
         {
             var datos = new
             {
@@ -115,6 +115,6 @@ namespace ClassLibrary
             {
                 return (Coleccion)serializer.Deserialize(reader);
             }
-        }
+        }*/
     }
 }

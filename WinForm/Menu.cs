@@ -91,42 +91,64 @@ namespace WinForm
             listBox1.HorizontalExtent = totalWidth;
         }
 
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
                 Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                Form modificarForm = null;
-
-                if (personajeSeleccionado is Elfo elfoSeleccionado)
+                Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
+                Form modificarForm;
+                if (personajeSeleccionado is Elfo tigreSeleccionado)
                 {
-                    modificarForm = new AgregarElfo(elfoSeleccionado);
+                    modificarForm = new AgregarElfo(tigreSeleccionado);
                 }
-                else if (personajeSeleccionado is Orco orcoSeleccionado)
+                else if (personajeSeleccionado is Orco osoSeleccionado)
                 {
-                    modificarForm = new AgregarOrco(orcoSeleccionado); // Utilizar el constructor que acepta un Orco
+                    modificarForm = new AgregarOrco(osoSeleccionado);
                 }
-                else if (personajeSeleccionado is Humano humanoSeleccionado)
+                else if (personajeSeleccionado is Humano loboSeleccionado)
                 {
-                    modificarForm = new AgregarHumano(humanoSeleccionado);
+                    modificarForm = new AgregarHumano(loboSeleccionado);
                 }
                 else
                 {
-                    throw new Exception("Tipo de personaje no soportado.");
+                    throw new Exception("Tipo de carnívoro no soportado."); // Si no, tira error con modificarForm
                 }
-
                 if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Resto del código para modificar el personaje...
+                    try
+                    {
+                        personajes -= personajeSeleccionado; // Se elimina el carnivoro seleccionado
+                        if (modificarForm is AgregarElfo)
+                        {
+                            personajes += (modificarForm as AgregarElfo).ObtenerElfo(); // Agregar tigre
+                        }
+                        else if (modificarForm is AgregarOrco)
+                        {
+                            personajes += (modificarForm as AgregarOrco).ObtenerOrco(); // Agregar oso
+                        }
+                        else if (modificarForm is AgregarHumano)
+                        {
+                            personajes += (modificarForm as AgregarHumano).ObtenerHumano(); // o agregar Lobo
+                        }
+
+                        ActualizarLista();
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        // Si ocurre una excepción, restaurar la colección original
+                        personajes = copiaPersonajes;
+                        MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
+
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, seleccione un carnívoro para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
 
 
         private void btnAgregar_Click_1(object? sender, EventArgs e)
@@ -167,25 +189,7 @@ namespace WinForm
 
 
 
-        private void cbOrco_CheckedChanged(object? sender, EventArgs e)
-        {
-            ActualizarLista();
-        }
-
-        private void cbElfo_CheckedChanged(object? sender, EventArgs e)
-        {
-            ActualizarLista();
-        }
-
-        private void cbHumano_CheckedChanged_1(object? sender, EventArgs e)
-        {
-            ActualizarLista();
-        }
-
-        private void Menu_Load_1(object? sender, EventArgs e)
-        {
-
-        }
+        
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -322,6 +326,26 @@ namespace WinForm
         }
 
         private void lblHoraInicioSesion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbOrco_CheckedChanged(object? sender, EventArgs e)
+        {
+            ActualizarLista();
+        }
+
+        private void cbElfo_CheckedChanged(object? sender, EventArgs e)
+        {
+            ActualizarLista();
+        }
+
+        private void cbHumano_CheckedChanged_1(object? sender, EventArgs e)
+        {
+            ActualizarLista();
+        }
+
+        private void Menu_Load_1(object? sender, EventArgs e)
         {
 
         }

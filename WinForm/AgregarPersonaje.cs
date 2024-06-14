@@ -28,5 +28,10 @@ namespace WinForm
         {
 
         }
+
+        private void cbResucitado_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

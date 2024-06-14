@@ -30,7 +30,7 @@ namespace WinForm
             cbEdad.SelectedItem = elfo.ObtenerEdad();
             cbCaracteristica.SelectedItem = elfo.ObtenerCaracteristica();
             cbEspecie.SelectedItem = elfo.GetEspecieElfo();
-            inmortal = elfo.GetInmortal();
+            checkBox1.Checked = elfo.GetInmortal();
             cbResucitado.Checked = elfo.ObtenerResucitado();
         }
 
@@ -39,7 +39,13 @@ namespace WinForm
             return new Elfo(elfo.ObtenerNombre(), elfo.ObtenerEdad(), elfo.ObtenerCaracteristica(), elfo.GetEspecieElfo(), elfo.GetInmortal(), elfo.ObtenerResucitado());
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            this.elfo = new Elfo(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, (EEspecieElfo)cbEspecie.SelectedItem, this.inmortal, cbResucitado.Checked);
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
                 inmortal = true;
@@ -47,10 +53,9 @@ namespace WinForm
                 inmortal = false;
         }
 
-        private void btnAgregar_Click_1(object sender, EventArgs e)
+        private void cbResucitado_CheckedChanged(object sender, EventArgs e)
         {
-            this.elfo = new Elfo(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, (EEspecieElfo)cbEspecie.SelectedItem, this.inmortal, cbResucitado.Checked);
-            this.DialogResult = DialogResult.OK;
+
         }
     }
 }

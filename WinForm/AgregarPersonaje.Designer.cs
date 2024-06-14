@@ -68,6 +68,7 @@
             cbResucitado.TabIndex = 14;
             cbResucitado.Text = "si.";
             cbResucitado.UseVisualStyleBackColor = true;
+            cbResucitado.CheckedChanged += cbResucitado_CheckedChanged;
             // 
             // label1
             // 

@@ -35,6 +35,10 @@
             checkBox1 = new CheckBox();
             SuspendLayout();
             // 
+            // cbResucitado
+            // 
+            cbResucitado.CheckedChanged += cbResucitado_CheckedChanged;
+            // 
             // btnAgregar
             // 
             btnAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -84,6 +88,7 @@
             checkBox1.TabIndex = 21;
             checkBox1.Text = "Si.";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged_1;
             // 
             // AgregarElfo
             // 
