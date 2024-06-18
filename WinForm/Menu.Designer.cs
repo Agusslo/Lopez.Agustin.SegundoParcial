@@ -41,9 +41,6 @@
             abrirToolStripMenuItem = new ToolStripMenuItem();
             configuracionToolStripMenuItem = new ToolStripMenuItem();
             verLogsToolStripMenuItem = new ToolStripMenuItem();
-            elegirGuardadoToolStripMenuItem = new ToolStripMenuItem();
-            xMLToolStripMenuItem = new ToolStripMenuItem();
-            jSONToolStripMenuItem = new ToolStripMenuItem();
             ordenarPorToolStripMenuItem = new ToolStripMenuItem();
             edadToolStripMenuItem = new ToolStripMenuItem();
             masJovenPrimeroToolStripMenuItem = new ToolStripMenuItem();
@@ -172,7 +169,7 @@
             // 
             // configuracionToolStripMenuItem
             // 
-            configuracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogsToolStripMenuItem, elegirGuardadoToolStripMenuItem });
+            configuracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogsToolStripMenuItem });
             configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             configuracionToolStripMenuItem.Size = new Size(95, 20);
             configuracionToolStripMenuItem.Text = "Configuracion";
@@ -180,30 +177,9 @@
             // verLogsToolStripMenuItem
             // 
             verLogsToolStripMenuItem.Name = "verLogsToolStripMenuItem";
-            verLogsToolStripMenuItem.Size = new Size(157, 22);
+            verLogsToolStripMenuItem.Size = new Size(180, 22);
             verLogsToolStripMenuItem.Text = "Ver logs";
             verLogsToolStripMenuItem.Click += verLogsToolStripMenuItem_Click_1;
-            // 
-            // elegirGuardadoToolStripMenuItem
-            // 
-            elegirGuardadoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { xMLToolStripMenuItem, jSONToolStripMenuItem });
-            elegirGuardadoToolStripMenuItem.Name = "elegirGuardadoToolStripMenuItem";
-            elegirGuardadoToolStripMenuItem.Size = new Size(157, 22);
-            elegirGuardadoToolStripMenuItem.Text = "Elegir guardado";
-            // 
-            // xMLToolStripMenuItem
-            // 
-            xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            xMLToolStripMenuItem.Size = new Size(102, 22);
-            xMLToolStripMenuItem.Text = "XML";
-            xMLToolStripMenuItem.Click += xMLToolStripMenuItem_Click;
-            // 
-            // jSONToolStripMenuItem
-            // 
-            jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
-            jSONToolStripMenuItem.Size = new Size(102, 22);
-            jSONToolStripMenuItem.Text = "JSON";
-            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
             // 
             // ordenarPorToolStripMenuItem
             // 
@@ -319,9 +295,6 @@
         private ToolStripMenuItem abrirToolStripMenuItem;
         private ToolStripMenuItem configuracionToolStripMenuItem;
         private ToolStripMenuItem verLogsToolStripMenuItem;
-        private ToolStripMenuItem elegirGuardadoToolStripMenuItem;
-        private ToolStripMenuItem xMLToolStripMenuItem;
-        private ToolStripMenuItem jSONToolStripMenuItem;
         private ToolStripMenuItem ordenarPorToolStripMenuItem;
         private ToolStripMenuItem edadToolStripMenuItem;
         private ToolStripMenuItem masJovenPrimeroToolStripMenuItem;

@@ -229,32 +229,30 @@ namespace WinForm
 
         private void abrirToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (GuardarEnJSON)
+            OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                openFileDialog.Filter = "Json files (*.json)|*.json";
-            }
-            else
-            {
-                openFileDialog.Filter = "XML files (*.xml)|*.xml";
-            }
+                Filter = "XML files (*.xml)|*.xml"
+            };
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-                string archivo = File.ReadAllText(filePath);
-                Coleccion? result;
+
                 try
                 {
-                    if (GuardarEnJSON)
+                    // Leer y deserializar el archivo XML
+                    string[] listBoxItems;
+                    XmlSerializer serializer = new XmlSerializer(typeof(string[]));
+                    using (StreamReader reader = new StreamReader(filePath))
                     {
-                        result = Coleccion.DeserializarDeJson(archivo);
+                        listBoxItems = (string[])serializer.Deserialize(reader);
                     }
-                    else
-                    {
-                        //result = Coleccion.DeserializarDeXml(archivo);
-                    }
-                    //personajes = result ?? throw new InvalidOperationException("Failed to deserialize personajes.");
-                    ActualizarLista();
+
+                    // Limpiar el ListBox y agregar los elementos deserializados
+                    listBox1.Items.Clear();
+                    listBox1.Items.AddRange(listBoxItems);
+
+                    MessageBox.Show("Archivo XML cargado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -264,15 +262,7 @@ namespace WinForm
         }
 
 
-        private void xMLToolStripMenuItem_Click(object? sender, EventArgs e)
-        {
-            GuardarEnJSON = false;
-        }
 
-        private void jSONToolStripMenuItem_Click(object? sender, EventArgs e)
-        {
-            GuardarEnJSON = true;
-        }
 
         private void verLogsToolStripMenuItem_Click_1(object? sender, EventArgs e)
         {

@@ -77,44 +77,6 @@ namespace ClassLibrary
             return resultado;
         }
 
-        public void SerializarAJson(List<Personaje> personajes, string path)
-        {
-            JsonSerializerOptions opciones = new JsonSerializerOptions();
-            opciones.WriteIndented = true;
 
-            using (StreamWriter sw = new StreamWriter(path + ".json"))
-            {
-                string objJSON = JsonSerializer.Serialize(personajes, opciones);
-                sw.WriteLine(objJSON);
-            }
-        }
-
-        public static Coleccion DeserializarDeJson(string jsonString)
-        {
-            return JsonSerializer.Deserialize<Coleccion>(jsonString);
-        }
-
-        /*public void SerializarAXml(string filePath, List<Personaje> personajes, string[] listBoxItems)
-        {
-            var datos = new
-            {
-                Personajes = personajes,
-                ListBoxItems = listBoxItems
-            };
-            XmlSerializer serializer = new XmlSerializer(datos.GetType());
-            using (StreamWriter write = new StreamWriter(filePath))
-            {
-                serializer.Serialize(write, datos);
-            }
-        }
-
-        public static Coleccion DeserializarDeXml(string filePath)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(Coleccion));
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                return (Coleccion)serializer.Deserialize(reader);
-            }
-        }*/
     }
 }
