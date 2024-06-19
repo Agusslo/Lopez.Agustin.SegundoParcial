@@ -14,7 +14,6 @@ namespace WinForm
         string logPath;
         Coleccion personajes;
         private Coleccion coleccion;
-        bool GuardarEnJSON = true;
         string perfilUsuario;
         string correoUsuario;
 
@@ -99,38 +98,38 @@ namespace WinForm
                 Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
                 Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
                 Form modificarForm;
-                if (personajeSeleccionado is Elfo tigreSeleccionado)
+                if (personajeSeleccionado is Elfo ElfoSeleccionado)
                 {
-                    modificarForm = new AgregarElfo(tigreSeleccionado);
+                    modificarForm = new AgregarElfo(ElfoSeleccionado);
                 }
-                else if (personajeSeleccionado is Orco osoSeleccionado)
+                else if (personajeSeleccionado is Orco orcoSeleccionado)
                 {
-                    modificarForm = new AgregarOrco(osoSeleccionado);
+                    modificarForm = new AgregarOrco(orcoSeleccionado);
                 }
-                else if (personajeSeleccionado is Humano loboSeleccionado)
+                else if (personajeSeleccionado is Humano HumanoSeleccionado)
                 {
-                    modificarForm = new AgregarHumano(loboSeleccionado);
+                    modificarForm = new AgregarHumano(HumanoSeleccionado);
                 }
                 else
                 {
-                    throw new Exception("Tipo de carnívoro no soportado."); // Si no, tira error con modificarForm
+                    throw new Exception("Tipo de personaje no soportado."); 
                 }
                 if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        personajes -= personajeSeleccionado; // Se elimina el carnivoro seleccionado
+                        personajes -= personajeSeleccionado;
                         if (modificarForm is AgregarElfo)
                         {
-                            personajes += (modificarForm as AgregarElfo).ObtenerElfo(); // Agregar tigre
+                            personajes += (modificarForm as AgregarElfo).ObtenerElfo(); 
                         }
                         else if (modificarForm is AgregarOrco)
                         {
-                            personajes += (modificarForm as AgregarOrco).ObtenerOrco(); // Agregar oso
+                            personajes += (modificarForm as AgregarOrco).ObtenerOrco(); 
                         }
                         else if (modificarForm is AgregarHumano)
                         {
-                            personajes += (modificarForm as AgregarHumano).ObtenerHumano(); // o agregar Lobo
+                            personajes += (modificarForm as AgregarHumano).ObtenerHumano(); 
                         }
 
                         ActualizarLista();
