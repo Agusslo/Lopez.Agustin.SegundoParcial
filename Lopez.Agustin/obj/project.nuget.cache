@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "W0+xV0Z3sGkaY9vm/F1Q87UgE4t9qbDodg9QfbryGe97aj0u+cGiXveiCYY6xUhoIlACesN+uJSWp9Ok5EA7rg==",
+  "dgSpecHash": "LRLG7o/kdqc=",
   "success": true,
   "projectFilePath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512"
+    "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.31\\microsoft.windowsdesktop.app.ref.6.0.31.nupkg.sha512",
+    "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.31\\microsoft.netcore.app.ref.6.0.31.nupkg.sha512",
+    "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.31\\microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512"
   ],
   "logs": []
 }

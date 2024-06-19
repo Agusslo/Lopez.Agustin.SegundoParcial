@@ -34,7 +34,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(330, 410);
+            btnAceptar.Location = new Point(427, 584);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(124, 28);
             btnAceptar.TabIndex = 4;
@@ -44,10 +44,11 @@
             // 
             // RTextBox
             // 
-            RTextBox.Enabled = false;
+            RTextBox.Enabled = true;
             RTextBox.Location = new Point(25, 12);
             RTextBox.Name = "RTextBox";
-            RTextBox.Size = new Size(449, 392);
+            RTextBox.ScrollBars = RichTextBoxScrollBars.Vertical;
+            RTextBox.Size = new Size(449, 566);
             RTextBox.TabIndex = 3;
             RTextBox.Text = "";
             // 
@@ -56,7 +57,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(499, 450);
+            ClientSize = new Size(575, 624);
             Controls.Add(btnAceptar);
             Controls.Add(RTextBox);
             Name = "FrmLog";

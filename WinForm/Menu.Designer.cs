@@ -41,9 +41,6 @@
             abrirToolStripMenuItem = new ToolStripMenuItem();
             configuracionToolStripMenuItem = new ToolStripMenuItem();
             verLogsToolStripMenuItem = new ToolStripMenuItem();
-            elegirGuardadoToolStripMenuItem = new ToolStripMenuItem();
-            xMLToolStripMenuItem = new ToolStripMenuItem();
-            jSONToolStripMenuItem = new ToolStripMenuItem();
             ordenarPorToolStripMenuItem = new ToolStripMenuItem();
             edadToolStripMenuItem = new ToolStripMenuItem();
             masJovenPrimeroToolStripMenuItem = new ToolStripMenuItem();
@@ -63,7 +60,7 @@
             cbElfo.AutoSize = true;
             cbElfo.Checked = true;
             cbElfo.CheckState = CheckState.Checked;
-            cbElfo.Location = new Point(773, 90);
+            cbElfo.Location = new Point(505, 358);
             cbElfo.Name = "cbElfo";
             cbElfo.Size = new Size(95, 19);
             cbElfo.TabIndex = 15;
@@ -77,7 +74,7 @@
             cbOrco.AutoSize = true;
             cbOrco.Checked = true;
             cbOrco.CheckState = CheckState.Checked;
-            cbOrco.Location = new Point(769, 65);
+            cbOrco.Location = new Point(271, 358);
             cbOrco.Name = "cbOrco";
             cbOrco.Size = new Size(101, 19);
             cbOrco.TabIndex = 14;
@@ -91,7 +88,7 @@
             cbHumano.AutoSize = true;
             cbHumano.Checked = true;
             cbHumano.CheckState = CheckState.Checked;
-            cbHumano.Location = new Point(769, 40);
+            cbHumano.Location = new Point(19, 358);
             cbHumano.Name = "cbHumano";
             cbHumano.Size = new Size(122, 19);
             cbHumano.TabIndex = 13;
@@ -133,9 +130,9 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 40);
+            listBox1.Location = new Point(12, 42);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(695, 229);
+            listBox1.Size = new Size(869, 229);
             listBox1.TabIndex = 8;
             // 
             // menuStrip1
@@ -144,7 +141,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, configuracionToolStripMenuItem, ordenarPorToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(903, 24);
+            menuStrip1.Size = new Size(1283, 24);
             menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -171,7 +168,7 @@
             // 
             // configuracionToolStripMenuItem
             // 
-            configuracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogsToolStripMenuItem, elegirGuardadoToolStripMenuItem });
+            configuracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogsToolStripMenuItem });
             configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             configuracionToolStripMenuItem.Size = new Size(95, 20);
             configuracionToolStripMenuItem.Text = "Configuracion";
@@ -179,30 +176,9 @@
             // verLogsToolStripMenuItem
             // 
             verLogsToolStripMenuItem.Name = "verLogsToolStripMenuItem";
-            verLogsToolStripMenuItem.Size = new Size(157, 22);
+            verLogsToolStripMenuItem.Size = new Size(115, 22);
             verLogsToolStripMenuItem.Text = "Ver logs";
             verLogsToolStripMenuItem.Click += verLogsToolStripMenuItem_Click_1;
-            // 
-            // elegirGuardadoToolStripMenuItem
-            // 
-            elegirGuardadoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { xMLToolStripMenuItem, jSONToolStripMenuItem });
-            elegirGuardadoToolStripMenuItem.Name = "elegirGuardadoToolStripMenuItem";
-            elegirGuardadoToolStripMenuItem.Size = new Size(157, 22);
-            elegirGuardadoToolStripMenuItem.Text = "Elegir guardado";
-            // 
-            // xMLToolStripMenuItem
-            // 
-            xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            xMLToolStripMenuItem.Size = new Size(102, 22);
-            xMLToolStripMenuItem.Text = "XML";
-            xMLToolStripMenuItem.Click += xMLToolStripMenuItem_Click;
-            // 
-            // jSONToolStripMenuItem
-            // 
-            jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
-            jSONToolStripMenuItem.Size = new Size(102, 22);
-            jSONToolStripMenuItem.Text = "JSON";
-            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
             // 
             // ordenarPorToolStripMenuItem
             // 
@@ -255,21 +231,21 @@
             // 
             // lblCorreousuario
             // 
-            lblCorreousuario.Location = new Point(741, 203);
+            lblCorreousuario.Location = new Point(1007, 173);
             lblCorreousuario.Name = "lblCorreousuario";
             lblCorreousuario.Size = new Size(150, 40);
             lblCorreousuario.TabIndex = 16;
             // 
             // lblHora
             // 
-            lblHora.Location = new Point(209, 24);
+            lblHora.Location = new Point(364, 24);
             lblHora.Name = "lblHora";
             lblHora.Size = new Size(211, 15);
             lblHora.TabIndex = 17;
             // 
             // lblHoraInicioSesion
             // 
-            lblHoraInicioSesion.Location = new Point(747, 124);
+            lblHoraInicioSesion.Location = new Point(1013, 94);
             lblHoraInicioSesion.Name = "lblHoraInicioSesion";
             lblHoraInicioSesion.Size = new Size(144, 15);
             lblHoraInicioSesion.TabIndex = 18;
@@ -279,7 +255,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(903, 395);
+            ClientSize = new Size(1283, 411);
             Controls.Add(lblHoraInicioSesion);
             Controls.Add(lblHora);
             Controls.Add(lblCorreousuario);
@@ -315,9 +291,6 @@
         private ToolStripMenuItem abrirToolStripMenuItem;
         private ToolStripMenuItem configuracionToolStripMenuItem;
         private ToolStripMenuItem verLogsToolStripMenuItem;
-        private ToolStripMenuItem elegirGuardadoToolStripMenuItem;
-        private ToolStripMenuItem xMLToolStripMenuItem;
-        private ToolStripMenuItem jSONToolStripMenuItem;
         private ToolStripMenuItem ordenarPorToolStripMenuItem;
         private ToolStripMenuItem edadToolStripMenuItem;
         private ToolStripMenuItem masJovenPrimeroToolStripMenuItem;

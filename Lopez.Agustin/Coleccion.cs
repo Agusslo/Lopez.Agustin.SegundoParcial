@@ -124,6 +124,6 @@ namespace ClassLibrary
             }
         }
         public List<Personaje> GetColeccion() { return personajes; }
-            
+
     }
 }

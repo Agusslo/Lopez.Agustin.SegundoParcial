@@ -25,7 +25,6 @@
             label1 = new Label();
             btnRapido = new Button();
             SuspendLayout();
-            
             // 
             // checkBox1
             // 
@@ -37,7 +36,6 @@
             checkBox1.Text = "Ver";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged_1;
-            
             // 
             // button1
             // 
@@ -49,7 +47,6 @@
             button1.Text = "Iniciar sesión";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            
             // 
             // txtContrasenia
             // 
@@ -58,7 +55,6 @@
             txtContrasenia.Size = new Size(133, 23);
             txtContrasenia.TabIndex = 9;
             txtContrasenia.UseSystemPasswordChar = true;
-            
             // 
             // txtCorreo
             // 
@@ -66,7 +62,6 @@
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(133, 23);
             txtCorreo.TabIndex = 8;
-            
             // 
             // label2
             // 
@@ -74,10 +69,9 @@
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(60, 140);
             label2.Name = "label2";
-            label2.Size = new Size(85, 19);
+            label2.Size = new Size(88, 19);
             label2.TabIndex = 7;
             label2.Text = "Contraseña:";
-            
             // 
             // label1
             // 
@@ -85,10 +79,9 @@
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(60, 100);
             label1.Name = "label1";
-            label1.Size = new Size(77, 19);
+            label1.Size = new Size(60, 19);
             label1.TabIndex = 6;
             label1.Text = "Correo:";
-            
             // 
             // btnRapido
             // 
@@ -100,14 +93,13 @@
             btnRapido.Text = "Inicio Rápido";
             btnRapido.UseVisualStyleBackColor = true;
             btnRapido.Click += btnRapido_Click_1;
-            
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(33, 150, 243); // Background color
-            ClientSize = new Size(400, 300); // Adjusted size
+            BackColor = Color.Silver;
+            ClientSize = new Size(400, 300);
             Controls.Add(btnRapido);
             Controls.Add(checkBox1);
             Controls.Add(button1);
