@@ -99,9 +99,9 @@
             return Caracteristica;
         }
 
-        public bool ObtenerResucitado() 
+        public bool ObtenerResucitado()
         {
             return Resucitado;
-        } 
+        }
     }
 }
