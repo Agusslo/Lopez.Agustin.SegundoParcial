@@ -39,7 +39,7 @@ namespace WinForm
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            // config el ListBox1 con la ScrollBar horizontal
+            // Configurar el ListBox1 con la ScrollBar horizontal
             listBox1.HorizontalScrollbar = true; // Habilitar la barra de desplazamiento horizontal
             listBox1.Size = new System.Drawing.Size(914, 229); // Tamaño original del ListBox1
             listBox1.Location = new System.Drawing.Point(12, 40); // Posición original del ListBox1
@@ -49,7 +49,7 @@ namespace WinForm
             lblCorreousuario.Text = "Correo: " + this.correoUsuario;
             lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss");
 
-            // config botones según el perfil de usuario
+            // Configurar botones según el perfil de usuario
             if (perfilUsuario == "supervisor")
             {
                 btnEliminar.Enabled = false;
@@ -62,10 +62,8 @@ namespace WinForm
             }
         }
 
-        // Método que se ejecutará cada vez que el temporizador cambie de intervalo
-        private void Timer_Tick(object? sender, EventArgs e) // El ? para arreglar el warning
+        private void Timer_Tick(object? sender, EventArgs e)
         {
-            // Actualizar la hora en el Label
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
@@ -103,6 +101,60 @@ namespace WinForm
             }
             else
             {
+                if (listBox1.SelectedIndex != -1)
+                {
+                    Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
+                    Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
+                    Form modificarForm;
+                    if (personajeSeleccionado is Elfo ElfoSeleccionado)
+                    {
+                        modificarForm = new AgregarElfo(ElfoSeleccionado);
+                    }
+                    else if (personajeSeleccionado is Orco orcoSeleccionado)
+                    {
+                        modificarForm = new AgregarOrco(orcoSeleccionado);
+                    }
+                    else if (personajeSeleccionado is Humano HumanoSeleccionado)
+                    {
+                        modificarForm = new AgregarHumano(HumanoSeleccionado);
+                    }
+                    else
+                    {
+                        throw new Exception("Tipo de personaje no soportado.");
+                    }
+                    if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            personajes -= personajeSeleccionado;
+                            if (modificarForm is AgregarElfo)
+                            {
+                                personajes += (modificarForm as AgregarElfo).ObtenerElfo();
+                            }
+                            else if (modificarForm is AgregarOrco)
+                            {
+                                personajes += (modificarForm as AgregarOrco).ObtenerOrco();
+                            }
+                            else if (modificarForm is AgregarHumano)
+                            {
+                                personajes += (modificarForm as AgregarHumano).ObtenerHumano();
+                            }
+
+                            ActualizarLista();
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            // Si ocurre una excepción, restaurar la colección original
+                            personajes = copiaPersonajes;
+                            MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -114,12 +166,46 @@ namespace WinForm
             }
             else
             {
+                FrmEleccion agregar = new FrmEleccion();
+                if (agregar.ShowDialog() == DialogResult.OK)
+                {
+                    Personaje? nuevoPersonaje = agregar.SelectedPersonaje;
+
+                    try
+                    {
+                        personajes += nuevoPersonaje!;
+                        ActualizarLista();
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
             }
         }
 
         private void btnEliminar_Click_1(object? sender, EventArgs e)
         {
-            MessageBox.Show("No tienes permiso para eliminar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (perfilUsuario == "vendedor" || perfilUsuario == "supervisor")
+            {
+                MessageBox.Show("No tienes permiso para eliminar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (listBox1.SelectedIndex != -1)
+                {
+                    if (listBox1.SelectedItem is Personaje personajeSeleccionado)
+                    {
+                        personajes -= personajeSeleccionado;
+                        ActualizarLista();
+                        MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un personaje para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,7 +219,7 @@ namespace WinForm
                     Directory.CreateDirectory(initialDirectory);
                 }
                 string filePath = Path.Combine(initialDirectory, defaultFileName);
-                GuardarListBoxEnXml(filePath, listBox1);
+                GuardarColeccionEnXml(filePath, personajes);
                 MessageBox.Show("Archivo XML guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -142,19 +228,12 @@ namespace WinForm
             }
         }
 
-        private void GuardarListBoxEnXml(string filePath, ListBox listBox)
+        private void GuardarColeccionEnXml(string filePath, Coleccion coleccion)
         {
-            // Obtener los elementos del ListBox
-            string[] listBoxItems = new string[listBox.Items.Count];
-            for (int i = 0; i < listBox.Items.Count; i++)
-            {
-                listBoxItems[i] = listBox.Items[i].ToString();
-            }
-            // Serializar el arreglo de strings a XML
-            XmlSerializer serializer = new XmlSerializer(typeof(string[]));
+            XmlSerializer serializer = new XmlSerializer(typeof(Coleccion));
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                serializer.Serialize(writer, listBoxItems);
+                serializer.Serialize(writer, coleccion);
             }
         }
 
@@ -171,18 +250,13 @@ namespace WinForm
 
                 try
                 {
-                    // Leer y deserializar el archivo XML
-                    string[] listBoxItems;
-                    XmlSerializer serializer = new XmlSerializer(typeof(string[]));
+                    XmlSerializer serializer = new XmlSerializer(typeof(Coleccion));
                     using (StreamReader reader = new StreamReader(filePath))
                     {
-                        listBoxItems = (string[])serializer.Deserialize(reader);
+                        personajes = (Coleccion)serializer.Deserialize(reader);
                     }
 
-                    // Limpiar el ListBox y agregar los elementos deserializados
-                    listBox1.Items.Clear();
-                    listBox1.Items.AddRange(listBoxItems);
-
+                    ActualizarLista();
                     MessageBox.Show("Archivo XML cargado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -226,7 +300,6 @@ namespace WinForm
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                // Preguntar al usuario si está seguro de que desea salir
                 DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {

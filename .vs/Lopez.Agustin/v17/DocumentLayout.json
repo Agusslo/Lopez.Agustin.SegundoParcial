@@ -59,14 +59,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Menu.cs [Dise\u00F1o]",
+              "Title": "Menu.cs [Design]",
               "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
               "RelativeDocumentMoniker": "WinForm\\Menu.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WinForm\\Menu.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs [Design]",
+              "RelativeToolTip": "WinForm\\Menu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T19:55:37.475Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -78,8 +78,7 @@
               "RelativeToolTip": "WinForm\\Login.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAgwCYAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-20T19:49:05.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-20T19:49:05.367Z"
             },
             {
               "$type": "Document",
@@ -89,7 +88,7 @@
               "RelativeDocumentMoniker": "WinForm\\Menu.cs",
               "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
               "RelativeToolTip": "WinForm\\Menu.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAWwCoAAABjAAAA",
+              "ViewState": "AQIAAA8BAAAAAAAAAAAkwE4BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T18:57:17.855Z",
               "EditorCaption": ""
