@@ -48,6 +48,14 @@ namespace WinForm
             // Mostrar información del usuario
             lblCorreousuario.Text = "Correo: " + this.correoUsuario;
             lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss");
+
+            // Configurar botones según el perfil de usuario
+            if (perfilUsuario == "supervisor" || perfilUsuario == "vendedor")
+            {
+                btnEliminar.Enabled = false;
+                btnModificar.Enabled = false;
+                btnAgregar.Enabled = false;
+            }
         }
 
         // Método que se ejecutará cada vez que el temporizador cambie de intervalo
@@ -57,13 +65,6 @@ namespace WinForm
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
-        //////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-        // EL SIGNO DE PREGUNTA(?) ES PARA QUE PUEDA PASARLE INFO NULL Y NO TIRE WARNING
         private void Filtrar(object? sender, EventArgs e)
         {
             ActualizarLista();
@@ -93,102 +94,19 @@ namespace WinForm
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
-            {
-                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
-                Form modificarForm;
-                if (personajeSeleccionado is Elfo ElfoSeleccionado)
-                {
-                    modificarForm = new AgregarElfo(ElfoSeleccionado);
-                }
-                else if (personajeSeleccionado is Orco orcoSeleccionado)
-                {
-                    modificarForm = new AgregarOrco(orcoSeleccionado);
-                }
-                else if (personajeSeleccionado is Humano HumanoSeleccionado)
-                {
-                    modificarForm = new AgregarHumano(HumanoSeleccionado);
-                }
-                else
-                {
-                    throw new Exception("Tipo de personaje no soportado."); 
-                }
-                if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        personajes -= personajeSeleccionado;
-                        if (modificarForm is AgregarElfo)
-                        {
-                            personajes += (modificarForm as AgregarElfo).ObtenerElfo(); 
-                        }
-                        else if (modificarForm is AgregarOrco)
-                        {
-                            personajes += (modificarForm as AgregarOrco).ObtenerOrco(); 
-                        }
-                        else if (modificarForm is AgregarHumano)
-                        {
-                            personajes += (modificarForm as AgregarHumano).ObtenerHumano(); 
-                        }
-
-                        ActualizarLista();
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        // Si ocurre una excepción, restaurar la colección original
-                        personajes = copiaPersonajes;
-                        MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un carnívoro para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            MessageBox.Show("No tienes permiso para modificar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
 
         private void btnAgregar_Click_1(object? sender, EventArgs e)
         {
-            FrmEleccion agregar = new FrmEleccion();
-            if (agregar.ShowDialog() == DialogResult.OK)
-            {
-                Personaje? nuevoPersonaje = agregar.SelectedPersonaje;
-
-                try
-                {
-                    personajes += nuevoPersonaje!;
-                    ActualizarLista();
-                }
-                catch (ArgumentException ex)
-                {
-                    MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
+            MessageBox.Show("No tienes permiso para agregar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnEliminar_Click_1(object? sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
-            {
-                if (listBox1.SelectedItem is Personaje personajeSeleccionado)
-                {
-                    personajes -= personajeSeleccionado;
-                    ActualizarLista();
-                    MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un personaje para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            MessageBox.Show("No tienes permiso para eliminar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
-
-
-        
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -212,13 +130,11 @@ namespace WinForm
 
         private void GuardarListBoxEnXml(string filePath, ListBox listBox)
         {
-            // Obtener los elementos del ListBox
             string[] listBoxItems = new string[listBox.Items.Count];
             for (int i = 0; i < listBox.Items.Count; i++)
             {
                 listBoxItems[i] = listBox.Items[i].ToString();
             }
-            // Serializar el arreglo de strings a XML
             XmlSerializer serializer = new XmlSerializer(typeof(string[]));
             using (StreamWriter writer = new StreamWriter(filePath))
             {
@@ -239,15 +155,12 @@ namespace WinForm
 
                 try
                 {
-                    // Leer y deserializar el archivo XML
                     string[] listBoxItems;
                     XmlSerializer serializer = new XmlSerializer(typeof(string[]));
                     using (StreamReader reader = new StreamReader(filePath))
                     {
                         listBoxItems = (string[])serializer.Deserialize(reader);
                     }
-
-                    // Limpiar el ListBox y agregar los elementos deserializados
                     listBox1.Items.Clear();
                     listBox1.Items.AddRange(listBoxItems);
 
@@ -259,9 +172,6 @@ namespace WinForm
                 }
             }
         }
-
-
-
 
         private void verLogsToolStripMenuItem_Click_1(object? sender, EventArgs e)
         {
@@ -314,11 +224,6 @@ namespace WinForm
             }
         }
 
-        private void lblHoraInicioSesion_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbOrco_CheckedChanged(object? sender, EventArgs e)
         {
             ActualizarLista();
@@ -332,11 +237,6 @@ namespace WinForm
         private void cbHumano_CheckedChanged_1(object? sender, EventArgs e)
         {
             ActualizarLista();
-        }
-
-        private void Menu_Load_1(object? sender, EventArgs e)
-        {
-
         }
     }
 }

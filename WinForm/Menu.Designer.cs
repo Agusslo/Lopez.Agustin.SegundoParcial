@@ -273,7 +273,6 @@
             Controls.Add(menuStrip1);
             Name = "Menu";
             Text = "Menu";
-            Load += Menu_Load_1;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
