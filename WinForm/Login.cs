@@ -71,7 +71,7 @@ namespace WinForm
                     correoUsuario = usuario.Correo; // Guardamos el correo electrónico del usuario
                     perfilUsuario = usuario.Perfil; // Guardamos el perfil del usuario
 
-                    Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);
+                    Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);//entramos guardando el correo y su perfil
                     frmMenu.Show();
                     this.Hide();
                     CargarLogs(usuario.Correo);
