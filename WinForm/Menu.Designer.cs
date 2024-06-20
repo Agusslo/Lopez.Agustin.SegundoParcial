@@ -51,6 +51,7 @@
             lblCorreousuario = new Label();
             lblHora = new Label();
             lblHoraInicioSesion = new Label();
+            lblPerfil = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             cbElfo.AutoSize = true;
             cbElfo.Checked = true;
             cbElfo.CheckState = CheckState.Checked;
-            cbElfo.Location = new Point(505, 358);
+            cbElfo.Location = new Point(603, 366);
             cbElfo.Name = "cbElfo";
             cbElfo.Size = new Size(95, 19);
             cbElfo.TabIndex = 15;
@@ -74,7 +75,7 @@
             cbOrco.AutoSize = true;
             cbOrco.Checked = true;
             cbOrco.CheckState = CheckState.Checked;
-            cbOrco.Location = new Point(271, 358);
+            cbOrco.Location = new Point(369, 366);
             cbOrco.Name = "cbOrco";
             cbOrco.Size = new Size(101, 19);
             cbOrco.TabIndex = 14;
@@ -88,7 +89,7 @@
             cbHumano.AutoSize = true;
             cbHumano.Checked = true;
             cbHumano.CheckState = CheckState.Checked;
-            cbHumano.Location = new Point(19, 358);
+            cbHumano.Location = new Point(117, 366);
             cbHumano.Name = "cbHumano";
             cbHumano.Size = new Size(122, 19);
             cbHumano.TabIndex = 13;
@@ -98,7 +99,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(490, 285);
+            btnEliminar.Location = new Point(588, 293);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(110, 40);
             btnEliminar.TabIndex = 11;
@@ -108,7 +109,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(271, 285);
+            btnModificar.Location = new Point(369, 293);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(110, 40);
             btnModificar.TabIndex = 10;
@@ -118,7 +119,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(31, 285);
+            btnAgregar.Location = new Point(129, 293);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(110, 40);
             btnAgregar.TabIndex = 9;
@@ -231,7 +232,7 @@
             // 
             // lblCorreousuario
             // 
-            lblCorreousuario.Location = new Point(1007, 173);
+            lblCorreousuario.Location = new Point(1013, 210);
             lblCorreousuario.Name = "lblCorreousuario";
             lblCorreousuario.Size = new Size(150, 40);
             lblCorreousuario.TabIndex = 16;
@@ -250,12 +251,21 @@
             lblHoraInicioSesion.Size = new Size(144, 15);
             lblHoraInicioSesion.TabIndex = 18;
             // 
+            // lblPerfil
+            // 
+            lblPerfil.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPerfil.Location = new Point(1013, 156);
+            lblPerfil.Name = "lblPerfil";
+            lblPerfil.Size = new Size(144, 43);
+            lblPerfil.TabIndex = 19;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(1283, 411);
+            Controls.Add(lblPerfil);
             Controls.Add(lblHoraInicioSesion);
             Controls.Add(lblHora);
             Controls.Add(lblCorreousuario);
@@ -269,7 +279,6 @@
             Controls.Add(menuStrip1);
             Name = "Menu";
             Text = "Menu";
-            Load += Menu_Load_1;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -301,5 +310,6 @@
         private Label lblCorreousuario;
         private Label lblHora;
         private Label lblHoraInicioSesion;
+        private Label lblPerfil;
     }
 }

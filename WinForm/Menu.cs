@@ -39,13 +39,27 @@ namespace WinForm
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            // Configurar el ListBox1 con la ScrollBar horizontal
+            // config el ListBox1 con la ScrollBar horizontal
             listBox1.HorizontalScrollbar = true; // Habilitar la barra de desplazamiento horizontal
+            listBox1.Size = new System.Drawing.Size(914, 229); // Tamaño original del ListBox1
+            listBox1.Location = new System.Drawing.Point(12, 40); // Posición original del ListBox1
             ActualizarLista();
 
             // Mostrar información del usuario
             lblCorreousuario.Text = "Correo: " + this.correoUsuario;
             lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss");
+
+            // config botones según el perfil de usuario
+            if (perfilUsuario == "supervisor")
+            {
+                btnEliminar.Enabled = false;
+            }
+            else if (perfilUsuario == "vendedor")
+            {
+                btnEliminar.Enabled = false;
+                btnModificar.Enabled = false;
+                btnAgregar.Enabled = false;
+            }
         }
 
         // Método que se ejecutará cada vez que el temporizador cambie de intervalo
@@ -55,13 +69,6 @@ namespace WinForm
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
-        //////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-        // EL SIGNO DE PREGUNTA(?) ES PARA QUE PUEDA PASARLE INFO NULL Y NO TIRE WARNING
         private void Filtrar(object? sender, EventArgs e)
         {
             ActualizarLista();
@@ -75,6 +82,7 @@ namespace WinForm
             {
                 listBox1.Items.Add(personaje);
             }
+            // Establecer el ancho total del contenido del ListBox1 para la barra de desplazamiento horizontal
             int totalWidth = 0;
             foreach (var item in listBox1.Items)
             {
@@ -87,104 +95,32 @@ namespace WinForm
             listBox1.HorizontalExtent = totalWidth;
         }
 
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
+            if (perfilUsuario == "vendedor")
             {
-                Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                Coleccion copiaPersonajes = personajes;
-                Form modificarForm;
-                if (personajeSeleccionado is Elfo ElfoSeleccionado)
-                {
-                    modificarForm = new AgregarElfo(ElfoSeleccionado);
-                }
-                else if (personajeSeleccionado is Orco OrcoSeleccionado)
-                {
-                    modificarForm = new AgregarOrco(OrcoSeleccionado);
-                }
-                else if (personajeSeleccionado is Humano HumanoSeleccionado)
-                {
-                    modificarForm = new AgregarHumano(HumanoSeleccionado);
-                }
-                else
-                {
-                    throw new Exception("Tipo de carnívoro no soportado.");
-                }
-                if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        personajes -= personajeSeleccionado;
-                        if (modificarForm is AgregarElfo)
-                        {
-                            personajes += (modificarForm as AgregarElfo).ObtenerElfo();
-                        }
-                        else if (modificarForm is AgregarOrco)
-                        {
-                            personajes += (modificarForm as AgregarOrco).ObtenerOrco();
-                        }
-                        else if (modificarForm is AgregarHumano)
-                        {
-                            personajes += (modificarForm as AgregarHumano).ObtenerHumano();
-                        }
-
-                        ActualizarLista();
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        personajes = copiaPersonajes;
-                        MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-
+                MessageBox.Show("No tienes permiso para modificar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un carnívoro para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-
         private void btnAgregar_Click_1(object? sender, EventArgs e)
         {
-            FrmEleccion agregar = new FrmEleccion();
-            if (agregar.ShowDialog() == DialogResult.OK)
+            if (perfilUsuario == "vendedor")
             {
-                Personaje? nuevoPersonaje = agregar.SelectedPersonaje;
-
-                try
-                {
-                    personajes += nuevoPersonaje!;
-                    ActualizarLista();
-                }
-                catch (ArgumentException ex)
-                {
-                    MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("No tienes permiso para agregar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
             }
         }
 
         private void btnEliminar_Click_1(object? sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
-            {
-                if (listBox1.SelectedItem is Personaje personajeSeleccionado)
-                {
-                    personajes -= personajeSeleccionado;
-                    ActualizarLista();
-                    MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un personaje para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            MessageBox.Show("No tienes permiso para eliminar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
-
-
-
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -208,11 +144,13 @@ namespace WinForm
 
         private void GuardarListBoxEnXml(string filePath, ListBox listBox)
         {
+            // Obtener los elementos del ListBox
             string[] listBoxItems = new string[listBox.Items.Count];
             for (int i = 0; i < listBox.Items.Count; i++)
             {
                 listBoxItems[i] = listBox.Items[i].ToString();
             }
+            // Serializar el arreglo de strings a XML
             XmlSerializer serializer = new XmlSerializer(typeof(string[]));
             using (StreamWriter writer = new StreamWriter(filePath))
             {
@@ -220,7 +158,7 @@ namespace WinForm
             }
         }
 
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void abrirToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -233,6 +171,7 @@ namespace WinForm
 
                 try
                 {
+                    // Leer y deserializar el archivo XML
                     string[] listBoxItems;
                     XmlSerializer serializer = new XmlSerializer(typeof(string[]));
                     using (StreamReader reader = new StreamReader(filePath))
@@ -240,15 +179,9 @@ namespace WinForm
                         listBoxItems = (string[])serializer.Deserialize(reader);
                     }
 
-                    personajes.personajes.Clear();
+                    // Limpiar el ListBox y agregar los elementos deserializados
                     listBox1.Items.Clear();
-
-                    foreach (var item in listBoxItems)
-                    {
-                        Personaje personaje = CrearPersonajeDesdeString(item);
-                        personajes.personajes.Add(personaje);
-                        listBox1.Items.Add(personaje);
-                    }
+                    listBox1.Items.AddRange(listBoxItems);
 
                     MessageBox.Show("Archivo XML cargado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -258,27 +191,6 @@ namespace WinForm
                 }
             }
         }
-
-        private Personaje CrearPersonajeDesdeString(string item)
-        {
-            if (item.Contains("Elfo"))
-            {
-                return new Elfo();
-            }
-            else if (item.Contains("Orco"))
-            {
-                return new Orco();
-            }
-            else if (item.Contains("Humano"))
-            {
-                return new Humano();
-            }
-            else
-            {
-                throw new Exception("Tipo de personaje no reconocido.");
-            }
-        }
-
 
         private void verLogsToolStripMenuItem_Click_1(object? sender, EventArgs e)
         {
@@ -331,11 +243,6 @@ namespace WinForm
             }
         }
 
-        private void lblHoraInicioSesion_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbOrco_CheckedChanged(object? sender, EventArgs e)
         {
             ActualizarLista();
@@ -349,11 +256,6 @@ namespace WinForm
         private void cbHumano_CheckedChanged_1(object? sender, EventArgs e)
         {
             ActualizarLista();
-        }
-
-        private void Menu_Load_1(object? sender, EventArgs e)
-        {
-
         }
     }
 }
