@@ -44,7 +44,7 @@
             btnAceptar.TabIndex = 16;
             btnAceptar.Text = "AGREGAR";
             btnAceptar.UseVisualStyleBackColor = true;
-            btnAceptar.Click += this.btnAgregar_Click;
+            btnAceptar.Click += btnAgregar_Click;
             // 
             // label5
             // 
@@ -59,7 +59,7 @@
             // cbEspecie
             // 
             cbEspecie.FormattingEnabled = true;
-            cbEspecie.Location = new Point(216, 262);
+            cbEspecie.Location = new Point(207, 271);
             cbEspecie.Name = "cbEspecie";
             cbEspecie.Size = new Size(144, 23);
             cbEspecie.TabIndex = 14;
@@ -69,7 +69,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Lucida Console", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(73, 269);
+            label4.Location = new Point(64, 278);
             label4.Name = "label4";
             label4.Size = new Size(95, 16);
             label4.TabIndex = 13;

@@ -1,39 +1,38 @@
-﻿namespace ClassLibrary
+﻿using Entidades;
+using System;
+using System.Xml.Serialization;
+
+namespace ClassLibrary
 {
-    using Entidades;
-    using System;
-    using System.Collections.Generic;
-    using System.Xml.Serialization;
-
-
-    public class Personaje
+    [XmlInclude(typeof(Humano))]
+    [XmlInclude(typeof(Orco))]
+    [XmlInclude(typeof(Elfo))]
+    public abstract class Personaje
     {
-
         protected string Nombre { get; set; }
         protected EEdad Edad { get; set; }
         protected ECaracteristica Caracteristica { get; set; }
+
         public Personaje()
         {
-            this.Nombre = "Sin nombre";
-            this.Caracteristica = ECaracteristica.No_Especificado;
-            this.Edad = EEdad.No_Especificado;
+            Nombre = "Sin nombre";
+            Caracteristica = ECaracteristica.No_Especificado;
+            Edad = EEdad.No_Especificado;
         }
-        public Personaje(string nombre): this()
+
+        public Personaje(string nombre) : this()
         {
-            if (nombre == "")
-                this.Nombre = "Sin nombre";
-            else
-            this.Nombre = nombre;
+            Nombre = string.IsNullOrEmpty(nombre) ? "Sin nombre" : nombre;
         }
 
         public Personaje(string nombre, EEdad edad) : this(nombre)
         {
-            this.Edad = edad;
+            Edad = edad;
         }
 
         public Personaje(string nombre, EEdad edad, ECaracteristica caracteristica) : this(nombre, edad)
         {
-            this.Caracteristica = caracteristica;
+            Caracteristica = caracteristica;
         }
 
         public override bool Equals(object obj)
@@ -52,7 +51,7 @@
 
         public static bool operator ==(Personaje c1, Personaje c2)
         {
-            if (ReferenceEquals(c1, c2)) // Por si por algun error, los dos personajes estan en el mismo lugar de memoria
+            if (ReferenceEquals(c1, c2))
             {
                 return true;
             }
@@ -79,6 +78,7 @@
         {
             return Edad;
         }
+
         public ECaracteristica ObtenerCaracteristica()
         {
             return Caracteristica;

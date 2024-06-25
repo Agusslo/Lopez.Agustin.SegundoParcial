@@ -1,16 +1,7 @@
 ﻿using ClassLibrary;
 using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using WinForm;
 
 namespace WinForm
 {
@@ -24,7 +15,7 @@ namespace WinForm
             InitializeComponent();
             cbEspecie.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEspecie.DataSource = Enum.GetValues(typeof(EEspecieOrco));
-
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
         }
 
         public AgregarOrco(Orco orco) : this()
@@ -42,8 +33,10 @@ namespace WinForm
                 cbCaracteristica.SelectedItem = orco.ObtenerCaracteristica();
                 cbEspecie.SelectedItem = orco.GetEspecieOrco();
                 canibal = orco.GetCanibal();
+                checkBox1.Checked = canibal;
             }
         }
+
         public Orco ObtenerOrco()
         {
             return new Orco(orco.ObtenerNombre(), orco.ObtenerCaracteristica(), orco.ObtenerEdad(), orco.GetEspecieOrco(), orco.GetCanibal());
@@ -51,9 +44,7 @@ namespace WinForm
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-                canibal = true;
-            else canibal = false;
+            canibal = checkBox1.Checked;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -64,7 +55,6 @@ namespace WinForm
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

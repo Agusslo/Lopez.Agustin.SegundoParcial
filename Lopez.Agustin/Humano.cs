@@ -1,28 +1,32 @@
-﻿namespace ClassLibrary
-{
-    using ClassLibrary;
-    using System;
-    using System.Collections.Generic;
-    using Entidades;
-    using System.Drawing;
-    using System.Reflection.PortableExecutable;
+﻿using System.Xml.Serialization;
+using Entidades;
 
+namespace ClassLibrary
+{
     public class Humano : Personaje
     {
-        private EColorPelo colorPelo { get; set; }
-        private EColorHumano colorHumano { get; set; }
+        [XmlElement]
+        public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
+
+        [XmlElement]
+        public new EEdad Edad { get => base.Edad; set => base.Edad = value; }
+
+        [XmlElement]
+        public new ECaracteristica Caracteristica { get => base.Caracteristica; set => base.Caracteristica = value; }
+
+        [XmlElement]
+        public EColorPelo ColorPelo { get; set; }
+
+        [XmlElement]
+        public EColorHumano ColorHumano { get; set; }
 
         public Humano() { }
-        public Humano(string nombre, EEdad edad, EColorPelo colorPelo)
-            : base(nombre, edad)
-        {
-            this.colorPelo = colorPelo;
-        }
+
         public Humano(string nombre, EEdad edad, ECaracteristica caracteristica, EColorPelo colorPelo, EColorHumano colorHumano)
             : base(nombre, edad, caracteristica)
         {
-            this.colorPelo = colorPelo;
-            this.colorHumano = colorHumano;
+            ColorPelo = colorPelo;
+            ColorHumano = colorHumano;
         }
 
         public override bool Equals(object obj)
@@ -31,17 +35,24 @@
 
             if (obj is Humano humano)
             {
-                return this.colorPelo == humano.colorPelo && this.colorHumano == humano.colorHumano;
+                return ColorPelo == humano.ColorPelo && ColorHumano == humano.ColorHumano;
             }
             return false;
         }
+
         public override string ToString()
         {
-            return $"Humano - Nombre: {Nombre} | Caracteristica: {Caracteristica} |  Edad: {Edad} | Pelo: {colorPelo} | Piel: {colorHumano}";
+            return $"Humano - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Pelo: {ColorPelo} | Piel: {ColorHumano}";
         }
 
-        public EColorPelo GetColorPelo() { return colorPelo; }
+        public EColorPelo GetColorPelo()
+        {
+            return ColorPelo;
+        }
 
-        public EColorHumano GetColorHumano() {  return colorHumano; }
+        public EColorHumano GetColorHumano()
+        {
+            return ColorHumano;
+        }
     }
 }

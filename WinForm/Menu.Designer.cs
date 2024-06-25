@@ -52,6 +52,9 @@
             lblHora = new Label();
             lblHoraInicioSesion = new Label();
             lblPerfil = new Label();
+            tamañoToolStripMenuItem = new ToolStripMenuItem();
+            masAltoToolStripMenuItem = new ToolStripMenuItem();
+            menosAltoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -183,7 +186,7 @@
             // 
             // ordenarPorToolStripMenuItem
             // 
-            ordenarPorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { edadToolStripMenuItem, nombreToolStripMenuItem });
+            ordenarPorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { edadToolStripMenuItem, nombreToolStripMenuItem, tamañoToolStripMenuItem });
             ordenarPorToolStripMenuItem.Name = "ordenarPorToolStripMenuItem";
             ordenarPorToolStripMenuItem.Size = new Size(83, 20);
             ordenarPorToolStripMenuItem.Text = "Ordenar por";
@@ -192,7 +195,7 @@
             // 
             edadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masJovenPrimeroToolStripMenuItem, masAncianoPrimeroToolStripMenuItem });
             edadToolStripMenuItem.Name = "edadToolStripMenuItem";
-            edadToolStripMenuItem.Size = new Size(118, 22);
+            edadToolStripMenuItem.Size = new Size(180, 22);
             edadToolStripMenuItem.Text = "Edad";
             // 
             // masJovenPrimeroToolStripMenuItem
@@ -213,20 +216,20 @@
             // 
             nombreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ascendenteToolStripMenuItem, descendenteToolStripMenuItem });
             nombreToolStripMenuItem.Name = "nombreToolStripMenuItem";
-            nombreToolStripMenuItem.Size = new Size(118, 22);
+            nombreToolStripMenuItem.Size = new Size(180, 22);
             nombreToolStripMenuItem.Text = "Nombre";
             // 
             // ascendenteToolStripMenuItem
             // 
             ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
-            ascendenteToolStripMenuItem.Size = new Size(142, 22);
+            ascendenteToolStripMenuItem.Size = new Size(180, 22);
             ascendenteToolStripMenuItem.Text = "Ascendente";
             ascendenteToolStripMenuItem.Click += ascendenteToolStripMenuItem_Click;
             // 
             // descendenteToolStripMenuItem
             // 
             descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
-            descendenteToolStripMenuItem.Size = new Size(142, 22);
+            descendenteToolStripMenuItem.Size = new Size(180, 22);
             descendenteToolStripMenuItem.Text = "Descendente";
             descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click;
             // 
@@ -258,6 +261,27 @@
             lblPerfil.Name = "lblPerfil";
             lblPerfil.Size = new Size(144, 43);
             lblPerfil.TabIndex = 19;
+            // 
+            // tamañoToolStripMenuItem
+            // 
+            tamañoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masAltoToolStripMenuItem, menosAltoToolStripMenuItem });
+            tamañoToolStripMenuItem.Name = "tamañoToolStripMenuItem";
+            tamañoToolStripMenuItem.Size = new Size(180, 22);
+            tamañoToolStripMenuItem.Text = "Tamaño";
+            // 
+            // masAltoToolStripMenuItem
+            // 
+            masAltoToolStripMenuItem.Name = "masAltoToolStripMenuItem";
+            masAltoToolStripMenuItem.Size = new Size(180, 22);
+            masAltoToolStripMenuItem.Text = "Mas alto";
+            masAltoToolStripMenuItem.Click += masAltoToolStripMenuItem_Click;
+            // 
+            // menosAltoToolStripMenuItem
+            // 
+            menosAltoToolStripMenuItem.Name = "menosAltoToolStripMenuItem";
+            menosAltoToolStripMenuItem.Size = new Size(180, 22);
+            menosAltoToolStripMenuItem.Text = "Menos alto";
+            menosAltoToolStripMenuItem.Click += menosAltoToolStripMenuItem_Click;
             // 
             // Menu
             // 
@@ -311,5 +335,8 @@
         private Label lblHora;
         private Label lblHoraInicioSesion;
         private Label lblPerfil;
+        private ToolStripMenuItem tamañoToolStripMenuItem;
+        private ToolStripMenuItem masAltoToolStripMenuItem;
+        private ToolStripMenuItem menosAltoToolStripMenuItem;
     }
 }

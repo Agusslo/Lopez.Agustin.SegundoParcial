@@ -1,5 +1,7 @@
 ﻿using ClassLibrary;
 using Entidades;
+using System;
+using System.Windows.Forms;
 
 namespace WinForm
 {
@@ -13,6 +15,7 @@ namespace WinForm
             InitializeComponent();
             cbEspecie.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEspecie.DataSource = Enum.GetValues(typeof(EEspecieElfo));
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
         }
 
         public AgregarElfo(Elfo elfo) : this()
@@ -30,6 +33,7 @@ namespace WinForm
                 cbCaracteristica.SelectedItem = elfo.ObtenerCaracteristica();
                 cbEspecie.SelectedItem = elfo.GetEspecieElfo();
                 inmortal = elfo.GetInmortalidad();
+                checkBox1.Checked = inmortal; 
             }
         }
 
@@ -40,11 +44,8 @@ namespace WinForm
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-                inmortal = true;
-            else inmortal = false;
+            inmortal = checkBox1.Checked;
         }
-
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {

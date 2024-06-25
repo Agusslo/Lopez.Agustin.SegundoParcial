@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label4 = new Label();
+            cbResucitado = new CheckBox();
             label1 = new Label();
             txtNombre = new TextBox();
             label2 = new Label();
@@ -41,6 +43,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(cbResucitado);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtNombre);
             groupBox1.Controls.Add(label2);
@@ -49,11 +53,32 @@
             groupBox1.Controls.Add(cbCaracteristica);
             groupBox1.Location = new Point(31, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(378, 224);
+            groupBox1.Size = new Size(378, 253);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Lucida Console", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(52, 217);
+            label4.Name = "label4";
+            label4.Size = new Size(128, 16);
+            label4.TabIndex = 7;
+            label4.Text = "resucitado:";
+            // 
+            // cbResucitado
+            // 
+            cbResucitado.AutoSize = true;
+            cbResucitado.Location = new Point(200, 217);
+            cbResucitado.Name = "cbResucitado";
+            cbResucitado.RightToLeft = RightToLeft.Yes;
+            cbResucitado.Size = new Size(34, 19);
+            cbResucitado.TabIndex = 6;
+            cbResucitado.Text = "si";
+            cbResucitado.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -148,5 +173,7 @@
         private Label label3;
         protected ComboBox cbCaracteristica;
         private Button button2;
+        private CheckBox cbResucitado;
+        private Label label4;
     }
 }

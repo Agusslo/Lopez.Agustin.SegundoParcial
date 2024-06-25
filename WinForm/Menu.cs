@@ -40,14 +40,15 @@ namespace WinForm
             timer.Start();
 
             // Configurar el ListBox1 con la ScrollBar horizontal
-            listBox1.HorizontalScrollbar = true; // Habilitar la barra de desplazamiento horizontal
-            listBox1.Size = new System.Drawing.Size(914, 229); // Tamaño original del ListBox1
-            listBox1.Location = new System.Drawing.Point(12, 40); // Posición original del ListBox1
+            listBox1.HorizontalScrollbar = true;
+            listBox1.Size = new System.Drawing.Size(914, 229);
+            listBox1.Location = new System.Drawing.Point(12, 40);
             ActualizarLista();
 
             // Mostrar información del usuario
             lblCorreousuario.Text = "Correo: " + this.correoUsuario;
             lblHoraInicioSesion.Text = "Hora de registro: " + DateTime.Now.ToString("HH:mm:ss");
+            lblPerfil.Text = "SU PERFIL ES: " + this.perfilUsuario;
 
             // Configurar botones según el perfil de usuario
             if (perfilUsuario == "supervisor")
@@ -80,7 +81,6 @@ namespace WinForm
             {
                 listBox1.Items.Add(personaje);
             }
-            // Establecer el ancho total del contenido del ListBox1 para la barra de desplazamiento horizontal
             int totalWidth = 0;
             foreach (var item in listBox1.Items)
             {
@@ -92,6 +92,8 @@ namespace WinForm
             }
             listBox1.HorizontalExtent = totalWidth;
         }
+
+
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -184,6 +186,7 @@ namespace WinForm
             }
         }
 
+
         private void btnEliminar_Click_1(object? sender, EventArgs e)
         {
             if (perfilUsuario == "vendedor" || perfilUsuario == "supervisor")
@@ -208,6 +211,8 @@ namespace WinForm
             }
         }
 
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -220,7 +225,6 @@ namespace WinForm
                 }
                 string filePath = Path.Combine(initialDirectory, defaultFileName);
                 GuardarColeccionEnXml(filePath, personajes);
-                MessageBox.Show("Archivo XML guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -228,14 +232,28 @@ namespace WinForm
             }
         }
 
+
         private void GuardarColeccionEnXml(string filePath, Coleccion coleccion)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Coleccion));
-            using (StreamWriter writer = new StreamWriter(filePath))
+            try
             {
-                serializer.Serialize(writer, coleccion);
+                XmlSerializer serializer = new XmlSerializer(typeof(Coleccion), new Type[] { typeof(Humano), typeof(Orco), typeof(Elfo) });
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    serializer.Serialize(writer, coleccion);
+                }
+                MessageBox.Show("Archivo XML guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error al serializar el objeto: " + ex.Message + "\nDetalles: " + ex.InnerException?.Message, "Error de serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void abrirToolStripMenuItem_Click(object? sender, EventArgs e)
         {
@@ -265,6 +283,11 @@ namespace WinForm
                 }
             }
         }
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         private void verLogsToolStripMenuItem_Click_1(object? sender, EventArgs e)
         {
@@ -330,5 +353,18 @@ namespace WinForm
         {
             ActualizarLista();
         }
+
+        private void masAltoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorTamaño(false);
+            ActualizarLista();
+        }
+
+        private void menosAltoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personajes.OrdenarPorTamaño(true);
+            ActualizarLista();
+        }
+
     }
 }
