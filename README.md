@@ -1,4 +1,5 @@
-MENU PERSONAJES
+MENU PERSONAJES ![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/a4069aee-7cad-4c32-b2f6-aa53061d54de)
+
 
 
 hola profes buenas tardes vuelvo a empezar de 0, mi idea igualmente siguiendo la rama de lo que habia planteado, ahora es PERSONAJE y de eso nacen HUMANO, ORCO y ELFO.
@@ -7,7 +8,11 @@ hola profes buenas tardes vuelvo a empezar de 0, mi idea igualmente siguiendo la
 ¿Que hace mi EXAMEN?
 Este programa es una aplicación de Windows Forms diseñada para gestionar el acceso de usuarios mediante un inicio de sesión con correo electrónico y contraseña. Su propósito principal es autenticar a los usuarios y, en caso de éxito permitirles acceder a una ventana principal donde se pueden realizar diversas operaciones como crear tu propio personaje de roleplay!.
 
-Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano, orco) agregando sus respectivas caracteristicas y diferencias
+Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano, orco) agregando sus respectivas caracteristicas y diferencias.
+
+Se crea una carpeta llamada "ParcialAgus" donde se encuentra el log(podes verlo desde el menu tmb) y xml.
+
+El boton inicio rapido la contraseña es 2004 (mi fecha de nacimiento), este boton rapido tiene todos los permisos.... mas que nada por comodidad y para agregar mi "huella"
 
 
 
@@ -19,7 +24,9 @@ Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano
 
 
 MI DIAGRAMA
-![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/67a37583-d015-409d-80ed-0545addb3cac)
+![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/dff7f2aa-caea-4f41-85ec-7edaf41a3921)
+
+
 
 
 
