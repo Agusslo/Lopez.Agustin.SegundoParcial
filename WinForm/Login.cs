@@ -25,6 +25,18 @@ namespace WinForm
             InitializeComponent();
             CargarUsuarios();
             logPath = Path.Combine(folderPath, "logs.log");
+
+            //FONDO LOGIN
+            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenLogin.jpg");
+            if (File.Exists(imagePath))
+            {
+                this.BackgroundImage = System.Drawing.Image.FromFile(imagePath);
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            else
+            {
+                MessageBox.Show("La imagen 'imagenLogin.jpg' no se encontró en la carpeta de ejecución.", "Error de imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CargarUsuarios()
@@ -71,7 +83,7 @@ namespace WinForm
                     correoUsuario = usuario.Correo; // Guardamos el correo electrónico del usuario
                     perfilUsuario = usuario.Perfil; // Guardamos el perfil del usuario
 
-                    Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);//entramos guardando el correo y su perfil
+                    Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);
                     frmMenu.Show();
                     this.Hide();
                     CargarLogs(usuario.Correo);
@@ -98,10 +110,18 @@ namespace WinForm
             string correoRapido = "aguss@rapido.com";
             string perfilRapido = "aguss";
 
-            Menu frmMenu = new Menu(logPath, perfilRapido, correoRapido);
-            frmMenu.Show();
-            this.Hide();
-            CargarLogs(correoRapido);
+            // Mostrar el formulario para ingresar la contraseña rápida
+            using (var formContraseña = new FormContraseñaRapida())
+            {
+                if (formContraseña.ShowDialog() == DialogResult.OK)
+                {
+                    // Si la contraseña es correcta, mostrar el menú principal
+                    Menu frmMenu = new Menu(logPath, perfilRapido, correoRapido);
+                    frmMenu.Show();
+                    this.Hide();
+                    CargarLogs(correoRapido);
+                }
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

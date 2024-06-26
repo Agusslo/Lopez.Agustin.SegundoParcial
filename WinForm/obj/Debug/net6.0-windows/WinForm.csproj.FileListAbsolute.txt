@@ -26,3 +26,4 @@ C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\bin\Debug
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WinForm.csproj.Up2Date
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WinForm.genruntimeconfig.cache
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\ref\WinForm.dll
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WinForm.FormContraseñaRapida.resources

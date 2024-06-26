@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\personaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\personaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\orco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\orco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\humano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\humano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\elfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\elfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\formcontrase\u00F1arapida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\formcontrase\u00F1arapida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -67,65 +59,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Personaje.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Personaje.cs",
-              "RelativeDocumentMoniker": "Lopez.Agustin\\Personaje.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Personaje.cs",
-              "RelativeToolTip": "Lopez.Agustin\\Personaje.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T01:05:49.638Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
               "RelativeDocumentMoniker": "WinForm\\Menu.cs",
               "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
               "RelativeToolTip": "WinForm\\Menu.cs",
-              "ViewState": "AQIAAOIAAAAAAAAAAAAmwAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T01:02:06.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Elfo.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Elfo.cs",
-              "RelativeDocumentMoniker": "Lopez.Agustin\\Elfo.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Elfo.cs",
-              "RelativeToolTip": "Lopez.Agustin\\Elfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T01:00:41.354Z",
+              "WhenOpened": "2024-06-26T02:32:36.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Humano.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Humano.cs",
-              "RelativeDocumentMoniker": "Lopez.Agustin\\Humano.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Humano.cs",
-              "RelativeToolTip": "Lopez.Agustin\\Humano.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAUAAAA",
+              "Title": "FormContrase\u00F1aRapida.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FormContrase\u00F1aRapida.cs",
+              "RelativeDocumentMoniker": "WinForm\\FormContrase\u00F1aRapida.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FormContrase\u00F1aRapida.cs",
+              "RelativeToolTip": "WinForm\\FormContrase\u00F1aRapida.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAkwEgAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T00:35:00.079Z",
+              "WhenOpened": "2024-06-26T02:18:17.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Orco.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Orco.cs",
-              "RelativeDocumentMoniker": "Lopez.Agustin\\Orco.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Orco.cs",
-              "RelativeToolTip": "Lopez.Agustin\\Orco.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Login.cs",
+              "RelativeDocumentMoniker": "WinForm\\Login.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Login.cs",
+              "RelativeToolTip": "WinForm\\Login.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T00:36:39.781Z",
+              "WhenOpened": "2024-06-26T01:58:31.049Z",
               "EditorCaption": ""
             }
           ]
