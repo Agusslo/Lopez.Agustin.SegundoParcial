@@ -3,7 +3,7 @@ using Entidades;
 
 namespace ClassLibrary
 {
-    public class Elfo : Personaje
+    public class Elfo : Personaje, IPersonaje
     {
         [XmlElement]
         public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
@@ -23,23 +23,23 @@ namespace ClassLibrary
         [XmlElement]
         public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
 
-
-
         public Elfo() { }
 
         public Elfo(string nombre, EEdad edad) : base(nombre, edad) { }
 
         public Elfo(string nombre, EEdad edad, ECaracteristica caracteristica) : base(nombre, edad, caracteristica) { }
-        public Elfo(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieElfo Especie)
+
+        public Elfo(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieElfo especie)
             : base(nombre, edad, caracteristica)
         {
-            this.Especie = Especie;
+            this.Especie = especie;
         }
-        public Elfo(string nombre, EEdad edad,ECaracteristica caracteristica, bool resucitado, EEspecieElfo Especie, bool Inmortalidad)
+
+        public Elfo(string nombre, EEdad edad, ECaracteristica caracteristica, bool resucitado, EEspecieElfo especie, bool inmortalidad)
             : base(nombre, edad, caracteristica, resucitado)
         {
-            this.Inmortalidad = Inmortalidad;
-            this.Especie = Especie;
+            this.Inmortalidad = inmortalidad;
+            this.Especie = especie;
         }
 
         public override string ToString()
@@ -90,12 +90,11 @@ namespace ClassLibrary
             return Inmortalidad;
         }
 
-
         public override string EstaResucitado()
         {
             if (!base.Resucitado)
-                return "El elfo no esta resucitado";
-            return "El elfo esta resucitado";
+                return "El elfo no está resucitado";
+            return "El elfo está resucitado";
         }
     }
 }

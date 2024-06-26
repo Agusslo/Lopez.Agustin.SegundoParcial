@@ -1,6 +1,5 @@
 ﻿using Entidades;
 using System;
-using System.Numerics;
 using System.Xml.Serialization;
 
 namespace ClassLibrary
@@ -8,12 +7,12 @@ namespace ClassLibrary
     [XmlInclude(typeof(Humano))]
     [XmlInclude(typeof(Orco))]
     [XmlInclude(typeof(Elfo))]
-    public abstract class Personaje
+    public abstract class Personaje : IPersonaje
     {
-        protected string Nombre { get; set; }
-        protected EEdad Edad { get; set; }
-        protected ECaracteristica Caracteristica { get; set; }
-        protected bool Resucitado { get; set; }
+        public string Nombre { get; set; }
+        public EEdad Edad { get; set; }
+        public ECaracteristica Caracteristica { get; set; }
+        public bool Resucitado { get; set; }
 
         public Personaje()
         {
@@ -75,7 +74,6 @@ namespace ClassLibrary
             return !(c1 == c2);
         }
 
-
         public string ObtenerNombre()
         {
             return Nombre;
@@ -96,13 +94,11 @@ namespace ClassLibrary
             return Resucitado;
         }
 
-
         public virtual string EstaResucitado()
         {
             if (!Resucitado)
                 return "El personaje no esta resucitado";
             return "El personaje esta resucitado";
-
         }
     }
 }

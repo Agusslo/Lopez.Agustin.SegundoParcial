@@ -13,7 +13,6 @@ namespace WinForm
         string path;
         string logPath;
         Coleccion personajes;
-        private Coleccion coleccion;
         string perfilUsuario;
         string correoUsuario;
 
@@ -23,19 +22,17 @@ namespace WinForm
         {
             InitializeComponent();
 
-            //FONDO MENU
+            // FONDO MENU
             string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenMenu.jpg");
             if (File.Exists(imagePath))
             {
                 this.BackgroundImage = Image.FromFile(imagePath);
-                this.BackgroundImageLayout = ImageLayout.Stretch; 
+                this.BackgroundImageLayout = ImageLayout.Stretch;
             }
             else
             {
                 MessageBox.Show("La imagen 'imagenMenu.jpg' no se encontró en la carpeta de ejecución.", "Error de imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
 
             this.logPath = logPath;
             this.perfilUsuario = perfilUsuario;
@@ -82,11 +79,6 @@ namespace WinForm
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
         }
 
-        private void Filtrar(object? sender, EventArgs e)
-        {
-            ActualizarLista();
-        }
-
         private void ActualizarLista()
         {
             listBox1.Items.Clear();
@@ -106,8 +98,6 @@ namespace WinForm
             }
             listBox1.HorizontalExtent = totalWidth;
         }
-
-
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -136,7 +126,7 @@ namespace WinForm
                     }
                     else
                     {
-                        throw new Exception("Tipo de personaje no soportado.");
+                        throw new InvalidOperationException("Tipo de personaje no soportado.");
                     }
                     if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
                     {
@@ -163,6 +153,14 @@ namespace WinForm
                             // Si ocurre una excepción, restaurar la colección original
                             personajes = copiaPersonajes;
                             MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error inesperado al modificar el personaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
@@ -196,10 +194,13 @@ namespace WinForm
                     {
                         MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error inesperado al agregar el personaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
-
 
         private void btnEliminar_Click_1(object? sender, EventArgs e)
         {
@@ -213,9 +214,16 @@ namespace WinForm
                 {
                     if (listBox1.SelectedItem is Personaje personajeSeleccionado)
                     {
-                        personajes -= personajeSeleccionado;
-                        ActualizarLista();
-                        MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            personajes -= personajeSeleccionado;
+                            ActualizarLista();
+                            MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al eliminar el personaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
@@ -225,8 +233,6 @@ namespace WinForm
             }
         }
 
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -240,9 +246,17 @@ namespace WinForm
                 string filePath = Path.Combine(initialDirectory, defaultFileName);
                 GuardarColeccionEnXml(filePath, personajes);
             }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("No tienes permiso para guardar el archivo en esta ubicación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error de E/S al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error inesperado al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -260,16 +274,19 @@ namespace WinForm
             }
             catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Error al serializar el objeto: " + ex.Message + "\nDetalles: " + ex.InnerException?.Message, "Error de serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al serializar el objeto: " + ex.Message, "Error de serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error de E/S al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error inesperado al guardar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void abrirToolStripMenuItem_Click(object? sender, EventArgs e)
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -291,46 +308,155 @@ namespace WinForm
                     ActualizarLista();
                     MessageBox.Show("Archivo XML cargado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show("El archivo XML no se encontró: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    MessageBox.Show("No tienes permiso para abrir el archivo XML.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Error de E/S al abrir el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show("Error al deserializar el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al abrir el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error inesperado al abrir el archivo XML: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-        private void verLogsToolStripMenuItem_Click_1(object? sender, EventArgs e)
+        private void verLogsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FrmLog logsForm = new FrmLog(logPath);
-            logsForm.ShowDialog();
+            try
+            {
+                FrmLog logsForm = new FrmLog(logPath);
+                logsForm.ShowDialog();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Archivo de logs no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("No tienes permiso para acceder al archivo de logs.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error de E/S al acceder al archivo de logs: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al abrir los logs: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void masJovenPrimeroToolStripMenuItem_Click(object? sender, EventArgs e)
+
+        private void masJovenPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            personajes.OrdenarPorEdad(ascendente: true);
-            ActualizarLista();
+            try
+            {
+                personajes.OrdenarPorEdad(ascendente: true);
+                ActualizarLista();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error al ordenar por edad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al ordenar por edad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void masAncianoPrimeroToolStripMenuItem_Click(object? sender, EventArgs e)
+        private void masAncianoPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            personajes.OrdenarPorEdad(ascendente: false);
-            ActualizarLista();
+            try
+            {
+                personajes.OrdenarPorEdad(ascendente: false);
+                ActualizarLista();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error al ordenar por edad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al ordenar por edad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void ascendenteToolStripMenuItem_Click(object? sender, EventArgs e)
+        private void ascendenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            personajes.OrdenarPorNombre(true);
-            ActualizarLista();
+            try
+            {
+                personajes.OrdenarPorNombre(true);
+                ActualizarLista();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error al ordenar por nombre: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al ordenar por nombre: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void descendenteToolStripMenuItem_Click(object? sender, EventArgs e)
+        private void descendenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            personajes.OrdenarPorNombre(false);
-            ActualizarLista();
+            try
+            {
+                personajes.OrdenarPorNombre(false);
+                ActualizarLista();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error al ordenar por nombre: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al ordenar por nombre: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void masAltoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                personajes.OrdenarPorTamaño(false);
+                ActualizarLista();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error al ordenar por tamaño: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al ordenar por tamaño: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void menosAltoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                personajes.OrdenarPorTamaño(true);
+                ActualizarLista();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error al ordenar por tamaño: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al ordenar por tamaño: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -353,32 +479,24 @@ namespace WinForm
             }
         }
 
-        private void cbOrco_CheckedChanged(object? sender, EventArgs e)
+        private void cbOrco_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarLista();
         }
 
-        private void cbElfo_CheckedChanged(object? sender, EventArgs e)
+        private void cbElfo_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarLista();
         }
 
-        private void cbHumano_CheckedChanged_1(object? sender, EventArgs e)
+        private void cbHumano_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarLista();
         }
 
-        private void masAltoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cbHumano_CheckedChanged_1(object sender, EventArgs e)
         {
-            personajes.OrdenarPorTamaño(false);
             ActualizarLista();
         }
-
-        private void menosAltoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            personajes.OrdenarPorTamaño(true);
-            ActualizarLista();
-        }
-
     }
 }

@@ -1,15 +1,6 @@
 ﻿using ClassLibrary;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinForm;
 
 namespace WinForm
 {
@@ -53,32 +44,39 @@ namespace WinForm
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (rbtnElfo.Checked)
+            try
             {
-                AgregarElfo agregarElfo = new AgregarElfo();
-                if (agregarElfo.ShowDialog() == DialogResult.OK)
+                if (rbtnElfo.Checked)
                 {
-                    SelectedPersonaje = agregarElfo.elfo;
-                    this.DialogResult = DialogResult.OK;
+                    AgregarElfo agregarElfo = new AgregarElfo();
+                    if (agregarElfo.ShowDialog() == DialogResult.OK)
+                    {
+                        SelectedPersonaje = agregarElfo.elfo;
+                        this.DialogResult = DialogResult.OK;
+                    }
+                }
+                if (rbtnOrco.Checked)
+                {
+                    AgregarOrco agregarOrco = new AgregarOrco();
+                    if (agregarOrco.ShowDialog() == DialogResult.OK)
+                    {
+                        SelectedPersonaje = agregarOrco.orco;
+                        this.DialogResult = DialogResult.OK;
+                    }
+                }
+                if (rbtnHumano.Checked)
+                {
+                    AgregarHumano agregarHumano = new AgregarHumano();
+                    if (agregarHumano.ShowDialog() == DialogResult.OK)
+                    {
+                        SelectedPersonaje = agregarHumano.humano;
+                        this.DialogResult = DialogResult.OK;
+                    }
                 }
             }
-            if (rbtnOrco.Checked)
+            catch (Exception ex)
             {
-                AgregarOrco agregarOrco = new AgregarOrco();
-                if (agregarOrco.ShowDialog() == DialogResult.OK)
-                {
-                    SelectedPersonaje = agregarOrco.orco;
-                    this.DialogResult = DialogResult.OK;
-                }
-            }
-            if (rbtnHumano.Checked)
-            {
-                AgregarHumano agregarHumano = new AgregarHumano();
-                if (agregarHumano.ShowDialog() == DialogResult.OK)
-                {
-                    SelectedPersonaje = agregarHumano.humano;
-                    this.DialogResult = DialogResult.OK;
-                }
+                MessageBox.Show($"Error al abrir el formulario de agregar personaje: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -87,7 +85,7 @@ namespace WinForm
             this.Close();
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)//para que solo se cierre este form
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {

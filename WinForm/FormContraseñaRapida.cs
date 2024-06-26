@@ -10,21 +10,40 @@ namespace WinForm
         {
             InitializeComponent();
 
-            //FONDO DEL INICIO RAPIDO
-            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenInicioRapido.jpg");
-
-            if (File.Exists(imagePath))
+            try
             {
-                this.BackgroundImage = System.Drawing.Image.FromFile(imagePath);
-                this.BackgroundImageLayout = ImageLayout.Stretch; //ajusta la imagen al tamaño del formulario
-            }
-            else
-            {
-                MessageBox.Show("La imagen 'imagenInicioRapido.jpg' no se encontró en la carpeta de ejecución.", "Error de imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                // FONDO DEL INICIO RAPIDO
+                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenInicioRapido.jpg");
 
-            // Configurar el botón Aceptar como botón predeterminado (Enter)
-            this.AcceptButton = btnAceptar;
+                if (File.Exists(imagePath))
+                {
+                    this.BackgroundImage = System.Drawing.Image.FromFile(imagePath);
+                    this.BackgroundImageLayout = ImageLayout.Stretch; // ajusta la imagen al tamaño del formulario
+                }
+                else
+                {
+                    MessageBox.Show("La imagen 'imagenInicioRapido.jpg' no se encontró en la carpeta de ejecución.", "Error de imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Configurar el botón Aceptar como botón predeterminado (Enter)
+                this.AcceptButton = btnAceptar;
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show("Archivo de imagen no encontrado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show("No tienes permiso para acceder al archivo de imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error de E/S al acceder al archivo de imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al cargar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -37,7 +56,7 @@ namespace WinForm
             }
             else
             {
-                MessageBox.Show("Contraseña incorrecta. Intente de nuevo.", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Contraseña incorrecta. Intente de nuevo. \n Acordate que es la fecha de nacimiento de Agustin", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -70,7 +89,7 @@ namespace WinForm
 
         private void FormContraseñaRapida_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)//para presionar enter
+            if (e.KeyChar == (char)Keys.Enter) // para presionar enter
             {
                 btnAceptar.PerformClick();
             }

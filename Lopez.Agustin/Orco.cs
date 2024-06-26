@@ -1,10 +1,9 @@
-﻿using System.Reflection.PortableExecutable;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using Entidades;
 
 namespace ClassLibrary
 {
-    public class Orco : Personaje
+    public class Orco : Personaje, IPersonaje
     {
         [XmlElement]
         public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
@@ -24,22 +23,23 @@ namespace ClassLibrary
         [XmlElement]
         public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
 
-
         public Orco() { }
 
         public Orco(string nombre, EEdad edad) : base(nombre, edad) { }
 
         public Orco(string nombre, EEdad edad, ECaracteristica caracteristica) : base(nombre, edad, caracteristica) { }
-        public Orco(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieOrco Especie)
+
+        public Orco(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieOrco especie)
             : base(nombre, edad, caracteristica)
         {
-            this.Especie = Especie;
+            this.Especie = especie;
         }
-        public Orco(string nombre, EEdad edad, ECaracteristica caracteristica, bool resucitado, EEspecieOrco Especie, bool Canibal)
+
+        public Orco(string nombre, EEdad edad, ECaracteristica caracteristica, bool resucitado, EEspecieOrco especie, bool canibal)
             : base(nombre, edad, caracteristica, resucitado)
         {
-            this.Canibal = Canibal;
-            this.Especie = Especie;
+            this.Canibal = canibal;
+            this.Especie = especie;
         }
 
         public override string ToString()
@@ -93,9 +93,8 @@ namespace ClassLibrary
         public override string EstaResucitado()
         {
             if (!base.Resucitado)
-                return "El orco no esta resucitado";
-            return "El orco esta resucitado";
+                return "El orco no está resucitado";
+            return "El orco está resucitado";
         }
-
     }
 }

@@ -26,12 +26,24 @@ namespace WinForm
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron logs.");
+                    MessageBox.Show("No se encontraron logs.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show($"Archivo de logs no encontrado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show($"No tienes permiso para acceder al archivo de logs: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Error de E/S al acceder al archivo de logs: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar los logs: {ex.Message}");
+                MessageBox.Show($"Error inesperado al cargar los logs: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -23,19 +23,39 @@ namespace WinForm
             }
 
             InitializeComponent();
-            CargarUsuarios();
             logPath = Path.Combine(folderPath, "logs.log");
 
-            //FONDO LOGIN
-            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenLogin.jpg");
-            if (File.Exists(imagePath))
+            try
             {
-                this.BackgroundImage = System.Drawing.Image.FromFile(imagePath);
-                this.BackgroundImageLayout = ImageLayout.Stretch;
+                // FONDO LOGIN
+                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenLogin.jpg");
+                if (File.Exists(imagePath))
+                {
+                    this.BackgroundImage = System.Drawing.Image.FromFile(imagePath);
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+                else
+                {
+                    MessageBox.Show("La imagen 'imagenLogin.jpg' no se encontró en la carpeta de ejecución.", "Error de imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                CargarUsuarios();
             }
-            else
+            catch (FileNotFoundException ex)
             {
-                MessageBox.Show("La imagen 'imagenLogin.jpg' no se encontró en la carpeta de ejecución.", "Error de imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Archivo no encontrado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show($"No tienes permiso para acceder al archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Error de E/S: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado al cargar el formulario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -46,13 +66,17 @@ namespace WinForm
                 string jsonUsuarios = File.ReadAllText("MOCK_DATA.json");
                 usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonUsuarios, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException ex)
             {
-                MessageBox.Show("El archivo MOCK_DATA.json no existe.");
+                MessageBox.Show($"Archivo no encontrado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (JsonException ex)
+            {
+                MessageBox.Show($"Error de deserialización JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar los usuarios: {ex.Message}");
+                MessageBox.Show($"Error inesperado al cargar los usuarios: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -65,35 +89,50 @@ namespace WinForm
                     sw.WriteLine($"{email} - {DateTime.Now}");
                 }
             }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show($"No tienes permiso para acceder al archivo de log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Error de E/S al escribir en el archivo de log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar el log: {ex.Message}");
+                MessageBox.Show($"Error inesperado al guardar el log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool usuarioEncontrado = false;
-            string correoUsuario = string.Empty; // Variable para almacenar el correo del usuario
-
-            foreach (Usuario usuario in usuarios)
+            try
             {
-                if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
-                {
-                    correoUsuario = usuario.Correo; // Guardamos el correo electrónico del usuario
-                    perfilUsuario = usuario.Perfil; // Guardamos el perfil del usuario
+                bool usuarioEncontrado = false;
+                string correoUsuario = string.Empty; // Variable para almacenar el correo del usuario
 
-                    Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);
-                    frmMenu.Show();
-                    this.Hide();
-                    CargarLogs(usuario.Correo);
-                    usuarioEncontrado = true;
-                    break;
+                foreach (Usuario usuario in usuarios)
+                {
+                    if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
+                    {
+                        correoUsuario = usuario.Correo; // Guardamos el correo electrónico del usuario
+                        perfilUsuario = usuario.Perfil; // Guardamos el perfil del usuario
+
+                        Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);
+                        frmMenu.Show();
+                        this.Hide();
+                        CargarLogs(usuario.Correo);
+                        usuarioEncontrado = true;
+                        break;
+                    }
+                }
+                if (!usuarioEncontrado)
+                {
+                    MessageBox.Show("Correo electrónico o contraseña incorrectos.");
                 }
             }
-            if (!usuarioEncontrado)
+            catch (Exception ex)
             {
-                MessageBox.Show("Correo electrónico o contraseña incorrectos.");
+                MessageBox.Show($"Error inesperado al autenticar usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

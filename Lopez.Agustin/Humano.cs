@@ -3,7 +3,7 @@ using Entidades;
 
 namespace ClassLibrary
 {
-    public class Humano : Personaje
+    public class Humano : Personaje, IPersonaje
     {
         [XmlElement]
         public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
@@ -15,16 +15,13 @@ namespace ClassLibrary
         public new ECaracteristica Caracteristica { get => base.Caracteristica; set => base.Caracteristica = value; }
 
         [XmlElement]
+        public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
+
+        [XmlElement]
         public EColorPelo ColorPelo { get; set; }
 
         [XmlElement]
         public EColorHumano ColorHumano { get; set; }
-
-        [XmlElement]
-        public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
-
-
-
 
         public Humano() { }
 
