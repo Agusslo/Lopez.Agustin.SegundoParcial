@@ -9,7 +9,7 @@ namespace WinForm
 {
     public partial class Menu : Form
     {
-        string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
+        string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus"); // se ubica en documentos
         string path;
         string logPath;
         Coleccion personajes;
