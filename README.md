@@ -10,7 +10,7 @@ Este programa es una aplicación de Windows Forms diseñada para gestionar el ac
 
 Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano, orco) agregando sus respectivas caracteristicas y diferencias.
 
-Se crea una carpeta llamada "ParcialAgus" donde se encuentra el log, xml y json
+Se crea una carpeta llamada "ParcialAgus" donde se encuentra el log(podes verlo desde el menu tmb) y xml
 
 
 
@@ -22,7 +22,8 @@ Se crea una carpeta llamada "ParcialAgus" donde se encuentra el log, xml y json
 
 
 MI DIAGRAMA
-![image](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/7accc5f4-9af6-402c-afe9-5cb4383b59a0)
+![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/dff7f2aa-caea-4f41-85ec-7edaf41a3921)
+
 
 
 
