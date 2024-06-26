@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Numerics;
 using System.Xml.Serialization;
 
 namespace ClassLibrary
@@ -12,12 +13,14 @@ namespace ClassLibrary
         protected string Nombre { get; set; }
         protected EEdad Edad { get; set; }
         protected ECaracteristica Caracteristica { get; set; }
+        protected bool Resucitado { get; set; }
 
         public Personaje()
         {
             Nombre = "Sin nombre";
             Caracteristica = ECaracteristica.No_Especificado;
             Edad = EEdad.No_Especificado;
+            Resucitado = false;
         }
 
         public Personaje(string nombre) : this()
@@ -35,18 +38,23 @@ namespace ClassLibrary
             Caracteristica = caracteristica;
         }
 
+        public Personaje(string nombre, EEdad edad, ECaracteristica caracteristica, bool resucitado) : this(nombre, edad, caracteristica)
+        {
+            Resucitado = resucitado;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is Personaje personaje)
             {
-                return Nombre == personaje.Nombre && Caracteristica == personaje.Caracteristica && Edad == personaje.Edad;
+                return this == personaje;
             }
             return false;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Nombre, Caracteristica, Edad);
+            return HashCode.Combine(Nombre, Edad, Caracteristica, Resucitado);
         }
 
         public static bool operator ==(Personaje c1, Personaje c2)
@@ -55,19 +63,18 @@ namespace ClassLibrary
             {
                 return true;
             }
-
-            if (c1 is null || c2 is null)
+            if (ReferenceEquals(c1, null) || ReferenceEquals(c2, null))
             {
                 return false;
             }
-
-            return c1.Equals(c2);
+            return c1.Nombre == c2.Nombre && c1.Edad == c2.Edad && c1.Caracteristica == c2.Caracteristica && c1.Resucitado == c2.Resucitado;
         }
 
         public static bool operator !=(Personaje c1, Personaje c2)
         {
             return !(c1 == c2);
         }
+
 
         public string ObtenerNombre()
         {
@@ -82,6 +89,20 @@ namespace ClassLibrary
         public ECaracteristica ObtenerCaracteristica()
         {
             return Caracteristica;
+        }
+
+        public bool ObtenerResucitado()
+        {
+            return Resucitado;
+        }
+
+
+        public virtual string EstaResucitado()
+        {
+            if (!Resucitado)
+                return "El personaje no esta resucitado";
+            return "El personaje esta resucitado";
+
         }
     }
 }

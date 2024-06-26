@@ -173,7 +173,7 @@
         private Label label3;
         protected ComboBox cbCaracteristica;
         private Button button2;
-        private CheckBox cbResucitado;
+        protected CheckBox cbResucitado;
         private Label label4;
     }
 }

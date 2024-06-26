@@ -48,13 +48,13 @@
             nombreToolStripMenuItem = new ToolStripMenuItem();
             ascendenteToolStripMenuItem = new ToolStripMenuItem();
             descendenteToolStripMenuItem = new ToolStripMenuItem();
+            tamañoToolStripMenuItem = new ToolStripMenuItem();
+            masAltoToolStripMenuItem = new ToolStripMenuItem();
+            menosAltoToolStripMenuItem = new ToolStripMenuItem();
             lblCorreousuario = new Label();
             lblHora = new Label();
             lblHoraInicioSesion = new Label();
             lblPerfil = new Label();
-            tamañoToolStripMenuItem = new ToolStripMenuItem();
-            masAltoToolStripMenuItem = new ToolStripMenuItem();
-            menosAltoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -180,7 +180,7 @@
             // verLogsToolStripMenuItem
             // 
             verLogsToolStripMenuItem.Name = "verLogsToolStripMenuItem";
-            verLogsToolStripMenuItem.Size = new Size(115, 22);
+            verLogsToolStripMenuItem.Size = new Size(180, 22);
             verLogsToolStripMenuItem.Text = "Ver logs";
             verLogsToolStripMenuItem.Click += verLogsToolStripMenuItem_Click_1;
             // 
@@ -222,16 +222,37 @@
             // ascendenteToolStripMenuItem
             // 
             ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
-            ascendenteToolStripMenuItem.Size = new Size(180, 22);
+            ascendenteToolStripMenuItem.Size = new Size(142, 22);
             ascendenteToolStripMenuItem.Text = "Ascendente";
             ascendenteToolStripMenuItem.Click += ascendenteToolStripMenuItem_Click;
             // 
             // descendenteToolStripMenuItem
             // 
             descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
-            descendenteToolStripMenuItem.Size = new Size(180, 22);
+            descendenteToolStripMenuItem.Size = new Size(142, 22);
             descendenteToolStripMenuItem.Text = "Descendente";
             descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click;
+            // 
+            // tamañoToolStripMenuItem
+            // 
+            tamañoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masAltoToolStripMenuItem, menosAltoToolStripMenuItem });
+            tamañoToolStripMenuItem.Name = "tamañoToolStripMenuItem";
+            tamañoToolStripMenuItem.Size = new Size(180, 22);
+            tamañoToolStripMenuItem.Text = "Tamaño";
+            // 
+            // masAltoToolStripMenuItem
+            // 
+            masAltoToolStripMenuItem.Name = "masAltoToolStripMenuItem";
+            masAltoToolStripMenuItem.Size = new Size(133, 22);
+            masAltoToolStripMenuItem.Text = "Mas alto";
+            masAltoToolStripMenuItem.Click += masAltoToolStripMenuItem_Click;
+            // 
+            // menosAltoToolStripMenuItem
+            // 
+            menosAltoToolStripMenuItem.Name = "menosAltoToolStripMenuItem";
+            menosAltoToolStripMenuItem.Size = new Size(133, 22);
+            menosAltoToolStripMenuItem.Text = "Menos alto";
+            menosAltoToolStripMenuItem.Click += menosAltoToolStripMenuItem_Click;
             // 
             // lblCorreousuario
             // 
@@ -261,27 +282,6 @@
             lblPerfil.Name = "lblPerfil";
             lblPerfil.Size = new Size(144, 43);
             lblPerfil.TabIndex = 19;
-            // 
-            // tamañoToolStripMenuItem
-            // 
-            tamañoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masAltoToolStripMenuItem, menosAltoToolStripMenuItem });
-            tamañoToolStripMenuItem.Name = "tamañoToolStripMenuItem";
-            tamañoToolStripMenuItem.Size = new Size(180, 22);
-            tamañoToolStripMenuItem.Text = "Tamaño";
-            // 
-            // masAltoToolStripMenuItem
-            // 
-            masAltoToolStripMenuItem.Name = "masAltoToolStripMenuItem";
-            masAltoToolStripMenuItem.Size = new Size(180, 22);
-            masAltoToolStripMenuItem.Text = "Mas alto";
-            masAltoToolStripMenuItem.Click += masAltoToolStripMenuItem_Click;
-            // 
-            // menosAltoToolStripMenuItem
-            // 
-            menosAltoToolStripMenuItem.Name = "menosAltoToolStripMenuItem";
-            menosAltoToolStripMenuItem.Size = new Size(180, 22);
-            menosAltoToolStripMenuItem.Text = "Menos alto";
-            menosAltoToolStripMenuItem.Click += menosAltoToolStripMenuItem_Click;
             // 
             // Menu
             // 

@@ -33,17 +33,18 @@ namespace WinForm
                 cbCaracteristica.SelectedItem = humano.ObtenerCaracteristica();
                 cbColorPelo.SelectedItem = humano.GetColorPelo();
                 cbColorPiel.SelectedItem = humano.GetColorHumano();
+                cbResucitado.Checked = humano.ObtenerResucitado();
             }
         }
 
         public Humano ObtenerHumano()
         {
-            return new Humano(humano.ObtenerNombre(), humano.ObtenerEdad(), humano.ObtenerCaracteristica(), humano.GetColorPelo(), humano.GetColorHumano());
+            return new Humano(humano.ObtenerNombre(), humano.ObtenerEdad(), humano.ObtenerCaracteristica(), humano.ObtenerResucitado(), humano.GetColorPelo(), humano.GetColorHumano());
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            this.humano = new Humano(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, (EColorPelo)cbColorPelo.SelectedItem, (EColorHumano)cbColorPiel.SelectedItem);
+            this.humano = new Humano(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, cbResucitado.Checked, (EColorPelo)cbColorPelo.SelectedItem, (EColorHumano)cbColorPiel.SelectedItem);
             this.DialogResult = DialogResult.OK;
         }
     }
