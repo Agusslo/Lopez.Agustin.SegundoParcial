@@ -10,7 +10,9 @@ Este programa es una aplicación de Windows Forms diseñada para gestionar el ac
 
 Teniendo como padre la clase PERSONAJE deviandose hacia sus 3 hijos(elfo, humano, orco) agregando sus respectivas caracteristicas y diferencias.
 
-Se crea una carpeta llamada "ParcialAgus" donde se encuentra el log(podes verlo desde el menu tmb) y xml
+Se crea una carpeta llamada "ParcialAgus" donde se encuentra el log(podes verlo desde el menu tmb) y xml.
+
+El boton inicio rapido la contraseña es 2004 (mi fecha de nacimiento), este boton rapido tiene todos los permisos.... mas que nada por comodidad y para agregar mi "huella"
 
 
 
