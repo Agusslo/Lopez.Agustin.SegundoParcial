@@ -23,6 +23,20 @@ namespace WinForm
         {
             InitializeComponent();
 
+            //FONDO MENU
+            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenMenu.jpg");
+            if (File.Exists(imagePath))
+            {
+                this.BackgroundImage = Image.FromFile(imagePath);
+                this.BackgroundImageLayout = ImageLayout.Stretch; 
+            }
+            else
+            {
+                MessageBox.Show("La imagen 'imagenMenu.jpg' no se encontró en la carpeta de ejecución.", "Error de imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
             this.logPath = logPath;
             this.perfilUsuario = perfilUsuario;
             this.correoUsuario = correoUsuario;

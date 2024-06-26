@@ -13,6 +13,9 @@
     <Compile Update="AgregarOrco.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormContraseñaRapida.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmEleccion.cs">
       <SubType>Form</SubType>
     </Compile>
