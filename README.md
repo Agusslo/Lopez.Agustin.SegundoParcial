@@ -6,6 +6,7 @@ Hola profes, buenas tardes. Vuelvo a empezar de 0, mi idea sigue la rama de lo q
 ## ¿Qué hace mi EXAMEN?
 
 Este programa es una aplicación de Windows Forms diseñada para gestionar el acceso de usuarios mediante un inicio de sesión con correo electrónico y contraseña. Su propósito principal es autenticar a los usuarios y, en caso de éxito, permitirles acceder a una ventana principal donde se pueden realizar diversas operaciones como crear tu propio personaje de roleplay/modificarlo/eliminarlo, todo depende de los permisos que tengas(ya seas vendedor/supervisor/administrador).
+como anteriormente dije en el menu ademas podras ver los LOGS de los usuarios que se han registrado en todo este tiempo!
 
 ### Clase PERSONAJE y sus descendientes
 
