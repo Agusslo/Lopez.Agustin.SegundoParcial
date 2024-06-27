@@ -123,25 +123,25 @@ Este formulario facilita la selección y creación de diferentes tipos de person
 
 ### Funcionamiento de la Clase AgregarPersonaje
 
-La clase `AgregarPersonaje` es una forma abstracta para la creación de diferentes tipos de personajes en una aplicación de formularios Windows. Provee funcionalidades básicas y comunes para la creación de personajes, como la selección de edad y características.
+La clase `AgregarPersonaje` es una forma abstracta para la creación de diferentes tipos de personajes en una aplicación de formularios Windows. Provee funcionalidades básicas y comunes para la creación de personajes, como la selección de edad y característicasy si esta resucitado.
 
 ### AgregarOrco
 
 #### Funcionamiento de la Clase AgregarOrco
 
-La clase `AgregarOrco` extiende `AgregarPersonaje` y está diseñada para agregar y modificar personajes tipo "Orco". Permite al usuario especificar la especie del orco y su capacidad caníbal mediante controles de interfaz. Proporciona métodos para cargar datos existentes de un orco, obtener un orco creado y agregar un nuevo orco con características definidas.
+La clase `AgregarOrco` extiende `AgregarPersonaje` y está diseñada para agregar y modificar personajes tipo "Orco". Permite al usuario especificar la especie del orco y su capacidad caníbal mediante controles de interfaz
 
 ### AgregarElfo
 
 #### Funcionamiento de la Clase AgregarElfo
 
-La clase `AgregarElfo` extiende `AgregarPersonaje` y está destinada a agregar y modificar personajes tipo "Elfo". Permite al usuario especificar la especie del elfo y su estado de inmortalidad mediante controles de interfaz. Incluye métodos para cargar datos de un elfo existente, obtener un elfo creado y agregar un nuevo elfo con características específicas.
+La clase `AgregarElfo` extiende `AgregarPersonaje` y está destinada a agregar y modificar personajes tipo "Elfo". Permite al usuario especificar la especie del elfo y su estado de inmortalidad mediante controles de interfaz
 
 ### AgregarHumano
 
 #### Funcionamiento de la Clase AgregarHumano
 
-La clase `AgregarHumano` extiende `AgregarPersonaje` y facilita la creación y modificación de personajes tipo "Humano". Permite al usuario seleccionar el color de piel y pelo del humano entre opciones predefinidas. Incluye métodos para cargar datos de un humano existente y agregar un nuevo humano con las características especificadas por el usuario.
+La clase `AgregarHumano` extiende `AgregarPersonaje` y facilita la creación y modificación de personajes tipo "Humano". Permite al usuario seleccionar el color de piel y pelo del humano entre opciones predefinidas
 
 
 
