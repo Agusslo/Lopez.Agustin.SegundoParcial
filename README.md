@@ -11,7 +11,8 @@ Este programa es una aplicación de Windows Forms diseñada para gestionar el ac
 
 Todos los personajes (HUMANO, ORCO, ELFO) derivan de la clase base PERSONAJE. Cada uno tiene características y funcionalidades específicas que los distinguen.
 
-## Imágenes de Ejemplo
+## Presentacion
+Mi nombre es Agustin Lopez, tengo 20 años y desarrolle este programa para la materia de Laboratorio De Computacion 2 en UTN
 
 ![Imagen1](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/9a358e8b-2022-4c63-ad1b-484486bdf094) ![Imagen2](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/fe7707b1-1c26-4729-8148-92ea6d6afaf9) ![Imagen3](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/645ae954-a900-4398-b01f-0f1949f39a2b)
 
