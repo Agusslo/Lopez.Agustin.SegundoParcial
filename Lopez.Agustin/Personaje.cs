@@ -1,5 +1,5 @@
 ﻿using Entidades;
-using System;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace ClassLibrary
@@ -97,8 +97,15 @@ namespace ClassLibrary
         public virtual string EstaResucitado()
         {
             if (!Resucitado)
-                return "El personaje no esta resucitado";
-            return "El personaje esta resucitado";
+                return "El personaje no está resucitado";
+            return "El personaje está resucitado";
+        }
+
+        public virtual Task<string> EstaResucitadoAsync()
+        {
+            if (!Resucitado)
+                return Task.FromResult("El personaje no está resucitado");
+            return Task.FromResult("El personaje está resucitado");
         }
     }
 }

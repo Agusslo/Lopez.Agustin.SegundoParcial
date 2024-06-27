@@ -84,7 +84,7 @@
             Controls.Add(txtContrasenia);
             Controls.Add(label2);
             Name = "FormContraseñaRapida";
-            Text = "Form1";
+            Text = "Inicio Rapido";
             ResumeLayout(false);
             PerformLayout();
         }

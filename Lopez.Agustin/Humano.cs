@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Entidades;
 
 namespace ClassLibrary
@@ -89,7 +90,7 @@ namespace ClassLibrary
             return ColorHumano;
         }
 
-        public override string EstaResucitado()
+        public override async Task<string> EstaResucitadoAsync()
         {
             if (!Resucitado)
                 return "El humano no está resucitado";

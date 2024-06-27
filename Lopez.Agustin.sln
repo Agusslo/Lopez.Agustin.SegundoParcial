@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "Lopez.Agustin\ClassLibrary.csproj", "{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm", "WinForm\WinForm.csproj", "{FF45D467-9154-48DA-A94F-39B5B9853272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinForm", "WinForm\WinForm.csproj", "{FF45D467-9154-48DA-A94F-39B5B9853272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegundoExamen.Test", "ClassLibrary.Test\SegundoExamen.Test.csproj", "{5A954595-DC79-48C6-85BE-6151115591A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FF45D467-9154-48DA-A94F-39B5B9853272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF45D467-9154-48DA-A94F-39B5B9853272}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF45D467-9154-48DA-A94F-39B5B9853272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A954595-DC79-48C6-85BE-6151115591A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A954595-DC79-48C6-85BE-6151115591A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A954595-DC79-48C6-85BE-6151115591A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A954595-DC79-48C6-85BE-6151115591A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

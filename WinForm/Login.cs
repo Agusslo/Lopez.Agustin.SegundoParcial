@@ -80,13 +80,13 @@ namespace WinForm
             }
         }
 
-        private void CargarLogs(string email)
+        private void CargarLogs(string email, string nombre, string apellido, int legajo, string perfil)
         {
             try
             {
                 using (StreamWriter sw = new StreamWriter(logPath, true))
                 {
-                    sw.WriteLine($"{email} - {DateTime.Now}");
+                    sw.WriteLine($"{nombre} {apellido} - {legajo} - {email} - {perfil} - {DateTime.Now}");
                 }
             }
             catch (UnauthorizedAccessException ex)
@@ -103,24 +103,21 @@ namespace WinForm
             }
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 bool usuarioEncontrado = false;
-                string correoUsuario = string.Empty; // Variable para almacenar el correo del usuario
 
                 foreach (Usuario usuario in usuarios)
                 {
                     if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
                     {
-                        correoUsuario = usuario.Correo; // Guardamos el correo electrónico del usuario
-                        perfilUsuario = usuario.Perfil; // Guardamos el perfil del usuario
-
-                        Menu frmMenu = new Menu(logPath, perfilUsuario, correoUsuario);
+                        Menu frmMenu = new Menu(logPath, usuario.Perfil, usuario.Correo);
                         frmMenu.Show();
                         this.Hide();
-                        CargarLogs(usuario.Correo);
+                        CargarLogs(usuario.Correo, usuario.Nombre, usuario.Apellido, usuario.Legajo, usuario.Perfil);
                         usuarioEncontrado = true;
                         break;
                     }
@@ -136,6 +133,7 @@ namespace WinForm
             }
         }
 
+
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -144,24 +142,38 @@ namespace WinForm
                 txtContrasenia.UseSystemPasswordChar = true;
         }
 
+
+
+
         private void btnRapido_Click_1(object sender, EventArgs e)
         {
             string correoRapido = "aguss@rapido.com";
             string perfilRapido = "aguss";
+            string nombreRapido = "agustin"; 
+            string apellidoRapido = "lopez"; 
+            int legajoRapido = 0;
 
-            // Mostrar el formulario para ingresar la contraseña rápida
+
             using (var formContraseña = new FormContraseñaRapida())
             {
                 if (formContraseña.ShowDialog() == DialogResult.OK)
                 {
-                    // Si la contraseña es correcta, mostrar el menú principal
+                    Usuario usuarioRapido = usuarios.Find(u => u.Correo == correoRapido);
+                    if (usuarioRapido != null)
+                    {
+                        nombreRapido = usuarioRapido.Nombre;
+                        apellidoRapido = usuarioRapido.Apellido;
+                        legajoRapido = usuarioRapido.Legajo;
+                    }
+
                     Menu frmMenu = new Menu(logPath, perfilRapido, correoRapido);
                     frmMenu.Show();
                     this.Hide();
-                    CargarLogs(correoRapido);
+                    CargarLogs(correoRapido, nombreRapido, apellidoRapido, legajoRapido, perfilRapido);
                 }
             }
         }
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {

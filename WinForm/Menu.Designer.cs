@@ -55,6 +55,7 @@
             lblHora = new Label();
             lblHoraInicioSesion = new Label();
             lblPerfil = new Label();
+            baseDeDatosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -151,7 +152,7 @@
             // 
             // archivoToolStripMenuItem
             // 
-            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { guardarToolStripMenuItem, abrirToolStripMenuItem });
+            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { guardarToolStripMenuItem, abrirToolStripMenuItem, baseDeDatosToolStripMenuItem });
             archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             archivoToolStripMenuItem.Size = new Size(60, 20);
             archivoToolStripMenuItem.Text = "Archivo";
@@ -159,14 +160,14 @@
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(116, 22);
+            guardarToolStripMenuItem.Size = new Size(180, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // abrirToolStripMenuItem
             // 
             abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            abrirToolStripMenuItem.Size = new Size(116, 22);
+            abrirToolStripMenuItem.Size = new Size(180, 22);
             abrirToolStripMenuItem.Text = "Abrir";
             abrirToolStripMenuItem.Click += abrirToolStripMenuItem_Click;
             // 
@@ -180,7 +181,7 @@
             // verLogsToolStripMenuItem
             // 
             verLogsToolStripMenuItem.Name = "verLogsToolStripMenuItem";
-            verLogsToolStripMenuItem.Size = new Size(180, 22);
+            verLogsToolStripMenuItem.Size = new Size(115, 22);
             verLogsToolStripMenuItem.Text = "Ver logs";
             verLogsToolStripMenuItem.Click += verLogsToolStripMenuItem_Click_1;
             // 
@@ -195,7 +196,7 @@
             // 
             edadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masJovenPrimeroToolStripMenuItem, masAncianoPrimeroToolStripMenuItem });
             edadToolStripMenuItem.Name = "edadToolStripMenuItem";
-            edadToolStripMenuItem.Size = new Size(180, 22);
+            edadToolStripMenuItem.Size = new Size(118, 22);
             edadToolStripMenuItem.Text = "Edad";
             // 
             // masJovenPrimeroToolStripMenuItem
@@ -216,7 +217,7 @@
             // 
             nombreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ascendenteToolStripMenuItem, descendenteToolStripMenuItem });
             nombreToolStripMenuItem.Name = "nombreToolStripMenuItem";
-            nombreToolStripMenuItem.Size = new Size(180, 22);
+            nombreToolStripMenuItem.Size = new Size(118, 22);
             nombreToolStripMenuItem.Text = "Nombre";
             // 
             // ascendenteToolStripMenuItem
@@ -237,7 +238,7 @@
             // 
             tamañoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { masAltoToolStripMenuItem, menosAltoToolStripMenuItem });
             tamañoToolStripMenuItem.Name = "tamañoToolStripMenuItem";
-            tamañoToolStripMenuItem.Size = new Size(180, 22);
+            tamañoToolStripMenuItem.Size = new Size(118, 22);
             tamañoToolStripMenuItem.Text = "Tamaño";
             // 
             // masAltoToolStripMenuItem
@@ -283,11 +284,18 @@
             lblPerfil.Size = new Size(144, 43);
             lblPerfil.TabIndex = 19;
             // 
+            // baseDeDatosToolStripMenuItem
+            // 
+            baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
+            baseDeDatosToolStripMenuItem.Size = new Size(180, 22);
+            baseDeDatosToolStripMenuItem.Text = "Base De Datos";
+            baseDeDatosToolStripMenuItem.Click += baseDeDatosToolStripMenuItem_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ScrollBar;
+            BackColor = SystemColors.HighlightText;
             ClientSize = new Size(1283, 411);
             Controls.Add(lblPerfil);
             Controls.Add(lblHoraInicioSesion);
@@ -338,5 +346,6 @@
         private ToolStripMenuItem tamañoToolStripMenuItem;
         private ToolStripMenuItem masAltoToolStripMenuItem;
         private ToolStripMenuItem menosAltoToolStripMenuItem;
+        private ToolStripMenuItem baseDeDatosToolStripMenuItem;
     }
 }

@@ -70,8 +70,6 @@ namespace ClassLibrary
                 : personajes.OrderByDescending(c => c.ObtenerCaracteristica()).ToList();
         }
 
-
-
         public List<Personaje> FiltrarPorTipos(bool incluirHumano, bool incluirOrco, bool incluirElfo)
         {
             return personajes.Where(personaje =>
@@ -80,10 +78,14 @@ namespace ClassLibrary
                 (personaje is Elfo && incluirElfo)).ToList();
         }
 
-
         public List<Personaje> GetColeccion()
         {
             return personajes;
+        }
+
+        public override string ToString()
+        {
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Entidades;
 
 namespace ClassLibrary
@@ -90,7 +91,7 @@ namespace ClassLibrary
             return Inmortalidad;
         }
 
-        public override string EstaResucitado()
+        public override async Task<string> EstaResucitadoAsync()
         {
             if (!base.Resucitado)
                 return "El elfo no está resucitado";
