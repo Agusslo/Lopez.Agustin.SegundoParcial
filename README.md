@@ -144,6 +144,13 @@ La clase `AgregarElfo` extiende `AgregarPersonaje` y está destinada a agregar y
 La clase `AgregarHumano` extiende `AgregarPersonaje` y facilita la creación y modificación de personajes tipo "Humano". Permite al usuario seleccionar el color de piel y pelo del humano entre opciones predefinidas
 
 
+![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/1c0d47c8-a48b-4e99-a426-4217deda18de) ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/ad03e9f7-552d-4c90-8fd5-28ab8d054cc3) ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/509d4a5e-466e-4007-a6ca-343b000d7313) ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/e4bef063-4d76-4a27-93ad-d933e8e09928)
+
+
+
+
+
+
 
 
 
