@@ -1,4 +1,6 @@
 ﻿using Entidades;
+using System;
+using System.Windows.Forms;
 
 namespace WinForm
 {
@@ -15,18 +17,24 @@ namespace WinForm
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            MostrarMensajeSalida();
+        }
+
+        private void MostrarMensajeSalida()
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question); //cuando toco cancelar
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void AgregarPersonaje_Load_1(object sender, EventArgs e)
         {
-
         }
-
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
     }
 }
