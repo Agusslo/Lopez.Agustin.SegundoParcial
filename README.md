@@ -12,13 +12,14 @@ Todos los personajes (HUMANO, ORCO, ELFO) derivan de la clase base PERSONAJE. Ca
 
 ## Imágenes de Ejemplo
 
-| ![Imagen de HUMANO](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/9a358e8b-2022-4c63-ad1b-484486bdf094) | ![Imagen de ORCO](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/fe7707b1-1c26-4729-8148-92ea6d6afaf9) |
-|---|---|
-| ![Imagen de ELFO](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/645ae954-a900-4398-b01f-0f1949f39a2b) | ![Diagrama de Clase](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/1ee6dbae-29b3-444a-a6bb-8ac86ec00de8) |
+![Imagen1](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/9a358e8b-2022-4c63-ad1b-484486bdf094)
 
-En esta tabla:
+![Imagen2](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/fe7707b1-1c26-4729-8148-92ea6d6afaf9)
 
-- Cada fila contiene dos imágenes, organizadas en dos columnas.
-- Asegúrate de ajustar los enlaces URL de las imágenes para que apunten correctamente a las ubicaciones de tus recursos visuales en GitHub.
+![Imagen3](https://github.com/Agusslo/Lopez.Agustin.PrimerParcial/assets/98591977/645ae954-a900-4398-b01f-0f1949f39a2b)
 
-Este formato te permite mostrar las imágenes de manera ordenada y en línea dentro de tu documento `README.md`.
+## Diagrama de Clase
+
+Aquí está el diagrama de clase de mi proyecto:
+
+![Diagrama de Clase](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/1ee6dbae-29b3-444a-a6bb-8ac86ec00de8)
