@@ -52,6 +52,7 @@ El formulario de inicio rápido (`FormContraseñaRapida`) permite a los usuarios
 - **Confirmación de Cierre**: Pregunta a los usuarios si están seguros de que desean cerrar el formulario cuando intentan salir, asegurando que no se cierre accidentalmente.
 - **Acceso Rápido con Enter**: Permite a los usuarios confirmar la contraseña presionando la tecla Enter, mejorando la facilidad de uso.
 
+LA CONTRASEÑA ES 2004
 
 ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/274a01bc-7d86-4f9a-88b7-74f4e24a16d6)
 
