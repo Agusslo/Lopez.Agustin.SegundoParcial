@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinForm
@@ -46,17 +47,33 @@ namespace WinForm
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         {
             string contraseñaIngresada = txtContrasenia.Text.Trim();
 
             if (contraseñaIngresada == "2004")
             {
-                DialogResult = DialogResult.OK;
+                await MostrarPantallaCarga(() =>
+                {
+                    DialogResult = DialogResult.OK;
+                });
             }
             else
             {
-                MessageBox.Show("Contraseña incorrecta. Intente de nuevo. \n Acordate que es la fecha de nacimiento de Agustin", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Contraseña incorrecta. Intente de nuevo. \n Recuerda que es la fecha de nacimiento de Agustin.", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task MostrarPantallaCarga(Action action)
+        {
+            using (var cargaForm = new FormPantallaCarga())
+            {
+                cargaForm.Show();
+
+                // Simulación de carga
+                await Task.Delay(2000);
+
+                action.Invoke();
             }
         }
 

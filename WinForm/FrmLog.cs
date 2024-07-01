@@ -7,6 +7,9 @@ namespace WinForm
     public partial class FrmLog : Form
     {
         private string logPath;
+        public delegate void LogLoadedEventHandler(string logs);
+
+        public event LogLoadedEventHandler LogLoaded;
 
         public FrmLog(string logPath)
         {
@@ -23,6 +26,7 @@ namespace WinForm
                 {
                     string logs = File.ReadAllText(logPath);
                     RTextBox.Text = logs;
+                    LogLoaded?.Invoke(logs); // Invocar el evento LogLoaded
                 }
                 else
                 {

@@ -19,7 +19,7 @@ namespace ClassLibrary
 
         public static Coleccion operator +(Coleccion co, Personaje personaje)
         {
-            if (!co.Personajes.Any(c => c == personaje))
+            if (!co.Personajes.Any(c => c.ObtenerNombre() == personaje.ObtenerNombre() && c.GetType() == personaje.GetType()))
             {
                 co.Personajes.Add(personaje);
             }
@@ -32,16 +32,17 @@ namespace ClassLibrary
 
         public static Coleccion operator -(Coleccion co, Personaje personaje)
         {
-            if (co.Personajes.Any(c => c == personaje))
+            var existingPersonaje = co.Personajes.FirstOrDefault(c => c.ObtenerNombre() == personaje.ObtenerNombre() && c.GetType() == personaje.GetType());
+            if (existingPersonaje != null)
             {
-                co.Personajes.Remove(personaje);
+                co.Personajes.Remove(existingPersonaje);
             }
             return co;
         }
 
         public static bool operator ==(Coleccion co, Personaje personaje)
         {
-            return co.Personajes.Contains(personaje);
+            return co.Personajes.Any(c => c.ObtenerNombre() == personaje.ObtenerNombre() && c.GetType() == personaje.GetType());
         }
 
         public static bool operator !=(Coleccion co, Personaje personaje)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassLibrary;
 
@@ -12,8 +13,6 @@ namespace WinForm
         List<Usuario> usuarios;
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string logPath;
-        string perfilUsuario;
-        string nombreUsuario = string.Empty;
 
         public Login()
         {
@@ -103,8 +102,7 @@ namespace WinForm
             }
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -114,14 +112,20 @@ namespace WinForm
                 {
                     if (usuario.Correo == txtCorreo.Text && usuario.Clave == txtContrasenia.Text)
                     {
-                        Menu frmMenu = new Menu(logPath, usuario.Perfil, usuario.Correo);
-                        frmMenu.Show();
-                        this.Hide();
-                        CargarLogs(usuario.Correo, usuario.Nombre, usuario.Apellido, usuario.Legajo, usuario.Perfil);
+                        await MostrarPantallaCarga(() =>
+                        {
+                            // Lógica después de autenticar al usuario
+                            Menu frmMenu = new Menu(logPath, usuario.Perfil, usuario.Correo);
+                            frmMenu.Show();
+                            this.Hide();
+                            CargarLogs(usuario.Correo, usuario.Nombre, usuario.Apellido, usuario.Legajo, usuario.Perfil);
+                        });
+
                         usuarioEncontrado = true;
                         break;
                     }
                 }
+
                 if (!usuarioEncontrado)
                 {
                     MessageBox.Show("Correo electrónico o contraseña incorrectos.");
@@ -133,8 +137,20 @@ namespace WinForm
             }
         }
 
+        private async Task MostrarPantallaCarga(Action action)
+        {
+            using (var cargaForm = new FormPantallaCarga())
+            {
+                cargaForm.Show();
 
-        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+                // Simulación de carga
+                await Task.Delay(2000);
+
+                action.Invoke();
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
                 txtContrasenia.UseSystemPasswordChar = false;
@@ -142,17 +158,13 @@ namespace WinForm
                 txtContrasenia.UseSystemPasswordChar = true;
         }
 
-
-
-
         private void btnRapido_Click_1(object sender, EventArgs e)
         {
             string correoRapido = "aguss@rapido.com";
             string perfilRapido = "aguss";
-            string nombreRapido = "agustin"; 
-            string apellidoRapido = "lopez"; 
+            string nombreRapido = "agustin";
+            string apellidoRapido = "lopez";
             int legajoRapido = 0;
-
 
             using (var formContraseña = new FormContraseñaRapida())
             {
@@ -174,6 +186,13 @@ namespace WinForm
             }
         }
 
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+                txtContrasenia.UseSystemPasswordChar = false;
+            else
+                txtContrasenia.UseSystemPasswordChar = true;
+        }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {

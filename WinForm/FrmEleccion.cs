@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WinForm
@@ -7,6 +8,7 @@ namespace WinForm
     public partial class FrmEleccion : Form
     {
         public Personaje SelectedPersonaje { get; private set; }
+        private bool preventClosingMessage = false;
 
         public FrmEleccion()
         {
@@ -46,6 +48,7 @@ namespace WinForm
         {
             try
             {
+                preventClosingMessage = true; // Desactivar mensaje de confirmación
                 if (rbtnElfo.Checked)
                 {
                     AgregarElfo agregarElfo = new AgregarElfo();
@@ -55,7 +58,7 @@ namespace WinForm
                         this.DialogResult = DialogResult.OK;
                     }
                 }
-                if (rbtnOrco.Checked)
+                else if (rbtnOrco.Checked)
                 {
                     AgregarOrco agregarOrco = new AgregarOrco();
                     if (agregarOrco.ShowDialog() == DialogResult.OK)
@@ -64,7 +67,7 @@ namespace WinForm
                         this.DialogResult = DialogResult.OK;
                     }
                 }
-                if (rbtnHumano.Checked)
+                else if (rbtnHumano.Checked)
                 {
                     AgregarHumano agregarHumano = new AgregarHumano();
                     if (agregarHumano.ShowDialog() == DialogResult.OK)
@@ -73,6 +76,7 @@ namespace WinForm
                         this.DialogResult = DialogResult.OK;
                     }
                 }
+                preventClosingMessage = false; // Reactivar mensaje de confirmación
             }
             catch (Exception ex)
             {
@@ -87,7 +91,7 @@ namespace WinForm
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (!preventClosingMessage && e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)

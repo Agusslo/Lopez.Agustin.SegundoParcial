@@ -77,3 +77,5 @@ C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\bin\Debug
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\bin\Debug\net6.0-windows\ADO.dll
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\bin\Debug\net6.0-windows\ADO.pdb
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WinForm.FormPantallaCarga.resources
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\WinForm\obj\Debug\net6.0-windows\WinForm.Properties.Resources.resources
