@@ -4,25 +4,24 @@ using Entidades;
 
 namespace ClassLibrary
 {
+    public delegate void OrcoResucitadoEventHandler(Orco orco);
+
+    [XmlInclude(typeof(Orco))]
     public class Orco : Personaje, IPersonaje
     {
-        [XmlElement]
         public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
 
-        [XmlElement]
         public new EEdad Edad { get => base.Edad; set => base.Edad = value; }
 
-        [XmlElement]
         public new ECaracteristica Caracteristica { get => base.Caracteristica; set => base.Caracteristica = value; }
 
-        [XmlElement]
-        public EEspecieOrco Especie { get; set; }
+        public EEspecieOrco EspecieOrco { get; set; }
 
-        [XmlElement]
         public bool Canibal { get; set; }
 
-        [XmlElement]
         public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
+
+        public event OrcoResucitadoEventHandler OrcoResucitado;
 
         public Orco() { }
 
@@ -33,20 +32,20 @@ namespace ClassLibrary
         public Orco(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieOrco especie)
             : base(nombre, edad, caracteristica)
         {
-            this.Especie = especie;
+            this.EspecieOrco = especie;
         }
 
         public Orco(string nombre, EEdad edad, ECaracteristica caracteristica, bool resucitado, EEspecieOrco especie, bool canibal)
             : base(nombre, edad, caracteristica, resucitado)
         {
             this.Canibal = canibal;
-            this.Especie = especie;
+            this.EspecieOrco = especie;
         }
 
         public override string ToString()
         {
             string canibalString = Canibal ? "Si" : "No";
-            return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {Especie} | Canibal: {canibalString} | Resucitado: {EstaResucitado()}";
+            return $"Orco - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {EspecieOrco} | Canibal: {canibalString} | Resucitado: {EstaResucitado()}";
         }
 
         public override bool Equals(object obj)
@@ -60,7 +59,7 @@ namespace ClassLibrary
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Especie, Canibal);
+            return HashCode.Combine(base.GetHashCode(), EspecieOrco, Canibal);
         }
 
         public static bool operator ==(Orco l1, Orco l2)
@@ -73,7 +72,7 @@ namespace ClassLibrary
             {
                 return false;
             }
-            return l1.Nombre == l2.Nombre && l1.Edad == l2.Edad && l1.Caracteristica == l2.Caracteristica && l1.Resucitado == l2.Resucitado && l1.Especie == l2.Especie && l1.Canibal == l2.Canibal;
+            return l1.Nombre == l2.Nombre && l1.Edad == l2.Edad && l1.Caracteristica == l2.Caracteristica && l1.Resucitado == l2.Resucitado && l1.EspecieOrco == l2.EspecieOrco && l1.Canibal == l2.Canibal;
         }
 
         public static bool operator !=(Orco l1, Orco l2)
@@ -83,7 +82,7 @@ namespace ClassLibrary
 
         public EEspecieOrco GetEspecieOrco()
         {
-            return Especie;
+            return EspecieOrco;
         }
 
         public bool GetCanibal()

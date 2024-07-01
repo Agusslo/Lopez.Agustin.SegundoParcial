@@ -10,18 +10,18 @@ namespace ClassLibrary
     public class Coleccion
     {
         [XmlElement("Personaje")]
-        public List<Personaje> personajes;
+        public List<Personaje> Personajes { get; private set; }
 
         public Coleccion()
         {
-            personajes = new List<Personaje>();
+            Personajes = new List<Personaje>();
         }
 
         public static Coleccion operator +(Coleccion co, Personaje personaje)
         {
-            if (!co.personajes.Any(c => c == personaje))
+            if (!co.Personajes.Any(c => c == personaje))
             {
-                co.personajes.Add(personaje);
+                co.Personajes.Add(personaje);
             }
             else
             {
@@ -32,16 +32,16 @@ namespace ClassLibrary
 
         public static Coleccion operator -(Coleccion co, Personaje personaje)
         {
-            if (co.personajes.Any(c => c == personaje))
+            if (co.Personajes.Any(c => c == personaje))
             {
-                co.personajes.Remove(personaje);
+                co.Personajes.Remove(personaje);
             }
             return co;
         }
 
         public static bool operator ==(Coleccion co, Personaje personaje)
         {
-            return co.personajes.Contains(personaje);
+            return co.Personajes.Contains(personaje);
         }
 
         public static bool operator !=(Coleccion co, Personaje personaje)
@@ -51,28 +51,28 @@ namespace ClassLibrary
 
         public void OrdenarPorNombre(bool ascendente = true)
         {
-            personajes = ascendente
-                ? personajes.OrderBy(c => c.ObtenerNombre()).ToList()
-                : personajes.OrderByDescending(c => c.ObtenerNombre()).ToList();
+            Personajes = ascendente
+                ? Personajes.OrderBy(c => c.ObtenerNombre()).ToList()
+                : Personajes.OrderByDescending(c => c.ObtenerNombre()).ToList();
         }
 
         public void OrdenarPorEdad(bool ascendente = true)
         {
-            personajes = ascendente
-                ? personajes.OrderBy(c => c.ObtenerEdad()).ToList()
-                : personajes.OrderByDescending(c => c.ObtenerEdad()).ToList();
+            Personajes = ascendente
+                ? Personajes.OrderBy(c => c.ObtenerEdad()).ToList()
+                : Personajes.OrderByDescending(c => c.ObtenerEdad()).ToList();
         }
 
         public void OrdenarPorTamaño(bool ascendente = true)
         {
-            personajes = ascendente
-                ? personajes.OrderBy(c => c.ObtenerCaracteristica()).ToList()
-                : personajes.OrderByDescending(c => c.ObtenerCaracteristica()).ToList();
+            Personajes = ascendente
+                ? Personajes.OrderBy(c => c.ObtenerCaracteristica()).ToList()
+                : Personajes.OrderByDescending(c => c.ObtenerCaracteristica()).ToList();
         }
 
         public List<Personaje> FiltrarPorTipos(bool incluirHumano, bool incluirOrco, bool incluirElfo)
         {
-            return personajes.Where(personaje =>
+            return Personajes.Where(personaje =>
                 (personaje is Humano && incluirHumano) ||
                 (personaje is Orco && incluirOrco) ||
                 (personaje is Elfo && incluirElfo)).ToList();
@@ -80,7 +80,7 @@ namespace ClassLibrary
 
         public List<Personaje> GetColeccion()
         {
-            return personajes;
+            return Personajes;
         }
 
         public override string ToString()

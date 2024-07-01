@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\agregarpersonaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\agregarpersonaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\agregarhumano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\agregarhumano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,27 +55,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AgregarHumano.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\AgregarHumano.cs",
-              "RelativeDocumentMoniker": "WinForm\\AgregarHumano.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\AgregarHumano.cs",
-              "RelativeToolTip": "WinForm\\AgregarHumano.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Login.cs",
+              "RelativeDocumentMoniker": "WinForm\\Login.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Login.cs",
+              "RelativeToolTip": "WinForm\\Login.cs",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAAwMcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T23:41:21.221Z",
+              "WhenOpened": "2024-07-01T21:31:01.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AgregarPersonaje.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\AgregarPersonaje.cs",
-              "RelativeDocumentMoniker": "WinForm\\AgregarPersonaje.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\AgregarPersonaje.cs",
-              "RelativeToolTip": "WinForm\\AgregarPersonaje.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAC2AAAA",
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
+              "RelativeDocumentMoniker": "WinForm\\Menu.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\Menu.cs",
+              "RelativeToolTip": "WinForm\\Menu.cs",
+              "ViewState": "AQIAAMEBAAAAAAAAAAAIwPsBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T23:41:10.368Z",
+              "WhenOpened": "2024-07-01T21:28:05.136Z",
               "EditorCaption": ""
             }
           ]

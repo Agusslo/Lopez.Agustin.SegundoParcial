@@ -4,25 +4,24 @@ using Entidades;
 
 namespace ClassLibrary
 {
+    public delegate void ElfoResucitadoEventHandler(Elfo elfo);
+
+    [XmlInclude(typeof(Elfo))]
     public class Elfo : Personaje, IPersonaje
     {
-        [XmlElement]
         public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
 
-        [XmlElement]
         public new EEdad Edad { get => base.Edad; set => base.Edad = value; }
 
-        [XmlElement]
         public new ECaracteristica Caracteristica { get => base.Caracteristica; set => base.Caracteristica = value; }
 
-        [XmlElement]
-        public EEspecieElfo Especie { get; set; }
+        public EEspecieElfo EspecieElfo { get; set; }
 
-        [XmlElement]
         public bool Inmortalidad { get; set; }
 
-        [XmlElement]
         public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
+
+        public event ElfoResucitadoEventHandler ElfoResucitado;
 
         public Elfo() { }
 
@@ -33,20 +32,20 @@ namespace ClassLibrary
         public Elfo(string nombre, EEdad edad, ECaracteristica caracteristica, EEspecieElfo especie)
             : base(nombre, edad, caracteristica)
         {
-            this.Especie = especie;
+            this.EspecieElfo = especie;
         }
 
         public Elfo(string nombre, EEdad edad, ECaracteristica caracteristica, bool resucitado, EEspecieElfo especie, bool inmortalidad)
             : base(nombre, edad, caracteristica, resucitado)
         {
             this.Inmortalidad = inmortalidad;
-            this.Especie = especie;
+            this.EspecieElfo = especie;
         }
 
         public override string ToString()
         {
             string inmortalString = Inmortalidad ? "Si" : "No";
-            return $"Elfo - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {Especie} | Inmortal: {inmortalString} | Resucitado: {EstaResucitado()}";
+            return $"Elfo - Nombre: {Nombre} | Caracteristica: {Caracteristica} | Edad: {Edad} | Especie: {EspecieElfo} | Inmortal: {inmortalString} | Resucitado: {EstaResucitado()}";
         }
 
         public override bool Equals(object obj)
@@ -60,7 +59,7 @@ namespace ClassLibrary
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Especie, Inmortalidad);
+            return HashCode.Combine(base.GetHashCode(), EspecieElfo, Inmortalidad);
         }
 
         public static bool operator ==(Elfo l1, Elfo l2)
@@ -73,7 +72,7 @@ namespace ClassLibrary
             {
                 return false;
             }
-            return l1.Nombre == l2.Nombre && l1.Edad == l2.Edad && l1.Caracteristica == l2.Caracteristica && l1.Resucitado == l2.Resucitado && l1.Especie == l2.Especie && l1.Inmortalidad == l2.Inmortalidad;
+            return l1.Nombre == l2.Nombre && l1.Edad == l2.Edad && l1.Caracteristica == l2.Caracteristica && l1.Resucitado == l2.Resucitado && l1.EspecieElfo == l2.EspecieElfo && l1.Inmortalidad == l2.Inmortalidad;
         }
 
         public static bool operator !=(Elfo l1, Elfo l2)
@@ -83,7 +82,7 @@ namespace ClassLibrary
 
         public EEspecieElfo GetEspecieElfo()
         {
-            return Especie;
+            return EspecieElfo;
         }
 
         public bool GetInmortalidad()

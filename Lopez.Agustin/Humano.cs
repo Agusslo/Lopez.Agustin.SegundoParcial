@@ -4,25 +4,24 @@ using Entidades;
 
 namespace ClassLibrary
 {
+    public delegate void HumanoResucitadoEventHandler(Humano humano);
+
+    [XmlInclude(typeof(Humano))]
     public class Humano : Personaje, IPersonaje
     {
-        [XmlElement]
         public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
 
-        [XmlElement]
         public new EEdad Edad { get => base.Edad; set => base.Edad = value; }
 
-        [XmlElement]
         public new ECaracteristica Caracteristica { get => base.Caracteristica; set => base.Caracteristica = value; }
 
-        [XmlElement]
         public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
 
-        [XmlElement]
         public EColorPelo ColorPelo { get; set; }
 
-        [XmlElement]
         public EColorHumano ColorHumano { get; set; }
+
+        public event HumanoResucitadoEventHandler HumanoResucitado;
 
         public Humano() { }
 

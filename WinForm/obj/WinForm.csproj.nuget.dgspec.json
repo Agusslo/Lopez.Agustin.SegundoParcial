@@ -4,6 +4,85 @@
     "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\WinForm.csproj": {}
   },
   "projects": {
+    "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ADO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ADO.csproj",
+        "projectName": "ADO",
+        "projectPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ADO.csproj",
+        "packagesPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agusl.DESKTOP-7A66HH5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj": {
+                "projectPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.31, 6.0.31]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.31, 6.0.31]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.31, 6.0.31]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -45,6 +124,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -104,6 +189,9 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
+              "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ADO.csproj": {
+                "projectPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ADO.csproj"
+              },
               "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj": {
                 "projectPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj"
               }

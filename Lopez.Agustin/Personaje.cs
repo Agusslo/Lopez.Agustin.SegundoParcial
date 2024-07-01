@@ -4,6 +4,8 @@ using System.Xml.Serialization;
 
 namespace ClassLibrary
 {
+    public delegate void PersonajeResucitadoEventHandler(Personaje personaje);
+
     [XmlInclude(typeof(Humano))]
     [XmlInclude(typeof(Orco))]
     [XmlInclude(typeof(Elfo))]
@@ -13,6 +15,8 @@ namespace ClassLibrary
         public EEdad Edad { get; set; }
         public ECaracteristica Caracteristica { get; set; }
         public bool Resucitado { get; set; }
+
+        public event PersonajeResucitadoEventHandler PersonajeResucitado;
 
         public Personaje()
         {
@@ -106,6 +110,20 @@ namespace ClassLibrary
             if (!Resucitado)
                 return Task.FromResult("El personaje no está resucitado");
             return Task.FromResult("El personaje está resucitado");
+        }
+
+        public void Resucitar()
+        {
+            if (!Resucitado)
+            {
+                Resucitado = true;
+                OnPersonajeResucitado(this);
+            }
+        }
+
+        protected virtual void OnPersonajeResucitado(Personaje personaje)
+        {
+            PersonajeResucitado?.Invoke(personaje);
         }
     }
 }
