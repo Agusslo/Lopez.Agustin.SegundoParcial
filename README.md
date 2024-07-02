@@ -138,7 +138,8 @@ GO
 USE [master]
 GO
 ALTER DATABASE [personaje] SET  READ_WRITE 
-GO```
+GO 
+````
 
 
 
