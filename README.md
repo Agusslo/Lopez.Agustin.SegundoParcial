@@ -220,6 +220,7 @@ El formulario `FrmLog` está diseñado para visualizar logs almacenados en un ar
 
 Este formulario proporciona una manera simple y segura de visualizar logs almacenados, manejar errores potenciales durante la lectura de archivos, y ofrece una experiencia de usuario intuitiva al interactuar con los registros de logs ademas de poseer una scrollbar en vertical.
 
+el ejemplo de la imagen es mi propio perfil, pero enseña el apellido/nombre/legajo/perfil/correo y su respectiva fecha de logeo
 
 ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/0080c5b8-357b-4b78-beb0-e0f8fd99cf9a)
 
