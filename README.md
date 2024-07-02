@@ -203,6 +203,8 @@ El formulario `Menu` gestiona diversas funciones de la aplicación, enfocándose
 
 Cada una de estas funciones se implementa mediante métodos y eventos asociados a controles específicos del formulario.
 
+Dentro del menu en archivos estan las opciones Guardar/Abrir XML y Guardar en base de datos, en configuracion ves los LOGS de los usuarios, en ordenar por: ordena en edad/nombre/tamaño
+
 
 ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/c660e79f-28d2-45c5-95a5-03874c9c9260)
 
