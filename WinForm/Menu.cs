@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using ADO;
 using ClassLibrary;
 
 namespace WinForm
@@ -501,7 +502,17 @@ namespace WinForm
 
         private void baseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ConexionDB bd = new ConexionDB();
+            if (bd.PruebaConexion())
+            {
+                Console.WriteLine("Conexión exitosa a la base de datos.");
+                bd.GuardarColeccionSQL(personajes);
+                Console.WriteLine("Datos guardados correctamente.");
+            }
+            else
+            {
+                Console.WriteLine("No se pudo conectar a la base de datos.");
+            }
         }
     }
 }

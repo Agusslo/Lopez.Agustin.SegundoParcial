@@ -21,6 +21,8 @@ namespace ClassLibrary
 
         public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
 
+        public string Tipo { get; } = "Elfo"; 
+
         public event ElfoResucitadoEventHandler ElfoResucitado;
 
         public Elfo() { }

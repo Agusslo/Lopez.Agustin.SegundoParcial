@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\winform\\frmlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF45D467-9154-48DA-A94F-39B5B9853272}|WinForm\\WinForm.csproj|solutionrelative:winform\\frmlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{81A87274-1DD5-4DA0-91E4-4C19A3A51E2C}|ADO\\ADO.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\ado\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81A87274-1DD5-4DA0-91E4-4C19A3A51E2C}|ADO\\ADO.csproj|solutionrelative:ado\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\elfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\elfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\humano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\humano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|c:\\users\\agusl.desktop-7a66hh5\\source\\repos\\2024\\lopez.agustin\\lopez.agustin\\orco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B203ADD-49C0-4E28-ACB4-9A62E621FEB7}|Lopez.Agustin\\ClassLibrary.csproj|solutionrelative:lopez.agustin\\orco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,15 +62,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmLog.cs",
-              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.cs",
-              "RelativeDocumentMoniker": "WinForm\\FrmLog.cs",
-              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\WinForm\\FrmLog.cs",
-              "RelativeToolTip": "WinForm\\FrmLog.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAPAAAA",
+              "DocumentIndex": 3,
+              "Title": "Orco.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Orco.cs",
+              "RelativeDocumentMoniker": "Lopez.Agustin\\Orco.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Orco.cs",
+              "RelativeToolTip": "Lopez.Agustin\\Orco.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T23:00:33.279Z",
+              "WhenOpened": "2024-07-02T04:43:57.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Elfo.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Elfo.cs",
+              "RelativeDocumentMoniker": "Lopez.Agustin\\Elfo.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Elfo.cs",
+              "RelativeToolTip": "Lopez.Agustin\\Elfo.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowGYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T04:43:56.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Humano.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Humano.cs",
+              "RelativeDocumentMoniker": "Lopez.Agustin\\Humano.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\Humano.cs",
+              "RelativeToolTip": "Lopez.Agustin\\Humano.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T04:26:51.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConexionDB.cs",
+              "DocumentMoniker": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ConexionDB.cs",
+              "RelativeDocumentMoniker": "ADO\\ConexionDB.cs",
+              "ToolTip": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ConexionDB.cs",
+              "RelativeToolTip": "ADO\\ConexionDB.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAkwMIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T03:41:59.408Z",
               "EditorCaption": ""
             }
           ]

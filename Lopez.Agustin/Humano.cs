@@ -9,17 +9,9 @@ namespace ClassLibrary
     [XmlInclude(typeof(Humano))]
     public class Humano : Personaje, IPersonaje
     {
-        public new string Nombre { get => base.Nombre; set => base.Nombre = value; }
-
-        public new EEdad Edad { get => base.Edad; set => base.Edad = value; }
-
-        public new ECaracteristica Caracteristica { get => base.Caracteristica; set => base.Caracteristica = value; }
-
-        public new bool Resucitado { get => base.Resucitado; set => base.Resucitado = value; }
-
         public EColorPelo ColorPelo { get; set; }
-
         public EColorHumano ColorHumano { get; set; }
+        public string Tipo { get; } = "Humano"; 
 
         public event HumanoResucitadoEventHandler HumanoResucitado;
 
@@ -44,9 +36,9 @@ namespace ClassLibrary
 
         public override bool Equals(object obj)
         {
-            if (obj is Humano humano)
+            if (obj.GetType() == this.GetType() && obj != null)
             {
-                return this == humano;
+                return this == (Humano)obj;
             }
             return false;
         }
