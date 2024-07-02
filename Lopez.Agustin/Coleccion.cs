@@ -10,6 +10,7 @@ namespace ClassLibrary
     public class Coleccion
     {
         [XmlElement("Personaje")]
+
         public List<Personaje> Personajes { get; private set; }
 
         public Coleccion()

@@ -85,7 +85,7 @@ namespace ADO
                                     Edad = ParseEnum<EEdad>(reader["edad"].ToString()),
                                     Caracteristica = ParseEnum<ECaracteristica>(reader["caracteristica"].ToString()),
                                     Resucitado = reader["resucitado"] != DBNull.Value && Convert.ToBoolean(reader["resucitado"]),
-                                    EspecieOrco = ParseEnum<EEspecieOrco>(reader["especieOrco"].ToString()),
+                                    EspecieOrco = ParseEnum<EEspecieOrco>(reader["especie"].ToString()),
                                     Canibal = reader["canibal"] != DBNull.Value && Convert.ToBoolean(reader["canibal"])
                                 };
                                 break;
@@ -96,10 +96,9 @@ namespace ADO
                                     Edad = ParseEnum<EEdad>(reader["edad"].ToString()),
                                     Caracteristica = ParseEnum<ECaracteristica>(reader["caracteristica"].ToString()),
                                     Resucitado = reader["resucitado"] != DBNull.Value && Convert.ToBoolean(reader["resucitado"]),
-                                    EspecieElfo = ParseEnum<EEspecieElfo>(reader["especieElfo"].ToString()),
+                                    EspecieElfo = ParseEnum<EEspecieElfo>(reader["especie"].ToString()),
                                     Inmortalidad = reader["inmortalidad"] != DBNull.Value && Convert.ToBoolean(reader["inmortalidad"])
                                 };
-                                Console.WriteLine("Elfo cargado: " + personaje.Nombre);  // Mensaje de depuración
                                 break;
                         }
                         if (personaje != null)
@@ -123,13 +122,16 @@ namespace ADO
             return coleccion;
         }
 
+
         public void GuardarColeccionSQL(Coleccion coleccion)
         {
             try
             {
                 this.comando = new SqlCommand();
                 this.comando.CommandType = System.Data.CommandType.Text;
+
                 this.comando.Connection = this.conexion;
+
                 this.conexion.Open();
 
                 foreach (var personaje in coleccion.Personajes)
@@ -139,44 +141,21 @@ namespace ADO
                         if (personaje is Humano humano)
                         {
                             this.comando.CommandText = "INSERT INTO TablaPersonajes (tipo, nombre, edad, caracteristica, resucitado, colorHumano, colorPelo) " +
-                                                        "VALUES (@tipo, @nombre, @edad, @caracteristica, @resucitado, @colorHumano, @colorPelo)";
-                            this.comando.Parameters.AddWithValue("@tipo", "Humano");
-                            this.comando.Parameters.AddWithValue("@nombre", humano.Nombre);
-                            this.comando.Parameters.AddWithValue("@edad", humano.Edad.ToString());
-                            this.comando.Parameters.AddWithValue("@caracteristica", humano.Caracteristica.ToString());
-                            this.comando.Parameters.AddWithValue("@resucitado", humano.Resucitado);
-                            this.comando.Parameters.AddWithValue("@colorHumano", humano.ColorHumano.ToString());
-                            this.comando.Parameters.AddWithValue("@colorPelo", humano.ColorPelo.ToString());
+                                                        "VALUES (" + $"'{humano.GetType().Name}', '{humano.Nombre}', '{humano.Edad}', '{humano.Caracteristica}', '{humano.Resucitado}', '{humano.ColorHumano}', '{humano.ColorPelo}')";
+
                         }
                         else if (personaje is Orco orco)
                         {
                             this.comando.CommandText = "INSERT INTO TablaPersonajes (tipo, nombre, edad, caracteristica, resucitado, especieOrco, canibal) " +
-                                                        "VALUES (@tipo, @nombre, @edad, @caracteristica, @resucitado, @especieOrco, @canibal)";
-                            this.comando.Parameters.AddWithValue("@tipo", "Orco");
-                            this.comando.Parameters.AddWithValue("@nombre", orco.Nombre);
-                            this.comando.Parameters.AddWithValue("@edad", orco.Edad.ToString());
-                            this.comando.Parameters.AddWithValue("@caracteristica", orco.Caracteristica.ToString());
-                            this.comando.Parameters.AddWithValue("@resucitado", orco.Resucitado);
-                            this.comando.Parameters.AddWithValue("@especieOrco", orco.EspecieOrco.ToString());
-                            this.comando.Parameters.AddWithValue("@canibal", orco.Canibal);
+                                                        "VALUES (" + $"'{orco.GetType().Name}', '{orco.Nombre}', '{orco.Edad}', '{orco.Caracteristica}', '{orco.Resucitado}', '{orco.EspecieOrco}', '{orco.Canibal}')";
+
                         }
                         else if (personaje is Elfo elfo)
                         {
                             this.comando.CommandText = "INSERT INTO TablaPersonajes (tipo, nombre, edad, caracteristica, resucitado, especieElfo, inmortalidad) " +
-                                                        "VALUES (@tipo, @nombre, @edad, @caracteristica, @resucitado, @especieElfo, @inmortalidad)";
-                            this.comando.Parameters.AddWithValue("@tipo", "Elfo");
-                            this.comando.Parameters.AddWithValue("@nombre", elfo.Nombre);
-                            this.comando.Parameters.AddWithValue("@edad", elfo.Edad.ToString());
-                            this.comando.Parameters.AddWithValue("@caracteristica", elfo.Caracteristica.ToString());
-                            this.comando.Parameters.AddWithValue("@resucitado", elfo.Resucitado);
-                            this.comando.Parameters.AddWithValue("@especieElfo", elfo.EspecieElfo.ToString());
-                            this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad);
-
-                            // Mensaje de depuración
-                            Console.WriteLine($"Guardando Elfo: {elfo.Nombre}, {elfo.Edad}, {elfo.Caracteristica}, {elfo.Resucitado}, {elfo.EspecieElfo}, {elfo.Inmortalidad}");
+                                                        "VALUES (" + $"'{elfo.GetType().Name}', '{elfo.Nombre}', '{elfo.Edad}', '{elfo.Caracteristica}', '{elfo.Resucitado}', '{elfo.EspecieElfo}', '{elfo.Inmortalidad}')";
                         }
                         this.comando.ExecuteNonQuery();
-                        this.comando.Parameters.Clear();
                     }
                 }
             }
@@ -192,7 +171,6 @@ namespace ADO
                 }
             }
         }
-
 
         public void ModificarCarnivoro(Personaje personaje, Personaje personaje2)
         {
@@ -220,9 +198,9 @@ namespace ADO
                 }
                 else if (personaje is Elfo elfo)
                 {
-                    this.comando.Parameters.AddWithValue("@especieElfo", elfo.EspecieElfo.ToString());
+                    this.comando.Parameters.AddWithValue("@especieELfo", elfo.EspecieElfo.ToString());
                     this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad.ToString());
-                    sql += ", EspecieElfo = @EspecieElfo, inmortalidad = @inmortalidad";
+                    sql += ", EspecieELfo = @EspecieELfo, inmortalidad = @inmortalidad";
                 }
                 this.comando.CommandType = CommandType.Text;
                 this.comando.CommandText = sql;
@@ -243,35 +221,37 @@ namespace ADO
             }
         }
 
+
         public void EliminarSistema(Personaje personaje)
         {
+
             try
             {
                 this.comando = new SqlCommand();
                 this.comando.Parameters.AddWithValue("@tipo", personaje.GetType().Name);
                 this.comando.Parameters.AddWithValue("@nombre", personaje.Nombre);
-                this.comando.Parameters.AddWithValue("@caracteristica", personaje.Caracteristica.ToString());
                 this.comando.Parameters.AddWithValue("@edad", personaje.Edad.ToString());
+                this.comando.Parameters.AddWithValue("@caracteristica", personaje.Caracteristica.ToString());
                 this.comando.Parameters.AddWithValue("@resucitado", personaje.Resucitado);
-                string sql = "DELETE FROM TablaPersonajes ";
-                sql += "WHERE tipo = @tipo AND nombre = @nombre AND caracteristica = @caracteristica AND edad = @edad AND resucitado = @resucitado";
+                string sql = "DELETE FROM TablaPersonajes WHERE @tipo = tipo AND nombre = @nombre AND edad = @edad AND caracteristica = @caracteristica AND resucitado = @resucitado";
                 if (personaje is Humano humano)
                 {
-                    this.comando.Parameters.AddWithValue("@colorHumano", humano.ColorHumano.ToString());
-                    this.comando.Parameters.AddWithValue("@colorPelo", humano.ColorPelo.ToString());
-                    sql += " AND colorHumano = @colorHumano AND colorPelo = @colorPelo";
+                    this.comando.Parameters.AddWithValue("@ColorHumano", humano.ColorHumano.ToString());
+                    this.comando.Parameters.AddWithValue("@ColorPelo", humano.ColorPelo.ToString());
+
+                    sql += " AND ColorHumano = @ColorPelo AND ColorHumano = @ColorPelo";
                 }
                 else if (personaje is Orco orco)
                 {
                     this.comando.Parameters.AddWithValue("@especieOrco", orco.EspecieOrco.ToString());
                     this.comando.Parameters.AddWithValue("@canibal", orco.Canibal.ToString());
-                    sql += " AND especieOrco = @especieOrco AND canibal = @canibal";
+                    sql += " AND EspecieOrco = @EspecieOrco AND canibal = @canibal";
                 }
                 else if (personaje is Elfo elfo)
                 {
                     this.comando.Parameters.AddWithValue("@especieElfo", elfo.EspecieElfo.ToString());
                     this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad.ToString());
-                    sql += " AND especieElfo = @especieElfo AND inmortalidad = @inmortalidad";
+                    sql += " AND EspecieElfo = @EspecieElfo AND inmortalidad = @inmortalidad";
                 }
                 this.comando.CommandType = CommandType.Text;
                 this.comando.CommandText = sql;
@@ -290,25 +270,29 @@ namespace ADO
                     this.conexion.Close();
                 }
             }
+
         }
+
 
         private bool CheckPersonaje(Personaje personaje)
         {
-            bool exists = false;
+            //int? id = null;
+            bool check = false;
             try
             {
                 this.comando = new SqlCommand();
-                this.comando.CommandType = System.Data.CommandType.Text;
                 this.comando.Connection = this.conexion;
+
                 if (personaje is Humano humano)
                 {
                     this.comando.CommandText = "SELECT * FROM TablaPersonajes WHERE nombre = @nombre AND edad = @edad AND caracteristica = @caracteristica AND resucitado = @resucitado AND colorHumano = @colorHumano AND colorPelo = @colorPelo";
+
                     this.comando.Parameters.AddWithValue("@nombre", humano.Nombre);
                     this.comando.Parameters.AddWithValue("@edad", humano.Edad.ToString());
                     this.comando.Parameters.AddWithValue("@caracteristica", humano.Caracteristica.ToString());
                     this.comando.Parameters.AddWithValue("@resucitado", humano.Resucitado);
                     this.comando.Parameters.AddWithValue("@colorHumano", humano.ColorHumano.ToString());
-                    this.comando.Parameters.AddWithValue("@colorPelo", humano.ColorPelo.ToString());
+                    this.comando.Parameters.AddWithValue("@ColorPelo", humano.ColorPelo.ToString());
                 }
                 else if (personaje is Orco orco)
                 {
@@ -322,7 +306,7 @@ namespace ADO
                 }
                 else if (personaje is Elfo elfo)
                 {
-                    this.comando.CommandText = "SELECT * FROM TablaPersonajes WHERE nombre = @nombre AND edad = @edad AND caracteristica = @caracteristica AND resucitado = @resucitado AND especieElfo = @especieElfo AND inmortalidad = @inmortalidad";
+                    this.comando.CommandText = "SELECT * FROM TablaPersonajes WHERE nombre = @nombre AND edad = @edad AND caracteristica = @caracteristica AND resucitado = @resucitado AND EspecieElfo = @EspecieElfo AND inmortalidad = @inmortalidad";
                     this.comando.Parameters.AddWithValue("@nombre", elfo.Nombre);
                     this.comando.Parameters.AddWithValue("@edad", elfo.Edad.ToString());
                     this.comando.Parameters.AddWithValue("@caracteristica", elfo.Caracteristica.ToString());
@@ -330,29 +314,41 @@ namespace ADO
                     this.comando.Parameters.AddWithValue("@especieElfo", elfo.EspecieElfo.ToString());
                     this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad.ToString());
                 }
-                this.conexion.Open();
-                using (SqlDataReader reader = this.comando.ExecuteReader())
+                using (var reader = this.comando.ExecuteReader())
                 {
-                    exists = reader.HasRows;
+                    if (reader.Read())
+                    {
+                        check = true;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                if (this.conexion.State == System.Data.ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
-            }
-            return exists;
+            return check;
         }
 
-        private TEnum ParseEnum<TEnum>(string value)
+        private T ParseEnum<T>(string value) where T : struct
         {
-            return (TEnum)Enum.Parse(typeof(TEnum), value);
+            Enum.TryParse(value, out T resultado);
+            return resultado;
+        }
+        public int ObtenerIdDesdeBaseDeDatos()
+        {
+            int nuevoId = 0;
+
+            using (SqlConnection connection = new SqlConnection(cadena_conexion))
+            {
+                connection.Open();
+                string query = "SELECT ISNULL(MAX(Id), 0) + 1 FROM TablaPersonajes";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    nuevoId = (int)command.ExecuteScalar();
+                }
+            }
+
+            return nuevoId;
         }
     }
 }

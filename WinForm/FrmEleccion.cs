@@ -48,7 +48,7 @@ namespace WinForm
         {
             try
             {
-                preventClosingMessage = true; // Desactivar mensaje de confirmación
+                preventClosingMessage = true; 
                 if (rbtnElfo.Checked)
                 {
                     AgregarElfo agregarElfo = new AgregarElfo();
@@ -76,7 +76,7 @@ namespace WinForm
                         this.DialogResult = DialogResult.OK;
                     }
                 }
-                preventClosingMessage = false; // Reactivar mensaje de confirmación
+                preventClosingMessage = false; 
             }
             catch (Exception ex)
             {
