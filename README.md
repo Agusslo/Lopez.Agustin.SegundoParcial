@@ -26,8 +26,7 @@ Aquí está el diagrama de clase de mi proyecto:
 
 ## SQL SCRIPT
 
-```sql
-USE [master]
+``` USE [master]
 GO
 /****** Object:  Database [personaje]    Script Date: 2/7/2024 14:12:56 ******/
 CREATE DATABASE [personaje]
@@ -117,15 +116,15 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TablaPersonajes](
-	  NOT NULL,
-	  NOT NULL,
-	  NOT NULL,
-	  NOT NULL,
+	[tipo] [nvarchar](50) NOT NULL,
+	[nombre] [varchar](50) NOT NULL,
+	[edad] [nvarchar](50) NOT NULL,
+	[caracteristica] [varchar](50) NOT NULL,
 	[resucitado] [bit] NOT NULL,
-	  NULL,
-	  NULL,
-	  NULL,
-	  NULL,
+	[colorHumano] [nvarchar](50) NULL,
+	[colorPelo] [nvarchar](50) NULL,
+	[especieOrco] [nvarchar](50) NULL,
+	[especieElfo] [nvarchar](50) NULL,
 	[canibal] [bit] NULL,
 	[inmortalidad] [bit] NULL
 ) ON [PRIMARY]
@@ -139,7 +138,7 @@ GO
 USE [master]
 GO
 ALTER DATABASE [personaje] SET  READ_WRITE 
-GO
+GO```
 
 
 
