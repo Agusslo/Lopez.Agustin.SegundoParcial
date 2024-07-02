@@ -26,6 +26,7 @@ Aquí está el diagrama de clase de mi proyecto:
 
 ## SQL SCRIPT
 
+```sql
 USE [master]
 GO
 /****** Object:  Database [personaje]    Script Date: 2/7/2024 14:12:56 ******/
@@ -116,15 +117,15 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TablaPersonajes](
-	[tipo] [nvarchar](50) NOT NULL,
-	[nombre] [varchar](50) NOT NULL,
-	[edad] [nvarchar](50) NOT NULL,
-	[caracteristica] [varchar](50) NOT NULL,
+	  NOT NULL,
+	  NOT NULL,
+	  NOT NULL,
+	  NOT NULL,
 	[resucitado] [bit] NOT NULL,
-	[colorHumano] [nvarchar](50) NULL,
-	[colorPelo] [nvarchar](50) NULL,
-	[especieOrco] [nvarchar](50) NULL,
-	[especieElfo] [nvarchar](50) NULL,
+	  NULL,
+	  NULL,
+	  NULL,
+	  NULL,
 	[canibal] [bit] NULL,
 	[inmortalidad] [bit] NULL
 ) ON [PRIMARY]
@@ -139,6 +140,7 @@ USE [master]
 GO
 ALTER DATABASE [personaje] SET  READ_WRITE 
 GO
+
 
 
 ## **Explicacion de mis WindowsForms**
