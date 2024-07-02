@@ -172,7 +172,7 @@ namespace ADO
             }
         }
 
-        public void ModificarCarnivoro(Personaje personaje, Personaje personaje2)
+        public void ModificarPersonaje(Personaje personaje, Personaje personaje2)
         {
             try
             {
@@ -182,8 +182,10 @@ namespace ADO
                 this.comando.Parameters.AddWithValue("@caracteristica", personaje.Caracteristica.ToString());
                 this.comando.Parameters.AddWithValue("@edad", personaje.Edad.ToString());
                 this.comando.Parameters.AddWithValue("@resucitado", personaje.Resucitado);
+
                 string sql = "UPDATE TablaPersonajes ";
                 sql += "SET tipo = @tipo, edad = @edad, nombre = @nombre, caracteristica = @caracteristica, resucitado = @resucitado ";
+
                 if (personaje is Humano humano)
                 {
                     this.comando.Parameters.AddWithValue("@colorHumano", humano.ColorHumano.ToString());
@@ -194,70 +196,50 @@ namespace ADO
                 {
                     this.comando.Parameters.AddWithValue("@especieOrco", orco.EspecieOrco.ToString());
                     this.comando.Parameters.AddWithValue("@canibal", orco.Canibal.ToString());
-                    sql += ", EspecieOrco = @EspecieOrco, canibal = @canibal";
-                }
-                else if (personaje is Elfo elfo)
-                {
-                    this.comando.Parameters.AddWithValue("@especieELfo", elfo.EspecieElfo.ToString());
-                    this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad.ToString());
-                    sql += ", EspecieELfo = @EspecieELfo, inmortalidad = @inmortalidad";
-                }
-                this.comando.CommandType = CommandType.Text;
-                this.comando.CommandText = sql;
-                this.comando.Connection = this.conexion;
-                this.conexion.Open();
-                int filasAfectadas = this.comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
-            }
-        }
-
-
-        public void EliminarSistema(Personaje personaje)
-        {
-
-            try
-            {
-                this.comando = new SqlCommand();
-                this.comando.Parameters.AddWithValue("@tipo", personaje.GetType().Name);
-                this.comando.Parameters.AddWithValue("@nombre", personaje.Nombre);
-                this.comando.Parameters.AddWithValue("@edad", personaje.Edad.ToString());
-                this.comando.Parameters.AddWithValue("@caracteristica", personaje.Caracteristica.ToString());
-                this.comando.Parameters.AddWithValue("@resucitado", personaje.Resucitado);
-                string sql = "DELETE FROM TablaPersonajes WHERE @tipo = tipo AND nombre = @nombre AND edad = @edad AND caracteristica = @caracteristica AND resucitado = @resucitado";
-                if (personaje is Humano humano)
-                {
-                    this.comando.Parameters.AddWithValue("@ColorHumano", humano.ColorHumano.ToString());
-                    this.comando.Parameters.AddWithValue("@ColorPelo", humano.ColorPelo.ToString());
-
-                    sql += " AND ColorHumano = @ColorPelo AND ColorHumano = @ColorPelo";
-                }
-                else if (personaje is Orco orco)
-                {
-                    this.comando.Parameters.AddWithValue("@especieOrco", orco.EspecieOrco.ToString());
-                    this.comando.Parameters.AddWithValue("@canibal", orco.Canibal.ToString());
-                    sql += " AND EspecieOrco = @EspecieOrco AND canibal = @canibal";
+                    sql += ", EspecieOrco = @especieOrco, canibal = @canibal";
                 }
                 else if (personaje is Elfo elfo)
                 {
                     this.comando.Parameters.AddWithValue("@especieElfo", elfo.EspecieElfo.ToString());
                     this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad.ToString());
-                    sql += " AND EspecieElfo = @EspecieElfo AND inmortalidad = @inmortalidad";
+                    sql += ", EspecieElfo = @especieElfo, inmortalidad = @inmortalidad";
                 }
+
+                // Agregar parámetros del segundo personaje para la cláusula WHERE
+                this.comando.Parameters.AddWithValue("@tipo2", personaje2.GetType().Name);
+                this.comando.Parameters.AddWithValue("@nombre2", personaje2.Nombre);
+                this.comando.Parameters.AddWithValue("@caracteristica2", personaje2.Caracteristica.ToString());
+                this.comando.Parameters.AddWithValue("@edad2", personaje2.Edad.ToString());
+                this.comando.Parameters.AddWithValue("@resucitado2", personaje2.Resucitado);
+
+                sql += " WHERE tipo = @tipo2 AND nombre = @nombre2 AND caracteristica = @caracteristica2 AND edad = @edad2 AND resucitado = @resucitado2";
+
+                if (personaje2 is Humano humano2)
+                {
+                    this.comando.Parameters.AddWithValue("@colorHumano2", humano2.ColorHumano.ToString());
+                    this.comando.Parameters.AddWithValue("@colorPelo2", humano2.ColorPelo.ToString());
+                    sql += " AND colorHumano = @colorHumano2 AND colorPelo = @colorPelo2";
+                }
+                else if (personaje2 is Orco orco2)
+                {
+                    this.comando.Parameters.AddWithValue("@especieOrco2", orco2.EspecieOrco.ToString());
+                    this.comando.Parameters.AddWithValue("@canibal2", orco2.Canibal.ToString());
+                    sql += " AND EspecieOrco = @especieOrco2 AND canibal = @canibal2";
+                }
+                else if (personaje2 is Elfo elfo2)
+                {
+                    this.comando.Parameters.AddWithValue("@especieElfo2", elfo2.EspecieElfo.ToString());
+                    this.comando.Parameters.AddWithValue("@inmortalidad2", elfo2.Inmortalidad.ToString());
+                    sql += " AND EspecieElfo = @especieElfo2 AND inmortalidad = @inmortalidad2";
+                }
+
                 this.comando.CommandType = CommandType.Text;
                 this.comando.CommandText = sql;
                 this.comando.Connection = this.conexion;
+
                 this.conexion.Open();
                 int filasAfectadas = this.comando.ExecuteNonQuery();
+                Console.WriteLine($"{filasAfectadas} filas afectadas.");
             }
             catch (Exception ex)
             {
@@ -270,8 +252,70 @@ namespace ADO
                     this.conexion.Close();
                 }
             }
-
         }
+
+
+
+
+
+        public void EliminarSistema(Personaje personaje)
+        {
+            try
+            {
+                this.comando = new SqlCommand();
+                this.comando.Connection = this.conexion;
+
+                this.comando.Parameters.AddWithValue("@tipo", personaje.GetType().Name);
+                this.comando.Parameters.AddWithValue("@nombre", personaje.Nombre);
+                this.comando.Parameters.AddWithValue("@edad", personaje.Edad.ToString());
+                this.comando.Parameters.AddWithValue("@caracteristica", personaje.Caracteristica.ToString());
+                this.comando.Parameters.AddWithValue("@resucitado", personaje.Resucitado);
+
+                string sql = "DELETE FROM TablaPersonajes WHERE tipo = @tipo AND nombre = @nombre AND edad = @edad AND caracteristica = @caracteristica AND resucitado = @resucitado";
+
+                if (personaje is Humano humano)
+                {
+                    this.comando.Parameters.AddWithValue("@colorHumano", humano.ColorHumano.ToString());
+                    this.comando.Parameters.AddWithValue("@colorPelo", humano.ColorPelo.ToString());
+                    sql += " AND colorHumano = @colorHumano AND colorPelo = @colorPelo";
+                }
+                else if (personaje is Orco orco)
+                {
+                    this.comando.Parameters.AddWithValue("@especieOrco", orco.EspecieOrco.ToString());
+                    this.comando.Parameters.AddWithValue("@canibal", orco.Canibal);
+                    sql += " AND especieOrco = @especieOrco AND canibal = @canibal";
+                }
+                else if (personaje is Elfo elfo)
+                {
+                    this.comando.Parameters.AddWithValue("@especieElfo", elfo.EspecieElfo.ToString());
+                    this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad);
+                    sql += " AND especieElfo = @especieElfo AND inmortalidad = @inmortalidad";
+                }
+
+                this.comando.CommandType = CommandType.Text;
+                this.comando.CommandText = sql;
+                this.conexion.Open();
+
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    Console.WriteLine("No se encontró el personaje para eliminar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+        }
+
 
 
         private bool CheckPersonaje(Personaje personaje)

@@ -39,6 +39,7 @@
             archivoToolStripMenuItem = new ToolStripMenuItem();
             guardarToolStripMenuItem = new ToolStripMenuItem();
             abrirToolStripMenuItem = new ToolStripMenuItem();
+            baseDeDatosToolStripMenuItem = new ToolStripMenuItem();
             configuracionToolStripMenuItem = new ToolStripMenuItem();
             verLogsToolStripMenuItem = new ToolStripMenuItem();
             ordenarPorToolStripMenuItem = new ToolStripMenuItem();
@@ -55,7 +56,6 @@
             lblHora = new Label();
             lblHoraInicioSesion = new Label();
             lblPerfil = new Label();
-            baseDeDatosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -161,15 +161,22 @@
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             guardarToolStripMenuItem.Size = new Size(180, 22);
-            guardarToolStripMenuItem.Text = "Guardar";
+            guardarToolStripMenuItem.Text = "Guardar XML";
             guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // abrirToolStripMenuItem
             // 
             abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             abrirToolStripMenuItem.Size = new Size(180, 22);
-            abrirToolStripMenuItem.Text = "Abrir";
+            abrirToolStripMenuItem.Text = "Abrir XML";
             abrirToolStripMenuItem.Click += abrirToolStripMenuItem_Click;
+            // 
+            // baseDeDatosToolStripMenuItem
+            // 
+            baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
+            baseDeDatosToolStripMenuItem.Size = new Size(180, 22);
+            baseDeDatosToolStripMenuItem.Text = "Guardar BD";
+            baseDeDatosToolStripMenuItem.Click += baseDeDatosToolStripMenuItem_Click;
             // 
             // configuracionToolStripMenuItem
             // 
@@ -283,13 +290,6 @@
             lblPerfil.Name = "lblPerfil";
             lblPerfil.Size = new Size(144, 43);
             lblPerfil.TabIndex = 19;
-            // 
-            // baseDeDatosToolStripMenuItem
-            // 
-            baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
-            baseDeDatosToolStripMenuItem.Size = new Size(180, 22);
-            baseDeDatosToolStripMenuItem.Text = "Base De Datos";
-            baseDeDatosToolStripMenuItem.Click += baseDeDatosToolStripMenuItem_Click;
             // 
             // Menu
             // 

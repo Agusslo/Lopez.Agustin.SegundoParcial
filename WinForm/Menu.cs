@@ -105,73 +105,86 @@ namespace WinForm
             if (perfilUsuario == "vendedor")
             {
                 MessageBox.Show("No tienes permiso para modificar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
+            Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
+            Form modificarForm;
+
+            if (personajeSeleccionado is Elfo ElfoSeleccionado)
+            {
+                modificarForm = new AgregarElfo(ElfoSeleccionado);
+            }
+            else if (personajeSeleccionado is Orco orcoSeleccionado)
+            {
+                modificarForm = new AgregarOrco(orcoSeleccionado);
+            }
+            else if (personajeSeleccionado is Humano HumanoSeleccionado)
+            {
+                modificarForm = new AgregarHumano(HumanoSeleccionado);
             }
             else
             {
-                if (listBox1.SelectedIndex != -1)
+                throw new InvalidOperationException("Tipo de personaje no soportado.");
+            }
+
+            if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
+            {
+                try
                 {
-                    Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-                    Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
-                    Form modificarForm;
-                    if (personajeSeleccionado is Elfo ElfoSeleccionado)
-                    {
-                        modificarForm = new AgregarElfo(ElfoSeleccionado);
-                    }
-                    else if (personajeSeleccionado is Orco orcoSeleccionado)
-                    {
-                        modificarForm = new AgregarOrco(orcoSeleccionado);
-                    }
-                    else if (personajeSeleccionado is Humano HumanoSeleccionado)
-                    {
-                        modificarForm = new AgregarHumano(HumanoSeleccionado);
-                    }
-                    else
-                    {
-                        throw new InvalidOperationException("Tipo de personaje no soportado.");
-                    }
-                    if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
-                    {
-                        try
-                        {
-                            personajes -= personajeSeleccionado;
-                            if (modificarForm is AgregarElfo)
-                            {
-                                personajes += (modificarForm as AgregarElfo).ObtenerElfo();
-                            }
-                            else if (modificarForm is AgregarOrco)
-                            {
-                                personajes += (modificarForm as AgregarOrco).ObtenerOrco();
-                            }
-                            else if (modificarForm is AgregarHumano)
-                            {
-                                personajes += (modificarForm as AgregarHumano).ObtenerHumano();
-                            }
+                    Personaje nuevoPersonaje = null;
 
-                            ActualizarLista();
-                        }
-                        catch (ArgumentException ex)
-                        {
-                            // Si ocurre una excepción, restaurar la colección original
-                            personajes = copiaPersonajes;
-                            MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        catch (InvalidOperationException ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error inesperado al modificar el personaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                    if (modificarForm is AgregarElfo agregarElfoForm)
+                    {
+                        nuevoPersonaje = agregarElfoForm.ObtenerElfo();
+                    }
+                    else if (modificarForm is AgregarOrco agregarOrcoForm)
+                    {
+                        nuevoPersonaje = agregarOrcoForm.ObtenerOrco();
+                    }
+                    else if (modificarForm is AgregarHumano agregarHumanoForm)
+                    {
+                        nuevoPersonaje = agregarHumanoForm.ObtenerHumano();
                     }
 
+                    if (nuevoPersonaje != null)
+                    {
+                        // Modificar el personaje en la base de datos
+                        ConexionDB conexionDB = new ConexionDB();
+                        conexionDB.ModificarPersonaje(personajeSeleccionado, nuevoPersonaje); //ARREGLAR
+
+                        // Actualizar la colección en memoria y la lista visual
+                        personajes -= personajeSeleccionado;
+                        personajes += nuevoPersonaje;
+                        ActualizarLista();
+                    }
                 }
-                else
+                catch (ArgumentException ex)
                 {
-                    MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // Si ocurre una excepción, restaurar la colección original
+                    personajes = copiaPersonajes;
+                    MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error inesperado al modificar el personaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+
+
 
         private void btnAgregar_Click_1(object? sender, EventArgs e)
         {
@@ -190,6 +203,19 @@ namespace WinForm
                     {
                         personajes += nuevoPersonaje!;
                         ActualizarLista();
+
+                        // guardar en la base de datos
+                        ConexionDB bd = new ConexionDB();
+                        if (bd.PruebaConexion())
+                        {
+                            Console.WriteLine("Conexión exitosa a la base de datos.");
+                            bd.GuardarColeccionSQL(personajes);
+                            Console.WriteLine("Datos guardados correctamente.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se pudo conectar a la base de datos.");
+                        }
                     }
                     catch (ArgumentException ex)
                     {
@@ -202,6 +228,7 @@ namespace WinForm
                 }
             }
         }
+
 
         private void btnEliminar_Click_1(object? sender, EventArgs e)
         {
@@ -217,8 +244,14 @@ namespace WinForm
                     {
                         try
                         {
+                            // Eliminar de la colección local
                             personajes -= personajeSeleccionado;
                             ActualizarLista();
+
+                            // Eliminar del sistema (base de datos)
+                            ConexionDB bd = new ConexionDB();
+                            bd.EliminarSistema(personajeSeleccionado);
+
                             MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -233,6 +266,7 @@ namespace WinForm
                 }
             }
         }
+
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -502,17 +536,7 @@ namespace WinForm
 
         private void baseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConexionDB bd = new ConexionDB();
-            if (bd.PruebaConexion())
-            {
-                Console.WriteLine("Conexión exitosa a la base de datos.");
-                bd.GuardarColeccionSQL(personajes);
-                Console.WriteLine("Datos guardados correctamente.");
-            }
-            else
-            {
-                Console.WriteLine("No se pudo conectar a la base de datos.");
-            }
+            
         }
     }
 }
