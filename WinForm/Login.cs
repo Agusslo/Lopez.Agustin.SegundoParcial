@@ -10,9 +10,13 @@ namespace WinForm
 {
     public partial class Login : Form
     {
+
         List<Usuario> usuarios;
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string logPath;
+
+
+        #region Constructor y Inicializacion
 
         public Login()
         {
@@ -58,6 +62,9 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// evento que se encarga de cargar los usuarios del MOCK_DATA, este archivo brinda toda la data para iniciar sesion
+        /// </summary>
         private void CargarUsuarios()
         {
             try
@@ -79,29 +86,13 @@ namespace WinForm
             }
         }
 
-        private void CargarLogs(string email, string nombre, string apellido, int legajo, string perfil)
-        {
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(logPath, true))
-                {
-                    sw.WriteLine($"{nombre} {apellido} - {legajo} - {email} - {perfil} - {DateTime.Now}");
-                }
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                MessageBox.Show($"No tienes permiso para acceder al archivo de log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show($"Error de E/S al escribir en el archivo de log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error inesperado al guardar el log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        #endregion
 
+        #region Controles
+
+        /// <summary>
+        /// Evento de clic del botón para autenticar al usuario.
+        /// </summary>
         private async void button1_Click(object sender, EventArgs e)
         {
             try
@@ -137,6 +128,9 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Método para mostrar una pantalla de carga mientras se realiza una operación asincrónica.
+        /// </summary>
         private async Task MostrarPantallaCarga(Action action)
         {
             using (var cargaForm = new FormPantallaCarga())
@@ -150,14 +144,9 @@ namespace WinForm
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-                txtContrasenia.UseSystemPasswordChar = false;
-            else
-                txtContrasenia.UseSystemPasswordChar = true;
-        }
-
+        /// <summary>
+        /// Evento de clic del botón rápido para autenticar con credenciales predefinidas.
+        /// </summary>
         private void btnRapido_Click_1(object sender, EventArgs e)
         {
             string correoRapido = "aguss@rapido.com";
@@ -186,6 +175,20 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Evento de cambio del estado del checkbox para mostrar/ocultar la contraseña.
+        /// </summary>
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+                txtContrasenia.UseSystemPasswordChar = false;
+            else
+                txtContrasenia.UseSystemPasswordChar = true;
+        }
+
+        /// <summary>
+        /// Evento de cambio del estado del checkbox para mostrar/ocultar la contraseña.
+        /// </summary>
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -194,6 +197,43 @@ namespace WinForm
                 txtContrasenia.UseSystemPasswordChar = true;
         }
 
+        #endregion
+
+        #region Carga LOGS
+
+        /// <summary>
+        /// Método para cargar registros de log en un archivo.
+        /// </summary>
+        private void CargarLogs(string email, string nombre, string apellido, int legajo, string perfil)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(logPath, true))
+                {
+                    sw.WriteLine($"{nombre} {apellido} - {legajo} - {email} - {perfil} - {DateTime.Now}");
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show($"No tienes permiso para acceder al archivo de log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Error de E/S al escribir en el archivo de log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado al guardar el log: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
+
+        #region Form Closing
+
+        /// <summary>
+        /// Evento que se ejecuta cuando se está cerrando el formulario para confirmar con el usuario.
+        /// </summary>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -214,5 +254,7 @@ namespace WinForm
                 base.OnFormClosing(e);
             }
         }
+
+        #endregion
     }
 }

@@ -75,6 +75,7 @@ namespace WinForm
             }
         }
 
+        #region actualizar lista y Timer tick(hora en tiempo real)
         private void Timer_Tick(object? sender, EventArgs e)
         {
             lblHora.Text = "Horario Tiempo Real: " + DateTime.Now.ToString("HH:mm:ss");
@@ -100,92 +101,10 @@ namespace WinForm
             listBox1.HorizontalExtent = totalWidth;
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            if (perfilUsuario == "vendedor")
-            {
-                MessageBox.Show("No tienes permiso para modificar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (listBox1.SelectedIndex == -1)
-            {
-                MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-            Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
-            Form modificarForm;
-
-            if (personajeSeleccionado is Elfo ElfoSeleccionado)
-            {
-                modificarForm = new AgregarElfo(ElfoSeleccionado);
-            }
-            else if (personajeSeleccionado is Orco orcoSeleccionado)
-            {
-                modificarForm = new AgregarOrco(orcoSeleccionado);
-            }
-            else if (personajeSeleccionado is Humano HumanoSeleccionado)
-            {
-                modificarForm = new AgregarHumano(HumanoSeleccionado);
-            }
-            else
-            {
-                throw new InvalidOperationException("Tipo de personaje no soportado.");
-            }
-
-            if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    Personaje nuevoPersonaje = null;
-
-                    if (modificarForm is AgregarElfo agregarElfoForm)
-                    {
-                        nuevoPersonaje = agregarElfoForm.ObtenerElfo();
-                    }
-                    else if (modificarForm is AgregarOrco agregarOrcoForm)
-                    {
-                        nuevoPersonaje = agregarOrcoForm.ObtenerOrco();
-                    }
-                    else if (modificarForm is AgregarHumano agregarHumanoForm)
-                    {
-                        nuevoPersonaje = agregarHumanoForm.ObtenerHumano();
-                    }
-
-                    if (nuevoPersonaje != null)
-                    {
-                        // Modificar el personaje en la base de datos
-                        ConexionDB conexionDB = new ConexionDB();
-                        conexionDB.ModificarPersonaje(personajeSeleccionado, nuevoPersonaje); //ARREGLAR
-
-                        // Actualizar la colección en memoria y la lista visual
-                        personajes -= personajeSeleccionado;
-                        personajes += nuevoPersonaje;
-                        ActualizarLista();
-                    }
-                }
-                catch (ArgumentException ex)
-                {
-                    // Si ocurre una excepción, restaurar la colección original
-                    personajes = copiaPersonajes;
-                    MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                catch (InvalidOperationException ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error inesperado al modificar el personaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+        #endregion
 
 
-
-
+        #region Agregar/Modificar/Eliminar
         private void btnAgregar_Click_1(object? sender, EventArgs e)
         {
             if (perfilUsuario == "vendedor")
@@ -229,6 +148,91 @@ namespace WinForm
                 }
             }
         }
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (perfilUsuario == "vendedor")
+            {
+                MessageBox.Show("No tienes permiso para modificar personajes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un personaje para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
+            Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
+            Form modificarForm;
+
+            if (personajeSeleccionado is Elfo elfoSeleccionado)
+            {
+                modificarForm = new AgregarElfo(elfoSeleccionado);
+            }
+            else if (personajeSeleccionado is Orco orcoSeleccionado)
+            {
+                modificarForm = new AgregarOrco(orcoSeleccionado);
+            }
+            else if (personajeSeleccionado is Humano humanoSeleccionado)
+            {
+                modificarForm = new AgregarHumano(humanoSeleccionado);
+            }
+            else
+            {
+                throw new InvalidOperationException("Tipo de personaje no soportado.");
+            }
+
+            if (modificarForm != null && modificarForm.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Personaje nuevoPersonaje = null;
+
+                    if (modificarForm is AgregarElfo agregarElfoForm)
+                    {
+                        nuevoPersonaje = agregarElfoForm.ObtenerElfo();
+                    }
+                    else if (modificarForm is AgregarOrco agregarOrcoForm)
+                    {
+                        nuevoPersonaje = agregarOrcoForm.ObtenerOrco();
+                    }
+                    else if (modificarForm is AgregarHumano agregarHumanoForm)
+                    {
+                        nuevoPersonaje = agregarHumanoForm.ObtenerHumano();
+                    }
+
+                    if (nuevoPersonaje != null)
+                    {
+                        // Modificar el personaje en la base de datos
+                        ConexionDB conexionDB = new ConexionDB();
+                        conexionDB.ModificarPersonaje(personajeSeleccionado, nuevoPersonaje);
+
+                        // Actualizar la colección en memoria y la lista visual
+                        personajes -= personajeSeleccionado;
+                        personajes += nuevoPersonaje;
+                        ActualizarLista();
+                    }
+                }
+                catch (ArgumentException ex)
+                {
+                    // Si ocurre una excepción, restaurar la colección original
+                    personajes = copiaPersonajes;
+                    MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error inesperado al modificar el personaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
 
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
@@ -276,7 +280,10 @@ namespace WinForm
             }
         }
 
+        #endregion
 
+
+        #region Abrir/Guardar XML
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -376,6 +383,9 @@ namespace WinForm
             }
         }
 
+        #endregion
+
+        #region LOGS
         private void verLogsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             try
@@ -401,7 +411,10 @@ namespace WinForm
             }
         }
 
+        #endregion
 
+
+        #region ORDENAMIENTO(edad, caracteristica y nombre)
         private void masJovenPrimeroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -504,6 +517,11 @@ namespace WinForm
             }
         }
 
+        #endregion
+
+
+        #region FormClosing
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -524,6 +542,10 @@ namespace WinForm
             }
         }
 
+        #endregion
+
+
+        #region CHECKED DE PERSONAJES
         private void cbOrco_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarLista();
@@ -543,5 +565,6 @@ namespace WinForm
         {
             ActualizarLista();
         }
+        #endregion
     }
 }
