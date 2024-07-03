@@ -26,7 +26,8 @@ Aquí está el diagrama de clase de mi proyecto:
 
 
 ## SQL SCRIPT
-
+**SERVER NAME SQL**
+`AGUS\SQLEXPRESS`
 
 
 ``` USE [master]
