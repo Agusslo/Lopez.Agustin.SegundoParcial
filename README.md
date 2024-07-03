@@ -21,10 +21,14 @@ Mi nombre es Agustin Lopez, tengo 20 años y desarrolle este programa para la ma
 
 Aquí está el diagrama de clase de mi proyecto:
 
-![Diagrama de Clase](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/1ee6dbae-29b3-444a-a6bb-8ac86ec00de8)
+![Diagrama de Clase](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/243c1ded-87e3-4321-b36a-37d4d6a27a27)
+
 
 
 ## SQL SCRIPT
+**SERVER NAME SQL**
+`AGUS\SQLEXPRESS`
+
 
 ``` USE [master]
 GO
@@ -166,12 +170,12 @@ Este formulario garantiza un acceso seguro y controlado a la aplicación, permit
 
 El formulario de inicio rápido (`FormContraseñaRapida`) permite a los usuarios acceder de manera rápida a la aplicación utilizando una contraseña predefinida. Sus funciones principales son:
 
-- **Verificación de Contraseña**: Permite a los usuarios ingresar una contraseña rápida (predefinida como "2004"). Si la contraseña es correcta, se cierra el formulario con un resultado exitoso; de lo contrario, muestra un mensaje de error indicando que la contraseña es incorrecta.
+- **Verificación de Contraseña**: Permite a los usuarios ingresar una contraseña rápida (`predefinida como "2004"`). Si la contraseña es correcta, se cierra el formulario con un resultado exitoso; de lo contrario, muestra un mensaje de error indicando que la contraseña es incorrecta.
 - **Alternar Visibilidad de Contraseña**: Permite a los usuarios mostrar u ocultar la contraseña ingresada mediante una casilla de verificación.
 - **Confirmación de Cierre**: Pregunta a los usuarios si están seguros de que desean cerrar el formulario cuando intentan salir, asegurando que no se cierre accidentalmente.
 - **Acceso Rápido con Enter**: Permite a los usuarios confirmar la contraseña presionando la tecla Enter, mejorando la facilidad de uso.
 
-REPITO, LA CONTRASEÑA ES 2004
+`REPITO, LA CONTRASEÑA ES 2004`
 
 ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/274a01bc-7d86-4f9a-88b7-74f4e24a16d6)
 
