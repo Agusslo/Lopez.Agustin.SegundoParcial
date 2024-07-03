@@ -51,9 +51,9 @@ namespace ADO
             return retorno;
         }
 
-        public Coleccion ObtenerColeccion()
+        public Coleccion<Personaje> ObtenerColeccion()
         {
-            Coleccion coleccion = new Coleccion();
+            Coleccion<Personaje> coleccion = new Coleccion<Personaje>();
             try
             {
                 this.comando.CommandType = System.Data.CommandType.Text;
@@ -126,7 +126,7 @@ namespace ADO
 
 
         #region GUARDAR SQL
-        public void GuardarColeccionSQL(Coleccion coleccion)
+        public void GuardarColeccionSQL(Coleccion<Personaje> coleccion)
         {
             try
             {

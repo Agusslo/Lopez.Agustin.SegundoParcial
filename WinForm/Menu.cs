@@ -13,7 +13,7 @@ namespace WinForm
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string path;
         string logPath;
-        Coleccion personajes;
+        Coleccion<Personaje> personajes;
         string perfilUsuario;
         string correoUsuario;
 
@@ -45,7 +45,7 @@ namespace WinForm
             }
             this.path = Path.Combine(folderPath, "configuracion");
 
-            personajes = new Coleccion();
+            personajes = new Coleccion<Personaje>();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // 1 segundo
             timer.Tick += Timer_Tick;
@@ -165,7 +165,7 @@ namespace WinForm
             }
 
             Personaje personajeSeleccionado = listBox1.SelectedItem as Personaje;
-            Coleccion copiaPersonajes = personajes; // "Copia de seguridad"
+            Coleccion<Personaje> copiaPersonajes = personajes; // "Copia de seguridad"
             Form modificarForm;
 
             if (personajeSeleccionado is Elfo elfoSeleccionado)
@@ -313,11 +313,11 @@ namespace WinForm
         }
 
 
-        private void GuardarColeccionEnXml(string filePath, Coleccion coleccion)
+        private void GuardarColeccionEnXml(string filePath, Coleccion<Personaje> coleccion)
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(Coleccion), new Type[] { typeof(Humano), typeof(Orco), typeof(Elfo) });
+                XmlSerializer serializer = new XmlSerializer(typeof(Coleccion<Personaje>), new Type[] { typeof(Humano), typeof(Orco), typeof(Elfo) });
                 using (StreamWriter writer = new StreamWriter(filePath))
                 {
                     serializer.Serialize(writer, coleccion);
@@ -351,10 +351,10 @@ namespace WinForm
 
                 try
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(Coleccion));
+                    XmlSerializer serializer = new XmlSerializer(typeof(Coleccion<Personaje>));
                     using (StreamReader reader = new StreamReader(filePath))
                     {
-                        personajes = (Coleccion)serializer.Deserialize(reader);
+                        personajes = (Coleccion<Personaje>)serializer.Deserialize(reader);
                     }
 
                     ActualizarLista();

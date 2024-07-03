@@ -7,17 +7,17 @@ using System.Xml.Serialization;
 namespace ClassLibrary
 {
     [XmlRoot("Coleccion")]
-    public class Coleccion
+    public class Coleccion<T> where T : Personaje
     {
-        [XmlElement("Personaje")] 
-        public List<Personaje> Personajes { get; private set; } 
+        [XmlElement("Personaje")]
+        public List<T> Personajes { get; private set; }
 
         /// <summary>
         /// Constructor de la clase Coleccion. Inicializa la lista de personajes.
         /// </summary>
         public Coleccion()
         {
-            Personajes = new List<Personaje>();
+            Personajes = new List<T>();
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace ClassLibrary
         /// <param name="co">Colección en la que se desea agregar el personaje.</param>
         /// <param name="personaje">Personaje a agregar.</param>
         /// <returns>La colección actualizada con el nuevo personaje.</returns>
-        public static Coleccion operator +(Coleccion co, Personaje personaje)
+        public static Coleccion<T> operator +(Coleccion<T> co, T personaje)
         {
             if (!co.Personajes.Any(c => c.ObtenerNombre() == personaje.ObtenerNombre() && c.GetType() == personaje.GetType()))
             {
@@ -45,7 +45,7 @@ namespace ClassLibrary
         /// <param name="co">Colección de la que se desea eliminar el personaje.</param>
         /// <param name="personaje">Personaje a eliminar.</param>
         /// <returns>La colección actualizada sin el personaje especificado.</returns>
-        public static Coleccion operator -(Coleccion co, Personaje personaje)
+        public static Coleccion<T> operator -(Coleccion<T> co, T personaje)
         {
             var existingPersonaje = co.Personajes.FirstOrDefault(c => c.ObtenerNombre() == personaje.ObtenerNombre() && c.GetType() == personaje.GetType());
             if (existingPersonaje != null)
@@ -95,7 +95,7 @@ namespace ClassLibrary
         /// <param name="incluirOrco">Indica si se deben incluir los personajes de tipo Orco en el filtro.</param>
         /// <param name="incluirElfo">Indica si se deben incluir los personajes de tipo Elfo en el filtro.</param>
         /// <returns>Lista de personajes filtrados según los tipos especificados.</returns>
-        public List<Personaje> FiltrarPorTipos(bool incluirHumano, bool incluirOrco, bool incluirElfo)
+        public List<T> FiltrarPorTipos(bool incluirHumano, bool incluirOrco, bool incluirElfo)
         {
             return Personajes.Where(personaje =>
                 (personaje is Humano && incluirHumano) ||
@@ -107,7 +107,7 @@ namespace ClassLibrary
         /// Obtiene la lista completa de personajes en la colección.
         /// </summary>
         /// <returns>Lista de todos los personajes en la colección.</returns>
-        public List<Personaje> GetColeccion()
+        public List<T> GetColeccion()
         {
             return Personajes;
         }
