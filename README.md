@@ -28,6 +28,7 @@ Aquí está el diagrama de clase de mi proyecto:
 ## SQL SCRIPT
 **SERVER NAME SQL**
 `AGUS\SQLEXPRESS`
+
 **Data Source=AGUS\SQLEXPRESS;Initial Catalog=personaje;Integrated Security=True;Encrypt=False**
 
 
