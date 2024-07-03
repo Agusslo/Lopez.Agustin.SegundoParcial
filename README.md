@@ -22,7 +22,7 @@ Mi nombre es Agustin Lopez, tengo 20 años y desarrolle este programa para la ma
 Aquí está el diagrama de clase de mi proyecto:
 
 ![Diagrama de Clase](![ClassDiagram1](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/243c1ded-87e3-4321-b36a-37d4d6a27a27)
-)
+
 
 
 ## SQL SCRIPT
