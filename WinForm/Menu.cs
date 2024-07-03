@@ -8,6 +8,8 @@ using ClassLibrary;
 
 namespace WinForm
 {
+    public delegate void PersonajeAgregadoEventHandler(Personaje nuevoPersonaje); //delegado
+    
     public partial class Menu : Form
     {
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
@@ -16,9 +18,11 @@ namespace WinForm
         Coleccion<Personaje> personajes;
         string perfilUsuario;
         string correoUsuario;
+        public event PersonajeAgregadoEventHandler PersonajeAgregado;//evento para BTNagregarPersonaje
 
         System.Windows.Forms.Timer timer;
 
+        #region Constructor y Inicializacion
         public Menu(string logPath, string perfilUsuario, string correoUsuario)
         {
             InitializeComponent();
@@ -74,6 +78,8 @@ namespace WinForm
                 btnAgregar.Enabled = false;
             }
         }
+        #endregion
+
 
         #region actualizar lista y Timer tick(hora en tiempo real)
         private void Timer_Tick(object? sender, EventArgs e)
@@ -131,6 +137,9 @@ namespace WinForm
                             bd.GuardarColeccionSQL(personajes);
                             Console.WriteLine("Datos guardados correctamente.");
                             MessageBox.Show("Datos Guardados en BD.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Invocar el evento
+                            PersonajeAgregado?.Invoke(nuevoPersonaje);
                         }
                         else
                         {
@@ -148,6 +157,7 @@ namespace WinForm
                 }
             }
         }
+
 
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -232,6 +242,9 @@ namespace WinForm
                 }
             }
         }
+
+
+
 
 
 
@@ -384,6 +397,7 @@ namespace WinForm
         }
 
         #endregion
+
 
         #region LOGS
         private void verLogsToolStripMenuItem_Click_1(object sender, EventArgs e)

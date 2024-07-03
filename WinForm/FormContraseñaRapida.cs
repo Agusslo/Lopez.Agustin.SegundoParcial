@@ -47,6 +47,8 @@ namespace WinForm
             }
         }
 
+        #region boton
+
         /// <summary>
         /// Evento de clic en el botón Aceptar para verificar la contraseña ingresada.
         /// </summary>
@@ -66,7 +68,10 @@ namespace WinForm
                 MessageBox.Show("Contraseña incorrecta. Intente de nuevo. \n Recuerda que es la fecha de nacimiento de Agustin.", "Error de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
+
+        #region MostrarPantallaCarga, Checked  y logica para aceptar con ENTER
         /// <summary>
         /// Método asincrónico para mostrar una pantalla de carga durante una tarea.
         /// </summary>
@@ -105,7 +110,10 @@ namespace WinForm
                 btnAceptar.PerformClick();
             }
         }
+        #endregion
 
+
+        #region FormClosing
         /// <summary>
         /// Sobrecarga del evento de cierre del formulario para confirmar la salida si es cerrado por el usuario.
         /// </summary>
@@ -124,8 +132,8 @@ namespace WinForm
                     e.Cancel = true;
                 }
             }
-
             base.OnFormClosing(e);
         }
+        #endregion
     }
 }

@@ -15,6 +15,7 @@ namespace WinForm
             InitializeComponent();
         }
 
+        #region reset
         private void ResetearOtrosRadioButton(RadioButton radioButton)
         {
             foreach (var control in Controls.OfType<RadioButton>())
@@ -23,7 +24,10 @@ namespace WinForm
                     control.Checked = false;
             }
         }
+        #endregion
 
+
+        #region cheked 
         private void rbtnHumano_CheckedChanged(object sender, EventArgs e)
         {
             if (rbtnHumano.Checked)
@@ -43,7 +47,10 @@ namespace WinForm
                 ResetearOtrosRadioButton(rbtnElfo);
             }
         }
+        #endregion
 
+
+        #region botones
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             try
@@ -88,7 +95,9 @@ namespace WinForm
         {
             this.Close();
         }
+        #endregion
 
+        #region formClosing
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (!preventClosingMessage && e.CloseReason == CloseReason.UserClosing)
@@ -101,5 +110,6 @@ namespace WinForm
             }
             base.OnFormClosing(e);
         }
+        #endregion
     }
 }

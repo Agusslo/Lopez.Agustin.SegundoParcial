@@ -1,6 +1,7 @@
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\bin\Debug\net6.0\ClassLibrary.deps.json
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\bin\Debug\net6.0\ClassLibrary.dll
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\bin\Debug\net6.0\ClassLibrary.pdb
+C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\ClassLibrary.csproj.AssemblyReference.cache
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\ClassLibrary.AssemblyInfoInputs.cache
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\ClassLibrary.AssemblyInfo.cs
@@ -10,4 +11,3 @@ C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\refint\ClassLibrary.dll
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\ClassLibrary.pdb
 C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\ref\ClassLibrary.dll
-C:\Users\agusl.DESKTOP-7A66HH5\source\repos\2024\Lopez.Agustin\Lopez.Agustin\obj\Debug\net6.0\ClassLibrary.csproj.AssemblyReference.cache

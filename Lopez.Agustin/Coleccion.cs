@@ -11,10 +11,6 @@ namespace ClassLibrary
     {
         [XmlElement("Personaje")]
         public List<T> Personajes { get; private set; }
-
-        /// <summary>
-        /// Constructor de la clase Coleccion. Inicializa la lista de personajes.
-        /// </summary>
         public Coleccion()
         {
             Personajes = new List<T>();
@@ -53,6 +49,28 @@ namespace ClassLibrary
                 co.Personajes.Remove(existingPersonaje);
             }
             return co;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador == para verificar si un elemento existe en la colección.
+        /// </summary>
+        /// <param name="co">Colección en la que se desea buscar el personaje.</param>
+        /// <param name="elemento">Personaje a verificar.</param>
+        /// <returns>True si el personaje existe en la colección, de lo contrario false.</returns>
+        public static bool operator ==(Coleccion<T> co, T elemento)
+        {
+            return co.Personajes.Any(c => c.Equals(elemento));
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador != para verificar si un elemento no existe en la colección.
+        /// </summary>
+        /// <param name="co">Colección en la que se desea buscar el personaje.</param>
+        /// <param name="elemento">Personaje a verificar.</param>
+        /// <returns>True si el personaje no existe en la colección, de lo contrario false.</returns>
+        public static bool operator !=(Coleccion<T> co, T elemento)
+        {
+            return !(co == elemento);
         }
 
         /// <summary>

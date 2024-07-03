@@ -217,6 +217,9 @@ namespace ADO
                 }
 
                 this.comando.ExecuteNonQuery();
+
+                // Mensaje de éxito en consola
+                Console.WriteLine("Modificación exitosa: El personaje ha sido actualizado en la base de datos.");
             }
             catch (SqlException sqlEx)
             {
@@ -234,6 +237,8 @@ namespace ADO
                 }
             }
         }
+
+
 
         #endregion
 

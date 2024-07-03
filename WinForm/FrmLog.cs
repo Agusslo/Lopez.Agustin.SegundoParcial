@@ -18,6 +18,7 @@ namespace WinForm
             CargarLogs();
         }
 
+        #region CargaLogs
         private void CargarLogs()
         {
             try
@@ -50,7 +51,9 @@ namespace WinForm
                 MessageBox.Show($"Error inesperado al cargar los logs: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
+        #region boton y FormClosing
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -68,5 +71,6 @@ namespace WinForm
             }
             base.OnFormClosing(e);
         }
+        #endregion
     }
 }

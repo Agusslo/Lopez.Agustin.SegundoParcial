@@ -10,16 +10,21 @@ namespace WinForm
 {
     public partial class Login : Form
     {
+        #region Campos y Propiedades
 
         List<Usuario> usuarios;
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
         string logPath;
 
+        #endregion
 
-        #region Constructor y Inicializacion
+        #region Constructor y Métodos de Inicialización
+
+        public delegate void UsuarioAutenticadoDelegate(string correo, string nombre, string apellido, int legajo, string perfil);
 
         public Login()
         {
+            // Constructor
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -30,7 +35,6 @@ namespace WinForm
 
             try
             {
-                // FONDO LOGIN
                 string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagenLogin.jpg");
                 if (File.Exists(imagePath))
                 {
@@ -63,7 +67,7 @@ namespace WinForm
         }
 
         /// <summary>
-        /// evento que se encarga de cargar los usuarios del MOCK_DATA, este archivo brinda toda la data para iniciar sesion
+        /// Carga los usuarios desde el archivo JSON.
         /// </summary>
         private void CargarUsuarios()
         {
@@ -88,7 +92,7 @@ namespace WinForm
 
         #endregion
 
-        #region Controles
+        #region Eventos de Controles
 
         /// <summary>
         /// Evento de clic del botón para autenticar al usuario.
@@ -106,10 +110,12 @@ namespace WinForm
                         await MostrarPantallaCarga(() =>
                         {
                             // Lógica después de autenticar al usuario
+                            UsuarioAutenticadoDelegate usuarioAutenticado = new UsuarioAutenticadoDelegate(CargarLogs);
+                            usuarioAutenticado.Invoke(usuario.Correo, usuario.Nombre, usuario.Apellido, usuario.Legajo, usuario.Perfil);
+
                             Menu frmMenu = new Menu(logPath, usuario.Perfil, usuario.Correo);
                             frmMenu.Show();
                             this.Hide();
-                            CargarLogs(usuario.Correo, usuario.Nombre, usuario.Apellido, usuario.Legajo, usuario.Perfil);
                         });
 
                         usuarioEncontrado = true;
@@ -129,31 +135,15 @@ namespace WinForm
         }
 
         /// <summary>
-        /// Método para mostrar una pantalla de carga mientras se realiza una operación asincrónica.
-        /// </summary>
-        private async Task MostrarPantallaCarga(Action action)
-        {
-            using (var cargaForm = new FormPantallaCarga())
-            {
-                cargaForm.Show();
-
-                // Simulación de carga
-                await Task.Delay(2000);
-
-                action.Invoke();
-            }
-        }
-
-        /// <summary>
         /// Evento de clic del botón rápido para autenticar con credenciales predefinidas.
         /// </summary>
         private void btnRapido_Click_1(object sender, EventArgs e)
         {
             string correoRapido = "aguss@rapido.com";
-            string perfilRapido = "aguss";
+            string perfilRapido = "aguss(OWNER)";
             string nombreRapido = "agustin";
             string apellidoRapido = "lopez";
-            int legajoRapido = 0;
+            int legajoRapido = 7;
 
             using (var formContraseña = new FormContraseñaRapida())
             {
@@ -178,17 +168,6 @@ namespace WinForm
         /// <summary>
         /// Evento de cambio del estado del checkbox para mostrar/ocultar la contraseña.
         /// </summary>
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-                txtContrasenia.UseSystemPasswordChar = false;
-            else
-                txtContrasenia.UseSystemPasswordChar = true;
-        }
-
-        /// <summary>
-        /// Evento de cambio del estado del checkbox para mostrar/ocultar la contraseña.
-        /// </summary>
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -199,10 +178,25 @@ namespace WinForm
 
         #endregion
 
-        #region Carga LOGS
+        #region Métodos Auxiliares
 
         /// <summary>
-        /// Método para cargar registros de log en un archivo.
+        /// Muestra una pantalla de carga mientras se realiza una operación asincrónica.
+        /// </summary>
+        private async Task MostrarPantallaCarga(Action action)
+        {
+            using (var cargaForm = new FormPantallaCarga())
+            {
+                cargaForm.Show();
+
+                await Task.Delay(2000); // Simulación de carga
+
+                action.Invoke();
+            }
+        }
+
+        /// <summary>
+        /// Guarda registros de log en un archivo.
         /// </summary>
         private void CargarLogs(string email, string nombre, string apellido, int legajo, string perfil)
         {
@@ -229,16 +223,15 @@ namespace WinForm
 
         #endregion
 
-        #region Form Closing
+        #region Manejo del Cierre del Formulario
 
         /// <summary>
-        /// Evento que se ejecuta cuando se está cerrando el formulario para confirmar con el usuario.
+        /// Se ejecuta cuando se está cerrando el formulario para confirmar con el usuario.
         /// </summary>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                // Preguntar al usuario si está seguro de que desea salir
                 DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
