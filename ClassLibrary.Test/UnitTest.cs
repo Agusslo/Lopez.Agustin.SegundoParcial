@@ -22,7 +22,7 @@ namespace ClassLibrary.Test
 
             // Assert
             Console.WriteLine("Verificando que el humano está en la colección...");
-            CollectionAssert.Contains(coleccion.personajes, humano, "El humano debería estar en la colección.");
+            CollectionAssert.Contains(coleccion.Personajes, humano, "El humano debería estar en la colección.");
             Console.WriteLine("El humano está en la colección.");
 
             // Act
@@ -32,7 +32,7 @@ namespace ClassLibrary.Test
 
             // Assert
             Console.WriteLine("Verificando que el humano no está en la colección...");
-            CollectionAssert.DoesNotContain(coleccion.personajes, humano, "El humano no debería estar en la colección después de eliminarlo.");
+            CollectionAssert.DoesNotContain(coleccion.Personajes, humano, "El humano no debería estar en la colección después de eliminarlo.");
             Console.WriteLine("El humano no está en la colección.");
         }
 
@@ -50,7 +50,7 @@ namespace ClassLibrary.Test
 
             // Assert
             Console.WriteLine("Verificando que el orco está en la colección...");
-            CollectionAssert.Contains(coleccion.personajes, orco, "El orco debería estar en la colección.");
+            CollectionAssert.Contains(coleccion.Personajes, orco, "El orco debería estar en la colección.");
             Console.WriteLine("El orco está en la colección.");
 
             // Act
@@ -60,7 +60,7 @@ namespace ClassLibrary.Test
 
             // Assert
             Console.WriteLine("Verificando que el orco no está en la colección...");
-            CollectionAssert.DoesNotContain(coleccion.personajes, orco, "El orco no debería estar en la colección después de eliminarlo.");
+            CollectionAssert.DoesNotContain(coleccion.Personajes, orco, "El orco no debería estar en la colección después de eliminarlo.");
             Console.WriteLine("El orco no está en la colección.");
         }
 
@@ -78,7 +78,7 @@ namespace ClassLibrary.Test
 
             // Assert
             Console.WriteLine("Verificando que el elfo está en la colección...");
-            CollectionAssert.Contains(coleccion.personajes, elfo, "El elfo debería estar en la colección.");
+            CollectionAssert.Contains(coleccion.Personajes, elfo, "El elfo debería estar en la colección.");
             Console.WriteLine("El elfo está en la colección.");
 
             // Act
@@ -88,7 +88,7 @@ namespace ClassLibrary.Test
 
             // Assert
             Console.WriteLine("Verificando que el elfo no está en la colección...");
-            CollectionAssert.DoesNotContain(coleccion.personajes, elfo, "El elfo no debería estar en la colección después de eliminarlo.");
+            CollectionAssert.DoesNotContain(coleccion.Personajes, elfo, "El elfo no debería estar en la colección después de eliminarlo.");
             Console.WriteLine("El elfo no está en la colección.");
         }
     }

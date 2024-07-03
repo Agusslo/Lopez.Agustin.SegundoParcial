@@ -211,6 +211,7 @@ namespace WinForm
                             Console.WriteLine("Conexión exitosa a la base de datos.");
                             bd.GuardarColeccionSQL(personajes);
                             Console.WriteLine("Datos guardados correctamente.");
+                            MessageBox.Show("Datos Guardados en BD.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -230,7 +231,7 @@ namespace WinForm
         }
 
 
-        private void btnEliminar_Click_1(object? sender, EventArgs e)
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             if (perfilUsuario == "vendedor" || perfilUsuario == "supervisor")
             {
@@ -250,9 +251,17 @@ namespace WinForm
 
                             // Eliminar del sistema (base de datos)
                             ConexionDB bd = new ConexionDB();
-                            bd.EliminarSistema(personajeSeleccionado);
+                            bool eliminacionExitosa = bd.EliminarSistema(personajeSeleccionado);
 
-                            MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (eliminacionExitosa)
+                            {
+                                MessageBox.Show("Personaje eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Console.WriteLine("Personaje eliminado correctamente.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo eliminar el personaje.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -266,6 +275,7 @@ namespace WinForm
                 }
             }
         }
+
 
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -532,11 +542,6 @@ namespace WinForm
         private void cbHumano_CheckedChanged_1(object sender, EventArgs e)
         {
             ActualizarLista();
-        }
-
-        private void baseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

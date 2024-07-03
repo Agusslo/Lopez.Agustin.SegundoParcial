@@ -24,6 +24,9 @@ namespace WinForm
             CargarDatosHumano();
         }
 
+        /// <summary>
+        /// Carga los datos del Humano en los controles de la ventana.
+        /// </summary>
         private void CargarDatosHumano()
         {
             if (humano != null)
@@ -37,11 +40,20 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Obtiene el objeto Humano actualmente configurado en la ventana.
+        /// </summary>
+        /// <returns>Objeto Humano configurado con los datos actuales de la ventana.</returns>
         public Humano ObtenerHumano()
         {
             return new Humano(humano.ObtenerNombre(), humano.ObtenerEdad(), humano.ObtenerCaracteristica(), humano.ObtenerResucitado(), humano.GetColorPelo(), humano.GetColorHumano());
         }
 
+        /// <summary>
+        /// carga los datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.humano = new Humano(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, cbResucitado.Checked, (EColorPelo)cbColorPelo.SelectedItem, (EColorHumano)cbColorPiel.SelectedItem);

@@ -24,6 +24,9 @@ namespace WinForm
             CargarDatosOrco();
         }
 
+        /// <summary>
+        /// Carga los datos del Orco en los controles de la ventana.
+        /// </summary>
         private void CargarDatosOrco()
         {
             if (orco != null)
@@ -38,16 +41,30 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Obtiene el objeto Orco actualmente configurado en la ventana.
+        /// </summary>
+        /// <returns>Objeto Orco configurado con los datos actuales de la ventana.</returns>
         public Orco ObtenerOrco()
         {
             return new Orco(orco.ObtenerNombre(), orco.ObtenerEdad(), orco.ObtenerCaracteristica(), orco.ObtenerResucitado(), orco.GetEspecieOrco(), orco.GetCanibal());
         }
 
+        /// <summary>
+        /// El cheked de canibal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             canibal = checkBox1.Checked;
         }
 
+        /// <summary>
+        /// Agrega los datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.orco = new Orco(txtNombre.Text, (EEdad)cbEdad.SelectedItem, (ECaracteristica)cbCaracteristica.SelectedItem, cbResucitado.Checked, (EEspecieOrco)cbEspecie.SelectedItem, this.canibal);
@@ -56,6 +73,7 @@ namespace WinForm
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            ///
         }
     }
 }

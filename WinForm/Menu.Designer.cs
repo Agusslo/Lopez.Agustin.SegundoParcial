@@ -39,7 +39,6 @@
             archivoToolStripMenuItem = new ToolStripMenuItem();
             guardarToolStripMenuItem = new ToolStripMenuItem();
             abrirToolStripMenuItem = new ToolStripMenuItem();
-            baseDeDatosToolStripMenuItem = new ToolStripMenuItem();
             configuracionToolStripMenuItem = new ToolStripMenuItem();
             verLogsToolStripMenuItem = new ToolStripMenuItem();
             ordenarPorToolStripMenuItem = new ToolStripMenuItem();
@@ -152,7 +151,7 @@
             // 
             // archivoToolStripMenuItem
             // 
-            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { guardarToolStripMenuItem, abrirToolStripMenuItem, baseDeDatosToolStripMenuItem });
+            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { guardarToolStripMenuItem, abrirToolStripMenuItem });
             archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             archivoToolStripMenuItem.Size = new Size(60, 20);
             archivoToolStripMenuItem.Text = "Archivo";
@@ -170,13 +169,6 @@
             abrirToolStripMenuItem.Size = new Size(180, 22);
             abrirToolStripMenuItem.Text = "Abrir XML";
             abrirToolStripMenuItem.Click += abrirToolStripMenuItem_Click;
-            // 
-            // baseDeDatosToolStripMenuItem
-            // 
-            baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
-            baseDeDatosToolStripMenuItem.Size = new Size(180, 22);
-            baseDeDatosToolStripMenuItem.Text = "Guardar BD";
-            baseDeDatosToolStripMenuItem.Click += baseDeDatosToolStripMenuItem_Click;
             // 
             // configuracionToolStripMenuItem
             // 
@@ -346,6 +338,5 @@
         private ToolStripMenuItem tamañoToolStripMenuItem;
         private ToolStripMenuItem masAltoToolStripMenuItem;
         private ToolStripMenuItem menosAltoToolStripMenuItem;
-        private ToolStripMenuItem baseDeDatosToolStripMenuItem;
     }
 }

@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ADO\ADO.csproj" />
     <ProjectReference Include="..\Lopez.Agustin\ClassLibrary.csproj" />
   </ItemGroup>
 

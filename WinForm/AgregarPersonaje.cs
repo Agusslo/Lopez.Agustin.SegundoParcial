@@ -15,26 +15,34 @@ namespace WinForm
             cbCaracteristica.DataSource = Enum.GetValues(typeof(ECaracteristica));
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            MostrarMensajeSalida();
-        }
-
+        /// <summary>
+        /// Muestra un mensaje de confirmación antes de cerrar la ventana.
+        /// </summary>
         private void MostrarMensajeSalida()
         {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question); //cuando toco cancelar
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Close();
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón de salida.
+        /// </summary>
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            MostrarMensajeSalida();
+        }
+
         private void AgregarPersonaje_Load_1(object sender, EventArgs e)
         {
+            //
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
+            //
         }
     }
 }

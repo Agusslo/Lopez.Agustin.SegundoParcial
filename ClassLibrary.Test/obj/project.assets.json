@@ -2360,6 +2360,19 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "ADO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ClassLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ADO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ADO.dll": {}
+        }
+      },
       "ClassLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -7936,6 +7949,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "ADO/1.0.0": {
+      "type": "project",
+      "path": "../ADO/ADO.csproj",
+      "msbuildProject": "../ADO/ADO.csproj"
+    },
     "ClassLibrary/1.0.0": {
       "type": "project",
       "path": "../Lopez.Agustin/ClassLibrary.csproj",
@@ -7944,6 +7962,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ADO >= 1.0.0",
       "ClassLibrary >= 1.0.0",
       "MSTest.TestAdapter >= 2.2.8",
       "MSTest.TestFramework >= 2.2.8",
@@ -7982,6 +8001,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ADO.csproj": {
+              "projectPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\ADO\\ADO.csproj"
+            },
             "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj": {
               "projectPath": "C:\\Users\\agusl.DESKTOP-7A66HH5\\source\\repos\\2024\\Lopez.Agustin\\Lopez.Agustin\\ClassLibrary.csproj"
             }

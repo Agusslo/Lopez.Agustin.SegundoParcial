@@ -258,54 +258,35 @@ namespace ADO
 
 
 
-        public void EliminarSistema(Personaje personaje)
+        public bool EliminarSistema(Personaje personaje)
         {
+            bool eliminacionExitosa = false;
+
             try
             {
                 this.comando = new SqlCommand();
-                this.comando.Connection = this.conexion;
-
                 this.comando.Parameters.AddWithValue("@tipo", personaje.GetType().Name);
                 this.comando.Parameters.AddWithValue("@nombre", personaje.Nombre);
-                this.comando.Parameters.AddWithValue("@edad", personaje.Edad.ToString());
                 this.comando.Parameters.AddWithValue("@caracteristica", personaje.Caracteristica.ToString());
-                this.comando.Parameters.AddWithValue("@resucitado", personaje.Resucitado);
+                this.comando.Parameters.AddWithValue("@edad", personaje.Edad.ToString()); // Edad como texto
+                this.comando.Parameters.AddWithValue("@resucitado", personaje.Resucitado ? 1 : 0); // Suponiendo que Resucitado es un booleano
 
-                string sql = "DELETE FROM TablaPersonajes WHERE tipo = @tipo AND nombre = @nombre AND edad = @edad AND caracteristica = @caracteristica AND resucitado = @resucitado";
-
-                if (personaje is Humano humano)
-                {
-                    this.comando.Parameters.AddWithValue("@colorHumano", humano.ColorHumano.ToString());
-                    this.comando.Parameters.AddWithValue("@colorPelo", humano.ColorPelo.ToString());
-                    sql += " AND colorHumano = @colorHumano AND colorPelo = @colorPelo";
-                }
-                else if (personaje is Orco orco)
-                {
-                    this.comando.Parameters.AddWithValue("@especieOrco", orco.EspecieOrco.ToString());
-                    this.comando.Parameters.AddWithValue("@canibal", orco.Canibal);
-                    sql += " AND especieOrco = @especieOrco AND canibal = @canibal";
-                }
-                else if (personaje is Elfo elfo)
-                {
-                    this.comando.Parameters.AddWithValue("@especieElfo", elfo.EspecieElfo.ToString());
-                    this.comando.Parameters.AddWithValue("@inmortalidad", elfo.Inmortalidad);
-                    sql += " AND especieElfo = @especieElfo AND inmortalidad = @inmortalidad";
-                }
+                string sql = "DELETE FROM TablaPersonajes ";
+                sql += "WHERE tipo = @tipo AND nombre = @nombre AND caracteristica = @caracteristica AND edad = @edad AND resucitado = @resucitado";
 
                 this.comando.CommandType = CommandType.Text;
                 this.comando.CommandText = sql;
-                this.conexion.Open();
+                this.comando.Connection = this.conexion;
 
+                this.conexion.Open();
                 int filasAfectadas = this.comando.ExecuteNonQuery();
 
-                if (filasAfectadas == 0)
-                {
-                    Console.WriteLine("No se encontró el personaje para eliminar.");
-                }
+                eliminacionExitosa = (filasAfectadas > 0);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Error al eliminar el personaje en la base de datos: " + ex.Message);
+                eliminacionExitosa = false;
             }
             finally
             {
@@ -314,7 +295,10 @@ namespace ADO
                     this.conexion.Close();
                 }
             }
+
+            return eliminacionExitosa;
         }
+
 
 
 

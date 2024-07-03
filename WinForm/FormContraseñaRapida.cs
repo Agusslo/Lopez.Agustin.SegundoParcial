@@ -47,6 +47,9 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Evento de clic en el botón Aceptar para verificar la contraseña ingresada.
+        /// </summary>
         private async void btnAceptar_Click(object sender, EventArgs e)
         {
             string contraseñaIngresada = txtContrasenia.Text.Trim();
@@ -64,6 +67,10 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Método asincrónico para mostrar una pantalla de carga durante una tarea.
+        /// </summary>
+        /// <param name="action">Acción a ejecutar después de completar la carga.</param>
         private async Task MostrarPantallaCarga(Action action)
         {
             using (var cargaForm = new FormPantallaCarga())
@@ -77,6 +84,9 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Evento que maneja el cambio en el estado del checkbox para mostrar/ocultar la contraseña.
+        /// </summary>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -85,6 +95,20 @@ namespace WinForm
                 txtContrasenia.UseSystemPasswordChar = true;
         }
 
+        /// <summary>
+        /// Maneja el evento de presionar tecla en el formulario para permitir el uso de Enter para aceptar.
+        /// </summary>
+        private void FormContraseñaRapida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) // para presionar enter
+            {
+                btnAceptar.PerformClick();
+            }
+        }
+
+        /// <summary>
+        /// Sobrecarga del evento de cierre del formulario para confirmar la salida si es cerrado por el usuario.
+        /// </summary>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -102,14 +126,6 @@ namespace WinForm
             }
 
             base.OnFormClosing(e);
-        }
-
-        private void FormContraseñaRapida_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter) // para presionar enter
-            {
-                btnAceptar.PerformClick();
-            }
         }
     }
 }

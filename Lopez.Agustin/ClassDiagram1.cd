@@ -1,40 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="ClassLibrary.Elfo">
-    <Position X="7.5" Y="7.5" Width="3.25" />
+    <Position X="7.5" Y="8" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AACAIACAQAAABAAEgAAAgAAAAAAAQoAAAAAAAAAAAiA=</HashCode>
+      <HashCode>AEAAIAAAQAAABAAEgAAAAAIAAAQAAIAAAAAAAAAAAiQ=</HashCode>
       <FileName>Elfo.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClassLibrary.Humano">
-    <Position X="12.25" Y="7.25" Width="3.75" />
+    <Position X="12.25" Y="8" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAIAGAAAAAAAAEgAAAgAAQAQAAQoAAAAAAAAAAAyA=</HashCode>
+      <HashCode>AEAAAAEAAAAAAAAEgAAAAAAQAQAAAIAAACAAAAAAAyQ=</HashCode>
       <FileName>Humano.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClassLibrary.Orco">
-    <Position X="2.25" Y="7.5" Width="3.25" />
+    <Position X="2.25" Y="7.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AACAIACAAAAAAAAEgAAAgAAAAAAAQpAAAgAIAAAAAiA=</HashCode>
+      <HashCode>AEAAAAAAAAAAUAAEgAAAAAAAAAAAAJAAAgAIAAAAAiQ=</HashCode>
       <FileName>Orco.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ClassLibrary.Personaje">
+  <Class Name="ClassLibrary.Personaje&lt;T&gt;">
     <Position X="7.25" Y="1.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAIACAAAAAQAAAgAAAgAAAAAAAQoAAAIAAAAAAEjA=</HashCode>
+      <HashCode>AEAAIACAAAgBQAAAgAAAgAAAAAAAQoAAAIAAAAACEjA=</HashCode>
       <FileName>Personaje.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ClassLibrary.Coleccion">
+  <Class Name="ClassLibrary.Coleccion&lt;T&gt;">
     <Position X="2" Y="1.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAABAAAAAAQAEBAIAAAAAAAAgAAAAAAAAEAiA=</HashCode>
+      <HashCode>AAAAAEEAAAAAAAAEQAEBAIAAAAAAAAAAAAAAAAAEAiA=</HashCode>
       <FileName>Coleccion.cs</FileName>
     </TypeIdentifier>
   </Class>
