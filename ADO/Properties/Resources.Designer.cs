@@ -63,6 +63,15 @@ namespace ADO.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Data Source=AGUS\SQLEXPRESS;Initial Catalog=personaje;Integrated Security=True;Encrypt=False.
         /// </summary>
+        internal static string ConexionAgus {
+            get {
+                return ResourceManager.GetString("ConexionAgus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Data Source=localhost\SQLEXPRESS;Initial .
+        /// </summary>
         internal static string miConexion {
             get {
                 return ResourceManager.GetString("miConexion", resourceCulture);
