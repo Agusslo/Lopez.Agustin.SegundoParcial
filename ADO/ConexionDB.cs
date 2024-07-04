@@ -19,7 +19,7 @@ namespace ADO
 
         static ConexionDB()
         {
-            ConexionDB.cadena_conexion = Properties.Resources.miConexion;
+            ConexionDB.cadena_conexion = Properties.Resources.miConexion; //Profesor acuerdese de CAMBIAR miConexion en Resources por su link :))
         }
 
         public ConexionDB()
@@ -345,6 +345,7 @@ namespace ADO
         }
         #endregion
 
+        #region config
         private T ParseEnum<T>(string value) where T : struct
         {
             Enum.TryParse(value, out T resultado);
@@ -365,5 +366,6 @@ namespace ADO
             }
             return nuevoId;
         }
+        #endregion
     }
 }
