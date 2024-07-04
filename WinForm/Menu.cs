@@ -10,6 +10,8 @@ namespace WinForm
 {
     public delegate void PersonajeAgregadoEventHandler(Personaje nuevoPersonaje); //delegado
     
+    //PARA EVITAR ADVERTENCIA AL AGREGAR/MODIFICAR O ELIMINAR TENES QUE MODIFICAR EN EL **ADO** miConexion cambiando su valor
+
     public partial class Menu : Form
     {
         string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ParcialAgus");
