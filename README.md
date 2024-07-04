@@ -31,6 +31,8 @@ Aquí está el diagrama de clase de mi proyecto:
 
 **Data Source=AGUS\SQLEXPRESS;Initial Catalog=personaje;Integrated Security=True;Encrypt=False**
 
+**`Deje en ADO el Resources miConexion con el valor Data Source=localhost/SQLEXPRESS;Initial`** para que reemplacen con su respectiva key :))
+
 
 ``` USE [master]
 GO
