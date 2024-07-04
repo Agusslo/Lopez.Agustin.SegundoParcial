@@ -10,7 +10,7 @@ namespace WinForm
 {
     public delegate void PersonajeAgregadoEventHandler(Personaje nuevoPersonaje); //delegado
     
-    //PARA EVITAR ADVERTENCIA AL AGREGAR/MODIFICAR O ELIMINAR TENES QUE MODIFICAR EN EL **ADO** miConexion cambiando su valor
+    //PARA EVITAR ADVERTENCIA(del sql) AL AGREGAR/MODIFICAR/ELIMINAR TENES QUE MODIFICAR EN EL **ADO** miConexion cambiando su valor
 
     public partial class Menu : Form
     {
@@ -300,7 +300,7 @@ namespace WinForm
 
         #region Abrir/Guardar XML
 
-        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e) //se crea una carpeta llamada ParcialAgus con el archivo XML
         {
             try
             {
@@ -337,7 +337,7 @@ namespace WinForm
                 {
                     serializer.Serialize(writer, coleccion);
                 }
-                MessageBox.Show("Archivo XML guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Archivo XML guardado correctamente\n Documentos -> ParcialAgus.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (InvalidOperationException ex)
             {
