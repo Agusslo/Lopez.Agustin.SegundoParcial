@@ -167,6 +167,8 @@ El formulario de inicio de sesión (`Login`) es una parte esencial de la aplicac
 
 Este formulario garantiza un acceso seguro y controlado a la aplicación, permitiendo únicamente a usuarios autenticados interactuar con las funcionalidades principales de la misma.
 
+**Se crea una carpeta en documentos llamada ParcialAgus con el LOG guardado**
+
 
 ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/1b5cf483-ef41-4012-8e35-e1898c4b6d6e)
 
@@ -213,6 +215,8 @@ El formulario `Menu` gestiona diversas funciones de la aplicación, enfocándose
 Cada una de estas funciones se implementa mediante métodos y eventos asociados a controles específicos del formulario.
 
 Dentro del menu en archivos estan las opciones Guardar/Abrir XML, en configuracion ves los LOGS de los usuarios y en ordenar por: ordena en edad/nombre/tamaño
+
+**Se crea una carpeta en documentos llamada ParcialAgus con el XML guardado**
 
 
 ![image](https://github.com/Agusslo/Lopez.Agustin.SegundoParcial/assets/98591977/c660e79f-28d2-45c5-95a5-03874c9c9260)
